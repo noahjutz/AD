@@ -1,45 +1,39 @@
+#import "title.typ": title
 #import "config.typ"
+#show: doc => config.config(doc)
 
-#set heading(numbering: (..nums) => {
-  if nums.pos().len() <= 2 {
-    numbering("1.1", ..nums)
-  } else { none }
-})
-
-#set text(
-  lang: "de",
-  font: "Noto Sans",
-  hyphenate: true
+#title 
+#heading(numbering: none)[
+  #text(weight: 100, size: 40pt)[Notizen]
+] <notizen>
+#outline(
+  indent: true,
+  depth: 2,
+  title: "",
+  target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
 
-#show heading: h => {
-  //#numbering(h.numbering, h.)
-  if h.level <= 2 and h.numbering != none {
-    let c = counter(heading).display(h.numbering)
-    set text(size: 24pt)
-    text(c, weight: "black", fill: config.color_primary)
-    text(" ")
-    text(h.body, weight: "light")
-  } else {
-    text(h.body)
-  }
-}
-
-#[
-  #set par(leading: .3em)
-  #set text(font: "Noto Serif", size: 40pt)
-  #text(weight: 100)[Noah Jutz] \
-  #text(weight: 900)[Algorithmen und \ Datenstrukturen] \
-  #text(weight: 100)[Notizen]
-]
-
-#outline(indent: true, depth: 2)
+#pagebreak()
+#include "sections/grundlagen/main.typ"
 
 #pagebreak()
 
-= Grundlagen
+#title
+#heading(numbering: none)[
+  #text(weight: 100, size: 40pt)[Übungen]
+] <uebungen>
+#outline(
+  indent: true,
+  depth: 2,
+  title: "",
+  target: selector(heading).after(<uebungen>, inclusive: false)
+)
 
-== kgV / ggT
+#pagebreak()
 
-=== kgV
+#show: doc => config.config2(doc)
+#counter(heading).update(0)
 
+= Algorithmen
+
+== ggT / kgV
