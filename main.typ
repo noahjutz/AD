@@ -14,7 +14,7 @@
 )
 
 #pagebreak()
-#include "sections/grundlagen/main.typ"
+#include "notizen/grundlagen/main.typ"
 
 #pagebreak()
 
@@ -30,10 +30,6 @@
 )
 
 #pagebreak()
-
-#show: doc => config.config2(doc)
 #counter(heading).update(0)
 
-= Algorithmen
-
-== ggT / kgV
+#include "uebungen/1/main.typ"
