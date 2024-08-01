@@ -33,5 +33,30 @@
     ]
   }
 
+  show raw.where(block: true): it => {
+    set table(fill: (_, y) => if calc.odd(y) { rgb(0, 0, 0, 5%) })
+    block(
+      stroke: rgb(0, 0, 0, 20%),
+      radius: 4pt,
+      above: 8pt,
+      below: 8pt,
+      breakable: false,
+      table(
+        columns: 1fr,
+        stroke: none,
+        inset: (x: 8pt, y: 6pt),
+        ..it.lines
+      )
+    )
+  }
+
+  show raw.where(block: false): box.with(
+    fill: rgb(0, 0, 0, 6%), 
+    stroke: rgb(0, 0, 0, 12%),
+    outset: (y: 4pt), 
+    inset: (x: 4pt), 
+    radius: 4pt,
+  )
+
   doc
 }
