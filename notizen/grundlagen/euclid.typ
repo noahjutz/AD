@@ -3,9 +3,9 @@
 
 #show: doc => config.config(doc)
 
-#let a = 8
-#let b = 3
-#let n = 4
+#let a = 9
+#let b = 2
+#let n = 5
 
 #cetz.canvas(length: 10%, {
   import cetz.draw: *
@@ -14,7 +14,7 @@
   set-style(stroke: (thickness: 1pt))
   
   line(
-    (1, 0),
+    (),
     (rel: (a, 0)),
     name: "a_0"
   )
