@@ -32,7 +32,15 @@
 
   #include "euclid.typ"
 
-  Irgendwann sind $a_n$ und $b_n$ gleich. Demnach ist der größte Wert, durch den beide Teilbar sind $x = a_n = b_n$. Dieser ggT gilt auch für $a_0$ und $b_0$
+  Irgendwann sind $a$ und $b$ gleich. Der größte Wert, durch den beide Teilbar sind, ist dann $x = a_n = b_n$.
+  
+  #colbreak()
+  Dieser ggT gilt auch für $a_(n-1)$ und $b_(n-1)$, weil:
+
+  $
+  a_(n-1) &= b_n \
+  b_(n-1) &= a_n+b_n
+  $
 ]
 
 

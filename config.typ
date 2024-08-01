@@ -11,6 +11,8 @@
     hyphenate: true
   )
 
+  set par(justify: true)
+
   show math.equation: set text(font: "Noto Sans Math")
 
   show heading: h => {
