@@ -14,7 +14,7 @@
 )
 
 #pagebreak()
-#include "notizen/grundlagen/main.typ"
+#include "notizen/begriffe/main.typ"
 
 #pagebreak()
 

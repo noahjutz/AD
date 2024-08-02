@@ -18,6 +18,8 @@ $
 x divides a and x divides b
 $
 
+==== Primfaktorzerlegung
+
 ==== Euklid
 
 Haben $a$ und $b$ mit $a>b$ einen gemeinsamen Teiler $x$, so ist die Differenz $d=a-b$ auch ein vielfaches von $x$.
@@ -81,7 +83,6 @@ def gcd_euclid_fast_iterative(a, b):
   return b
 ```
 
-#colbreak()
 === kgV
 Man nennt $x$ ein Vielfaches von $a$, wenn es ein $k in ZZ$ gibt, sodass
 
