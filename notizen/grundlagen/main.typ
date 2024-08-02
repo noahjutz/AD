@@ -70,7 +70,19 @@
       return gcd(a_next, b_next)
   ```
 
+  Iterativ kann der Algorithmus folgendermaßen umgeschrieben werden:
+
+  ```py
+  def iterative_fast_euclid_gcd(a, b):
+    while a % b != 0:
+      a, b = b, a % b
+    return b
+  ```
+
   === kgV
+  $x$ ist ein Vielfaches von $a$, wenn $a$ $x$ teilt.
+
+  $
+  a divides x
+  $
 ]
-
-
