@@ -10,7 +10,6 @@
   
   set-style(stroke: (thickness: 1, paint: g))
   line((0, 0), (20, 0), name: "a")
-  line((16, 0), (20, 0), stroke: (paint: r))
 
   line((0, -3), (16, -3), name: "b")
 

@@ -1,4 +1,6 @@
 #let config = doc => {
+  set outline(depth: 2)
+
   set heading(numbering: (..nums) => {
     if nums.pos().len() <= 2 {
       numbering("1.1", ..nums)
@@ -15,6 +17,8 @@
 
   show math.equation: set text(font: "Noto Sans Math")
 
+  show heading.where(level: 4): set heading(outlined: false)
+
   show heading: h => {
     set text(font: "Noto Serif", size: 20pt)
     set block(above: 12pt, below: 12pt)
@@ -27,7 +31,10 @@
         text(c, weight: "black")
         text(" ")
         text(h.body)
+      } else if h.level == 3 {
+        text(h.body, weight: "black")
       } else {
+        set text(size: 11pt)
         text(h.body, weight: "black")
       }
     ]

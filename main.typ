@@ -1,6 +1,6 @@
 #import "title.typ": title
-#import "config.typ"
-#show: doc => config.config(doc)
+#import "config.typ": config
+#show: config
 
 #title 
 #heading(numbering: none)[
