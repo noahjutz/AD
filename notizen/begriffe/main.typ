@@ -160,16 +160,21 @@ $
 p^(min(e_p, f_p)) dot p^(max(e_p, f_p)) = p^(e_p+f_p)
 $
 
-// Wir wissen, dass $a dot b$ ein Vielfaches von sowohl $a$ als auch $b$ ist. Es ist aber nicht unbedingt das kleinste. Gegenbeispiel:
-// 
-// $
-// op("lcm")(2, 6) = 6 != 12
-// $
+=== Sieb des \ Eratosthenes
 
-// TODO zusammenhang kgV und ggT
-// Weil $a$ mehrmals in $x$ passt, sagt man auch $a$ teilt $x$.
-// 
-// $
-// a divides x
-// $
+Eine Primzahl hat genau zwei Teiler: sich selbst und 1. Das Gegenstück ist eine Zusammengesetzte Zahl; diese hat mindestens zwei Primfaktoren. Die 1 ist weder prim noch zusammengesetzt.
+
+$
+PP = {2, 3, 5, 7, 11, 13, 17, 19, ...}
+$
+
+Die Menge aller Primzahlen sind also die natürlichen Zahlen ohne zusammengesetze Zahlen und ohne 1.
+
+==== Prinzip
+
+Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittweise alle zusammengesetzten Zahlen aus der Menge {2, 3, 4, ..., n}. Wir wissen, dass 2 eine Primzahl ist. Im ersten Schritt streichen wir alle Vielfachen von 2. Übrig bleiben alle Werte, dessen Primfaktorzerlegung nicht die 2 enthält.
+
+Der nächsthöhere Wert, der keine 2 als Primfaktor hat, ist 3. Weil es keine Primzahl kleiner als 2 gibt, hat 3 keine Primfaktoren, und ist somit eine Primzahl. Analog zum ersten Schritt streichen wir alle Vielfachen von 3.
+
+Der nächsthöhere Wert, der keine Primfaktorzerlegung hat, ist 5. Vielfache von 4 zu streichen wäre redundant, weil alle Vielfachen von 4 auch Vielfache von 2 sind.
 
