@@ -54,7 +54,7 @@ Passt ein $b$ mehrmals in ein $a$, so müssen mehrere Subtraktionsschritte getä
 
 #import "@preview/xarrow:0.3.1": xarrow
 $
-a_0 -->^(-d) a_1 -->^(-d) a_2 -->^(-d) a_n \
+a_0 -->^(-b) a_1 -->^(-b) a_2 -->^(-b) a_n \
 a_0 xarrow(#h(24pt) mod b #h(24pt)) a_n
 $
 
