@@ -20,6 +20,23 @@ $
 
 ==== Primfaktorzerlegung
 
+Um den ggT von $a$ und $b$ zu ermitteln, können wir $a$ und $b$ probeweise durch Faktoren teilen. Beispiel mit $a = 3528, b = 3780$:
+
+#align(center, include "ggt_primes_step1.typ")
+
+Um systematischer vorzugehen, ermitteln wir die gemeinsamen minimalen Faktoren von $a$ und $b$ durch Primfaktorzerlegung.
+
+$
+3528 &= 2^3 dot 3^2 dot 5^0 dot 7^2 \
+3780 &= 2^2 dot 3^3 dot 5^1 dot 7^1
+$
+
+Die gemeinsamen Faktoren von $a$ und $b$ sind in diesem Beispiel $2^2, 3^2, 7$. Multipliziert man sie, so erhält man
+
+$
+gcd(3528, 3780) = 2^2 dot 3^2 dot 7 = 252
+$
+
 ==== Euklid
 
 Haben $a$ und $b$ mit $a>b$ einen gemeinsamen Teiler $x$, so ist die Differenz $d=a-b$ auch ein vielfaches von $x$.
@@ -110,13 +127,37 @@ Eine naive Implementierung prüft alle $x in NN$ auf die Bedingung $a divides x 
 
 ```py
 def lcm_naive(a, b):
-  n = 1
-  while n % a != 0 or n % b != 0:
-    n += 1
-  return n
+  x = 1
+  while x % a != 0 or x % b != 0:
+    x += 1
+  return x
 ```
 
+==== Zusammenhang ggT
 
+Wenn $x$ ein Vielfaches von $a$ ist, dann sagt man auch "$a$ teilt $x$".
+
+$
+a divides x
+$
+
+Wenn $x$ ein gemeinsames Vielfaches von $a$ und $b$ ist, dann gilt:
+
+$
+a divides x and b divides x
+$
+
+$x$ ist also durch $a$ und $b$ teilbar.
+
+==== Primfaktorzerlegung
+
+Um das kleinste gemeinsame Vielfache von $a$ und $b$ zu ermitteln, nehmen wir dieses mal nicht die Schnittmenge beider Primfaktorzerlegungen, sondern die Vereinigung. Wir erweitern also die eine Zerlegung um die Faktoren, welche zusätzlich in der anderen sind.
+
+// Wir wissen, dass $a dot b$ ein Vielfaches von sowohl $a$ als auch $b$ ist. Es ist aber nicht unbedingt das kleinste. Gegenbeispiel:
+// 
+// $
+// op("lcm")(2, 6) = 6 != 12
+// $
 
 // TODO zusammenhang kgV und ggT
 // Weil $a$ mehrmals in $x$ passt, sagt man auch $a$ teilt $x$.
