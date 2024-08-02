@@ -133,25 +133,32 @@ def lcm_naive(a, b):
   return x
 ```
 
-==== Zusammenhang ggT
-
-Wenn $x$ ein Vielfaches von $a$ ist, dann sagt man auch "$a$ teilt $x$".
-
-$
-a divides x
-$
-
-Wenn $x$ ein gemeinsames Vielfaches von $a$ und $b$ ist, dann gilt:
-
-$
-a divides x and b divides x
-$
-
-$x$ ist also durch $a$ und $b$ teilbar.
-
 ==== Primfaktorzerlegung
 
 Um das kleinste gemeinsame Vielfache von $a$ und $b$ zu ermitteln, nehmen wir dieses mal nicht die Schnittmenge beider Primfaktorzerlegungen, sondern die Vereinigung. Wir erweitern also die eine Zerlegung um die Faktoren, welche zusätzlich in der anderen sind.
+
+#include "kgv_primes.typ"
+
+==== Zusammenhang ggT / kgV
+
+Wir haben etabliert, dass beim ggT die gemeinsamen Primfaktoren multipliziert werden, während beim kgV die überschüssigen Primfaktoren hinzumultipliziert werden.
+
+$
+gcd(a, b) &= product_(p in PP) p^(min(e_p, f_p)) \
+op("lcm")(a, b) &= product_(p in PP) p^(max(e_p, f_p))
+$
+
+Daraus lässt sich folgender Zusammenhang schließen:
+
+$
+gcd(a, b) dot op("lcm")(a, b) = a dot b
+$
+
+Das liegt daran, dass:
+
+$
+p^(min(e_p, f_p)) dot p^(max(e_p, f_p)) = p^(e_p+f_p)
+$
 
 // Wir wissen, dass $a dot b$ ein Vielfaches von sowohl $a$ als auch $b$ ist. Es ist aber nicht unbedingt das kleinste. Gegenbeispiel:
 // 
