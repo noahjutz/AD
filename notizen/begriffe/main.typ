@@ -172,7 +172,11 @@ Die Menge aller Primzahlen sind also die natürlichen Zahlen ohne zusammengesetz
 
 ==== Prinzip
 
-Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittweise alle zusammengesetzten Zahlen aus der Menge {2, 3, 4, ..., n}. Wir wissen, dass 2 eine Primzahl ist. Im ersten Schritt streichen wir alle Vielfachen von 2. Übrig bleiben alle Werte, dessen Primfaktorzerlegung nicht die 2 enthält.
+Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittweise alle zusammengesetzten Zahlen aus der Menge {2, 3, 4, ..., n}. Im Beispiel ist $n = 50$.
+
+#include "eratosthenes_0.typ"
+
+Wir wissen, dass 2 eine Primzahl ist. Im ersten Schritt streichen wir alle Vielfachen von 2. Übrig bleiben alle Werte, dessen Primfaktorzerlegung nicht die 2 enthält.
 
 Der nächsthöhere Wert, der keine 2 als Primfaktor hat, ist 3. Weil es keine Primzahl kleiner als 2 gibt, hat 3 keine Primfaktoren, und ist somit eine Primzahl. Analog zum ersten Schritt streichen wir alle Vielfachen von 3.
 
