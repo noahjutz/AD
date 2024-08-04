@@ -170,14 +170,16 @@ $
 
 Die Menge aller Primzahlen sind also die natürlichen Zahlen ohne zusammengesetze Zahlen und ohne 1.
 
-==== Prinzip
+==== Algorithmus
 
 Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittweise alle zusammengesetzten Zahlen aus der Menge {2, 3, 4, ..., n}. Im Beispiel ist $n = 50$.
 
 #import "eratosthenes.typ": sieve
 #sieve(0)
 
-Wir wissen, dass 2 eine Primzahl ist. Im ersten Schritt streichen wir alle Vielfachen von 2. Übrig bleiben alle Werte, dessen Primfaktorzerlegung nicht die 2 enthält.
+In jeder Iteration des Algorithmus wählen wir die kleinste Primzahl $p$, welche noch nicht markiert wurde. Dann streichen wir alle Vielfachen $k dot p$ mit $k > 1$.
+
+Der erste Schritt ist trivial: Die kleinste Primzahl in $PP$ ist 2.
 
 #sieve(2)
 
@@ -188,3 +190,11 @@ Der nächsthöhere Wert, der keine 2 als Primfaktor hat, ist 3. Weil es keine Pr
 Der nächsthöhere Wert, der keine Primfaktorzerlegung hat, ist 5. Vielfache von 4 zu streichen wäre redundant, weil alle Vielfachen von 4 auch Vielfache von 2 sind.
 
 #sieve(5)
+
+Wir wiederholen den Prozess für alle $i < sqrt(n)$.
+
+#sieve(51)
+
+== Datenstrukturen
+
+=== Matrix
