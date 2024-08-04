@@ -1,13 +1,13 @@
 #import "@preview/cetz:0.2.2"
-#import "../../config.typ"
+#import "../../config.typ": config, theme
 
-#show: doc => config.config(doc)
+#show: config
 
 #cetz.canvas(length: 5%, {
   import cetz.draw: *
 
-  let g = rgb(0, 0, 0, 10%)
-  let r = rgb(255, 0, 0, 30%)
+  let g = rgb(0, 0, 0, 20%)
+  let r = theme.primary
 
   set-viewport((0, 0), (20, 20), bounds: (12, 20))
   
