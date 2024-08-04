@@ -1,3 +1,8 @@
+#let theme = (
+  primary: red.lighten(50%),
+  secondary: aqua
+)
+
 #let config = doc => {
   set outline(depth: 2)
 
