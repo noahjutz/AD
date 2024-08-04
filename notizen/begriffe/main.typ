@@ -177,17 +177,17 @@ Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittwe
 #import "eratosthenes.typ": sieve
 #sieve(0)
 
-In jeder Iteration des Algorithmus wählen wir die kleinste Primzahl $p$, welche noch nicht markiert wurde. Dann streichen wir alle Vielfachen $k dot p$ mit $k > 1$.
+In jeder Iteration des Algorithmus wählen wir die kleinste Zahl $p$, welche noch nicht markiert wurde. Dann werden alle Vielfachen von $p$ gestrichen und $p$ als Primzahl markiert.
 
 Der erste Schritt ist trivial: Die kleinste Primzahl in $PP$ ist 2.
 
 #sieve(2)
 
-Der nächsthöhere Wert, der keine 2 als Primfaktor hat, ist 3. Weil es keine Primzahl kleiner als 2 gibt, hat 3 keine Primfaktoren, und ist somit eine Primzahl. Analog zum ersten Schritt streichen wir alle Vielfachen von 3.
+Die nächste nicht gestrichene Zahl ist 3. Sie ist kein Vielfaches von 2, und auch kein Vielfaches von irgend einer anderen Primzahl, weil es keine Primzahl kleiner als 2 gibt. Daraus folgt, dass 3 eine Primzahl ist.
 
 #sieve(3)
 
-Der nächsthöhere Wert, der keine Primfaktorzerlegung hat, ist 5. Vielfache von 4 zu streichen wäre redundant, weil alle Vielfachen von 4 auch Vielfache von 2 sind.
+Der nächste Wert ist 5. Er ist nicht Vielfaches von irgend einer Zahl kleiner als sich selbst (außer 1), daher ist er auch eine Primzahl.
 
 #sieve(5)
 
