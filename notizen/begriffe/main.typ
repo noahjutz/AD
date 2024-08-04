@@ -160,7 +160,7 @@ $
 p^(min(e_p, f_p)) dot p^(max(e_p, f_p)) = p^(e_p+f_p)
 $
 
-=== Sieb des \ Eratosthenes
+=== Sieb des Eratosthenes
 
 Eine Primzahl hat genau zwei Teiler: sich selbst und 1. Das Gegenstück ist eine Zusammengesetzte Zahl; diese hat mindestens zwei Primfaktoren. Die 1 ist weder prim noch zusammengesetzt.
 

@@ -8,7 +8,7 @@
 ] <notizen>
 #outline(
   indent: true,
-  depth: 2,
+  depth: 3,
   title: "",
   target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
