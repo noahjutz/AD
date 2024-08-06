@@ -191,10 +191,27 @@ Der nächste Wert ist 5. Er ist nicht Vielfaches von irgend einer Zahl kleiner a
 
 #sieve(5)
 
-Wir wiederholen den Prozess für alle $i < sqrt(n)$.
+Das kleinste noch nicht gestrichene Vielfache einer Primzahl $p$ ist jeweils $p^2$. Das liegt daran, dass jedes Vielfache von $p$ auch ein Vielfaches von $k$ ist.
+
+$
+k dot p = p dot k
+$
+
+Zum Beispiel ist 15 ein Vielfaches von $p = 5$ mit $k = 3$, aber wurde davor schon als Vielfaches von $p = 3$ mit $k = 5$ gestrichen.
+
+#sieve(7)
+
+Der Algorithmus ist beendet, wenn $p^2 > n$, weil es dann kein Vielfaches von $p$ gibt, welches nicht davor schon gestrichen wurde. Damit wurden alle zusammengesetzten Zahlen gestrichen, und es bleiben nur noch Primzahlen.
 
 #sieve(51)
 
 == Datenstrukturen
 
 === Matrix
+
+Eine $(m times n)$ Matrix hat $m$ Zeilen und $n$ Spalten.
+
+$
+A = (a_(i j))_(1<=i<=n,1<=i<=m)
+$
+

@@ -4,8 +4,6 @@
 )
 
 #let config = doc => {
-  set outline(depth: 2)
-
   set heading(numbering: (..nums) => {
     if nums.pos().len() <= 2 {
       numbering("1.1", ..nums)
@@ -74,6 +72,6 @@
 }
 
 #let page = doc => {
-  set page(columns: 2)
+  set page(columns: 2, numbering: "1")
   doc
 }
