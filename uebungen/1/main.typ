@@ -1,5 +1,6 @@
 #import "../../config.typ"
-#show: doc => config.config(doc)
+#show: config.config
+#show: config.page
 
 = Algorithmen
 

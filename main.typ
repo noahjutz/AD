@@ -1,6 +1,6 @@
 #import "title.typ": title
-#import "config.typ": config
-#show: config
+#import "config.typ"
+#show: config.config
 
 #title 
 #heading(numbering: none)[
@@ -29,7 +29,8 @@
   target: selector(heading).after(<uebungen>, inclusive: false)
 )
 
-#pagebreak()
 #counter(heading).update(0)
+#hide(counter(heading).display()) // counter workaround
+#pagebreak()
 
 #include "uebungen/1/main.typ"
