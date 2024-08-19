@@ -27,3 +27,20 @@ for i in range(self.m):
 ```
 
 === Multiplikation
+
+Die Spalten der ersten Matrix muss gleich der Zeilen der Zweiten sein.
+
+$
+A.n = B.m
+$
+
+Das Ergebnis hat die Zeilen der ersten Matrix und die Spalten der Zweiten.
+
+$
+(C_(i j))_(1 <= i <= A.m \ 1 <= j <= B.n)
+$
+
+Jeder Ergebniseintrag $c_(i j)$ errechnet sich aus der $i$-ten Zeile in $A$ und der $j$-ten Spalte in B.
+
+#include "matrix_mult.typ"
+
