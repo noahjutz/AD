@@ -61,8 +61,6 @@ for i in range(m):
 
 == Matrix Laufzeit
 
-=== Abschätzung
-
 Die Addition zwei quadratischer Matrizen hat eine Laufzeit von
 
 $
@@ -78,15 +76,8 @@ $
 weil für jeden Eintrag zusätzlich $n$ Multiplikationen und Additionen ausgeführt werden.
 
 #colbreak()
-// Bei einer gegebenen Dauer $t$ und Frequenz $f$ berechnet ein Algorithmus eine Eingabelänge von
 // 
-// $
-// n = T^(-1)(t dot f)
-// $
-// 
-// Wenn $T(n)$ die Anzahl benötigter Schritte bei einer Eingabelänge $n$ liefert, dann liefert die Umkehrfunktion $T^(-1)(n)$ die Eingabelänge bei einer gegebenen Anzahl an berechneten Schritten.
-// 
-// Die Anzahl berechneter Schritte bei einer Dauer $t$ und Frequenz $f$ ist trivialerweise $t dot f$.
+=== Zeitkomplexität
 
 Mit $n = 1000$ benötigt mein Laptop für die Matrixmultiplikation $t = 175$s. Daraus ergibt sich die Frequenz
 
@@ -103,7 +94,9 @@ n(t) &= T^(-1)(t dot f) \
 &= root(3, t dot 5.7 "MHz")
 $
 
-multiplizieren. Daraus ergibt sich die Wertetabelle (Addition analog zur Multiplikation):
+multiplizieren #footnote[
+Wenn $T(n)$ die Anzahl benötigter Schritte bei einer Eingabelänge $n$ liefert, dann liefert die Umkehrfunktion $T^(-1)(n)$ die Eingabelänge bei einer gegebenen Anzahl an berechneten Schritten.
+]. Daraus ergibt sich die Wertetabelle (Addition wird analog zur Multiplikation gehandhabt):
 
 #table(columns: 3,
   $t$, [$n$ ($times$)], [$n$ ($+$)],
@@ -112,6 +105,26 @@ multiplizieren. Daraus ergibt sich die Wertetabelle (Addition analog zur Multipl
   "5 min", "1195", $3.9 dot 10^4$,
   "10 min", "1506", $5.6 dot 10^4$
 )
+
+=== Platzkomplexität
+
+Mit $n = 2000$ nimmt eine Matrix 92 MB ein. Die Anzahl speicherbarer Elemente $x$ pro Byte ist also 
+
+$
+x &= P(n)/s \
+&= 2000^2/(92 dot 10^6) \
+&approx 0.04
+$
+
+Hochgerechnet benötigt eine $10^4 times 10^4$ Matrix
+
+$
+s &= P(n)/x \
+&= 10^8/0.04 \
+&= 2.5 "GB"
+$
+
+Bei der Addition ist also die Platzkomplexität der beschränkende Faktor.
 
 = Komplexität
 

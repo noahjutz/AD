@@ -18,6 +18,8 @@
 
   set par(justify: true)
 
+  set footnote.entry(separator: none)
+
   show math.equation.where(block: true): set align(start)
 
   show math.equation: set text(font: "Noto Sans Math")
