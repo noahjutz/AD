@@ -21,9 +21,9 @@ $
 In Python lässt sich das folgendermaßen implementieren:
 
 ```py
-for i in range(self.m):
-  for j in range(self.n):
-    self.data[i][j] += other.data[i][j]
+for i in range(m):
+  for j in range(n):
+    c[i][j] = a[i][j] + b[i][j]
 ```
 
 === Multiplikation
@@ -44,3 +44,75 @@ Jeder Ergebniseintrag $c_(i j)$ errechnet sich aus der $i$-ten Zeile in $A$ und 
 
 #include "matrix_mult.typ"
 
+Konkret wird für jede Spalte in $A$ und jede Zeile in $B$ das Produkt von $a_(i k)$ und $b_(k j)$ berechnet. Alle Produkte werden anschließend aufsummiert.
+
+$
+c_(i j) = sum_(k=1)^n a_(i k) dot b_(k j)
+$
+
+In Python:
+
+```py
+for i in range(m):
+  for j in range(p):
+    for k in range(n):
+      c[i][j] += a[i][k] * b[k][j]
+```
+
+== Matrix Laufzeit
+
+=== Abschätzung
+
+Die Addition zwei quadratischer Matrizen hat eine Laufzeit von
+
+$
+T_+ = m dot n = n^2
+$
+
+weil es so viele Einträge gibt. Die Multiplikation hat eine Laufzeit von
+
+$
+T_times = m dot p dot n = n^3
+$
+
+weil für jeden Eintrag zusätzlich $n$ Multiplikationen und Additionen ausgeführt werden.
+
+#colbreak()
+// Bei einer gegebenen Dauer $t$ und Frequenz $f$ berechnet ein Algorithmus eine Eingabelänge von
+// 
+// $
+// n = T^(-1)(t dot f)
+// $
+// 
+// Wenn $T(n)$ die Anzahl benötigter Schritte bei einer Eingabelänge $n$ liefert, dann liefert die Umkehrfunktion $T^(-1)(n)$ die Eingabelänge bei einer gegebenen Anzahl an berechneten Schritten.
+// 
+// Die Anzahl berechneter Schritte bei einer Dauer $t$ und Frequenz $f$ ist trivialerweise $t dot f$.
+
+Mit $n = 1000$ benötigt mein Laptop für die Matrixmultiplikation $t = 175$s. Daraus ergibt sich die Frequenz
+
+$
+f &= T(n) / t \
+&= 1000^3 / 175 \
+&approx 5.7 "MHz"
+$
+
+Mit meiner Prozessorleistung kann ich in einer gegebenen Dauer $t$ zwei Matrizen der Größe
+
+$
+n(t) &= T^(-1)(t dot f) \
+&= root(3, t dot 5.7 "MHz")
+$
+
+multiplizieren. Daraus ergibt sich die Wertetabelle (Addition analog zur Multiplikation):
+
+#table(columns: 3,
+  $t$, [$n$ ($times$)], [$n$ ($+$)],
+  "1 min", "699", $1.7 dot 10^4$,
+  "2 min", "881", $2.5 dot 10^4$,
+  "5 min", "1195", $3.9 dot 10^4$,
+  "10 min", "1506", $5.6 dot 10^4$
+)
+
+= Komplexität
+
+== 
