@@ -204,14 +204,3 @@ Zum Beispiel ist 15 ein Vielfaches von $p = 5$ mit $k = 3$, aber wurde davor sch
 Der Algorithmus ist beendet, wenn $p^2 > n$, weil es dann kein Vielfaches von $p$ gibt, welches nicht davor schon gestrichen wurde. Damit wurden alle zusammengesetzten Zahlen gestrichen, und es bleiben nur noch Primzahlen.
 
 #sieve(51)
-
-== Datenstrukturen
-
-=== Matrix
-
-Eine $(m times n)$ Matrix hat $m$ Zeilen und $n$ Spalten.
-
-$
-A = (a_(i j))_(1<=i<=n,1<=i<=m)
-$
-

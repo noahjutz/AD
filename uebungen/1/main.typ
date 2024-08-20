@@ -10,6 +10,13 @@
 
 == Matrix
 
+Eine $(m times n)$ Matrix hat $m$ Zeilen und $n$ Spalten.
+
+$
+A = (a_(i j))_(1<=i<=m\ 1<=i<=n)
+$
+
+
 === Addition
 
 Zwei Matrizen $A$ und $B$ müssen die gleiche Anzahl an Zeilen und Spalten haben, um addiert werden zu können. Das Ergebnis $C$ hat auch die gleiche Anzahl an Zeilen und Spalten. Es wird durch komponentenweise Addition berechnet:
@@ -75,8 +82,6 @@ $
 
 weil für jeden Eintrag zusätzlich $n$ Multiplikationen und Additionen ausgeführt werden.
 
-#colbreak()
-// 
 === Zeitkomplexität
 
 Mit $n = 1000$ benötigt mein Laptop für die Matrixmultiplikation $t = 175$s. Daraus ergibt sich die Frequenz
@@ -125,7 +130,3 @@ s &= P(n)/x \
 $
 
 Bei der Addition ist also die Platzkomplexität der beschränkende Faktor.
-
-= Komplexität
-
-== 
