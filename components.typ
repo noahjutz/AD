@@ -2,22 +2,14 @@
   show table.cell.where(x: 0): set text(font: "Noto Sans Mono")
 
   let lines = code.split("\n")
-  // let first_index = comments.at(0).at(0)
-  // if first_index > 0 {
-  //   comments.insert(0, (0, first_index - 1, ""))
-  // }
-  // let last_index = comments.last().at(1)
-  // if last_index < lines.len() - 1 {
-  //   comments.push((last_index + 1, lines.len() - 1, ""))
-  // }
   let i = 0
   let j = 0
   while i < lines.len() and j < comments.len() {
-    let (s, e, txt) = comments.at(j)
-    if i < s {
+    let (start, end) = comments.at(j)
+    if i < start {
       comments.insert(j, (i, s - 1, ""))
     }
-    i = e+1
+    i = end+1
     j += 1
   }
   if i < lines.len() {

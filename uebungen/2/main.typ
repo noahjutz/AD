@@ -31,8 +31,6 @@ Ein For-Loop kann mit Jumps realisiert werden, und eine Potenz lässt sich als A
 #code(
   read("instructions.txt"),
   (
-    (2, 2, "this is some code idk"),
-    (4, 4, "this is some code idk"),
-    (12, 12, "this is some code idk"),
+    (0, 1, "f(1) := 1"),
   )
 )
