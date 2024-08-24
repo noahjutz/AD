@@ -1,7 +1,7 @@
-#import "../../config.typ": config, page
+#import "../../config.typ"
 #import "../../components.typ": code
-#show: config
-#show: page
+#show: config.config
+#show: columns.with(2)
 
 = Komplexität
 

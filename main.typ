@@ -1,6 +1,7 @@
 #import "title.typ": title
 #import "config.typ"
 #show: config.config
+#set page(numbering: "1")
 
 #title 
 #heading(numbering: none)[

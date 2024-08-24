@@ -1,6 +1,6 @@
 #import "../../config.typ"
 #show: config.config
-#show: config.page
+#show: columns.with(2)
 
 = Algorithmen
 

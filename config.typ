@@ -78,8 +78,3 @@
 
   doc
 }
-
-#let page = doc => {
-  set page(columns: 2, numbering: "1")
-  doc
-}
