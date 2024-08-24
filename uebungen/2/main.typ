@@ -36,6 +36,25 @@ Ein For-Loop kann mit Jumps realisiert werden, und eine Potenz lässt sich als A
     (3, 5, $f(0) := i^3$),
     (6, 7, $r := r + f(0)$),
     (8, 10, $i := i - 1$),
-    (11, 11, $"for" i > 0$)
+    (11, 11, $"for" i > 0$),
+    (12, 13, "Ausgabe")
   )
 )
+
+Der Zustand einer Registermaschine setzt sich aus Instruction-Pointer und Speicherzellen zusammen. In jeder Iteration führt er die aktuelle Anweisung aus und manipuliert dabei seinen Zustand. In Python kann man das als Iterable umsetzen.
+
+#set block(width: 100%)
+```python
+cmd, arg = instructions[ip]
+if cmd == "hlt":
+    raise StopIteration
+
+getattr(commands, cmd)(arg)
+return [ip, mem]
+```
+
+== Asymptotische Komplexität
+
+$
+17 + 22 + 45 = O(1)
+$

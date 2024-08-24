@@ -29,6 +29,7 @@
   show heading: h => {
     set text(font: "Noto Serif", size: 20pt)
     set block(above: 12pt, below: 12pt)
+    set par(justify: false)
     block[
       #if h.numbering == none {
         text(h.body)
@@ -48,6 +49,7 @@
   }
 
   show raw.where(block: true): it => {
+    set par(justify: false)
     context {
       block(
         stroke: rgb(0, 0, 0, 20%),

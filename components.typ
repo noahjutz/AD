@@ -33,7 +33,7 @@
       columns: (auto, 1fr),
       stroke: (x, y) => {
         if x == 0 {(right: 1pt + rgb(0,0,0,20%))}
-        else if y != lines.len()-1 {(bottom: 1pt + rgb(0,0,0,20%))}
+        else if y != 0 {(top: 1pt + rgb(0,0,0,20%))}
       },
       fill: (x, y) => {
         if x == 0 and calc.odd(y) { rgb(0, 0, 0, 5%) }
