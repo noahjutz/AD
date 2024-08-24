@@ -1,7 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "/config.typ": config, theme
-
-#show: config
+#import "/config.typ": theme
 
 #cetz.canvas(length: 5%, {
   import cetz.draw: *

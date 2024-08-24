@@ -1,6 +1,4 @@
 #import "@preview/cetz:0.2.2": canvas, draw
-#import "/config.typ": config
-#show: config
 
 #let cell = (a, b, x) => [
   #show table.cell.where(x: 2): strong

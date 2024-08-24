@@ -1,6 +1,3 @@
-#import "/config.typ"
-#show: config.config
-
 = Algorithmen
 == ggT
 

@@ -1,7 +1,4 @@
 #import "@preview/cetz:0.2.2"
-#import "/config.typ"
-
-#show: doc => config.config(doc)
 
 #let a = 9
 #let b = 2

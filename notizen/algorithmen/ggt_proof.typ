@@ -1,7 +1,4 @@
 #import "@preview/cetz:0.2.2"
-#import "/config.typ"
-
-#show: doc => config.config(doc)
 
 #cetz.canvas(length: 5%, {
   import cetz.draw: *
