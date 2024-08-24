@@ -1,4 +1,4 @@
-#import "../../config.typ": config, theme
+#import "/config.typ": config, theme
 #show: config
 
 #let sieve(d, n: 51) = table(

@@ -1,5 +1,5 @@
-#import "../../config.typ"
-#import "../../components/code.typ": code
+#import "/config.typ"
+#import "/components/code.typ": code
 #show: config.config
 
 = Komplexität

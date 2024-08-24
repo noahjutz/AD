@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "../../config.typ": config, theme
+#import "/config.typ": config, theme
 
 #show: config
 
