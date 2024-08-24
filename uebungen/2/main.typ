@@ -31,6 +31,11 @@ Ein For-Loop kann mit Jumps realisiert werden, und eine Potenz lässt sich als A
 #code(
   read("instructions.txt"),
   (
-    (0, 1, "f(1) := 1"),
+    (0, 1, $f(1) := 1$),
+    (2, 2, $i := "input"$),
+    (3, 5, $f(0) := i^3$),
+    (6, 7, $r := r + f(0)$),
+    (8, 10, $i := i - 1$),
+    (11, 11, $"for" i > 0$)
   )
 )

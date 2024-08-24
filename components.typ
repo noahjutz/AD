@@ -5,7 +5,7 @@
   let i = 0
   let j = 0
   while i < lines.len() and j < comments.len() {
-    let (start, end) = comments.at(j)
+    let (start, end, _) = comments.at(j)
     if i < start {
       comments.insert(j, (i, s - 1, ""))
     }
