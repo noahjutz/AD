@@ -25,5 +25,9 @@
         style: (stroke: theme.primary),
         a => 1.3 * a
       )
+      plot.annotate({
+        line((14, 14), (14, 18.2), mark: (symbol: "straight"), name: "diff")
+        content("diff.start", anchor: "north")[$c$]
+      })
   })
 })
