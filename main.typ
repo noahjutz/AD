@@ -10,12 +10,15 @@
 #outline(
   target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
-#pagebreak()
 
-#include "notizen/algorithmen/main.typ"
-#include "notizen/komplexitaet/main.typ"
-#pagebreak()
+#{
+  pagebreak()
+  set page(columns: 2)
+  include "notizen/algorithmen/main.typ"
+  include "notizen/komplexitaet/main.typ"
+}
 
+#pagebreak()
 #title
 #heading(numbering: none)[
   #text(weight: 100, size: 40pt)[Übungen]
@@ -23,9 +26,11 @@
 #outline(
   target: selector(heading).after(<uebungen>, inclusive: false)
 )
-#pagebreak()
 
-#counter(heading).update(0)
-
-#include "uebungen/1/main.typ"
-#include "uebungen/2/main.typ"
+#{
+  counter(heading).update(0)
+  pagebreak()
+  set page(columns: 2)
+  include "uebungen/1/main.typ"
+  include "uebungen/2/main.typ"
+}

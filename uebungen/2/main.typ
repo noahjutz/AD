@@ -1,7 +1,6 @@
 #import "../../config.typ"
 #import "../../components/code.typ": code
 #show: config.config
-#show: columns.with(2)
 
 = Komplexität
 

@@ -1,6 +1,5 @@
 #import "../../config.typ"
 #show: config.config
-#show: columns.with(2)
 
 = Algorithmen
 
@@ -99,9 +98,9 @@ n(t) &= T^(-1)(t dot f) \
 &= root(3, t dot 5.7 "MHz")
 $
 
-multiplizieren #footnote[
-Wenn $T(n)$ die Anzahl benötigter Schritte bei einer Eingabelänge $n$ liefert, dann liefert die Umkehrfunktion $T^(-1)(n)$ die Eingabelänge bei einer gegebenen Anzahl an berechneten Schritten.
-]. Daraus ergibt sich die Wertetabelle (Addition wird analog zur Multiplikation gehandhabt):
+//multiplizieren #footnote[
+//Wenn $T(n)$ die Anzahl benötigter Schritte bei einer Eingabelänge $n$ liefert, dann liefert die Umkehrfunktion $T^(-1)(n)$ die Eingabelänge bei einer gegebenen Anzahl an berechneten Schritten.
+//]. Daraus ergibt sich die Wertetabelle (Addition wird analog zur Multiplikation gehandhabt):
 
 #table(columns: 3,
   $t$, [$n$ ($times$)], [$n$ ($+$)],
