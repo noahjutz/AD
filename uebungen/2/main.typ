@@ -1,5 +1,5 @@
 #import "../../config.typ"
-#import "../../components.typ": code
+#import "../../components/code.typ": code
 #show: config.config
 #show: columns.with(2)
 

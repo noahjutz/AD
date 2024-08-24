@@ -1,4 +1,4 @@
-#import "title.typ": title
+#import "components/title.typ": title
 #import "config.typ"
 #show: config.config
 #set page(numbering: "1")
@@ -10,11 +10,10 @@
 #outline(
   target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
-
 #pagebreak()
+
 #include "notizen/algorithmen/main.typ"
 #include "notizen/komplexitaet/main.typ"
-
 #pagebreak()
 
 #title
@@ -24,10 +23,10 @@
 #outline(
   target: selector(heading).after(<uebungen>, inclusive: false)
 )
+#pagebreak()
 
 #counter(heading).update(0)
 #hide(counter(heading).display()) // counter workaround
-#pagebreak()
 
 #include "uebungen/1/main.typ"
 #include "uebungen/2/main.typ"
