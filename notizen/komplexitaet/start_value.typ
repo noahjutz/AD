@@ -7,6 +7,7 @@
 
   plot.plot(
     axis-style: none,
+    y-max: 25,
     name: "plot", {
     plot.add(
       domain: (0, 15),

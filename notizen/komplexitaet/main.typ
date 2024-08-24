@@ -12,9 +12,11 @@ Ein Landau-Symbol $M in {O, o, Omega, omega, Theta}$ ist eine Menge, welche aus 
   $Theta$, $g(n) in O(n) sect Omega(n)$, "Beides"
 )
 
+Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um einen Konstanten Faktor $c > 0$ von $f$ abweichen.
 
 #grid(
   columns: 2,
   include "start_value.typ",
   include "factor.typ"
 )
+
