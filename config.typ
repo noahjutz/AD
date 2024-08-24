@@ -3,7 +3,7 @@
   secondary: aqua
 )
 
-#let config = doc => {
+#let config(doc) = {
   set heading(numbering: (..nums) => {
     if nums.pos().len() <= 2 {
       numbering("1.1", ..nums)
@@ -17,6 +17,14 @@
   )
 
   set par(justify: true)
+
+  set outline(
+    indent: true,
+    depth: 2,
+    title: "",
+  )
+
+  show outline: columns.with(2)
 
   set footnote.entry(separator: none)
 

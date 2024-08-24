@@ -8,9 +8,6 @@
   #text(weight: 100, size: 40pt)[Notizen]
 ] <notizen>
 #outline(
-  indent: true,
-  depth: 2,
-  title: "",
   target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
 
@@ -25,9 +22,6 @@
   #text(weight: 100, size: 40pt)[Übungen]
 ] <uebungen>
 #outline(
-  indent: true,
-  depth: 2,
-  title: "",
   target: selector(heading).after(<uebungen>, inclusive: false)
 )
 
