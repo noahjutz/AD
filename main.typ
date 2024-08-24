@@ -8,13 +8,14 @@
 ] <notizen>
 #outline(
   indent: true,
-  depth: 3,
+  depth: 2,
   title: "",
   target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
 )
 
 #pagebreak()
-#include "notizen/begriffe/main.typ"
+#include "notizen/algorithmen/main.typ"
+#include "notizen/komplexitaet/main.typ"
 
 #pagebreak()
 

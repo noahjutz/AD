@@ -2,9 +2,8 @@
 #show: config.config
 #show: config.page
 
-= Begriffe
-== Algorithmen
-=== ggT
+= Algorithmen
+== ggT
 
 Man sagt "$x$ teilt $a$", wenn $a$ ohne Rest durch $x$ teilbar ist.
 
@@ -18,7 +17,7 @@ $
 x divides a and x divides b
 $
 
-==== Primfaktorzerlegung
+=== Primfaktorzerlegung
 
 Um den ggT von $a$ und $b$ zu ermitteln, können wir $a$ und $b$ probeweise durch Faktoren teilen. Beispiel mit $a = 3528, b = 3780$:
 
@@ -37,7 +36,7 @@ $
 gcd(3528, 3780) = 2^2 dot 3^2 dot 7 = 252
 $
 
-==== Euklid
+=== Euklid
 
 Haben $a$ und $b$ mit $a>b$ einen gemeinsamen Teiler $x$, so ist die Differenz $d=a-b$ auch ein vielfaches von $x$.
 
@@ -100,7 +99,7 @@ def gcd_euclid_fast_iterative(a, b):
   return b
 ```
 
-=== kgV
+== kgV
 Man nennt $x$ ein Vielfaches von $a$, wenn es ein $k in ZZ$ gibt, sodass
 
 $
@@ -133,13 +132,13 @@ def lcm_naive(a, b):
   return x
 ```
 
-==== Primfaktorzerlegung
+=== Primfaktorzerlegung
 
 Um das kleinste gemeinsame Vielfache von $a$ und $b$ zu ermitteln, nehmen wir dieses mal nicht die Schnittmenge beider Primfaktorzerlegungen, sondern die Vereinigung. Wir erweitern also die eine Zerlegung um die Faktoren, welche zusätzlich in der anderen sind.
 
 #include "kgv_primes.typ"
 
-==== Zusammenhang ggT / kgV
+=== Zusammenhang ggT / kgV
 
 Wir haben etabliert, dass beim ggT die gemeinsamen Primfaktoren multipliziert werden, während beim kgV die überschüssigen Primfaktoren hinzumultipliziert werden.
 
@@ -160,7 +159,7 @@ $
 p^(min(e_p, f_p)) dot p^(max(e_p, f_p)) = p^(e_p+f_p)
 $
 
-=== Sieb des Eratosthenes
+== Sieb des Eratosthenes
 
 Eine Primzahl hat genau zwei Teiler: sich selbst und 1. Das Gegenstück ist eine Zusammengesetzte Zahl; diese hat mindestens zwei Primfaktoren. Die 1 ist weder prim noch zusammengesetzt.
 
@@ -170,7 +169,7 @@ $
 
 Die Menge aller Primzahlen sind also die natürlichen Zahlen ohne zusammengesetze Zahlen und ohne 1.
 
-==== Algorithmus
+=== Algorithmus
 
 Um alle Primzahlen bis zu einem Wert $n$ herauszufinden, entfernen wir schrittweise alle zusammengesetzten Zahlen aus der Menge {2, 3, 4, ..., n}. Im Beispiel ist $n = 50$.
 
