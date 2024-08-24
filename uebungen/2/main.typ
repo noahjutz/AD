@@ -1,4 +1,5 @@
 #import "../../config.typ": config, page
+#import "../../components.typ": code
 #show: config
 #show: page
 
@@ -27,27 +28,11 @@ Die Formel lässt sich algorithmisch folgendermaßen definieren:
 
 Ein For-Loop kann mit Jumps realisiert werden, und eine Potenz lässt sich als Aneinanderreihung mehrerer MUL-Befehle umschreiben.
 
-#grid(
-  columns: (1fr, auto, 1fr),
-  column-gutter: 12pt,
-  [],
-  [
-    ```
-    LDK 1
-    STA 1
-    INP 2
-    LDA 2
-    MUL 2
-    MUL 2
-    ADD 3
-    STA 3
-    LDA 2
-    SUB 1
-    STA 2
-    JGZ 4
-    OUT 3
-    HLT 99
-    ```
-  ],
-  []
+#code(
+  read("instructions.txt"),
+  (
+    (2, 2, "this is some code idk"),
+    (4, 4, "this is some code idk"),
+    (12, 12, "this is some code idk"),
+  )
 )
