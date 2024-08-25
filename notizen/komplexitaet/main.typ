@@ -59,15 +59,15 @@ $
 lim_(n -> infinity) g(n)/f(n) <= c
 $
 
-Die größte Funktion beschränkt alle anderen $f(n)$ nach oben, die kleinste Funktion nach unten.
+Die größte Funktion $T^"WC"$ beschränkt alle $T in Phi$ nach oben, die kleinste Funktion $T^"BC"$ nach unten.
 
 #grid(
   columns: (1fr,) * 2,
   $
-  f(n) = O(T^"WC" (n))
+  T(n) = O(T^"WC" (n))
   $,
   $
-  f(n) = Omega(T^"BC" (n))
+  T(n) = Omega(T^"BC" (n))
   $
 )
 
