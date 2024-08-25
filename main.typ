@@ -8,7 +8,9 @@
   #text(weight: 100, size: 40pt)[Notizen]
 ] <notizen>
 #outline(
-  target: selector(heading).before(<uebungen>, inclusive: false).after(<notizen>, inclusive: false),
+  target: selector(heading)
+    .before(<uebungen>, inclusive: false)
+    .after(<notizen>, inclusive: false),
 )
 
 #{
@@ -24,7 +26,9 @@
   #text(weight: 100, size: 40pt)[Übungen]
 ] <uebungen>
 #outline(
-  target: selector(heading).after(<uebungen>, inclusive: false)
+  target: selector(heading)
+    .before(<appendix>, inclusive: false)
+    .after(<uebungen>, inclusive: false)
 )
 
 #{
@@ -33,4 +37,20 @@
   set page(columns: 2)
   include "uebungen/1/main.typ"
   include "uebungen/2/main.typ"
+}
+
+#pagebreak()
+#title
+#heading(numbering: none)[
+  #text(weight: 100, size: 40pt)[Appendix]
+] <appendix>
+#outline(
+  target: selector(heading)
+    .after(<appendix>, inclusive: false)
+)
+
+#{
+  counter(heading).update(0)
+  pagebreak()
+  include "appendix/proof/main.typ"
 }
