@@ -199,3 +199,21 @@ Zum Beispiel ist 15 ein Vielfaches von $p = 5$ mit $k = 3$, aber wurde davor sch
 Der Algorithmus ist beendet, wenn $p^2 > n$, weil es dann kein Vielfaches von $p$ gibt, welches nicht davor schon gestrichen wurde. Damit wurden alle zusammengesetzten Zahlen gestrichen, und es bleiben nur noch Primzahlen.
 
 #sieve(51)
+
+== Binäres inkrementieren
+
+Ein Stellenwertsystem mit Basis $b$ besteht aus $b$ Schriftzeichen mit jeweils einem Wert aus ${0, 1, 2, ..., b-1}$. Der Stellenwert des Vorgängers wird um Faktor $b$ erhöht.
+
+#table(columns: (1fr,) * 5, align: center,
+  "...", ..range(4).rev().map(i => $b^#i$)
+)
+
+Der Zahlenwert an Stelle $i$ ist das Produkt Des Stellenwertes $b^i$ und des Ziffernwertes $a_i$. Der Zahlenwert einer Ziffernfolge $a_n...a_2a_1a_0$ ist die Summe
+
+$
+Z = sum_(i=0)^n a_i dot b^i
+$
+
+// $
+// b dot b^i = 1 dot b^(i+1)
+// $
