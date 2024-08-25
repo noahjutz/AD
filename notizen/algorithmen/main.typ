@@ -214,6 +214,8 @@ $
 Z = sum_(i=0)^n a_i dot b^i
 $
 
+Es gibt für jede natürliche Zahl genau eine $b$-adische Darstellung. Beweis: @proof-positional-system
+
 // $
 // b dot b^i = 1 dot b^(i+1)
 // $

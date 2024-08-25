@@ -84,5 +84,22 @@
     radius: 4pt,
   )
 
+  show ref: ref => {
+    let is_after(target, point) = {
+      return query(selector(target).after(point)).len() != 0
+    }
+    let a = if is_after(ref.target, <appendix>) {
+      "A"
+    } else if is_after(ref.target, <uebungen>) {
+      "U"
+    } else if is_after(ref.target, <notizen>) {
+      "N"
+    }
+    let value = counter(heading).at(ref.target)
+    link(ref.target)[
+      #text(a)#numbering(ref.element.numbering, ..value)
+    ]
+  }
+
   doc
 }

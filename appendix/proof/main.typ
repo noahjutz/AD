@@ -1,4 +1,3 @@
 = Beweise
 
-== Stellenwertsystem
-
+== Stellenwertsystem <proof-positional-system>
