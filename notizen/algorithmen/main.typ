@@ -212,9 +212,9 @@ Der Zahlenwert an Stelle $i$ ist das Produkt Des Stellenwertes $b^i$ und des Zif
 
 $
 Z = sum_(i=0)^n a_i dot b^i
-$ <eq>
+$
 
-Es gibt für jede natürliche Zahl genau eine $b$-adische Darstellung. Beweis: @proof-positional-system @eq
+Es gibt für jede natürliche Zahl genau eine $b$-adische Darstellung. Beweis: @proof-positional-system
 
 
 // $

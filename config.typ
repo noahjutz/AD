@@ -100,7 +100,6 @@
     } else {
       "vertical_align_top"
     }
-    //let number = if ref.element.
     let numbering = if ref.element.numbering == none {
       ""
     } else {
