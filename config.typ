@@ -95,21 +95,36 @@
     } else if is_after(ref.target, <notizen>) {
       "N"
     }
-    let value = counter(heading).at(ref.target)
-    set text(font: "Noto Sans Mono", fill: white)
+    let icon = if is_after(ref.target, here()) {
+      "vertical_align_bottom"
+    } else {
+      "vertical_align_top"
+    }
+    //let number = if ref.element.
+    let numbering = if ref.element.numbering == none {
+      ""
+    } else {
+      numbering(
+        ref.element.numbering,
+        ..counter(heading).at(ref.target)
+      )
+    }
     link(
       ref.target,
       box(
-        fill: rgb(0, 0, 0, 80%),
-        outset: (y: 4pt),
+        stroke: theme.primary,
+        outset: (y: 2pt),
         inset: (x: 6pt),
-        radius: 2pt,
-        stack(
+        radius: 2pt
+      )[
+        #set align(horizon)
+        #stack(
           dir: ltr,
           text(a),
-          numbering(ref.element.numbering, ..value)
+          text(numbering),
+          text(font: "Material Icons", icon)
         )
-      )
+      ]
     )
   }
 
