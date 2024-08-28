@@ -40,7 +40,7 @@
   [
     $x -> x+1$
 
-    Wenn es für $x$ genau eine Stellenwertnotation $x_n...x_2x_1x_0$ gibt, dann gibt es auch für $y = x + 1$ eine Stellenwertnotation $y_m...y_2y_1y_0$.
+    Wenn es für $x$ genau eine Stellenwertnotation $x_n...x_2x_1x_0$ gibt, dann gibt es auch für $y = x + 1$ eine Stellenwertnotation $y_(n+1)...y_2y_1y_0$.
   ],
   [==== Fall 1],
   [
@@ -57,7 +57,13 @@
     Weil der Stellenwert sich mit jeder Stelle um Faktor $b$ erhöht, kann eine Zahl mit maximalem Ziffernwert $a_i = b - 1$ um 1 erhöht werden, indem man die vorangestellte Ziffer $a_(i+1)$ erhöht (carry). 
 
     $
-    n+1 = sum_(i=0)^m a_i dot b^i
+    y = sum_(i=0)^(n+1) y_i dot b^i
+    "mit" y_i = cases(
+      x_i "falls es keinen carry mehr gibt",
+      x_i+1 "falls" x_i+1<b,
+      0 "sonst"
+    )
+    #h(12pt) checkmark
     $
   ]
 )
