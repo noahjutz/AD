@@ -38,8 +38,8 @@
     set text(font: "Noto Serif", size: 20pt)
     set block(above: 12pt, below: 12pt)
     set par(justify: false)
-    block[
-      #if h.numbering == none {
+    block({
+      if h.numbering == none {
         text(h.body)
       } else if h.level <= 2 {
         let c = counter(heading).display(h.numbering)
@@ -53,7 +53,16 @@
         set text(size: 11pt)
         text(h.body, weight: "black")
       }
-    ]
+      if h.has("label") {
+        let refs = query(ref.where(target: h.label))
+        if refs.len() != 0 {
+          set text(font: "Noto Sans", size: 11pt, weight: "regular")
+          text(" ")
+          let target = refs.first().location()
+          link(target, text(font: "Material Icons", "arrow_upward"))
+        }
+      }
+    })
   }
 
   show raw.where(block: true): it => {
