@@ -91,14 +91,26 @@
     let a = if is_after(ref.target, <appendix>) {
       "A"
     } else if is_after(ref.target, <uebungen>) {
-      "U"
+      "Ü"
     } else if is_after(ref.target, <notizen>) {
       "N"
     }
     let value = counter(heading).at(ref.target)
-    link(ref.target)[
-      #text(a)#numbering(ref.element.numbering, ..value)
-    ]
+    set text(font: "Noto Sans Mono", fill: white)
+    link(
+      ref.target,
+      box(
+        fill: rgb(0, 0, 0, 80%),
+        outset: (y: 4pt),
+        inset: (x: 6pt),
+        radius: 2pt,
+        stack(
+          dir: ltr,
+          text(a),
+          numbering(ref.element.numbering, ..value)
+        )
+      )
+    )
   }
 
   doc
