@@ -48,10 +48,19 @@
         text(" ")
         text(h.body)
       } else if h.level == 3 {
-        text(h.body, weight: "black")
+        text(
+          h.body,
+          weight: "black",
+          size: 11pt
+        )
       } else {
-        set text(size: 11pt)
-        text(h.body, weight: "black")
+        text(
+          h.body,
+          size: 11pt,
+          weight: "light",
+          font: "Noto Sans",
+          style: "italic"
+        )
       }
       if h.has("label") {
         let refs = query(ref.where(target: h.label))
