@@ -76,22 +76,20 @@
 
   show raw.where(block: true): it => {
     set par(justify: false)
-    context {
-      block(
-        stroke: rgb(0, 0, 0, 20%),
-        radius: 4pt,
-        above: 8pt,
-        below: 8pt,
-        breakable: false,
-        table(
-          columns: if block.width == auto {auto} else {1fr},
-          stroke: none,
-          fill: (_, y) => if calc.odd(y) { rgb(0, 0, 0, 5%) },
-          inset: (x: 8pt, y: 6pt),
-          ..it.lines
-        )
+    block(
+      stroke: rgb(0, 0, 0, 20%),
+      radius: 4pt,
+      above: 8pt,
+      below: 8pt,
+      breakable: false,
+      table(
+        columns: 1fr,
+        stroke: none,
+        fill: (_, y) => if calc.odd(y) { rgb(0, 0, 0, 5%) },
+        inset: (x: 8pt, y: 6pt),
+        ..it.lines
       )
-    }
+    )
   }
 
   show raw.where(block: false): box.with(
