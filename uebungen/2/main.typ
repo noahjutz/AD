@@ -108,3 +108,44 @@ $
 
 Weil $n lt.not 0$. $square.filled$
 
+=== Aussage 3
+
+$
+2^(n+1) = O(2^n)
+$
+
+=== Beweis 3
+
+$
+2^(n+1) &= bold(2) dot 2^n \
+<=> g(n) &= 2 dot f(n) \
+<=> g(n) &= c dot f(n) \
+=> g(n) &in Theta(f(n)) \
+=> g(n) &in O(f(n)) #h(4pt) square.filled
+$
+
+=== Aussage 4
+
+$
+2^(2n) = O(2^n)
+$
+
+=== Gegenbeweis 4
+
+Reductio ad absurdum
+
+$
+2^(2n) in O(2^n)
+&=> f(n) = 2^n \
+&=> g(n) = 2^(2n)
+$
+
+$
+g(n) &<= c dot f(n) \
+2^(2n) &<= c dot 2^n \
+(2^n)^2 &<= c dot 2^n \
+2^n &<= c arrow.zigzag
+$
+
+Es gibt kein $c > 0$, welches für alle $n > n_0$ die Funktion $2^n$ nach oben beschränkt. Daher ist die Annahme falsch. $square.filled$
+
