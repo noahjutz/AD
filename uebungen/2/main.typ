@@ -170,3 +170,23 @@ $
 
 Der dominierende Term ist $n log n$. Eine Funktion $g(n)$ ist immer durch ihren dominierenden Term $f(n)$ nach oben und nach unten beschränkt, weil alle untergeordneten Terme durch ein passendes $c$ ausgeglichen werden können. $square.filled$
 
+=== Aussage 6
+
+$
+2^n = O(n!)
+$
+
+==== Beweis
+
+$
+lim_(n -> infinity) 2^n/n!
+&= lim_(n -> infinity) 2^n/(sqrt(2 pi n) dot (n/e)^n) \
+&=lim_(n -> infinity) (2^n e^n)/(sqrt(2 pi n) dot n^n) \
+&=lim_(n -> infinity) 1/sqrt(2pi) dot
+  ((2e)/(sqrt(n) dot n))^n \
+&=lim_(n -> infinity) 1/sqrt(2pi) dot
+  (lim_(n -> infinity) (2e)/(sqrt(n) dot n))^n \
+&=1/sqrt(2pi) dot (0)^n \
+&= 0 \
+&<= c #h(4pt) square.filled
+$
