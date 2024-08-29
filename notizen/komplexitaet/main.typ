@@ -20,6 +20,16 @@ Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um e
   include "factor.typ"
 )
 
+=== Rechenregeln
+
+- $ f in O(f) $
+- $ g in O(f) \ => c dot g in O(f) $
+- $
+g_1 in O(f_1), g_2 in O(f_2) \
+=> g_1+g_2 in O(max(f_1, f_2)) \
+=> g_1 dot g_2 in O(f_1 dot f_2)
+$
+
 == WC, BC, AC
 
 Ein Algorithmus hat bei unterschiedlichen Eingaben $Sigma^n$ der gleichen Länge $n$ ggf. unterschiedliche Laufzeiten.
