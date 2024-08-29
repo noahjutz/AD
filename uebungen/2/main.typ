@@ -54,13 +54,13 @@ return [ip, mem]
 
 == O-Notation
 
-=== Zu zeigen
+=== Aussage 1
 
 $
 17 + 22 + 45 = O(1)
 $
 
-==== Beweis
+=== Beweis 1
 
 $
 O(f(n)) &= {
@@ -80,6 +80,31 @@ O(1) &= {
   ]
 } \
 &= {g(n) | exists c > 0 : g(n) <= c} \
-&= RR \
+&= RR^+ \
 &in.rev 17 + 22 + 45 #h(4pt) square.filled
 $
+
+=== Aussage 2
+
+$
+5n^3 + 12n^2 + 3n + 5 = Omega(n^3)
+$
+
+=== Beweis 2
+
+$
+Omega(f(n)) &= {
+  g(n) mid(|) #box(baseline: 50%)[
+    $
+    exists c > 0, n_0 in NN : \
+    forall n >= n_0 : g(n) >= c dot f(n)
+    $
+  ]
+} \
+&supset {g(n) | g(n) >= f(n)} \
+Omega(n^3) &supset {g(n) | g(n) >= n^3} \
+&in.rev 5n^3 + 12n^2 + 3n + 5
+$
+
+Weil $n lt.not 0$. $square.filled$
+
