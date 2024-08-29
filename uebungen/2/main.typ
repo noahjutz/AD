@@ -52,8 +52,34 @@ getattr(commands, cmd)(arg)
 return [ip, mem]
 ```
 
-== Asymptotische Komplexität
+== O-Notation
+
+=== Zu zeigen
 
 $
 17 + 22 + 45 = O(1)
+$
+
+==== Beweis
+
+$
+O(f(n)) &= {
+  g(n) mid(|) #box(baseline: 50%)[
+    $
+    exists c > 0, n_0 in NN : \
+    forall n >= n_0 : g(n) <= c dot f(n)
+    $
+  ]
+} \
+O(1) &= {
+  g(n) mid(|) #box(baseline: 50%)[
+    $
+    exists c > 0, n_0 in NN : \
+    forall n >= n_0 : g(n) <= c
+    $
+  ]
+} \
+&= {g(n) | exists c > 0 : g(n) <= c} \
+&= RR \
+&in.rev 17 + 22 + 45 #h(4pt) square.filled
 $
