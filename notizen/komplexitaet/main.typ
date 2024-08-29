@@ -107,7 +107,7 @@ sum_(x in {0, 1}^n) T(x)
 &= sum_(k=0)^n (1/2)^k
 $
 
-Die Summe aller Laufzeitfunktionen konvergiert gegen 2 für $n -> infinity$. Die Average-Case-Laufzeit ist somit konstant.
+Die Summe aller Laufzeitfunktionen konvergiert gegen 2 für $n -> infinity$. Die Average-Case-Laufzeit von `inc_bin` ist somit konstant.
 
 $
 T^"AC" (n) = 1/2^n dot 2 in O(1)
