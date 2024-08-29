@@ -226,3 +226,5 @@ lim_(n -> infinity) n^1.25/n^0.5
 = infinity
 #h(4pt) square.filled
 $
+
+== Fibonacci
