@@ -155,5 +155,18 @@ $
 log(n!) = Theta(n log n)
 $
 
-==== Gegenbeweis
+==== Beweis
+
+Wir verwenden die Stirlingformel.
+
+$
+log(n!) &approx log(sqrt(2 pi n) dot (n/e)^n) \
+&= log(sqrt(2 pi n)) + log((n/e)^n) \
+&= log((2 pi n)^(1/2)) + log((n/e)^n) \
+&= 1/2 log(2 pi n) + n log(n/e) \
+&= 1/2 log(2 pi) + 1/2 log(n) \
+&#hide($=$) + n log(n) - n log(e)
+$
+
+Der dominierende Term ist $n log n$. Eine Funktion $g(n)$ ist immer durch ihren dominierenden Term $f(n)$ nach oben und nach unten beschränkt, weil alle untergeordneten Terme durch ein passendes $c$ ausgeglichen werden können. $square.filled$
 
