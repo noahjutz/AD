@@ -60,7 +60,7 @@ $
 17 + 22 + 45 = O(1)
 $
 
-=== Beweis 1
+==== Beweis
 
 $
 O(f(n)) &= {
@@ -90,7 +90,7 @@ $
 5n^3 + 12n^2 + 3n + 5 = Omega(n^3)
 $
 
-=== Beweis 2
+==== Beweis
 
 $
 Omega(f(n)) &= {
@@ -114,7 +114,7 @@ $
 2^(n+1) = O(2^n)
 $
 
-=== Beweis 3
+==== Beweis
 
 $
 2^(n+1) &= bold(2) dot 2^n \
@@ -130,7 +130,7 @@ $
 2^(2n) = O(2^n)
 $
 
-=== Gegenbeweis 4
+==== Gegenbeweis
 
 Reductio ad absurdum
 
@@ -148,4 +148,12 @@ g(n) &<= c dot f(n) \
 $
 
 Es gibt kein $c > 0$, welches für alle $n > n_0$ die Funktion $2^n$ nach oben beschränkt. Daher ist die Annahme falsch. $square.filled$
+
+=== Aussage 5
+
+$
+log(n!) = Theta(n log n)
+$
+
+==== Gegenbeweis
 
