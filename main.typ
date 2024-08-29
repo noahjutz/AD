@@ -53,4 +53,7 @@
   counter(heading).update(0)
   pagebreak()
   include "appendix/proof/main.typ"
+  pagebreak()
+  show: columns.with(2)
+  include "appendix/examples/main.typ"
 }
