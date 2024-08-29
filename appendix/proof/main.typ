@@ -45,14 +45,14 @@
   [==== Fall 1],
   [
 
-    Die niederwertigste Ziffer kann erhöht werden ($a_0 + 1 < b$)
+    Die niederwertigste Ziffer kann erhöht werden ($x_0 + 1 < b$)
 
-    Die Stellenwertnotation für $n+1$ ist $a_n...a_2a_1b_0$ mit $w_0 = a_0 + 1$.
+    Die Stellenwertnotation für $x+1$ ist $x_n...x_2x_1(x_0+1)$.
 
   ],
   [==== Fall 2],
   [
-    Es gibt keinen höheren Ziffernwert ($a_0 + 1 = b$)
+    Es gibt keinen höheren Ziffernwert ($x_0 + 1 = b$)
 
     Weil der Stellenwert sich mit jeder Stelle um Faktor $b$ erhöht, kann eine Zahl mit maximalem Ziffernwert $a_i = b - 1$ um 1 erhöht werden, indem man die vorangestellte Ziffer $a_(i+1)$ erhöht (carry). 
 

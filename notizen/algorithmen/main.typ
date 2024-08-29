@@ -200,7 +200,7 @@ Der Algorithmus ist beendet, wenn $p^2 > n$, weil es dann kein Vielfaches von $p
 
 #sieve(51)
 
-== Binäres inkrementieren
+== Addition um 1
 
 Ein Stellenwertsystem mit Basis $b$ besteht aus $b$ Schriftzeichen mit jeweils einem Wert aus ${0, 1, 2, ..., b-1}$. Der Stellenwert des Vorgängers wird um Faktor $b$ erhöht.
 
@@ -216,9 +216,24 @@ $
 
 Es gibt für jede natürliche Zahl genau eine $b$-adische Darstellung. Beweis: @proof-positional-system
 
+Aus dem induktiven Beweis ergibt sich auch der Algorithmus zur Addition um 1 (bei diesem vereinfachten Algorithmus ist ein Integer Overflow möglich).
 
+```
+def inc(x, n, b):
+  for i in range(n):
+    if x[i] + 1 == b:
+      x[i] = 0
+    elif x[i] + 1 < b:
+      x[i] += 1
+      break
+```
 
+Im Fall $b=2$ gilt für jedes bit $x+1=not x$. Die binäre Addition um 1 ist also noch einfacher:
 
-// $
-// b dot b^i = 1 dot b^(i+1)
-// $
+```
+def inc_bin(x, n):
+  for i in range(n):
+    x[i] = not x[i]
+    if x[i] == 1:
+      break
+```
