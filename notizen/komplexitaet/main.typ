@@ -22,19 +22,15 @@ Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um e
 
 == WC, BC, AC
 
-Ein Algorithmus hat bei unterschiedlichen Eingaben $Sigma^n$ der gleichen Länge $n$ ggf. unterschiedliche Laufzeiten. Zum Beispiel müssen bei der binären Addition um 1 alle 1en von rechts nach links abgelaufen werden.
+Ein Algorithmus hat bei unterschiedlichen Eingaben $Sigma^n$ der gleichen Länge $n$ ggf. unterschiedliche Laufzeiten.
 
-#[
-  #set block(width: 100%)
-  ```
-  def inc(x, n):
-    for i in n until 1:
-      flip x[i]
-      break if x[i] = 1
-  ```
-]
+Beispiel:
+- $T(#raw("inc_bin(0000)"))=1$
+- $T(#raw("inc_bin(1111)"))=4$ 
 
-Die beiden Eingaben `0000` und `0111` haben die gleiche Länge, aber bei der ersten muss nur ein Bit vertauscht werden, während bei der zweiten alle $n$ Bits vertauscht werden müssen. Die Menge aller Laufzeitfunktionen bei einer Eingabelänge $n$ sei
+=== Worst-Case und Best-Case
+
+Die Menge aller Laufzeitfunktionen bei einer Eingabelänge $n$ sei
 
 $
 Phi(n) := {T(x) | x in Sigma^n}
@@ -70,6 +66,8 @@ Die größte Funktion $T^"WC"$ beschränkt alle $T in Phi$ nach oben, die kleins
   T(n) = Omega(T^"BC" (n))
   $
 )
+
+=== Average-Case
 
 Die Average-Case-Laufzeit ist das arithmetische Mittel über alle Laufzeiten.
 

@@ -216,9 +216,11 @@ $
 
 Es gibt für jede natürliche Zahl genau eine $b$-adische Darstellung. Beweis: @proof-positional-system
 
+=== Algorithmus
+
 Aus dem induktiven Beweis ergibt sich auch der Algorithmus zur Addition um 1 (bei diesem vereinfachten Algorithmus ist ein Integer Overflow möglich).
 
-```
+```py
 def inc(x, n, b):
   for i in range(n):
     if x[i] + 1 == b:
@@ -230,7 +232,7 @@ def inc(x, n, b):
 
 Im Fall $b=2$ gilt für jedes bit $x+1=not x$. Die binäre Addition um 1 ist also noch einfacher:
 
-```
+```py
 def inc_bin(x, n):
   for i in range(n):
     x[i] = not x[i]
