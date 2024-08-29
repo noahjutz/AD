@@ -96,3 +96,6 @@ T(x) = max {k | x_k...x_2x_1x_0 = {1}^k} + 1
 $
 
 Die Hälfte der Zahlen aus ${0, 1}^n$ endet mit einer 1. Die Hälfte dieser Teilmenge endet wiederum mit zwei 1en, und so weiter.
+
+#include "binary_subsets.typ"
+
