@@ -87,7 +87,7 @@
         stroke: none,
         fill: (_, y) => if calc.odd(y) { rgb(0, 0, 0, 5%) },
         inset: (x: 8pt, y: 6pt),
-        ..it.lines
+        ..it.lines.map(l => if l.text.len() == 0 {hide("a")} else {l})
       )
     )
   }
