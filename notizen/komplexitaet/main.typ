@@ -24,9 +24,13 @@ Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um e
 
 Ein Algorithmus hat bei unterschiedlichen Eingaben $Sigma^n$ der gleichen Länge $n$ ggf. unterschiedliche Laufzeiten.
 
-Beispiel:
-- $T(#raw("inc_bin(0000)"))=1$
-- $T(#raw("inc_bin(1111)"))=4$ 
+==== Beispiel
+
+Sei $A = #raw("inc_bin")$. Desto mehr 1en am Ende hängen, desto länger muss der Carry weitergereicht werden.
+
+$
+T_A (#raw("0000")) < T_A (#raw("0111"))
+$
 
 === Worst-Case und Best-Case
 
@@ -75,10 +79,20 @@ $
 T^"AC" (n) = 1/(|Sigma^n|) sum_(x in Sigma^n) T(x)
 $
 
-Beispiel:
+==== Beispiel
+
+Es gibt $|Sigma^n| = 2^n$ binäre Zahlen der Länge $n$.
 
 $
-T_A^"AC" (n) &= 1/2^n sum_(x in {0, 1}^n) T(x) \
-&= 1/2^n sum_(x in {1, 2, ..., n}) x \
-&= n(n+1)/2^(n+1)
+T^"AC" (n) &= 1/2^n sum_(x in {0, 1}^n) T(x) \
+//&= 1/2^n sum_(x in {1, 2, ..., n}) x \
+//&= n(n+1)/2^(n+1)
 $
+
+Bei `inc_bin` wird jede 1 am Ende zu einer Null, anschließend wird eine 1 vorangehängt. Die Laufzeit für ein gegebenes $x$ ist also
+
+$
+T(x) = max {k | x_k...x_2x_1x_0 = {1}^k} + 1
+$
+
+Die Hälfte der Zahlen aus ${0, 1}^n$ endet mit einer 1. Die Hälfte dieser Teilmenge endet wiederum mit zwei 1en, und so weiter.

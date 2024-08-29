@@ -92,14 +92,6 @@
     )
   }
 
-  show raw.where(block: false): box.with(
-    fill: rgb(0, 0, 0, 6%), 
-    stroke: rgb(0, 0, 0, 12%),
-    outset: (y: 4pt), 
-    inset: (x: 4pt), 
-    radius: 4pt,
-  )
-
   show ref: ref => {
     let is_after(target, point) = {
       return query(selector(target).after(point)).len() != 0
