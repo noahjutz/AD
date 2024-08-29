@@ -190,3 +190,39 @@ lim_(n -> infinity) 2^n/n!
 &= 0 \
 &<= c #h(4pt) square.filled
 $
+
+=== Aussage 7
+
+$
+n! = O(n^n)
+$
+
+==== Beweis
+
+$
+n! = product_(i=1)^n i <= product_(i=1)^n n = n^n
+#h(4pt) square.filled
+$
+
+=== Aussage 8
+
+$
+6^(-5) n^(1.25) = Theta(sqrt(n))
+$
+
+==== Gegenbeweis
+
+Wir vernachlässigen den konstanten Faktor $6^(-5)$ und konzentrieren uns auf die obere Schranke.
+
+$
+n^1.25 in O(n^0.5)
+$
+
+Dafür ist notwendig, dass $n^0.5$ dominiert. Das ist nicht der Fall, damit ist die Annahme falsch.
+
+$
+lim_(n -> infinity) n^1.25/n^0.5
+= (lim_(n -> infinity) n)^(1.25-0.5)
+= infinity
+#h(4pt) square.filled
+$
