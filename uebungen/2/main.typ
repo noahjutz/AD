@@ -229,14 +229,7 @@ $
 
 == Formel von Binet
 
-Die Fibonacci-Folge ist als $f_n$ definiert:
-
-$
-f_n = cases(
-  1 "falls" n <= 2,
-  f_(n-1) + f_(n-2) "sonst"
-)
-$
+Die Glieder der Fibonacci-Folge $f_n$ können durch die Formel von Binet berechnet werden.
 
 === Zu zeigen
 
