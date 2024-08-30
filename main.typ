@@ -16,6 +16,7 @@
 #{
   pagebreak()
   set page(columns: 2)
+  include "notizen/mathe/main.typ"
   include "notizen/algorithmen/main.typ"
   include "notizen/komplexitaet/main.typ"
 }
