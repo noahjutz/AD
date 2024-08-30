@@ -241,9 +241,8 @@ $
 === Zu zeigen
 
 $
-forall n in NN:
+forall n in NN_0:
 f_n = (phi^n - psi^n)/(phi-psi)
-= (phi^n-psi^n)/sqrt(5)
 $
 
 $
@@ -252,12 +251,57 @@ $
 
 === Beweis
 
-==== Anfang (n = 1)
+==== Anfang (n = 0, n = 1)
+
+Wir Zeigen im Induktionsanfang, dass die Aussage für $f_0$ und $f_1$ gilt, sodass wir im Induktionsschritt für alle $f_2, f_3, ...$ auf die beiden Vorgänger zurückgreifen können.
 
 $
-f_1 = 1
-= (phi-psi)/(phi-psi)
+f_0 = 0 = (phi^0-psi^0)/(phi-psi)
 #h(4pt) checkmark
 $
 
-==== Schritt (n #sym.arrow n + 1)
+$
+f_1 = 1 = (phi-psi)/(phi-psi)
+#h(4pt) checkmark
+$
+
+==== Schritt (n - 2, n - 1 #sym.arrow n)
+
+Wir nehmen an, dass die Aussage für die Vorgänger $f_(n-2)$ und $f_(n-1)$ gilt. Wenn die Aussage auch für $f_n$ gilt, dann ist bewiesen, dass sie für alle $n in NN_0$ gilt.
+
+$
+f_n = f_(n-1) + f_(n-2)
+$
+
+Per Induktionsannahme dürfen wir einsetzen:
+
+$
+f_n = (phi^(n-1)-psi^(n-1))/(phi-psi) +
+  (phi^(n-2)-psi^(n-2))/(phi-psi) \
+$
+
+Umformen:
+
+$
+#hide($f_n$) = (
+  (phi^(n-1) + phi^(n-2)) - (psi^(n-1)+psi^(n-2))
+) / (phi-psi)
+$
+
+Ausklammern:
+
+$
+#hide($f_n$) = (
+  phi^(n-2) dot (1 + phi) - psi^(n-2) dot (1 + psi)
+) / (phi-psi)
+$
+
+Wir nutzen, dass $phi^2 = phi + 1$ und $psi^2 = psi + 1$.
+
+$
+#hide($f_n$) &= (
+  phi^(n-2) dot phi^2 - psi^(n-2) dot psi^2
+) / (phi-psi) \
+&= (phi^n-psi^n)/(phi-psi)
+#h(4pt) square.filled
+$
