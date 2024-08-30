@@ -227,4 +227,37 @@ lim_(n -> infinity) n^1.25/n^0.5
 #h(4pt) square.filled
 $
 
-== Fibonacci
+== Formel von Binet
+
+Die Fibonacci-Folge ist als $f_n$ definiert:
+
+$
+f_n = cases(
+  1 "falls" n <= 2,
+  f_(n-1) + f_(n-2) "sonst"
+)
+$
+
+=== Zu zeigen
+
+$
+forall n in NN:
+f_n = (phi^n - psi^n)/(phi-psi)
+= (phi^n-psi^n)/sqrt(5)
+$
+
+$
+"mit" phi = (1+sqrt(5))/2 "und" psi = (1-sqrt(5))/2
+$
+
+=== Beweis
+
+==== Anfang (n = 1)
+
+$
+f_1 = 1
+= (phi-psi)/(phi-psi)
+#h(4pt) checkmark
+$
+
+==== Schritt (n #sym.arrow n + 1)
