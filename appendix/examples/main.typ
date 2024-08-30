@@ -20,7 +20,7 @@ Die Hälfte der Zahlen aus ${0, 1}^n$ endet mit einer 1. Die Hälfte dieser Teil
 
 #include "binary_subsets.typ"
 
-Daher ist die Summe aller Laufzeiten eine Endliche geometrische Reihe mit der Basis $1/2$.
+Daher ist die Summe aller Laufzeiten eine endliche geometrische Reihe mit der Basis $1/2$.
 
 $
 sum_(x in {0, 1}^n) T(x)
