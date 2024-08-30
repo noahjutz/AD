@@ -19,6 +19,12 @@
 
   plot.plot(axis-style: none, {
     plot.add(
+      domain: (0, n),
+      x => calc.pow(phi, x) / calc.sqrt(5),
+      style: (stroke: gray),
+    )
+
+    plot.add(
       data,
       style: (stroke: none),
       mark: "o",
