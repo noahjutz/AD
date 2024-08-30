@@ -298,3 +298,6 @@ $
 &= (phi^n-psi^n)/(phi-psi)
 #h(4pt) square.filled
 $
+
+=== Laufzeit Fibonacci rekursiv
+
