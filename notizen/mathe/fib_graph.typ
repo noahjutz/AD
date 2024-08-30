@@ -1,7 +1,7 @@
 #import "@preview/cetz:0.2.2"
 
 #let fibs(n) = {
-  let r = (1, 1)
+  let r = (0, 1)
   for i in range(2, n) {
     let next = r.at(i - 1) + r.at(i - 2)
     r.push(next)
@@ -13,7 +13,7 @@
   import cetz.draw: *
   import cetz.plot
 
-  let n = 10
+  let n = 12
   let data = fibs(n).enumerate()
   let phi = 1.618
 
