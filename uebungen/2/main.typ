@@ -299,5 +299,9 @@ $
 #h(4pt) square.filled
 $
 
+=== Vereinfachung
+
+#include "psi_convergence.typ"
+
 === Laufzeit Fibonacci rekursiv
 
