@@ -12,4 +12,6 @@ f_n = cases(
 )
 $
 
-#include "fib_graph.typ"
+#include "fib_tree.typ"
+
+#include "fib_plot.typ"
