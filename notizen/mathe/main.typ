@@ -12,6 +12,6 @@ f_n = cases(
 )
 $
 
-#include "fib_tree.typ"
+#align(center, include "fib_tree.typ")
 
 #include "fib_plot.typ"
