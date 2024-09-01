@@ -5,16 +5,40 @@
   import cetz.plot
 
   plot.plot(
-    axis-style: none,
-    size: (1, .3), {
-    let psi = -0.6180339887
-    let values = range(15).map(x => (x, calc.pow(psi, x)))
-    plot.add(
-      values,
-      style: (stroke: none),
-      mark: "o",
-      mark-size: 4pt,
-      mark-style: (stroke: none, fill: black)
-    )
-  })
+    axis-style: "school-book",
+    x-tick-step: none,
+    x-ticks: (1,),
+    y-tick-step: none,
+    y-ticks: (-1, 1,),
+    y-min: -1,
+    y-max: 1,
+    x-min: -1,
+    x-label: none,
+    y-label: none,
+    size: (.8, .3),
+    {
+      let n = 10
+      let phi = 1.6180339887
+      let psi = -0.6180339887
+
+      plot.add(
+        domain: (0, n),
+        x => calc.pow(1/phi, x),
+        style: (stroke: gray)
+      )
+      plot.add(
+        domain: (0, n),
+        x => -calc.pow(1/phi, x),
+        style: (stroke: gray)
+      )
+
+      let values = range(n).map(x => (x, calc.pow(psi, x)))
+      plot.add(
+        values,
+        style: (stroke: none),
+        mark: "o",
+        mark-size: 8pt,
+        mark-style: (stroke: none, fill: black)
+      )
+    })
 })
