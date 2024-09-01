@@ -31,7 +31,7 @@
   import cetz.draw: *
   import cetz.tree
 
-  let data = fibtree(5)
+  let data = fibtree(2)
   tree.tree(
     contentify(data),
     grow: .8,
