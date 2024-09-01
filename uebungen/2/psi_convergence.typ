@@ -24,12 +24,12 @@
       plot.add(
         domain: (0, n),
         x => calc.pow(1/phi, x),
-        style: (stroke: gray)
+        style: (stroke: (paint: gray, dash: "dashed")),
       )
       plot.add(
         domain: (0, n),
         x => -calc.pow(1/phi, x),
-        style: (stroke: gray)
+        style: (stroke: (paint: gray, dash: "dashed")),
       )
 
       let values = range(n).map(x => (x, calc.pow(psi, x)))
@@ -37,7 +37,7 @@
         values,
         style: (stroke: none),
         mark: "o",
-        mark-size: 8pt,
+        mark-size: 6pt,
         mark-style: (stroke: none, fill: black)
       )
     })
