@@ -19,8 +19,7 @@
     } else {
       circle(
         radius: 6pt,
-        stroke: none,
-        fill: if e {black} else {gray}
+        fill: if e {black} else {none}
       )
     }
   }
