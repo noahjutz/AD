@@ -231,7 +231,7 @@ $
 
 Die Glieder der Fibonacci-Folge $f_n$ können durch die Formel von Binet berechnet werden.
 
-=== Zu zeigen
+=== Satz
 
 $
 forall n in NN_0:
@@ -299,9 +299,19 @@ $
 #h(4pt) square.filled
 $
 
-=== Vereinfachung
+=== Veranschaulichung
+
+
+
+=== Laufzeitbeweis
+
+
 
 #include "psi_convergence.typ"
 
-=== Laufzeit Fibonacci rekursiv
+Für alle $n in NN_0$ gilt
+
+$
+(phi^n-psi^n)/(phi-psi) = round(phi^n/(phi-psi))
+$
 
