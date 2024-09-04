@@ -19,7 +19,8 @@
     } else {
       circle(
         radius: 6pt,
-        fill: if e {black} else {none}
+        fill: if e {black} else {white},
+        stroke: black,
       )
     }
   }
@@ -35,9 +36,13 @@
     contentify(data),
     grow: .8,
     spread: .8,
-    draw-edge: (from, to, ..) => line(
-      from + ".center",
-      to + ".center",
-    )
+    parent-position: "begin",
+    draw-edge: (from, to, ..) => on-layer(-1, {
+      line(
+        from,
+        (from, "-|", to,),
+        to
+      )
+    })
   )
 })

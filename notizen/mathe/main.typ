@@ -45,6 +45,6 @@ Die ersten 10 Fibonacci-Zahlen sind folglich:
 
 Diese Folge beantwortet übrigens die Frage, wie viele Kaninchen es nach $n$ Monaten gibt, wenn jedes erwachsene Kaninchen (Mindestens 1 Monat alt) jeden Monat ein Nachkommen produziert, und niemals stirbt. 
 
-#align(center, include "fib_tree.typ")
+#include "fib_tree.typ"
 
 #include "fib_plot.typ"
