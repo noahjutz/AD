@@ -31,7 +31,26 @@
   import cetz.draw: *
   import cetz.tree
 
-  let data = fibtree(5)
+  let n = 5
+
+  let labels = ($f_#(n - 1)$,)
+  for i in range(n - 2, -1, step: -1) {
+    labels = ($f_#i$, array(labels))
+  }
+  tree.tree(
+    labels,
+    name: "labels",
+    draw-edge: (..) => {},
+  )
+
+  get-ctx(ctx => {
+    let (ctx, (start, ..), (end, ..)) = cetz.coordinate.resolve(ctx, "labels.west", "labels.east")
+
+    translate((end - start, 0))
+    translate(x: 8pt)
+  })
+
+  let data = fibtree(n)
   tree.tree(
     contentify(data),
     grow: .8,
