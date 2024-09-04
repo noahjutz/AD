@@ -1,4 +1,5 @@
 #import "@preview/cetz:0.2.2"
+#import "/config.typ": theme
 
 #let fibs(n) = {
   let r = (0, 1)
@@ -9,7 +10,7 @@
   return r
 }
 
-#cetz.canvas(length: 95%, {
+#cetz.canvas(length: 85%, {
   import cetz.draw: *
   import cetz.plot
 
@@ -19,11 +20,12 @@
 
   plot.plot(
     axis-style: none,
-    size: (1, .5), {
+    size: (1, .5),
+    name: "plot", {
     plot.add(
       domain: (0, n),
       x => calc.pow(phi, x) / calc.sqrt(5),
-      style: (stroke: gray),
+      style: (stroke: theme.primary),
     )
 
     plot.add(
@@ -39,4 +41,8 @@
       }
     })
   })
+
+  content("plot.north-east", anchor: "west")[
+    #text(fill: theme.primary)[$f(n)$]
+  ]
 })

@@ -49,7 +49,7 @@ Die ersten 10 Fibonacci-Zahlen sind:
 
 === Fibonaccis Kaninchen
 
-Wie viele Kaninchen gibt es nach $n$ Monaten, wenn jedes erwachsene Kaninchen (Mindestens 1 Monat alt) jeden Monat ein Nachkommen produziert, und niemals stirbt?
+Wie viele Kaninchen gibt es nach $n$ Monaten, wenn jedes erwachsene Kaninchen (mindestens 1 Monat alt) jeden Monat ein Nachkommen produziert, und niemals stirbt?
 
 #include "fib_tree.typ"
 
@@ -61,6 +61,16 @@ $
 
 === Iterative Lösung
 
-
-
 #include "fib_plot.typ"
+
+Es gibt eine Funktion $f(n)$, welche die $n$-te Fibonacci-Zahl ohne Rekursion berechnet. Für diese Funktion muss gelten:
+
+$
+f(n) = f(n-1) + f(n-2)
+$
+
+Wir nehmen an, dass diese Funktion exponentiell verläuft, weil TODO.
+
+$
+f(n) = r^n
+$
