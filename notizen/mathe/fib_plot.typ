@@ -17,7 +17,9 @@
   let data = fibs(n).enumerate()
   let phi = 1.618
 
-  plot.plot(axis-style: none, {
+  plot.plot(
+    axis-style: none,
+    size: (1, .5), {
     plot.add(
       domain: (0, n),
       x => calc.pow(phi, x) / calc.sqrt(5),
