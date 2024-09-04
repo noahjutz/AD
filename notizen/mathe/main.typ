@@ -14,7 +14,11 @@ $
 x_n = a_1x_(n-1) + a_2x_(n-2) + ... + a_n x_(n-k) + b
 $
 
-Man nennt man diese _homogen_, wenn sie keinen konstanten Term $b$ hat. Die Fibonacci-Folge erfüllt eine _homogene lineare Differenzengleichung_ der Ordnung $k=2$.
+Man nennt man diese _homogen_, wenn sie keinen konstanten Term $b$ hat.
+
+=== Definition
+
+Die Fibonacci-Folge erfüllt eine _homogene lineare Differenzengleichung_ der Ordnung $k=2$.
 
 $
 x_n = a_1x_(n-1) + a_2x_(n-2)
@@ -30,7 +34,7 @@ f_n = cases(
 )
 $
 
-Die ersten 10 Fibonacci-Zahlen sind folglich:
+Die ersten 10 Fibonacci-Zahlen sind:
 
 #{
   show table.cell.where(y: 0): set text(fill: gray)
@@ -43,8 +47,18 @@ Die ersten 10 Fibonacci-Zahlen sind folglich:
   )
 }
 
-Diese Folge beantwortet übrigens die Frage, wie viele Kaninchen es nach $n$ Monaten gibt, wenn jedes erwachsene Kaninchen (Mindestens 1 Monat alt) jeden Monat ein Nachkommen produziert, und niemals stirbt. 
+=== Fibonaccis Kaninchen
+
+Wie viele Kaninchen gibt es nach $n$ Monaten, wenn jedes erwachsene Kaninchen (Mindestens 1 Monat alt) jeden Monat ein Nachkommen produziert, und niemals stirbt?
 
 #include "fib_tree.typ"
+
+Die Anzahl an Kaninchen in einem Monat $n$ sind zunächst alle Kaninchen, die es im Monat davor schon gibt ($f_(n-1)$). Es kommen $f_(n-2)$ neue Kaninchen dazu, weil jedes erwachsene Kaninchen ein neues zeugt. Um erwachsen zu sein, muss es schon zwei Monate zuvor existiert haben. Daraus ergibt sich die Fibonacci-Folge.
+
+$
+f_n = f_(n-1) + f_(n-2)
+$
+
+=== Iterative Lösung
 
 #include "fib_plot.typ"
