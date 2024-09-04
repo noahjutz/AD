@@ -48,6 +48,7 @@
 #outline(
   target: selector(heading)
     .after(<appendix>, inclusive: false)
+    .before(<literatur>, inclusive: false)
 )
 
 #{
@@ -58,3 +59,16 @@
   show: columns.with(2)
   include "appendix/examples/main.typ"
 }
+
+#pagebreak()
+#title
+#heading(numbering: none)[
+  #text(weight: 100, size: 40pt)[Bibliographie]
+] <literatur>
+#outline(
+  target: selector(heading)
+    .after(<literatur>, inclusive: false)
+)
+
+#pagebreak()
+#bibliography("sources.yml", title: none)
