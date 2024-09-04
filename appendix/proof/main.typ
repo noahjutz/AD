@@ -47,7 +47,12 @@
 
     Die niederwertigste Ziffer kann erhöht werden ($x_0 + 1 < b$)
 
-    Die Stellenwertnotation für $x+1$ ist $x_n...x_2x_1(x_0+1)$.
+    Die Stellenwertnotation für $x+1$ ist
+
+    $
+    x_n...x_2x_1(x_0+1)
+    #h(4pt) checkmark
+    $
 
   ],
   [==== Fall 2],
@@ -65,5 +70,7 @@
     )
     #h(12pt) checkmark
     $
+
+    Damit ist bewiesen, dass jede Stellenwertnotation um 1 erhöht werden kann, wodurch der Induktionsbeweis gilt. $square.filled$
   ]
 )
