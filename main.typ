@@ -54,9 +54,8 @@
 #{
   counter(heading).update(0)
   pagebreak()
+  set page(columns: 2)
   include "appendix/proof/main.typ"
-  pagebreak()
-  show: columns.with(2)
   include "appendix/examples/main.typ"
 }
 
