@@ -69,8 +69,10 @@ $
 f(n) = f(n-1) + f(n-2)
 $
 
-Wir nehmen an, dass diese Funktion exponentiell verläuft, weil TODO.
+// Wir nehmen an, dass diese Funktion exponentiell wächst, weil die Fibonacci-Folge für $n -> infinity$ eine geometrische Folge ist.
+// 
+// $
+// f(n) = r^n
+// $
 
-$
-f(n) = r^n
-$
+Das Verhältnis zwischen zwei Fibonacci-Zahlen $f_n/f_(n-1)$ konvergiert für $n -> infinity$ gegen einen konstanten Wert $phi approx 1.618$. Beweis: @proof-fib-convergence

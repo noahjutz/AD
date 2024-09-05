@@ -74,3 +74,5 @@
     Damit ist bewiesen, dass jede Stellenwertnotation um 1 erhöht werden kann, wodurch der Induktionsbeweis gilt. $square.filled$
   ]
 )
+
+== Konvergenz der Fibonacci-Folge <proof-fib-convergence>
