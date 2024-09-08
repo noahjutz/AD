@@ -69,10 +69,15 @@ $
 f(n) = f(n-1) + f(n-2)
 $
 
+Das Verhältnis zwischen zwei Fibonacci-Zahlen $f_n/f_(n-1)$ konvergiert für $n -> infinity$ gegen einen konstanten Wert $phi approx 1.618$. Beweis: @proof-fib-limit. Die Fibonacci-Folge nähert sich einer geometrischen Folge an.
+
+$
+x_n = x_0 dot phi^n
+$
+
 // Wir nehmen an, dass diese Funktion exponentiell wächst, weil die Fibonacci-Folge für $n -> infinity$ eine geometrische Folge ist.
 // 
 // $
 // f(n) = r^n
 // $
 
-Das Verhältnis zwischen zwei Fibonacci-Zahlen $f_n/f_(n-1)$ konvergiert für $n -> infinity$ gegen einen konstanten Wert $phi approx 1.618$. Beweis: @proof-fib-limit
