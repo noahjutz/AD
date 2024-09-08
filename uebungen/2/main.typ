@@ -299,19 +299,33 @@ $
 #h(4pt) square.filled
 $
 
-=== Veranschaulichung
+=== Vereinfachung
+
+Die Formel von Binet besteht aus einem Minuend und einem Subtrahend.
+
+#grid(columns: 2, column-gutter: 12pt, align: horizon,
+  $
+  phi^n/sqrt(5) - psi^n/sqrt(5)
+  $,
+  text(fill: gray)[(Per Definition: $phi-psi=sqrt(5)$)],
+)
 
 
-
-=== Laufzeitbeweis
-
-
+Der Term $psi^n$ konvergiert gegen null und ist bereits ab $n >= 0$ im Intervall $[-1, 1]$.
 
 #include "psi_convergence.typ"
 
-Für alle $n in NN_0$ gilt
+Der Subtrahend verändert das Ergebnis also um weniger als $1/2$.
+
+$
+abs(psi^n/sqrt(5)) <= 1/sqrt(5) < 1/2
+$
+
+Dieser Fehler kann durch Rundung vernachlässigt werden. Es gilt also die vereinfachte Formel von Binet:
 
 $
 (phi^n-psi^n)/(phi-psi) = round(phi^n/(phi-psi))
+#h(8pt) forall n in NN_0
 $
 
+=== Laufzeit

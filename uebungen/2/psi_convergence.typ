@@ -13,8 +13,8 @@
     y-min: -1,
     y-max: 1,
     x-min: -1,
-    x-label: none,
-    y-label: none,
+    x-label: $n$,
+    y-label: $psi^n$,
     size: (.8, .3),
     {
       let n = 10
