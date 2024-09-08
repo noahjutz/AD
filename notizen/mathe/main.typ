@@ -75,4 +75,4 @@ $
 // f(n) = r^n
 // $
 
-Das Verhältnis zwischen zwei Fibonacci-Zahlen $f_n/f_(n-1)$ konvergiert für $n -> infinity$ gegen einen konstanten Wert $phi approx 1.618$. Beweis: @proof-fib-convergence
+Das Verhältnis zwischen zwei Fibonacci-Zahlen $f_n/f_(n-1)$ konvergiert für $n -> infinity$ gegen einen konstanten Wert $phi approx 1.618$. Beweis: @proof-fib-limit

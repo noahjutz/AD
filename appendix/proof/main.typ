@@ -69,4 +69,25 @@ $
 
 Damit ist bewiesen, dass jede Stellenwertnotation um 1 erhöht werden kann, wodurch der Induktionsbeweis gilt. $square.filled$
 
-== Konvergenz der Fibonacci-Folge <proof-fib-convergence>
+== Grenzwert der Fibonacci-Folge <proof-fib-limit>
+
+=== Zu zeigen
+
+Das Verhältnis zwei aufeinanderfolgender Fibonacci-Zahlen $f_(n+1)/f_n$ konvergiert gegen $phi approx 1.618$.
+
+=== Beweis
+
+$
+&& f_n &= f_(n-1) + f_(n-2) \
+&<=>& f_n/f_(n-1) &= f_(n-1)/f_(n-1) + f_(n-2)/f_(n-1) \
+&<=>& f_(n+1)/f_n &= 1 + f_n/f_(n+1) \
+&<=>& x &= 1 + 1/x \
+&<=>& x^2 &= x + 1 \
+&<=>& 0 &= x^2 - x - 1 \
+&<=>& x &= (1 plus.minus sqrt(5))/2
+$
+
+$
+phi = (1+sqrt(5))/2 approx 1.618
+#h(4pt) square.filled
+$
