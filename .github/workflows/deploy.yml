@@ -12,9 +12,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: typst-community/setup-typst@v3
       - run: |
-          typst fonts
+          typst fonts --font-path .
           echo ---
-          typst fonts | grep -i math
+          typst fonts --font-path . | grep -i math
       - run: git clone https://github.com/noahjutz/AD-assets.git
       - run: typst compile --font-path . main.typ
       - uses: softprops/action-gh-release@v2
@@ -25,7 +25,7 @@ jobs:
           pwd
           ls -a
           typst --version
-          typst fonts
+          typst fonts --font-path .
           echo ---
-          typst fonts | grep -i math
+          typst fonts --font-path . | grep -i math
       
