@@ -17,6 +17,7 @@
   )
 
   set par(justify: true)
+  show figure: set par(justify: false)
 
   set outline(
     indent: true,

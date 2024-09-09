@@ -330,6 +330,8 @@ $
 
 === Laufzeit
 
-Die Laufzeit der rekursiven Berechnug einer Fibonacci-Zahl $f_n$ ist exponentiell, weil jeder Funktionsaufruf zwei weitere Aufrufe tätigt.
+Die Laufzeit der rekursiven Berechnug einer Fibonacci-Zahl $f_n$ ist exponentiell, weil jeder Funktionsaufruf zwei weitere Aufrufe tätigt, bis der base case erreicht ist.
 
+#figure(caption: "Rekursionsbaum der Fibonacci-Funktion")[
 #include "rec_tree.typ"
+]
