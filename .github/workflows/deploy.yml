@@ -17,4 +17,8 @@ jobs:
         with:
           files: main.pdf
           token: ${{ secrets.TOKEN }}
+      - run: |
+          pwd
+          ls -a
+          typst --version
       
