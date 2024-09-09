@@ -321,7 +321,7 @@ $
 abs(psi^n/sqrt(5)) <= 1/sqrt(5) < 1/2
 $
 
-Dieser Fehler kann durch Rundung vernachlässigt werden. Es gilt also die vereinfachte Formel von Binet:
+Dieser Fehler wird durch Rundung korregiert, weil die Formel von Binet eine ganze Zahl liefert. Es gilt also die vereinfachte Formel von Binet:
 
 $
 (phi^n-psi^n)/(phi-psi) = round(phi^n/(phi-psi))
@@ -329,3 +329,7 @@ $
 $
 
 === Laufzeit
+
+Die Laufzeit der rekursiven Berechnug einer Fibonacci-Zahl $f_n$ ist exponentiell, weil jeder Funktionsaufruf zwei weitere Aufrufe tätigt.
+
+#include "rec_tree.typ"
