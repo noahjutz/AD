@@ -12,7 +12,6 @@
   import cetz.tree
 
   let n = 5
-  let data = rec_tree(n)
   set-style(content: (padding: 4pt))
   tree.tree(rec_tree(n).map(to_content))
 })
