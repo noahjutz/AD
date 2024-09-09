@@ -330,8 +330,26 @@ $
 
 === Laufzeit
 
-Die Laufzeit der rekursiven Berechnug einer Fibonacci-Zahl $f_n$ ist exponentiell, weil jeder Funktionsaufruf zwei weitere Aufrufe tätigt, bis der base case erreicht ist.
+Die Laufzeit der rekursiven Berechnug einer Fibonacci-Zahl $f_n$ ist exponentiell, weil jeder Funktionsaufruf zwei weitere Aufrufe tätigt ($f_(n-1)$ und $f_(n-2)$), bis der base case erreicht ist.
 
 #include "rec_tree.typ"
 
-Sie ist aber schneller als $Omega(2^n)$
+Sie ist aber schneller als $Theta(2^n)$, weil der rechte Teilbaum eines Knotens jeweils das Problem um 2 reduziert, statt nur um 1.
+
+Wir wissen, dass die Laufzeit von $T(n)$ für alle $n > 1$ die Summe der beiden Laufzeiten $T(n-1)$ und $T(n-2)$ ist.
+
+$
+&& T(n) &= T(n-1) + T(n-2) \
+&<=>& x^n &= x^(n-1) + x^(n-2) \
+&<=>& x^n/x^(n-2) &= x^(n-1)/x^(n-2) + x^(n-2)/x^(n-2) \
+&<=>& x^2 &= x + 1 \
+&<=>& 0 &= x^2 - x - 1 \
+&<=>& x &= (1 plus.minus sqrt(5))/2
+$
+
+Das Ergebnis kann nur positiv sein, somit ist
+
+$
+T(n) = ((1+sqrt(5))/2)^n = phi^n
+#h(4pt) square.filled
+$
