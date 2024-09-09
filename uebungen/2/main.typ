@@ -353,3 +353,37 @@ $
 T(n) = ((1+sqrt(5))/2)^n = phi^n
 #h(4pt) square.filled
 $
+
+== O-Notation
+
+=== Aussage 1
+
+$
+sum_(k=0)^infinity k^2/2^k = O(1)
+$
+
+==== Beweis
+
+Die gegebene Reihe ist konvergent. Beweis mittels Wurzelkriterium:
+
+$
+lim_(k -> infinity) root(k, k^2/2^k)
+= 1/2 lim_(k -> infinity) root(k, k) dot root(k, k)
+= 1/2
+#h(4pt) square.filled
+$
+
+=== Aussage 2
+
+$
+forall m in NN, alpha > 1 : n^m = O(alpha^n)
+$
+
+==== Beweis
+
+Jedes polynomielle Wachstum kann mit einem konstanten Faktor $c$ durch jedes exponentielle Wachstum nach oben beschränkt werden.
+
+$
+n^m <= c dot alpha^n
+$
+
