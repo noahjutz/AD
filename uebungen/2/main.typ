@@ -381,9 +381,24 @@ $
 
 ==== Beweis
 
-Jedes polynomielle Wachstum kann mit einem konstanten Faktor $c$ durch jedes exponentielle Wachstum nach oben beschränkt werden.
+Eine Funktion, die eine andere asymptotisch dominiert, beschränkt sie auch nach oben.
 
 $
-n^m <= c dot alpha^n
+lim_(n -> infinity) g(n)/f(n) <= c => g(n) = O(f(n))
+$
+
+Wir wenden die Regel von de L'Hospital $m$-mal an, um den Grenzwert zu berechnen.
+
+$
+#let lim=$lim_(n -> infinity)$
+
+lim n^m/alpha^n
+&=^f^((1)) lim (m dot n^(m-1))/(alpha^n dot ln(alpha)) \
+&=^f^((2)) lim (m dot (m-1) dot n^(m-2))/(alpha^n dot (ln(alpha))^2) \
+&=^f^((3)) lim (m dot (m-1) dot (m-2) dot n^(m-3))/(alpha^n dot (ln(alpha))^3) \
+&=^f^((m)) lim (m! dot n^(m-m))/(alpha^n dot (ln(alpha))^m) \
+&= m!/((ln(alpha))^m) dot lim 1/alpha^n \
+&= 0
+#h(4pt) square.filled
 $
 
