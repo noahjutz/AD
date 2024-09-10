@@ -389,8 +389,9 @@ $
 
 Wir wenden die Regel von de L'Hospital $m$-mal an, um den Grenzwert zu berechnen.
 
-$
+#[
 #let lim=$lim_(n -> infinity)$
+$
 
 lim n^m/alpha^n
 &=^f^((1)) lim (m dot n^(m-1))/(alpha^n dot ln(alpha)) \
@@ -401,4 +402,38 @@ lim n^m/alpha^n
 &= 0
 #h(4pt) square.filled
 $
+]
 
+=== Aussage 3
+
+$
+n ln n = O(n^(3/2))
+$
+
+==== Beweis
+
+#[
+#let lim=$lim_(n -> infinity)$
+$
+lim (n ln n)/(n^(3/2))
+&= lim n/n dot ln(n)/sqrt(n) \
+&= lim (1/n)/(1/(2sqrt(n))) 
+#text(fill: gray, "de L'Hospital")\
+&= lim (2sqrt(n))/n \
+&= lim 2/sqrt(n) \
+&= 0
+#h(4pt) square.filled
+$
+]
+
+=== Aussage 4
+
+$
+5^(log_3n) = O(n^2)
+$
+
+==== Beweis
+
+$
+5^(log_3n) = 
+$
