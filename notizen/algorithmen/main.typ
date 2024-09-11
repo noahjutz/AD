@@ -272,24 +272,27 @@ $
 Für jede Teilfolge muss nur noch die Summe berechnet werden, sodass man die maximale Summe auswählen kann.
 
 ```python
-# ...
-    sum(array[i:j])
+sum(array[i:j])
 ```
 
-Die Laufzeit für die Berechnung der Summe ist $Theta(n)$, weil eine Operation für jedes Element in `array[i:j]` ausgeführt wird.
+Die Laufzeit für die Berechnung der Summe ist $Theta(n)$, weil eine Operation für jedes Element in `array[i:j]` ausgeführt wird, und dieses Array eine Länge von $Theta(n)$ hat.
 
 $
-sum_(k=i)^(j) 1
-&= j - i
+S^"AC"_"array" (n) &= sum_(i=1)^n (1/2)^i \
+&= n/2 = Theta(n)
 $
 
-Die Länge dieses Arrays ist $Theta(n)$, weil
+Die Laufzeit für den naiven Algorithmus ist damit $Theta(n^2 dot n) = Theta(n^3)$.
 
-$
-sum_(i=0)^(n-1) sum_(j=i)^(n-1) sum_(k=i)^j 1
-&= sum_(i=1)^n sum_(j=i)^n sum_(k=i)^j 1 \
-&= sum_(i=1)^n sum_(j=i)^n j - i \
-&= sum_(i=1)^n sum_(j=0)^(n-i) j \
-&= sum_(i=1)^n sum_(j=0)^(i) j \
-&= sum_(i=1)^n (i^2+i)/2 
-$
+// Volle Laufzeitberechnung
+// $
+// sum_(i=0)^(n-1) sum_(j=i)^(n-1) sum_(k=i)^j 1
+// &= sum_(i=1)^n sum_(j=i)^n sum_(k=i)^j 1 \
+// &= sum_(i=1)^n sum_(j=i)^n j - i \
+// &= sum_(i=1)^n sum_(j=0)^(n-i) j \
+// &= sum_(i=1)^n sum_(j=0)^(i) j \
+// &= sum_(i=1)^n (i^2+i)/2  \ 
+// &= 1/2 (sum_(i=1)^n i + sum_(i=1)^n i^2) \
+// &= 1/2 ((n(n+1))/2 + (n(n+1)(2n+1))/6) \
+// &= Theta(n^3)
+// $
