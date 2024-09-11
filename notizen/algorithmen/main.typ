@@ -246,7 +246,7 @@ Gesucht ist die Teilfolge, welche aufsummiert maximal ist.
 
 #include "max_subarray.typ"
 
-=== Naiver Algorithmus
+=== Naiver Algorithmus (MTS1)
 
 Am einfachsten wäre es, alle Möglichkeiten durchzuprobieren und das größte Ergebnis zu nehmen. Die möglichen Teilfolgen haben für jeden Startwert von $0 <= i < n$ einen Endwert von $i <= j < n$. Sie können also mit zwei for-loops durchlaufen werden.
 
@@ -296,3 +296,20 @@ Die Laufzeit für den naiven Algorithmus ist damit $Theta(n^2 dot n) = Theta(n^3
 // &= 1/2 ((n(n+1))/2 + (n(n+1)(2n+1))/6) \
 // &= Theta(n^3)
 // $
+
+=== Quadratischer Algorithmus (MTS2)
+
+Dadurch, dass bereits in der inneren Schleife alle Elemente von $i$ nach $j$ angeschaut werden, ist eine nochmalige Iteration zur Summierung redundant.
+
+```python
+for i in range(n):
+  sum = 0
+  for j in range(i, n):
+    sum += array[j]
+```
+
+Damit wurde die Laufzeit auf $Theta(n^2)$ reduziert.
+
+=== Linearer Algorithmus (MTS3)
+
+=== Sublinearer Algorithmus (MTS4)
