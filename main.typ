@@ -38,6 +38,7 @@
   set page(columns: 2)
   include "uebungen/1/main.typ"
   include "uebungen/2/main.typ"
+  include "uebungen/3/main.typ"
 }
 
 #pagebreak()
