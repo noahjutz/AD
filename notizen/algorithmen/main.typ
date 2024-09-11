@@ -246,8 +246,50 @@ Gesucht ist die Teilfolge, welche aufsummiert maximal ist.
 
 #include "max_subarray.typ"
 
+=== Naiver Algorithmus
 
+Am einfachsten wäre es, alle Möglichkeiten durchzuprobieren und das größte Ergebnis zu nehmen. Die möglichen Teilfolgen haben für jeden Startwert von $0 <= i < n$ einen Endwert von $i <= j < n$. Sie können also mit zwei for-loops durchlaufen werden.
+
+```python
+for i in range(n):
+  for j in range(i, n):
+    # ...
+```
+
+Die Laufzeit für diesen Teil des Algorithmus ist $Theta(n^2)$.
 
 $
-max_(0<=i<=j<=n-1) sum_(k=i)^j a_i
+sum_(i=0)^(n-1) sum_(j=i)^(n-1) 1
+&= sum_(i=0)^(n-1) (n-1-i) \
+&= n^2 - n - sum_(i=0)^(n-1) i 
+#h(4pt) #text(fill: gray, font: "Noto Sans")[Gauß-Summe] \
+&= n^2 - n - (n^2-n)/2 \
+&= 1/2 dot (n^2-n) \
+&= Theta(n^2)
+#h(4pt) square.filled
+$
+
+Für jede Teilfolge muss nur noch die Summe berechnet werden, sodass man die maximale Summe auswählen kann.
+
+```python
+# ...
+    sum(array[i:j])
+```
+
+Die Laufzeit für die Berechnung der Summe ist $Theta(n)$, weil eine Operation für jedes Element in `array[i:j]` ausgeführt wird.
+
+$
+sum_(k=i)^(j) 1
+&= j - i
+$
+
+Die Länge dieses Arrays ist $Theta(n)$, weil
+
+$
+sum_(i=0)^(n-1) sum_(j=i)^(n-1) sum_(k=i)^j 1
+&= sum_(i=1)^n sum_(j=i)^n sum_(k=i)^j 1 \
+&= sum_(i=1)^n sum_(j=i)^n j - i \
+&= sum_(i=1)^n sum_(j=0)^(n-i) j \
+&= sum_(i=1)^n sum_(j=0)^(i) j \
+&= sum_(i=1)^n (i^2+i)/2 
 $
