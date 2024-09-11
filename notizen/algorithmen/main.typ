@@ -239,3 +239,15 @@ def inc_bin(x, n):
     if x[i] == 1:
       break
 ```
+
+== MaxTeilSum
+
+Gesucht ist die Teilfolge, welche aufsummiert maximal ist.
+
+#include "max_subarray.typ"
+
+
+
+$
+max_(0<=i<=j<=n-1) sum_(k=i)^j a_i
+$
