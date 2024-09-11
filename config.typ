@@ -66,10 +66,9 @@
       if h.has("label") {
         let refs = query(ref.where(target: h.label))
         if refs.len() != 0 {
-          set text(font: "Noto Sans", size: 11pt, weight: "regular")
           text(" ")
           let target = refs.first().location()
-          link(target, text(font: "Material Icons", "arrow_upward"))
+          link(target, sym.arrow.t.stop)
         }
       }
     })
