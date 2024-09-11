@@ -434,6 +434,14 @@ $
 
 ==== Beweis
 
+#[
+#let lim=$lim_(n -> infinity)$
 $
-5^(log_3n) = 
+lim 5^(log_3n)/n^2
+&= lim (3^(log_3n) dot 0.6^(log_3n))/n^2 \
+&= lim (n dot 0.6^(log_3n))/n^2 \
+&= lim 0.6^(log_3n)/n \
+&= 0
+#h(4pt) square.filled
 $
+]
