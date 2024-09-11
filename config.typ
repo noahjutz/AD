@@ -75,6 +75,7 @@
   }
 
   show raw: set text(font: "Noto Sans Mono")
+  show raw.where(block: false): set text(size: 11pt)
 
   show raw.where(block: true): it => {
     set par(justify: false)
