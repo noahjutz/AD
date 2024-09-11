@@ -74,6 +74,8 @@
     })
   }
 
+  show raw: set text(font: "Noto Sans Mono")
+
   show raw.where(block: true): it => {
     set par(justify: false)
     block(
