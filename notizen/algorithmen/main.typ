@@ -310,6 +310,16 @@ for i in range(n):
 
 Damit wurde die Laufzeit auf $Theta(n^2)$ reduziert.
 
-=== Linearer Algorithmus (MTS3)
+=== Algorithmus von Kadane (MTS3)
+
+Der Algorithmus von Kadane läuft eine Liste nur einmal durch, und hat deshalb eine lineare Laufzeit.
+
+#include "kadane.typ"
+
+```python
+for x in numbers:
+  current = max(x, current + x)
+  best = max(best, current)
+```
 
 === Sublinearer Algorithmus (MTS4)
