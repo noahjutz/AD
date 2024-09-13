@@ -39,7 +39,6 @@
 #table(
   columns: (1fr,) * (nums.len() + 1),
   align: end,
-  row-gutter: 6pt,
   stroke: none,
   ..c.flatten()
 )
