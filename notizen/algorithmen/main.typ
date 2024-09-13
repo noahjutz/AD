@@ -316,7 +316,7 @@ Der Algorithmus von Kadane läuft eine Liste von links nach rechts durch, und ha
 
 #include "kadane.typ"
 
-Für jedes Element $x$ wird `aktSum` berechnet (erste Spalte). Das ist die maximale Teilsumme, welche an dieser Stelle endet. 
+Für jedes Element $x$ wird `aktSum` berechnet (erste Spalte). Das ist die maximale Teilsumme, welche an dieser Stelle endet. Beweis: @proof-kadane
 
 ```python
 aktSum = max(x, aktSum + x)

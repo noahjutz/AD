@@ -91,3 +91,28 @@ $
 phi = (1+sqrt(5))/2 approx 1.618
 #h(4pt) square.filled
 $
+
+== Kadane <proof-kadane>
+
+=== Zu zeigen
+
+Der Algorithmus von Kadane zur Berechnung der maximalen Teilsumme eines Tupels $(x_1, x_2, x_3, ..., x_n)$ ist korrekt.
+
+=== Beweis
+
+Wir zeigen zunächst, dass nach jedem $i$-ten Schritt folgende Schleifeninvariante gilt: $sigma$ ist die maximale Teilsumme, welche an Stelle $i$ endet.
+
+==== Induktionsanfang
+
+$i = 1$
+
+Da $sigma = 0$ als das neutrale Element der Addition initialisiert wird, wird im dieser Wert ersten Schritt immer zu $x_1$.
+
+$
+sigma := max {sigma, sigma + x_1} = sigma + x_1 = x_1
+$
+
+==== Induktionsschritt
+
+$i -> i + 1$
+
