@@ -15,7 +15,12 @@
       x => x + 2 * calc.sin(x)
     )
     plot.add(
-      domain: (0, 15),
+      domain: (0, 9.6),
+      style: (stroke: gray),
+      x => calc.pow(x, 2) / 10
+    )
+    plot.add(
+      domain: (9.6, 15),
       style: (stroke: theme.primary),
       x => calc.pow(x, 2) / 10
     )
