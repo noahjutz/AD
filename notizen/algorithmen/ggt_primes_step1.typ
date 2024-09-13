@@ -1,9 +1,8 @@
 #import "@preview/cetz:0.2.2": canvas, draw
 
-#show table.cell.where(x: 0): set text(fill: gray)
-#show table.cell.where(x: 4): set text(fill: gray)
+#show math.equation: set text(fill: gray)
+#show math.equation: box.with(inset: (x: 10pt))
 #show table.cell.where(y: 0): strong
-#set table.cell(inset: (x: 10pt))
 
 #table(
   columns: 5,
