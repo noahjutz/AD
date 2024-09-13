@@ -314,7 +314,7 @@ Damit wurde die Laufzeit auf $Theta(n^2)$ reduziert.
 
 Der Algorithmus von Kadane läuft eine Liste von links nach rechts durch, und hat deshalb eine lineare Laufzeit.
 
-#include "kadane.typ"
+#include "mts3.typ"
 
 Für jedes Element $x$ wird `aktSum` berechnet (erste Spalte). Das ist die maximale Teilsumme, welche an dieser Stelle endet. Beweis: @proof-kadane
 
@@ -324,4 +324,6 @@ aktSum = max(x, aktSum + x)
 
 Die maximale Teilsumme ist das Maximum aller dieser Teilsummen.
 
-=== Sublinearer Algorithmus (MTS4)
+=== Divide and Conquer (MTS4)
+
+#include "mts4.typ"
