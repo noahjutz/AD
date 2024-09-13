@@ -34,5 +34,5 @@
     )
   })
 
-  content("plot.n0", anchor: "south")[$n_0$]
+  content("plot.n0", anchor: "north")[$n_0$]
 })
