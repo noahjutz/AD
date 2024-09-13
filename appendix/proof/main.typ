@@ -100,19 +100,35 @@ Der Algorithmus von Kadane zur Berechnung der maximalen Teilsumme eines Tupels $
 
 === Beweis
 
-Wir zeigen zunächst, dass nach jedem $i$-ten Schritt folgende Schleifeninvariante gilt: $sigma$ ist die maximale Teilsumme, welche an Stelle $i$ endet.
+Wir zeigen zunächst, dass nach jedem $i$-ten Schritt folgende Schleifeninvariante gilt: $sigma_i$ ist die maximale Teilsumme, welche an Stelle $i$ endet.
 
 ==== Induktionsanfang
 
 $i = 1$
 
-Da $sigma = 0$ als das neutrale Element der Addition initialisiert wird, wird im dieser Wert ersten Schritt immer zu $x_1$.
+Da $sigma_0 = 0$ als das neutrale Element der Addition initialisiert wird, wird im dieser Wert ersten Schritt immer zu $x_1$. Die triviale Teilfolge der Länge 1 hat auch die maximale Teilsumme von $sigma = x_1$.
 
 $
-sigma := max {sigma, sigma + x_1} = sigma + x_1 = x_1
+sigma_1 := max {sigma_0, sigma_0 + x_1} = sigma_0 + x_1 = x_1
+#h(4pt) checkmark
 $
 
 ==== Induktionsschritt
 
 $i -> i + 1$
 
+Wenn $sigma_i + x_i$ kleiner ist als $x_i$, und $sigma_i$ die maximale Teilsumme mit Ende $i$ ist, dann gibt es keine Teilfolge vor $x_i$, welche die Teilsumme erhöhen würde.
+
+$
+sigma_(i+1) = max {sigma_i, sigma_i + x_i}
+#h(4pt) checkmark
+$
+
+==== Induktionsschluss
+
+Weil $sigma_i$ die maximale Teilsumme, welche an Stelle $i$ endet, ist, ist das Ergebnis einfach das Maximum aller $sigma_i$.
+
+$
+"maxTeilSum" = max_(0 < i < n) sigma_i
+#h(4pt) square.filled
+$
