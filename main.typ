@@ -58,6 +58,9 @@
   set page(columns: 2)
   include "appendix/proof/main.typ"
   include "appendix/examples/main.typ"
+  
+  set page(columns: 1)
+  include "appendix/code/main.typ"
 }
 
 #pagebreak()
