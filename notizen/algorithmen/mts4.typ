@@ -1,8 +1,5 @@
 #import "@preview/cetz:0.2.2"
 
-#show table: set text(size: 8pt)
-#set block(spacing: 4pt)
-
 #let nums = (-13, 25, 34, 12, -3, 7, -87, 28, -77, 11)
 
 #let split(nums) = {
@@ -21,10 +18,10 @@
 
 #let row(nums) = box(
   stroke: 1pt,
-  table(
-    columns: nums.len(),
-    stroke: none,
-    align: end,
+  inset: 3pt,
+  stack(
+    dir: ltr,
+    spacing: 4pt,
     ..nums.map(n => str(n))
   )
 )
@@ -42,6 +39,9 @@
   import cetz.tree
 
   tree.tree(
-    tree_to_content(div_tree(nums))
+    tree_to_content(div_tree(nums)),
+    spread: 0.75,
+    grow: 1.2,
+    draw-edge: (from, to, ..) => line(from, to, mark: (end: "straight"))
   )
 })
