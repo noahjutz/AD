@@ -27,3 +27,6 @@ for i1 in range(n+1):
 ```
 
 Die Laufzeit ist nur noch $Theta(n^3)$, weil es $n^2$ Zeilenkombinationen gibt, welche jeweils mit dem linearen Algorithmus von Kadane verarbeitet werden. Gesamtes Programm: @code-mts2d
+
+== Rekursionsgleichungen
+
