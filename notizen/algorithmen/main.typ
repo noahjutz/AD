@@ -244,7 +244,7 @@ def inc_bin(x, n):
 
 Gesucht ist die Teilfolge, welche aufsummiert maximal ist.
 
-#include "max_subarray.typ"
+#include "mts.typ"
 
 === Naiver Algorithmus (MTS1)
 
