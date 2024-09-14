@@ -330,3 +330,27 @@ Dieser rekursive Algorithmus teilt die Eingabe in jedem Schritt durch die Hälft
 
 #include "mts4.typ"
 
+Das Ergebnis muss eine dieser Teilsummen sein, weil es entweder in der linken oder der rechten Hälfte liegt, oder durch die Mitte geht.
+
+```python
+def mts4(nums):
+  if nums.len() == 1:
+    return nums.first()
+
+  return max(
+    mts4(left_half),
+    mts4(right_half),
+    center_mts(nums)
+  )
+```
+
+Die Maximale Teilsumme, welche jeweils durch die Mitte eines Segments geht, wird durch eine Iteration nach links und nach rechts berechnet.
+
+```python
+s = 0
+m = -math.inf
+for x in left.rev(): # same for right
+  s += x
+  m = max(m, s)
+```
+
