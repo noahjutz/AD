@@ -93,7 +93,7 @@ Beispiel: @ex-average-case
 
 == Rekursionsgleichungen
 
-Die Komplexität rekursiver Algorithmen wird durch eine Rekursionsgleichung beschrieben. @rekursionsgleichungen
+Die Komplexität rekursiver Algorithmen wird durch eine Rekursionsgleichung beschrieben. @bib-rekursionsgleichungen
 
 $
 T : NN times X^k -> X

@@ -53,7 +53,7 @@ Wie viele Kaninchen gibt es nach $n$ Monaten, wenn jedes erwachsene Kaninchen (m
 
 #include "fib_tree.typ"
 
-Die Anzahl an Kaninchen in einem Monat $n$ sind zunächst alle Kaninchen, die es im Monat davor schon gibt ($f_(n-1)$). Es kommen $f_(n-2)$ neue Kaninchen dazu, weil jedes erwachsene Kaninchen ein neues zeugt. Um erwachsen zu sein, muss es schon zwei Monate zuvor existiert haben. Daraus ergibt sich die Fibonacci-Folge. @fibonaccis-rabbits
+Die Anzahl an Kaninchen in einem Monat $n$ sind zunächst alle Kaninchen, die es im Monat davor schon gibt ($f_(n-1)$). Es kommen $f_(n-2)$ neue Kaninchen dazu, weil jedes erwachsene Kaninchen ein neues zeugt. Um erwachsen zu sein, muss es schon zwei Monate zuvor existiert haben. Daraus ergibt sich die Fibonacci-Folge. @bib-fibonaccis-rabbits
 
 $
 f_n = f_(n-1) + f_(n-2)
