@@ -326,8 +326,7 @@ Die maximale Teilsumme ist das Maximum aller dieser Teilsummen.
 
 === Divide and Conquer (MTS4)
 
-Dieser rekursive Algorithmus teilt die Eingabe in jedem Schritt durch die Hälfte.
+Dieser rekursive Algorithmus teilt die Eingabe in jedem Schritt durch die Hälfte. Für jeden Knoten im Rekursionsbaum wird die maximale Teilsumme, welche durch die Mitte geht, berechnet (farbig hinterlegt).
 
 #include "mts4.typ"
 
-Für jeden Knoten im Rekursionsbaum wird die maximale Teilsumme, welche durch die Mitte geht, berechnet.
