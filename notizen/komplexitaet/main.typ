@@ -90,3 +90,23 @@ T^"AC" (n) = 1/(|Sigma^n|) sum_(x in Sigma^n) T(x)
 $
 
 Beispiel: @ex-average-case
+
+== Rekursionsgleichungen
+
+Die Komplexität rekursiver Algorithmen wird durch eine Rekursionsgleichung beschrieben. @rekursionsgleichungen
+
+$
+T : NN times X^k -> X
+$
+
+=== Aufstellen der Rekursionsgleichung
+
+Eine rekursive Funktion hat mindestens eine Abbruchbedingung, welche bei bestimmten Eingaben $x$ eintritt. Die Laufzeiten der Base-Cases sind die _Initialwerte_ der Rekursionsgleichung.
+
+$
+T(0) = T(x_0) \
+T(1) = T(x_1) \
+... \
+T(k) = T(x_k)
+$
+

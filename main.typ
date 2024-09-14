@@ -73,5 +73,7 @@
     .after(<literatur>, inclusive: false)
 )
 
-#pagebreak()
-#bibliography("sources.yml", title: none)
+#bibliography(
+  "sources.yml",
+  title: none,
+)

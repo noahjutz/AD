@@ -94,7 +94,10 @@
     )
   }
 
+  show bibliography: set par(justify: false)
+
   show ref: ref => {
+    return ref
     let is_after(target, point) = {
       return query(selector(target).after(point)).len() != 0
     }
@@ -110,7 +113,7 @@
     } else {
       "vertical_align_top"
     }
-    let numbering = if ref.element.numbering == none {
+    let numbering = if ref.element == none or ref.element.numbering == none {
       ""
     } else {
       numbering(
