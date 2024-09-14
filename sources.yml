@@ -3,4 +3,11 @@ rekursionsgleichungen:
   title: Lösen von (linearen) Rekursionsgleichungen
   author: Prof. Niels Pinkwart
   date: 2007-02-27
+  organization: Technische Universität Clausthal
   url: https://www2.inf.h-brs.de/~rhartm2m/tuc/inf1-ws2006-07_zusatzmaterial-rekursionsgleichungen.pdf
+
+fibonaccis-rabbits:
+  type: web
+  title: Fibonacci's Rabbits
+  organization: Emory Oxford College
+  url: https://mathcenter.oxford.emory.edu/site/math125/fibonacciRabbits/
