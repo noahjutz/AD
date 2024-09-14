@@ -84,7 +84,6 @@
       radius: 4pt,
       above: 8pt,
       below: 8pt,
-      breakable: false,
       table(
         columns: 1fr,
         stroke: none,
