@@ -93,20 +93,42 @@ Beispiel: @ex-average-case
 
 == Rekursionsgleichungen
 
-Die Komplexität rekursiver Algorithmen wird durch eine Rekursionsgleichung beschrieben. @bib-rekursionsgleichungen
-
-$
-T : NN times X^k -> X
-$
+Die Komplexität rekursiver Algorithmen wird durch eine Rekursionsgleichung beschrieben. 
 
 === Aufstellen der Rekursionsgleichung
 
-Eine rekursive Funktion hat mindestens eine Abbruchbedingung, welche bei bestimmten Eingaben $x$ eintritt. Die Laufzeiten der Base-Cases sind die _Initialwerte_ der Rekursionsgleichung.
+Eine rekursive Funktion hat mindestens eine Abbruchbedingung, welche bei einer trivialen Eingabelänge $n$ eintritt. Die Laufzeiten der Base-Cases sind die _Initialwerte_ der Rekursionsgleichung.
 
 $
-T(0) = T(x_0) \
-T(1) = T(x_1) \
-... \
-T(k) = T(x_k)
+T(0) = ..., #h(12pt)
+T(1) = ..., #h(12pt)
+T(2) = ..., #h(12pt)
+...
 $
 
+Für alle komplexeren Eingaben $n$ gibt es mindestens einen Selbstaufruf. Dieser Selbstaufruf löst ein einfacheres Subproblem, hat also eine geringere Eingabelänge. Beispiel:
+
+$
+T(n) = 5 T(n-1) + T(sqrt(n)) + O(n^2)
+$
+
+Der Algorithmus, der diese Laufzeit hat, könnte so aussehen:
+
+```python
+def rec(n):
+  # Base-Case
+  if n in (0, 1, 2):
+    return
+  
+  # 5T(n-1)
+  for i in range(5):
+    rec(n-1)
+  
+  # T(sqrt(n))
+  rec(sqrt(n))
+
+  # O(n^2)
+  for i in range(n):
+    for j in range(n):
+      print("hi")
+```
