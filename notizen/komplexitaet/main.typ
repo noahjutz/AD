@@ -109,26 +109,8 @@ $
 Für alle komplexeren Eingaben $n$ gibt es mindestens einen Selbstaufruf. Dieser Selbstaufruf löst ein einfacheres Subproblem, hat also eine geringere Eingabelänge. Beispiel:
 
 $
-T(n) = 5 T(n-1) + T(sqrt(n)) + O(n^2)
+T(n) = 5 T(n-1) + T(sqrt(n)) + n^2
 $
 
-Der Algorithmus, der diese Laufzeit hat, könnte so aussehen:
+=== Charakteristisches Polynom
 
-```python
-def rec(n):
-  # Base-Case
-  if n in (0, 1, 2):
-    return
-  
-  # 5T(n-1)
-  for i in range(5):
-    rec(n-1)
-  
-  # T(sqrt(n))
-  rec(sqrt(n))
-
-  # O(n^2)
-  for i in range(n):
-    for j in range(n):
-      print("hi")
-```
