@@ -3,8 +3,7 @@
 #let n = 5
 
 #let disks = (
-  A: range(1, 4),
-  B: range(4, 6)
+  A: range(1, 6)
 )
 
 #cetz.canvas(length: 100%, {
@@ -28,7 +27,7 @@
     move-to(peg)
     for disk in disks.rev() {
       assert(disk <= n)
-      let length = disk/(4*n)
+      let length = disk/(3*n)
       move-to((rel: (-length/2, spacing)))
       line(
         (),
@@ -39,7 +38,4 @@
       move-to((rel: (-length/2, 0)))
     }
   }
-
-  content("A_disk_1.end", anchor: "west")[1]
-  content("A_disk_3.end", anchor: "west")[m]
 })

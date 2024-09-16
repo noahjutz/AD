@@ -358,5 +358,9 @@ for x in left.rev(): # same for right
 
 Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Beginn sind alle Scheiben auf dem linken Stab. Ziel ist es, den gesamten Stapel Scheibenweise auf einen der anderen Stäbe zu bewegen. In jedem Schritt muss jede Scheibe auf einer größeren liegen.
 
-#include "hanoi.typ"
+#align(center,
+  box(width: 50%,
+    include "hanoi.typ"
+  )
+)
 
