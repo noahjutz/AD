@@ -11,3 +11,14 @@ bib-fibonaccis-rabbits:
   title: Fibonacci's Rabbits
   organization: Emory Oxford College
   url: https://mathcenter.oxford.emory.edu/site/math125/fibonacciRabbits/
+
+bib-3b1b-eigenvalues:
+  type: chapter
+  title: Eigenvectors and Eigenvalues
+  url: https://www.3blue1brown.com/lessons/eigenvalues
+  author: Grant Sanderson
+  issue: 14
+  parent:
+    title: Essence of Linear Algebra
+
+

@@ -75,9 +75,16 @@ $
 x_n = x_0 dot phi^n
 $
 
-// Wir nehmen an, dass diese Funktion exponentiell wächst, weil die Fibonacci-Folge für $n -> infinity$ eine geometrische Folge ist.
-// 
-// $
-// f(n) = r^n
-// $
+== Charakteristisches Polynom
 
+Jede quadratische Matrix $A$ hat genau ein charakteristisches Polynom @bib-3b1b-eigenvalues.
+
+$
+p_A (lambda) = det(A - lambda I)
+$
+
+Die Nullstellen dieses Polynoms sind die Eigenwerte von $A$. Die Eigenvektoren mit Eigenwert $lambda$ sind die Lösung der Gleichung
+
+$
+(A - lambda I) dot arrow(v) = arrow(0)
+$
