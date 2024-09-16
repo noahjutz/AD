@@ -3,12 +3,14 @@
 #let n = 5
 
 #let disks = (
-  A: range(1, 6)
+  A: range(1, 4),
+  B: range(4, 6)
 )
 
 #cetz.canvas(length: 100%, {
   import cetz.draw: *
-  let height = n * 8pt + 8pt
+  let spacing = 8pt
+  let height = (n+1)*spacing
 
   set-style(content: (padding: 4pt))
 
@@ -27,9 +29,17 @@
     for disk in disks.rev() {
       assert(disk <= n)
       let length = disk/(4*n)
-      move-to((rel: (-length/2, 8pt)))
-      line((), (rel: (length, 0)), stroke: 4pt)
+      move-to((rel: (-length/2, spacing)))
+      line(
+        (),
+        (rel: (length, 0)),
+        stroke: 4pt,
+        name: peg + "_disk_" + str(disk)
+      )
       move-to((rel: (-length/2, 0)))
     }
   }
+
+  content("A_disk_1.end", anchor: "west")[1]
+  content("A_disk_3.end", anchor: "west")[m]
 })
