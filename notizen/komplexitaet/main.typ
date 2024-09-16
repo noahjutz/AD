@@ -114,3 +114,18 @@ $
 
 === Charakteristisches Polynom
 
+Lineare Rekursionsgleichungen können als exponentielle Funktion dargestellt werden.
+
+$
+T(n) = sum_(i=0)^k a_i dot T(n-i)
+==>
+T(n) = r^n
+$
+
+Um die Basis $r$ herauszufinden, berechnen wir das charakteristische Polynom.
+
+$
+r^n = sum_(i=0)^k a_i dot r^(n-i)
+$
+
+=== Substitutionsmethode
