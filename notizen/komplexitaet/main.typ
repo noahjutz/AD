@@ -117,15 +117,24 @@ $
 Lineare Rekursionsgleichungen können als exponentielle Funktion dargestellt werden.
 
 $
-T(n) = sum_(i=0)^k a_i dot T(n-i)
+T(n) = sum_(i=1)^k a_i dot T(n-i)
 ==>
 T(n) = r^n
 $
 
-Um die Basis $r$ herauszufinden, berechnen wir das charakteristische Polynom.
+Um die Basis $r$ herauszufinden, lösen wir das charakteristische Polynom.
 
 $
 r^n = sum_(i=0)^k a_i dot r^(n-i)
 $
 
 === Substitutionsmethode
+
+Komplexität abschätzen und mittels vollständiger Induktion beweisen.
+
+$
+T(n) <= c dot g(n)
+$
+
+=== Iterationsmethode
+
