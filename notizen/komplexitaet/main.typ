@@ -134,3 +134,4 @@ Komplexität abschätzen und mittels vollständiger Induktion beweisen.
 
 === Iterationsmethode
 
+Schrittweise die Formel in Selbstaufrufe einsetzen und ein Muster erkennen.
