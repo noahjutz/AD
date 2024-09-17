@@ -362,9 +362,16 @@ Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Begi
   box(width: 50%, {
     import "hanoi.typ": hanoi
     hanoi(
-      5,
-      (
-        A: range(1, 6)
+      disks: (
+        A: (
+          ..range(1, 6).map(i => (size: i)),
+        ),
+        C: (
+          ..range(1, 6).map(i => (
+            size: i,
+            fill: rgb(0, 0, 0, 25%)
+          ))
+        )
       ),
       arrow: ("A", "C")
     )

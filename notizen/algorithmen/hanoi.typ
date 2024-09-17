@@ -24,20 +24,21 @@
     let disks = disks.at(peg, default: ())
     move-to(peg)
     for disk in disks.rev() {
-      assert(disk <= n)
-      let length = disk/(3*n)
+      assert(disk.size <= n)
+      let length = disk.size/(3*n)
       move-to((rel: (-length/2, spacing)))
       line(
         (),
         (rel: (length, 0)),
-        stroke: 4pt,
-        name: peg + "_disk_" + str(disk)
+        stroke: 4pt + disk.at("fill", default: black),
+        name: peg + "_disk_" + str(disk.size)
       )
       move-to((rel: (-length/2, 0)))
     }
   }
 
-  if arrow != none and arrow.len() == 2 {
+  if arrow != none {
+    assert(arrow.len() == 2)
     let (from, to) = arrow.map(p => "peg_" + p + ".end")
     line(
       (rel: (0, 6pt), to: from), 
@@ -56,6 +57,16 @@
 
 // n: Maximum number of disks
 // disks: Dictionary with keys A, B, C
-#let hanoi(n, disks, arrow: none) = {
+#let hanoi(n: auto, disks: (:), arrow: none) = {
+  if n == auto {
+    if disks == (:) {
+      n = 0
+    } else {
+      n = calc.max(
+        ..disks.values()
+          .flatten()
+          .map(disk => disk.size))
+    }
+  }
   _hanoi(n, disks, arrow)
 }
