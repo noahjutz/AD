@@ -1,12 +1,10 @@
 #import "@preview/cetz:0.2.2"
 
-#let n = 5
-
-#let disks = (
-  A: range(1, 6)
-)
-
-#cetz.canvas(length: 100%, {
+#let _hanoi(
+  n, 
+  disks,
+  arrow
+) = cetz.canvas(length: 100%, {
   import cetz.draw: *
   let spacing = 8pt
   let height = (n+1)*spacing
@@ -21,7 +19,7 @@
 
   for peg in ("A", "B", "C") {
     content(peg, anchor: "north", peg)
-    line(peg, (rel: (0, height)))
+    line(peg, (rel: (0, height)), name: "peg_" + peg)
 
     let disks = disks.at(peg, default: ())
     move-to(peg)
@@ -38,4 +36,26 @@
       move-to((rel: (-length/2, 0)))
     }
   }
+
+  if arrow != none and arrow.len() == 2 {
+    let (from, to) = arrow.map(p => "peg_" + p + ".end")
+    line(
+      (rel: (0, 6pt), to: from), 
+      (rel: (0, 6pt), to: to),
+      stroke: none,
+      name: "arrow"
+    )
+    bezier-through(
+      "arrow.start",
+      (rel: (0, 8pt), to: "arrow.mid"),
+      "arrow.end",
+      mark: (end: "straight")
+    )
+  }
 })
+
+// n: Maximum number of disks
+// disks: Dictionary with keys A, B, C
+#let hanoi(n, disks, arrow: none) = {
+  _hanoi(n, disks, arrow)
+}

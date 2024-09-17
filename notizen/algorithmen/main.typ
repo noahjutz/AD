@@ -356,11 +356,25 @@ for x in left.rev(): # same for right
 
 == Türme von Hanoi
 
-Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Beginn sind alle Scheiben auf dem linken Stab. Ziel ist es, den gesamten Stapel Scheibenweise auf einen der anderen Stäbe zu bewegen. In jedem Schritt muss jede Scheibe auf einer größeren liegen. @bib-hanoi-reducible
+Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Beginn sind alle Scheiben auf dem linken Stab. Ziel ist es, den gesamten Stapel Scheibenweise auf den rechten Stab zu verlegen. In jedem Schritt muss jede Scheibe auf einer größeren liegen. @bib-hanoi-reducible
 
 #align(center,
-  box(width: 50%,
-    include "hanoi.typ"
-  )
+  box(width: 50%, {
+    import "hanoi.typ": hanoi
+    hanoi(
+      5,
+      (
+        A: range(1, 6)
+      ),
+      arrow: ("A", "C")
+    )
+  })
 )
 
+Die Hanoi-Funktion liefert die notwendigen Schritte, um $n$ Scheiben von `src` auf `dst` zu verlegen.
+
+```
+hanoi(n, src, dst): ((from, to), ...)
+```
+
+Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
