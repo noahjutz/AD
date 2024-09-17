@@ -397,3 +397,11 @@ Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
     )
   )
 )
+
+Bei allen anderen $n$ gibt es drei Schritte:
+
+#grid(columns: 3, column-gutter: 8pt,
+  hanoi(),
+  hanoi(),
+  hanoi()
+)
