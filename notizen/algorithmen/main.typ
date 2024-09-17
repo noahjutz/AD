@@ -362,16 +362,14 @@ Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Begi
 #align(center,
   box(width: 50%, {
     hanoi(
-      pegs: (
-        A: (
-          ..range(1, 6).map(i => (size: i)),
-        ),
-        C: (
-          ..range(1, 6).map(i => (
-            size: i,
-            fill: rgb(0, 0, 0, 25%)
-          ))
-        )
+      a: (
+        ..range(1, 6).map(i => (size: i)),
+      ),
+      c: (
+        ..range(1, 6).map(i => (
+          size: i,
+          fill: rgb(0, 0, 0, 25%)
+        ))
       ),
       arrow: ("A", "C")
     )
@@ -389,10 +387,8 @@ Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
 #align(center,
   box(width: 50%,
     hanoi(
-      pegs: (
-        A: ((size: 1),),
-        C: ((size: 1, fill: rgb(0, 0, 0, 25%)),)
-      ),
+      a: ((size: 1),),
+      c: ((size: 1, fill: rgb(0, 0, 0, 25%)),),
       arrow: ("A", "C")
     )
   )
@@ -400,8 +396,34 @@ Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
 
 Bei allen anderen $n$ gibt es drei Schritte:
 
-#grid(columns: 3, column-gutter: 8pt,
-  hanoi(),
-  hanoi(),
-  hanoi()
+#grid(
+  columns: 3,
+  column-gutter: 8pt,
+  row-gutter: 8pt,
+  align: center,
+  hanoi(
+    a: (
+      (size: 1, fill: rgb(0, 0, 0, 25%)),
+      (size: 2, fill: rgb(0, 0, 0, 25%)),
+      (size: 3)
+    ),
+    b: range(1, 3).map(i => (size: i)),
+    arrow: ("A", "B")
+  ),
+  hanoi(
+    a: ((size: 3, fill: rgb(0, 0, 0, 25%)),),
+    b: range(1, 3).map(i => (size: i)),
+    c: ((size: 3),),
+    arrow: ("A", "C")
+  ),
+  hanoi(
+    b: range(1, 3).map(i => (size: i, fill: rgb(0, 0, 0, 25%))),
+    c: range(1, 4).map(i => (size: i)),
+    arrow: ("B", "C")
+  ),
+  [(1)], [(2)], [(3)],
 )
+
+1. ...
+2. ...
+3. ...

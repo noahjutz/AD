@@ -56,19 +56,21 @@
 })
 
 // n: Maximum number of disks
-// pegs: Dictionary with keys A, B, C
-//  Each key has a list of disks
+// a: disks on peg A
+// b: disks on peg B
+// c: disks on peg C
 //  Each disk is a dictionary with keys size, fill
-#let hanoi(n: auto, pegs: (:), arrow: none) = {
+#let hanoi(
+  n: auto,
+  a: (),
+  b: (),
+  c: (),
+  arrow: none
+) = {
   if n == auto {
-    if pegs == (:) {
-      n = 0
-    } else {
-      n = calc.max(
-        ..pegs.values()
-          .flatten()
-          .map(disk => disk.size))
-    }
+    n = calc.max(
+      ..(a + b + c).map(disk => disk.size), 0
+    )
   }
-  _hanoi(n, pegs, arrow)
+  _hanoi(n, (A: a, B: b, C: c), arrow)
 }
