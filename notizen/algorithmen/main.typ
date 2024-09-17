@@ -385,16 +385,17 @@ hanoi(n, src, dst): ((from, to), ...)
 Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
 
 #align(center,
-  box(width: 50%,
-    hanoi(
+  box(width: 50%)[
+    #hanoi(
       a: ((size: 1, fill: rgb(0, 0, 0, 25%)),),
       c: ((size: 1),),
       arrow: ("A", "C")
-    ) +
+    )
+    #set align(start)
     ```python
     push(src, dst)
     ```
-  )
+  ]
 )
 
 Bei allen anderen $n$ gibt es drei Schritte:
