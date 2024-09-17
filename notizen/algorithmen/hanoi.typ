@@ -18,7 +18,6 @@
   circle((5/6, 0), radius: 0, name: "C")
 
   for peg in ("A", "B", "C") {
-    content(peg, anchor: "north", peg)
     line(peg, (rel: (0, height)), name: "peg_" + peg)
 
     let disks = disks.at(peg, default: ())

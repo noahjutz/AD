@@ -132,9 +132,5 @@ $
 
 Komplexität abschätzen und mittels vollständiger Induktion beweisen.
 
-$
-T(n) <= c dot g(n)
-$
-
 === Iterationsmethode
 
