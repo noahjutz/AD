@@ -355,14 +355,14 @@ for x in left.rev(): # same for right
 ```
 
 == Türme von Hanoi
+#import "hanoi.typ": hanoi
 
 Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Beginn sind alle Scheiben auf dem linken Stab. Ziel ist es, den gesamten Stapel Scheibenweise auf den rechten Stab zu verlegen. In jedem Schritt muss jede Scheibe auf einer größeren liegen. @bib-hanoi-reducible
 
 #align(center,
   box(width: 50%, {
-    import "hanoi.typ": hanoi
     hanoi(
-      disks: (
+      pegs: (
         A: (
           ..range(1, 6).map(i => (size: i)),
         ),
@@ -385,3 +385,15 @@ hanoi(n, src, dst): ((from, to), ...)
 ```
 
 Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
+
+#align(center,
+  box(width: 50%,
+    hanoi(
+      pegs: (
+        A: ((size: 1),),
+        C: ((size: 1, fill: rgb(0, 0, 0, 25%)),)
+      ),
+      arrow: ("A", "C")
+    )
+  )
+)
