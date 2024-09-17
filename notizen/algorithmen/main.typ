@@ -378,7 +378,7 @@ Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Begi
 
 Die Hanoi-Funktion liefert die notwendigen Schritte, um $n$ Scheiben von `src` auf `dst` zu verlegen.
 
-```
+```python
 hanoi(n, src, dst): ((from, to), ...)
 ```
 
@@ -425,5 +425,16 @@ Bei allen anderen $n$ gibt es drei Schritte:
 )
 
 1. Verlege Scheiben $(1, 2, ..., n-1)$ von `src` auf `other`.
+  ```python
+  hanoi(n-1, src, other)
+  ```
+
 2. Verlege Scheibe $n$ von `src` auf `dst`.
+  ```python
+  steps.push((src, dst))
+  ```
+
 3. Verlege Scheiben $(1, 2, ..., n-1)$ von `other` auf `dst`.
+  ```python
+  hanoi(n-1, other, dst)
+  ```
