@@ -105,3 +105,29 @@ T(n) &= 4 underbrace(T(n/2), = Theta(n^2)) + n \
 $
 
 === Gleichung 2
+
+$
+T(n) = cases(
+  1 "falls" n=1,
+  2T(n/4) + sqrt(n) "sonst"
+)
+$
+
+==== Iteration
+
+$
+T(n) = 2 &hl(T(n/4^1)) + n^(1/2^1) \
+= 2 (2 &hl(T(n/4^2)) + n^(1/2^2)) + n^(1/2^1) \
+= 2 (2 (2 &hl(T(n/4^3)) + n^(1/2^3)) + n^(1/2^2)) + n^(1/2^1) \
+$
+
+$
+= ... \
+= 2^i T(n/4^i) + sum_(k=1)^i n^(1/2^k) \
+= 2^(log_4 n) T(1) + sum_(k=1)^(log_4 n) n^(1/2^k) \
+= sqrt(n) + underbrace(root(2, n) + root(4, n) + root(8, n) + ..., log_4 n "mal") \
+< sqrt(n) + (log_4 n) dot sqrt(n) \
+= sqrt(n) dot (1 + (log_2 n)/2)
+$
+
+// todo: daraus die Komplexität schließen
