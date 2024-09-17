@@ -21,4 +21,8 @@ bib-3b1b-eigenvalues:
   parent:
     title: Essence of Linear Algebra
 
-
+bib-hanoi-reducible:
+  type: video
+  title: "Towers of Hanoi: A Complete Recursive Visualization"
+  url: https://www.youtube.com/watch?v=rf6uf3jNjbo
+  author: Reducible
