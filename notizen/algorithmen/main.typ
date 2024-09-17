@@ -363,13 +363,13 @@ Es gibt drei Stäbe und $n$ Scheiben mit unterschiedlichen Durchmessern. Zu Begi
   box(width: 50%, {
     hanoi(
       a: (
-        ..range(1, 6).map(i => (size: i)),
-      ),
-      c: (
         ..range(1, 6).map(i => (
           size: i,
           fill: rgb(0, 0, 0, 25%)
         ))
+      ),
+      c: (
+        ..range(1, 6).map(i => (size: i)),
       ),
       arrow: ("A", "C")
     )
@@ -387,8 +387,8 @@ Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
 #align(center,
   box(width: 50%,
     hanoi(
-      a: ((size: 1),),
-      c: ((size: 1, fill: rgb(0, 0, 0, 25%)),),
+      a: ((size: 1, fill: rgb(0, 0, 0, 25%)),),
+      c: ((size: 1),),
       arrow: ("A", "C")
     )
   )
