@@ -424,6 +424,6 @@ Bei allen anderen $n$ gibt es drei Schritte:
   [(1)], [(2)], [(3)],
 )
 
-1. ...
-2. ...
-3. ...
+1. Verlege Scheiben $(1, 2, ..., n-1)$ von `src` auf `other`.
+2. Verlege Scheibe $n$ von `src` auf `dst`.
+3. Verlege Scheiben $(1, 2, ..., n-1)$ von `other` auf `dst`.
