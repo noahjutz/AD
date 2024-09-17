@@ -390,7 +390,10 @@ Bei $n=1$ muss die Scheibe lediglich auf den Zielstab gelegt werden.
       a: ((size: 1, fill: rgb(0, 0, 0, 25%)),),
       c: ((size: 1),),
       arrow: ("A", "C")
-    )
+    ) +
+    ```python
+    push(src, dst)
+    ```
   )
 )
 
@@ -431,7 +434,7 @@ Bei allen anderen $n$ gibt es drei Schritte:
 
 2. Verlege Scheibe $n$ von `src` auf `dst`.
   ```python
-  steps.push((src, dst))
+  push(src, dst)
   ```
 
 3. Verlege Scheiben $(1, 2, ..., n-1)$ von `other` auf `dst`.
