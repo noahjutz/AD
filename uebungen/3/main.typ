@@ -1,4 +1,5 @@
 #import "/config.typ": theme
+#import "/components/math.typ": hlp
 
 = Rekursion
 
@@ -38,11 +39,6 @@ Die Laufzeit ist nur noch $Theta(n^3)$, weil es $n^2$ Zeilenkombinationen gibt, 
 
 == Rekursionsgleichungen
 
-#let hl(math) = {
-  set text(fill: theme.primary)
-  math
-}
-
 === Gleichung 1
 
 $
@@ -55,10 +51,10 @@ $
 ==== Iteration
 
 $
-T(n) &=& 4 &hl(T(n/2^1)) + n/2^0 \
-&=& 4 (4 &hl(T(n/2^2)) + n/2^1) + n/2^0 \
-&=& 4 (4 (4 &hl(T(n/2^3)) + n/2^2) + n/2^1) + n/2^0 \
-&=& 4 (4 (4 (4 &hl(T(n/2^4)) + n/2^3) + n/2^2) + n/2^1) + n/2^0 \
+T(n) &=& 4 &hlp(T(n/2^1)) + n/2^0 \
+&=& 4 (4 &hlp(T(n/2^2)) + n/2^1) + n/2^0 \
+&=& 4 (4 (4 &hlp(T(n/2^3)) + n/2^2) + n/2^1) + n/2^0 \
+&=& 4 (4 (4 (4 &hlp(T(n/2^4)) + n/2^3) + n/2^2) + n/2^1) + n/2^0 \
 $
 
 $
@@ -122,9 +118,9 @@ $
 ==== Iteration
 
 $
-T(n) = 2 &hl(T(n/4^1)) + n^(1/2^1) \
-= 2 (2 &hl(T(n/4^2)) + n^(1/2^2)) + n^(1/2^1) \
-= 2 (2 (2 &hl(T(n/4^3)) + n^(1/2^3)) + n^(1/2^2)) + n^(1/2^1) \
+T(n) = 2 &hlp(T(n/4^1)) + n^(1/2^1) \
+= 2 (2 &hlp(T(n/4^2)) + n^(1/2^2)) + n^(1/2^1) \
+= 2 (2 (2 &hlp(T(n/4^3)) + n^(1/2^3)) + n^(1/2^2)) + n^(1/2^1) \
 $
 
 $
