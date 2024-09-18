@@ -2,16 +2,17 @@
 
 #let n = 5
 #let i1 = 0
-#let i2 = 3
+#let i2 = 2
 #let j1 = 1
-#let j2 = 3
+#let j2 = 4
 
 #cetz.canvas(length: 100%, {
   import cetz.draw: *
 
   group(name: "matrix", {
     set-viewport((32pt, -32pt), (1, -1))
-    grid((0, 0), (1, 1), step: 1 / n)
+    rect((0, 0), (1, 1), stroke: none)
+    grid((0, 0), (1-1/n, 1-1/n), step: 1 / n)
     rect(
       (j1/n, i1/n),
       (j2/n, i2/n),
