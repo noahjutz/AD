@@ -1,6 +1,13 @@
 #let theme = (
-  primary: red.lighten(50%),
-  secondary: aqua
+  primary: red,
+  primary_light: red.lighten(75%),
+  primary_trans: red.transparentize(75%),
+  secondary: blue,
+  secondary_light: blue.lighten(75%),
+  secondary_trans: blue.transparentize(75%),
+  fg: black,
+  fg_light: black.lighten(90%),
+  fg_trans: black.transparentize(90%),
 )
 
 #let config(doc) = {
