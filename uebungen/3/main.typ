@@ -6,7 +6,11 @@
 
 Gesucht ist die Teilmatrix, dessen Komponenten aufsummiert maximal sind.
 
-#include "mts_2d.typ"
+#align(center,
+  box(width: 50%,
+    include "mts_2d.typ"
+  )
+)
 
 === Naiver Algorithmus
 
