@@ -181,3 +181,13 @@ Komplexität abschätzen und mittels vollständiger Induktion beweisen.
 === Iterationsmethode
 
 Schrittweise die Formel in Selbstaufrufe einsetzen und ein Muster erkennen.
+
+=== Master-Theorem
+
+Viele Divide & Conquer Algorithmen zerlegen die Eingabe in $b$ Teile, und erzeugen $a$ Subprobleme, welche diese Teile verarbeiten. Die Ergebnisse der Subprobleme werden anschließend kombiniert. Die Laufzeit der Zerlegung und Kombination in jedem Rekursionsschritt ist $f(n)$.
+
+$
+T(n) = a T(n/b) + f(n)
+$
+
+Die Komplexität von Rekursionsgleichungen dieser Form lässt sich durch die Master-Methode ermitteln.
