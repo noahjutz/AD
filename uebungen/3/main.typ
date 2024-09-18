@@ -127,5 +127,5 @@ $
 = ... \
 = 2^i T(n/4^i) + sum_(k=1)^i n^(1/2^k) \
 = 2^(log_4 n) T(1) + sum_(k=1)^(log_4 n) n^(1/2^k) \
-= sqrt(n) + underbrace(root(2, n) + root(4, n) + root(8, n) + ..., log_4 n "mal") \
+= sqrt(n) + root(2, n) + root(4, n) + root(8, n) + ... + root(sqrt(n), n) \
 $

@@ -1,3 +1,5 @@
+#import "/components/math.typ": hlp, hls
+
 = Komplexität
 
 == O-Notation
@@ -23,7 +25,7 @@ Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um e
 === Obere Schranke
 
 $
-O(f(n)) = {#h(2pt)g(n) mid(|) #box(baseline: 50%)[$
+O(hls(f(n))) = {#h(2pt) hlp(g(n)) mid(|) #box(baseline: 50%)[$
   exists n_0 in NN, c > 0 : \
   forall n >= n_0 : g(n) <= c dot f(n)
 $]#h(2pt)}
