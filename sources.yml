@@ -26,3 +26,17 @@ bib-hanoi-reducible:
   title: "Towers of Hanoi: A Complete Recursive Visualization"
   url: https://www.youtube.com/watch?v=rf6uf3jNjbo
   author: Reducible
+
+bib-algorithms:
+  type: book
+  title: Introduction to Algorithms
+  edition: 4
+  author:
+    - Thomas H. Cormen
+    - Charles E. Leiserson
+    - Ronald L. Rivest
+    - Clifford Stein
+  serial-number:
+    isbn: 978-0-262-04630-5
+  publisher: MIT Press
+  url: http://mitpress.mit.edu/algorithms
