@@ -6,8 +6,10 @@
   secondary_light: blue.lighten(75%),
   secondary_trans: blue.transparentize(75%),
   fg: black,
-  fg_light: black.lighten(90%),
-  fg_trans: black.transparentize(90%),
+  fg_light: black.lighten(75%),
+  fg_trans: black.transparentize(75%),
+  bg_light: black.lighten(90%),
+  bg_trans: black.transparentize(90%)
 )
 
 #let config(doc) = {
