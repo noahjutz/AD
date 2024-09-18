@@ -20,7 +20,7 @@
 #table(
   columns: (1fr,) * 10,
   align: center,
-  fill: (x, y) => if 1 <= x and x <= 5 {theme.primary},
+  fill: (x, y) => if 1 <= x and x <= 5 {theme.primary_light},
   ..nums.map(i => [#i])
 )
 

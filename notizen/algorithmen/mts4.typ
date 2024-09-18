@@ -49,7 +49,7 @@
       dir: ltr,
       ..nums.enumerate().map(((i, n)) => {
         box(
-          fill: if start <= i and i < end {theme.primary},
+          fill: if start <= i and i < end {theme.primary_trans},
           inset: (x: 2pt, y: 4pt),
           str(n)
         )

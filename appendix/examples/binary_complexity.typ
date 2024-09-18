@@ -1,3 +1,4 @@
+#import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
 #cetz.canvas(length: 100%, {
@@ -9,8 +10,12 @@
   plot.plot(axis-style: none, {
     plot.add(
       domain: (0, 10), x => 2/calc.pow(2, x),
+      style: (stroke: theme.fg_light)
     )
-    plot.add-hline(.5)
+    plot.add-hline(
+      .5,
+      style: (stroke: theme.primary)
+    )
     plot.annotate({
       content((2, .5), anchor: "north", padding: 4pt)[$n_0$]
 

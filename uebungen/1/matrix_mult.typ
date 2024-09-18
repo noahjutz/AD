@@ -1,3 +1,4 @@
+#import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
 #let m = 4
@@ -50,7 +51,7 @@
 
   group({
     stroke(none)
-    fill(rgb(255, 0, 0, 50%))
+    fill(theme.primary_trans)
     rect(
       (rel: (0, -i), to: "a.north-west"),
       (rel: (n, -1)),

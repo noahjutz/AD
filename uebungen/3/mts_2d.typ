@@ -1,3 +1,4 @@
+#import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
 #let n = 5
@@ -16,7 +17,7 @@
     rect(
       (j1/n, i1/n),
       (j2/n, i2/n),
-      fill: rgb(255, 0, 0, 25%)
+      fill: theme.primary_trans
     )
   })
 

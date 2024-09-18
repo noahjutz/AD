@@ -22,7 +22,7 @@
     let next_row = nums.enumerate().map(((i, n)) => {
       table.cell(
         str(n),
-        fill: if start <= i and i < end {theme.primary}
+        fill: if start <= i and i < end {theme.primary_light}
       )
     })
     next_row.insert(0, table.cell[
