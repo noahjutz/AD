@@ -20,6 +20,48 @@ Die Schranke muss erst ab einem beliebigen $n_0 in NN$ gelten, und sie darf um e
   include "factor.typ"
 )
 
+=== Obere Schranke
+
+$
+O(f(n)) = {#h(2pt)g(n) mid(|) #box(baseline: 50%)[$
+  exists n_0 in NN, c > 0 : \
+  forall n >= n_0 : g(n) <= c dot f(n)
+$]#h(2pt)}
+$
+
+$
+lim_(n -> infinity) g(n)/f(n) <= c
+=> g(n) = O(f(n))
+$
+
+=== Untere Schranke
+
+$
+Omega(f(n)) = {#h(2pt)g(n) mid(|) #box(baseline: 50%)[$
+  exists n_0 in NN, c > 0 : \
+  forall n >= n_0 : g(n) >= c dot f(n)
+$]#h(2pt)}
+$
+
+$
+lim_(n -> infinity) g(n)/f(n) >= c
+=> g(n) = Omega(f(n))
+$
+
+=== Exakte Schranke 
+
+$
+Theta(f(n)) = {#h(2pt)g(n) mid(|) #box(baseline: 50%)[$
+  exists n_0 in NN, c > 0 : \
+  forall n >= n_0 : g(n) = c dot f(n)
+$]#h(2pt)}
+$
+
+$
+lim_(n -> infinity) g(n)/f(n) = c
+=> g(n) = Omega(f(n))
+$
+
 === Rechenregeln
 
 - $ f in O(f) $
