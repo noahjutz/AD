@@ -16,9 +16,9 @@ def kadane(array):
 
 def combinations(matrix):
     (n, _) = matrix.shape
-    for i in range(n+1):
-        for j in range(i):
-            yield np.sum(matrix[j:i], axis=0)
+    for i2 in range(n+1):
+        for i1 in range(i):
+            yield np.sum(matrix[i1:i2], axis=0)
 
 def max_subarray_2d(matrix):
     return max(map(kadane, combinations(matrix)))
