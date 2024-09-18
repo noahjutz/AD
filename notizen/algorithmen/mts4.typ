@@ -17,39 +17,47 @@
   (nums, div_tree(l), div_tree(r))
 }
 
-#let max_subarray(nums) = {
+#let max_subarray_l(nums) = {
   let mid = calc.div-euclid(nums.len(), 2)
 
-  let l_max = -calc.inf
-  let l_index = 0
+  let max = -calc.inf
+  let index = 0
   for i in range(0, mid).rev() {
     let sum = nums.slice(i, mid).sum()
-    if l_max < sum {
-      l_max = sum
-      l_index = i
+    if max < sum {
+      max = sum
+      index = i
     }
   }
+  return (index, mid)
+}
 
-  let r_max = -calc.inf
-  let r_index = 0
+#let max_subarray_r(nums) = {
+  let mid = calc.div-euclid(nums.len(), 2)
+  let max = -calc.inf
+  let index = 0
   for i in range(mid+1, nums.len()+1) {
     let sum = nums.slice(mid, i).sum()
-    if r_max < sum {
-      r_max = sum
-      r_index = i
+    if max < sum {
+      max = sum
+      index = i
     }
   }
-
-  return (l_index, r_index)
+  return (mid, index)
 }
 
 #let row(nums) = {
-  let (start, end) = max_subarray(nums)
+  let (l_start, l_end) = max_subarray_l(nums)
+  let (r_start, r_end) = max_subarray_r(nums)
     stack(
       dir: ltr,
       ..nums.enumerate().map(((i, n)) => {
         box(
-          fill: if start <= i and i < end {theme.primary_trans},
+          fill: if l_start <= i and i < l_end {
+            theme.primary_trans
+          } else if r_start <= i and i < r_end {
+            theme.secondary_trans
+          },
           inset: (x: 2pt, y: 4pt),
           str(n)
         )
