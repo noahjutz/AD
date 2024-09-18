@@ -64,12 +64,14 @@ $
 
 === Rechenregeln
 
-- $ f in O(f) $
-- $ g in O(f) \ => c dot g in O(f) $
+- $ f in Theta(f) $
+- $ g in Theta(f) \ => c dot g in Theta(f) $
 - $
-g_1 in O(f_1), g_2 in O(f_2) \
+g_1 in Theta(f_1), g_2 in Theta(f_2) \
 => g_1+g_2 in O(max(f_1, f_2)) \
-=> g_1 dot g_2 in O(f_1 dot f_2)
+=> g_1+g_2 in Omega(min(f_1, f_2)) \
+=> g_1+g_2 in Theta(f_1 + f_2) \
+=> g_1 dot g_2 in Theta(f_1 dot f_2)
 $
 
 == WC, BC, AC
