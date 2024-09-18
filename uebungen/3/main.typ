@@ -51,15 +51,15 @@ $
 ==== Iteration
 
 $
-T(n) &=& 4 &hlp(T(n/2^1)) + n/2^0 \
-&=& 4 (4 &hlp(T(n/2^2)) + n/2^1) + n/2^0 \
-&=& 4 (4 (4 &hlp(T(n/2^3)) + n/2^2) + n/2^1) + n/2^0 \
-&=& 4 (4 (4 (4 &hlp(T(n/2^4)) + n/2^3) + n/2^2) + n/2^1) + n/2^0 \
+T(n) = 4 &hlp(T(n/2^1)) + n/2^0 \
+= 4 (4 &hlp(T(n/2^2)) + n/2^1) + n/2^0 \
+= 4 (4 (4 &hlp(T(n/2^3)) + n/2^2) + n/2^1) + n/2^0 \
+= 4 (4 (4 (4 &hlp(T(n/2^4)) + n/2^3) + n/2^2) + n/2^1) + n/2^0 \
 $
 
 $
-#hide($T(n)$) &= ... \
-&= 4^i T(n/2^i) + sum_(k=0)^i n/2^k
+= ... \
+= 4^i T(n/2^i) + sum_(k=0)^i n/2^k
 $
 
 Wobei $i$ die Rekursionstiefe ist. Der Base-Case ist bei einer Eingabelänge von 1 erreicht.
