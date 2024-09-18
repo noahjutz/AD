@@ -6,16 +6,18 @@
 
 Gesucht ist die Teilmatrix, dessen Komponenten aufsummiert maximal sind.
 
+#include "mts_2d.typ"
+
 === Naiver Algorithmus
 
 Man könnte durch alle Teilmatrizen iterieren und die Summen vergleichen. Laufzeit: $Theta(n^4)$.
 
 ```python
-for i1 in range(n+1):
-  for i2 in range(i1):
-    for j1 in range(n+1):
-      for j2 in range(j1):
-        matrix[i2:i1, j2:j1].sum()
+for i2 in range(n+1):
+  for i1 in range(i1):
+    for j2 in range(n+1):
+      for j1 in range(j1):
+        matrix[i1:i2, j1:j2].sum()
 ```
 
 === Mit Kadane
