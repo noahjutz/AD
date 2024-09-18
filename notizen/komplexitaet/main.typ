@@ -59,7 +59,7 @@ $
 
 $
 lim_(n -> infinity) g(n)/f(n) = c
-=> g(n) = Omega(f(n))
+=> g(n) = Theta(f(n))
 $
 
 === Rechenregeln
