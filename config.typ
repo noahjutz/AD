@@ -40,7 +40,7 @@
 
   show math.equation.where(block: true): set align(start)
 
-  show math.equation: set text(font: "Noto Sans Math")
+  show math.equation: set text(font: "Fira Math")
 
   show heading.where(level: 4): set heading(outlined: false)
 
