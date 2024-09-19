@@ -1,3 +1,5 @@
+#import "@preview/equate:0.2.1": equate
+
 #let theme = (
   primary: red,
   primary_light: red.lighten(75%),
@@ -32,6 +34,7 @@
 
   set footnote.entry(separator: none)
 
+  show: equate.with(breakable: true)
   show math.equation.where(block: true): set align(start)
   show math.equation: set text(font: "Fira Math")
 
