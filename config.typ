@@ -13,12 +13,6 @@
 )
 
 #let config(doc) = {
-  set heading(numbering: (..nums) => {
-    if nums.pos().len() <= 2 {
-      numbering("1.1", ..nums)
-    } else { none }
-  })
-
   set text(
     lang: "de",
     font: "Noto Sans",
@@ -39,11 +33,14 @@
   set footnote.entry(separator: none)
 
   show math.equation.where(block: true): set align(start)
-
   show math.equation: set text(font: "Fira Math")
 
+  set heading(numbering: (..nums) => {
+    if nums.pos().len() <= 2 {
+      numbering("1.1", ..nums)
+    } else { none }
+  })
   show heading.where(level: 4): set heading(outlined: false)
-
   show heading: h => {
     set text(font: "Noto Serif", size: 20pt)
     set block(above: 12pt, below: 12pt)
@@ -85,7 +82,6 @@
 
   show raw: set text(font: "Noto Sans Mono")
   show raw.where(block: false): set text(size: 11pt)
-
   show raw.where(block: true): it => {
     set par(justify: false)
     block(
@@ -106,7 +102,7 @@
   show bibliography: set par(justify: false)
 
   show ref: ref => {
-    return ref
+    return ref // todo support bibliography refs
     let is_after(target, point) = {
       return query(selector(target).after(point)).len() != 0
     }
