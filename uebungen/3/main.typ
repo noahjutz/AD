@@ -132,3 +132,21 @@ $
   log_4n "Terme"
 ) \
 $
+
+==== Obere Schranke
+
+$
+&T(n) <= sqrt(n) + sqrt(n) dot log_4 n \
+=> &T(n) = O(sqrt(n) log n)
+$
+
+==== Untere Schranke
+
+$
+&& T(n) &= sqrt(n) + sum_(k=1)^(log_4 n) n^(1/2^k) \
+&&&>= sum_(k=hlp(log_(8) n))^(log_4 n) n^(1/2^k) \
+&&&>= 1/3 log_4 n dot n^(1/2^(log_(8) n)) \
+&&&= 1/3 log_4 n dot root(3, n) \
+
+&& => T(n) &= Omega(root(3, n) log n)
+$
