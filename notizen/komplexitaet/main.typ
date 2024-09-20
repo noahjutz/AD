@@ -190,7 +190,33 @@ $
 T(n) = a T(n/b) + f(n)
 $
 
+Der Einfachheit halber gehen wir von einem Base-Case $T(1) = Theta(1)$ aus.
+
 Desto größer $a$ ist, desto breiter wird der Rekursionsbaum, und desto kleiner $b$ ist, desto tiefer wird die Rekursion. Der Rekursionsbaum sieht bei $a=2$ so aus:
 
 #include "master_tree.typ"
 
+Die Gesamtlaufzeit setzt sich aus den _rekursiven Schritten_ und den _Base Cases_ zusammen.
+
+$
+T(n) = underbrace(
+  sum_(k=0)^(log_b n-1) a^k dot f(n/b^k),
+  =: T_R
+) + underbrace(
+  a^(log_b n) dot Theta(1),
+  =: T_B
+)
+$
+
+Ausschlaggebend für die asymptotische Laufzeit ist, ob $T_R$ oder $T_B$ dominiert.
+
+#grid(columns: (1fr, ) * 2,
+  $
+  T_R (n) <= a^(log_b n) dot f(n) \
+  T_R (n) >= f(n)
+  $
+)
+
+$
+a^(log_b n) = n^(log_b a)
+$
