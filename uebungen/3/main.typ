@@ -226,3 +226,47 @@ f(n) = Theta(n^(log_b a)) => T(n) &= Theta(n^(log_b a) log n) \
 $
 
 === Gleichung 2
+
+$
+T(n) = cases(
+  1 "falls" n=1,
+  3T(n/4) + n log n "sonst"
+)
+$
+
+==== Parameter
+
+- $a = 3$
+- $b = 4$
+- $f(n) = n log n$
+
+==== Watershed Function
+
+$
+n^(log_b a) = n^(log_4 3)
+$
+
+==== Fazit
+
+$
+lim_(n -> infinity) (n log n)/(n^(log_4 3)) = infinity
+=> f(n) = Omega(n^(log_4 3))
+$
+
+Zusätzlich muss gelten:
+
+$
+a dot f(n/b) &<= c dot f(n) \
+3 dot n/4 log n/4 &<= c dot n log n \
+3 dot (n/4 log n/4)/(n log n) &<= c \
+3/4 log_n n/4 &<= c \
+3/4 underbrace((1 - log_n 4), <= 1) &<= c
+#h(4pt) checkmark
+$
+
+Damit ist:
+
+$
+T(n) = Theta(f(n)) = Theta(n log n)
+#h(4pt) square.filled
+$
