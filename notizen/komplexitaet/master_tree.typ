@@ -23,15 +23,27 @@
 
   set-style(content: (padding: 6pt))
   tree.tree(
-    ($0$, ($1$, ($2$, ([...], $log_b n$)))),
-    grow: 1.2,
-    draw-edge: none
-  )
-  translate(x: 32pt)
-  tree.tree(
     //($n$, $n/b$, $n/b$, $n dot b ^(-1)$)
     rec_tree($n$),
     spread: .35,
-    grow: 1.2
+    grow: 1.2,
+    name: "tree",
   )
+
+  set-style(content: (padding: 0pt))
+  cetz.decorations.flat-brace(
+    (rel: (-4pt, 0), to: "tree.south-west"),
+    (rel: (-4pt, 0), to: "tree.north-west"),
+    name: "height"
+  )
+
+  content("height.content", anchor: "south", angle: 90deg)[$log_b n$]
+
+  cetz.decorations.flat-brace(
+    (rel: (0, -4pt), to: "tree.south-east"),
+    (rel: (0, -4pt), to: "tree.south-west"),
+    name: "width"
+  )
+
+  content("width.content", anchor: "north")[$a^(log_b n)$]
 })

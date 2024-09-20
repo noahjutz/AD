@@ -190,4 +190,7 @@ $
 T(n) = a T(n/b) + f(n)
 $
 
+Desto größer $a$ ist, desto breiter wird der Rekursionsbaum, und desto kleiner $b$ ist, desto tiefer wird die Rekursion. Der Rekursionsbaum sieht bei $a=2$ so aus:
+
 #include "master_tree.typ"
+
