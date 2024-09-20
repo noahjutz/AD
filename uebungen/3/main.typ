@@ -198,3 +198,31 @@ $
 
 === Gleichung 1
 
+$
+T(n) = cases(
+  1 "falls" n=1,
+  T(n/2)+1 "sonst"
+)
+$
+
+==== Parameter
+
+- $a = 1$
+- $b = 2$
+- $f(n) = 1$
+
+==== Watershed Function
+
+$
+n^(log_b a) = n^0 = 1
+$
+
+==== Fazit
+
+$
+f(n) = Theta(n^(log_b a)) => T(n) &= Theta(n^(log_b a) log n) \
+&= Theta(log n)
+#h(4pt) square.filled
+$
+
+=== Gleichung 2
