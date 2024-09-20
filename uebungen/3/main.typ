@@ -37,7 +37,7 @@ for i2 in range(n+1):
 
 Die Laufzeit ist nur noch $Theta(n^3)$, weil es $n^2$ Zeilenkombinationen gibt, welche jeweils mit dem linearen Algorithmus von Kadane verarbeitet werden. Gesamtes Programm: @code-mts2d
 
-== Rekursionsgleichungen
+== Iteration und Substitution
 
 === Gleichung 1
 
@@ -193,3 +193,8 @@ T(n) &= 2underbrace(T(n-1), = Theta(2^n)) + n^2 \
 &= Theta(2^n)
 #h(4pt) checkmark
 $
+
+== Master-Methode
+
+=== Gleichung 1
+
