@@ -190,4 +190,4 @@ $
 T(n) = a T(n/b) + f(n)
 $
 
-Die Komplexität von Rekursionsgleichungen dieser Form lässt sich durch die Master-Methode ermitteln.
+#include "master_tree.typ"
