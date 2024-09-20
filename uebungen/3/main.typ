@@ -143,9 +143,53 @@ $
 ==== Untere Schranke
 
 $
-&& T(n) &= sqrt(n) + sum_(k=1)^(log_4 n) n^(1/2^k) \
-&&&>= sum_(k=hlp(log_(8) n))^(log_4 n) n^(1/2^k) \
-&&&>= 1/3 log_4 n dot n^(1/2^(log_(8) n)) \
-&&&= 1/3 log_4 n dot root(root(3, n), n) \
+T(n) &= sqrt(n) + sum_(k=1)^(log_4 n) n^(1/2^k) \
+&>= sum_(k=hlp(log_(8) n))^(log_4 n) n^(1/2^k) \
+&>= 1/3 log_4 n dot n^(1/2^(log_(8) n)) \
+&= 1/3 log_4 n dot root(root(3, n), n) \
+$
 
+// todo erschließe untere schranke von sqrt(n) log n
+
+=== Gleichung 3
+
+$
+T(n) = cases(
+  1 "falls" n in {1, 2, 3},
+  2T(n-1) + n^2 "sonst"
+)
+$
+
+==== Iteration
+
+$
+T(n) = 2&hlp(T(n-1)) + n^2 \
+= 2 (2&hlp(T(n-1)) + n^2) + n^2 \
+= 2 (2 (2&hlp(T(n-1)) + n^2) + n^2) + n^2
+$
+
+$
+= ... \
+= 2^i T(n-i) + 2^(i-1) n^2 \
+= 2^(n-1) T(1) + 2^(n-1) n^2 \
+= 2^(n-1) dot (1 + n^2) \
+= Theta(2^n)
+$
+
+==== Beweis
+
+Induktionsanfang:
+
+$
+T(1) = 1 = 1/2 dot 2^1
+#h(4pt) checkmark
+$
+
+Induktionsschritt:
+
+$
+T(n) &= 2underbrace(T(n-1), = Theta(2^n)) + n^2 \
+&= 2 dot 2^(n-1) + n^2 \
+&= Theta(2^n)
+#h(4pt) checkmark
 $
