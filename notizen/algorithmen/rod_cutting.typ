@@ -8,7 +8,8 @@
   import cetz.draw: *
   line(
     (0, 0), (1, 0),
-    name: "rod"
+    name: "rod",
+    stroke: 4pt
   )
 
   for i in range(n) {
@@ -37,7 +38,7 @@
         "subrod.end"
       ),
       "subrod.end",
-      stroke: (dash: "dashed", paint: theme.fg_trans),
+      stroke: (dash: "dashed", paint: theme.fg_light),
       name: "cut"
     )
 
