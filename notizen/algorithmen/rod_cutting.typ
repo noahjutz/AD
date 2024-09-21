@@ -1,5 +1,6 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
+#import "@preview/fontawesome:0.4.0"
 
 #let n = 4
 
@@ -40,8 +41,8 @@
       name: "cut"
     )
 
-    content("cut.start")[
-      #text(font: "Material Icons")[contentcut]
+    content("cut.start", angle: -90deg)[
+      #fontawesome.fa-cut()
     ]
   }
 })
