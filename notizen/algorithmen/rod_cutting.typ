@@ -47,9 +47,3 @@
     ]
   }
 })
-
-=== Naiver Algorithmus
-
-Man könnte alle möglichen Kombinationen durchprobieren und das Maximum nehmen. Es gibt $n-1$ Stellen, an denen der Stab geschnitten werden darf. Deshalb gibt es $2^(n-1)$ Möglichkeiten, den Stab zu zerstückeln.
-
-Tatsächlich gibt es weniger möglichkeiten, weil dieser Ansatz die Reihenfolge der Stücke berücksichtigt @bib-partition-function.
