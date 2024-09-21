@@ -442,3 +442,9 @@ Bei allen anderen $n$ gibt es drei Schritte:
   ```python
   hanoi(n-1, other, dst)
   ```
+
+== Rod Cutting Problem
+
+Ziel ist es, einen Stab der Länge $n$ in kleineren Stücken zu verkaufen, um den maximalen Gewinn zu erzielen, wobei jedem Schnittstück ein Preis zugeordnet ist.
+
+#include "rod_cutting.typ"
