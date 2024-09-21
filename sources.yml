@@ -40,3 +40,10 @@ bib-algorithms:
     isbn: 978-0-262-04630-5
   publisher: MIT Press
   url: http://mitpress.mit.edu/algorithms
+
+bib-partition-function:
+  type: thesis
+  title: The Partition Function Revisited
+  author: M. Ram Murty
+  organization: Queen's University at Kingston
+  url: https://mast.queensu.ca/~murty/partition.pdf
