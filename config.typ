@@ -100,50 +100,6 @@
   }
 
   show bibliography: set par(justify: false)
-
-  show ref: ref => {
-    return ref // todo support bibliography refs
-    let is_after(target, point) = {
-      return query(selector(target).after(point)).len() != 0
-    }
-    let a = if is_after(ref.target, <appendix>) {
-      "A"
-    } else if is_after(ref.target, <uebungen>) {
-      "Ü"
-    } else if is_after(ref.target, <notizen>) {
-      "N"
-    }
-    let icon = if is_after(ref.target, here()) {
-      "vertical_align_bottom"
-    } else {
-      "vertical_align_top"
-    }
-    let numbering = if ref.element == none or ref.element.numbering == none {
-      ""
-    } else {
-      numbering(
-        ref.element.numbering,
-        ..counter(heading).at(ref.target)
-      )
-    }
-    link(
-      ref.target,
-      box(
-        stroke: theme.primary,
-        outset: (y: 2pt),
-        inset: (x: 6pt),
-        radius: 2pt
-      )[
-        #set align(horizon)
-        #stack(
-          dir: ltr,
-          text(a),
-          text(numbering),
-          text(font: "Material Icons", icon)
-        )
-      ]
-    )
-  }
-
+  
   doc
 }
