@@ -47,3 +47,7 @@
     ]
   }
 })
+
+=== Naiver Algorithmus
+
+Man könnte alle möglichen Kombinationen durchprobieren und das Maximum nehmen.
