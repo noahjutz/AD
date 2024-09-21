@@ -453,4 +453,8 @@ Ziel ist es, einen Stab der Länge $n$ in kleineren Stücken zu verkaufen, um de
 
 Man könnte alle möglichen Kombinationen durchprobieren und das Maximum nehmen. Es gibt $n-1$ Stellen, an denen der Stab geschnitten werden darf. Deshalb gibt es $2^(n-1)$ Möglichkeiten, den Stab zu zerstückeln.
 
+$
+T(n) = Theta(2^n)
+$
+
 Tatsächlich gibt es weniger Kombinationen, weil dieser Ansatz die Reihenfolge der Stücke berücksichtigt. Um die genaue Anzahl zu berechnen, müssten wir die Partitionsfunktion anwenden @bib-partition-function.
