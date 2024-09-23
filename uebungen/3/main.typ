@@ -280,15 +280,18 @@ T(n) = cases(
 )
 $
 
-==== Parameter
+==== Zu zeigen
+
+$
+T(n) = Theta(n^2.81)
+$
+
+==== Beweis
 
 - $a = 7$
 - $b = 2$
 - $f(n) = n^2$
-
-==== Watershed Function
-
-Wähle $epsilon = log_2(7) - 2$. Damit ist
+- $epsilon := log_2(7) - 2$
 
 $
 n^(log_b a - epsilon) = n^2
@@ -298,8 +301,7 @@ Daraus folgt:
 
 $
 f(n) &= Theta(n^(log_b a - epsilon)) \
-<=> n^2 &= O(n^2) \
-<=> T(n) &= Theta(n^(log_b a)) \
+=> T(n) &= Theta(n^(log_b a)) \
 &approx Theta(n^2.81)
 #h(4pt) square.filled
 $
