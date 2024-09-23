@@ -270,3 +270,36 @@ $
 T(n) = Theta(f(n)) = Theta(n log n)
 #h(4pt) square.filled
 $
+
+=== Gleichung 3
+
+$
+T(n) = cases(
+  1 "falls" n=1,
+  7T(n/2)+n^2 "sonst"
+)
+$
+
+==== Parameter
+
+- $a = 7$
+- $b = 2$
+- $f(n) = n^2$
+
+==== Watershed Function
+
+Wähle $epsilon = log_2(7) - 2$. Damit ist
+
+$
+n^(log_b a - epsilon) = n^2
+$
+
+Daraus folgt:
+
+$
+f(n) &= Theta(n^(log_b a - epsilon)) \
+<=> n^2 &= O(n^2) \
+<=> T(n) &= Theta(n^(log_b a)) \
+&approx Theta(n^2.81)
+#h(4pt) square.filled
+$
