@@ -4,22 +4,20 @@
 
 #let ack(n, m) = {
   if n == 0 {
-    return m + 1
+    return (n: n, m: m, o: m + 1)
   }
 
   if m == 0 and n >= 1 {
     let l = ack(n - 1, 1)
-    let o = if type(l) == int {l} else {l.flatten().last()}
+    let o = if type(l) == dictionary {l.o} else {l.at(0).o}
     return ((n: n, m: m, o: o), l)
     return l
   }
 
   let l = ack(n, m - 1)
-  let o = l.flatten().last()
+  let o = if type(l) == dictionary {l.o} else {l.at(0).o}
   let r = ack(n - 1, o)
-  if type(r) == int {
-    o = r
-  }
+  o = if type(r) == dictionary {r.o} else {r.at(0).o}
   return ((n: n, m: m, o: o), l, r)
 }
 
@@ -38,7 +36,7 @@
   import cetz.tree
 
   tree.tree(
-    content_tree(ack(2, 1)),
-    spread: 2
+    content_tree(ack(1, 3)),
+    spread: 2.5
   )
 })
