@@ -1,5 +1,6 @@
 #import "/config.typ": theme
 #import "/components/math.typ": hlp
+#import "/components/admonition.typ": admonition
 
 = Rekursion
 
@@ -347,3 +348,49 @@ while stack:
 
 return result
 ```
+
+=== Beweis
+
+==== Zu zeigen
+
+$
+forall n, m in NN_0: f(n, m) in NN_0
+$
+
+==== Induktionsanfang (n = 0)
+
+Es gilt für $n = 0$ und alle $m in NN_0$:
+
+$
+f(0, m) = m+1 #h(4pt) checkmark
+$
+
+==== Induktionsschritt (n - 1 #sym.arrow n)
+
+Wir nehmen an, dass $f$ für ein $n-1$ und alle $m$ definiert ist.
+
+
+$
+f(n, m) = 
+$
+
+#admonition(
+  [==== Verschachtelte Induktion]
+)[
+  ==== Induktionsanfang (m = 0)
+
+  $
+  f(n, 0) = f(n-1, 1)
+  $
+
+  Nach äußerer Induktionsvoraussetzung ist $f$ für ein $n-1$ definiert. $checkmark$
+
+  ==== Induktionsschritt (m - 1 #sym.arrow m)
+
+  $
+  f(n, m) = f(n-1, f(n, m-1))
+  $
+
+  Nach innerer Induktionsvoraussetzung ist $f$ für ein $m-1$ definiert.
+]
+
