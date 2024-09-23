@@ -205,23 +205,23 @@ T(n) = cases(
 )
 $
 
-==== Parameter
+==== Zu zeigen
+
+$
+T(n) = Theta(log n)
+$
+
+==== Beweis
 
 - $a = 1$
 - $b = 2$
 - $f(n) = 1$
 
-==== Watershed Function
-
 $
-n^(log_b a) = n^0 = 1
-$
-
-==== Fazit
-
-$
-f(n) = Theta(n^(log_b a)) => T(n) &= Theta(n^(log_b a) log n) \
-&= Theta(log n)
+=>&& n^(log_b a) &= n^0 = 1 \
+=>&& f(n) &= Theta(n^(log_b a)) \
+=>&& T(n) &= Theta(n^(log_b a) log n) \
+&&&= Theta(log n)
 #h(4pt) square.filled
 $
 
