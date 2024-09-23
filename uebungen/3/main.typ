@@ -293,14 +293,9 @@ $
 - $epsilon := log_2(7) - 2$
 
 $
-n^(log_b a - epsilon) = n^2
-$
-
-Daraus folgt:
-
-$
-f(n) &= Theta(n^(log_b a - epsilon)) \
-=> T(n) &= Theta(n^(log_b a)) \
-&approx Theta(n^2.81)
+=>&& n^(log_b a - epsilon) &= n^2 \
+=>&& f(n) &= Theta(n^(log_b a - epsilon)) \
+=>&& T(n) &= Theta(n^(log_b a)) \
+&&&approx Theta(n^2.81)
 #h(4pt) square.filled
 $
