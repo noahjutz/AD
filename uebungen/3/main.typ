@@ -248,28 +248,21 @@ $
 - $epsilon := 1-log_4 3$
 
 $
-=> n^(log_b a + epsilon) = n
-$
-
-Wir nutzen die Watershed Function:
-
-$
-lim_(n -> infinity) (n log n)/n = infinity
-=> f(n) = Omega(n^(log_4 3))
+=>&& n^(log_b a + epsilon) &= n \
+=>&& lim_(n -> infinity) (f(n))/n^(log_b a+epsilon) &= infinity \
+=>&& f(n) &= Omega(n^(log_b a+epsilon))
 $
 
 Zusätzlich muss gelten:
 
 $
-a dot f(n/b) &<= c dot f(n) \
-3 dot n/4 log n/4 &<= c dot n log n \
-3 dot (n/4 log n/4)/(n log n) &<= c \
-3/4 log_n n/4 &<= c \
-3/4 underbrace((1 - log_n 4), <= 1) &<= c
-#h(4pt) checkmark
+&&a dot f(n/b) &<= c dot f(n) \
+<=>&& 3 dot n/4 log n/4 &<= c dot n log n \
+<=>&& 3 dot (n/4 log n/4)/(n log n) &<= c \
+<=>&& 3/4 log_n n/4 &<= c \
+<=>&& 3/4 underbrace((1 - log_n 4), <= 1) &<= c
+#h(4pt) checkmark \
 $
-
-Damit ist:
 
 $
 => T(n) &= Theta(f(n)) \
