@@ -310,6 +310,8 @@ f(n, m) = cases(
 )
 $
 
+#include "tmp.typ"
+
 === Rekursiver Algorithmus
 
 ```python 

@@ -1,6 +1,5 @@
+#import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
-
-#set page(width: auto, height: auto, margin: 12pt)
 
 #let ack(n, m) = {
   if n == 0 {
@@ -21,22 +20,35 @@
   return ((n: n, m: m, o: o), l, r)
 }
 
-#let content_tree(tree) = {
-  return tree.map(elem => {
-    if type(elem) == array {
-      return content_tree(elem)
-    } else {
-      return repr(elem)
-    }
-  })
-}
-
-#cetz.canvas({
+#cetz.canvas(length: 100%, {
   import cetz.draw: *
-  import cetz.tree
 
-  tree.tree(
-    content_tree(ack(1, 3)),
-    spread: 2.5
-  )
+  let h = 16pt
+  let w = .6
+
+  let draw_tree(root, depth: 1) = {
+    if type(root) != array {
+      return
+    }
+
+    let id = "p_" + str(depth)
+    if root.len() == 2 {
+      let (p, c) = root
+      circle((), radius: 0, name: id)
+
+      line(id, (rel: (0, -h)))
+      draw_tree(c, depth: depth+1)
+    } else if root.len() == 3 {
+      let (p, l, r) = root
+      circle((), radius: 0, name: id)
+
+      line(id, (rel: (-w/calc.pow(2, depth), -h)))
+      draw_tree(l, depth: depth+1)
+
+      line(id, (rel: (w/calc.pow(2, depth), -h)))
+      draw_tree(r, depth: depth+1)
+    }
+  }
+
+  draw_tree(ack(3, 1))
 })
