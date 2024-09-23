@@ -234,19 +234,24 @@ T(n) = cases(
 )
 $
 
-==== Parameter
+==== Zu zeigen
+
+$
+T(n) = Theta(n log n)
+$
+
+==== Beweis
 
 - $a = 3$
 - $b = 4$
 - $f(n) = n log n$
-
-==== Watershed Function
+- $epsilon := 1-log_4 3$
 
 $
-n^(log_b a + epsilon) = n^(log_4 3 + (1-log_4 3)) = n
+=> n^(log_b a + epsilon) = n
 $
 
-==== Fazit
+Wir nutzen die Watershed Function:
 
 $
 lim_(n -> infinity) (n log n)/n = infinity
@@ -267,7 +272,8 @@ $
 Damit ist:
 
 $
-T(n) = Theta(f(n)) = Theta(n log n)
+=> T(n) &= Theta(f(n)) \
+&= Theta(n log n)
 #h(4pt) square.filled
 $
 
