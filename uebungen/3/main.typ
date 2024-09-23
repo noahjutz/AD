@@ -243,13 +243,13 @@ $
 ==== Watershed Function
 
 $
-n^(log_b a) = n^(log_4 3)
+n^(log_b a + epsilon) = n^(log_4 3 + (1-log_4 3)) = n
 $
 
 ==== Fazit
 
 $
-lim_(n -> infinity) (n log n)/(n^(log_4 3)) = infinity
+lim_(n -> infinity) (n log n)/n = infinity
 => f(n) = Omega(n^(log_4 3))
 $
 
