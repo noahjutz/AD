@@ -324,3 +324,26 @@ def ack(n, m):
 ```
 
 === Iterativer Algorithmus
+
+```python
+stack = deque(((n, m),))
+result=0
+
+while stack:
+  n, m = stack.pop()
+  if m is None:
+    m = result
+
+  if n == 0:
+    result = m+1
+    continue
+    
+  if m == 0:
+    stack.append((n-1, 1))
+    continue
+    
+  stack.append((n-1, None))
+  stack.append((n, m-1))
+
+return result
+```
