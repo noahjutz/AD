@@ -299,3 +299,28 @@ $
 &&&approx Theta(n^2.81)
 #h(4pt) square.filled
 $
+
+== Ackermannfunktion
+
+$
+f(n, m) = cases(
+  m + 1 "falls" n=0,
+  f(n-1, 1) "falls" m=0 "und" n >= 1,
+  f(n-1, f(n, m-1)) "sonst"
+)
+$
+
+=== Rekursiver Algorithmus
+
+```python 
+def ack(n, m):
+    if n == 0:
+        return m+1
+
+    if m == 0 and n >= 1:
+        return ack(n-1, 1)
+
+    return ack(n-1, ack(n, m-1))
+```
+
+=== Iterativer Algorithmus
