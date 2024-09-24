@@ -406,5 +406,13 @@ Anhand dieser Annahme möchten wir zeigen, dass $f(n, m)$ für $n$ und alle $m i
   $
 
   Nach innerer Induktionsannahme ist $f(n, m-1) =: x$ definiert. Nach äußerer Induktionsannahme ist $f(n-1, x)$ für alle $x in NN_0$ definiert. $checkmark$
+
+  ==== Induktionsschluss
+
+  Wir haben gezeigt, dass $f(n, m)$ für alle $m$ definiert ist, sofern $f(n-1, m)$ für alle $m$ definiert ist. $square$
 ]
+
+==== Induktionsschluss
+
+Wir haben gezeigt, dass $f(n, m)$ für alle $n$ definiert ist, sofern $f(n-1, m)$ definiert ist. In der verschachtelten Induktion haben wir für alle $n$ gezeigt, dass $f(n, m)$ auch für alle $m$ definiert ist. $square.filled$
 
