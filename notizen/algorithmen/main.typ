@@ -1,4 +1,4 @@
-= Algorithmen
+= Einfache Algorithmen
 == ggT
 
 Man sagt "$x$ teilt $a$", wenn $a$ ohne Rest durch $x$ teilbar ist.
