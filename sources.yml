@@ -47,3 +47,10 @@ bib-partition-function:
   author: M. Ram Murty
   organization: Queen's University at Kingston
   url: https://mast.queensu.ca/~murty/partition.pdf
+
+bib-multivariable-induction:
+  type: web
+  title: Mathematical Induction
+  url:
+    value: https://en.wikipedia.org/wiki/Mathematical_induction#Induction_on_more_than_one_counter
+    date: 2024-09-24

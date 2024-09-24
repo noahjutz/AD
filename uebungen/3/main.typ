@@ -349,30 +349,39 @@ while stack:
 return result
 ```
 
-=== Beweis
+=== Korrektheit
+
+Um zu zeigen, dass $f(n, m)$ für alle Eingaben $(n, m) in NN_0^2$ ein Ergebnis liefert, verwenden wir eine Induktion über zwei Variablen @bib-multivariable-induction.
 
 ==== Zu zeigen
 
 $
-forall n, m in NN_0: f(n, m) in NN_0
+forall n, m in NN_0: f(n, m) "ist definiert"
+$
+
+==== Beweis
+
+Wir zeigen, dass $f$ für alle $n$ definiert ist, indem wir zeigen, dass
+
+$
+f(n-1, m) "definiert" => f(n, m) "definiert"
+$
+
+Für jedes $n$ zeigen wir mittels verschaltelter Induktion, dass $f$ für dieses $n$ und für jedes $m$ definiert ist.
+
+$
+f(n, m-1) "definiert" => f(n, m) "definiert"
 $
 
 ==== Induktionsanfang (n = 0)
 
-Es gilt für $n = 0$ und alle $m in NN_0$:
+Es gilt per Definition für $n = 0$ und alle $m in NN_0$:
 
 $
 f(0, m) = m+1 #h(4pt) checkmark
 $
 
 ==== Induktionsschritt (n - 1 #sym.arrow n)
-
-Wir nehmen an, dass $f$ für ein $n-1$ und alle $m$ definiert ist.
-
-
-$
-f(n, m) = 
-$
 
 #admonition(
   [==== Verschachtelte Induktion]
@@ -383,7 +392,7 @@ $
   f(n, 0) = f(n-1, 1)
   $
 
-  Nach äußerer Induktionsvoraussetzung ist $f$ für ein $n-1$ definiert. $checkmark$
+  Nach äußerer Annahme ist $f$ für ein $n-1$ definiert. $checkmark$
 
   ==== Induktionsschritt (m - 1 #sym.arrow m)
 
