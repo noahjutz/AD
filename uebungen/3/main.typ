@@ -367,7 +367,7 @@ $
 f(n-1, m) "definiert" => f(n, m) "definiert"
 $
 
-Für jedes $n$ zeigen wir mittels verschaltelter Induktion, dass $f$ für dieses $n$ und für jedes $m$ definiert ist.
+Für jedes $n$ zeigen wir mittels verschaltelter Induktion, dass $f$ für dieses $n$ und für jedes $m in NN_0$ definiert ist.
 
 $
 f(n, m-1) "definiert" => f(n, m) "definiert"
@@ -383,23 +383,28 @@ $
 
 ==== Induktionsschritt (n - 1 #sym.arrow n)
 
-#admonition(
-  [==== Verschachtelte Induktion]
-)[
+Wir nehmen an, dass $f(n-1, m)$ für ein $n-1$ und alle $m in NN_0$ definiert ist. Das dürfen wir, weil wir im Basisfall gezeigt haben, dass $f(0, m)$ für alle $m in NN_0$ definiert ist.
+
+Anhand dieser Annahme möchten wir zeigen, dass $f(n, m)$ für $n$ und alle $m in NN_0$ definiert ist.
+
+#admonition("Verschachtelte Induktion")[
   ==== Induktionsanfang (m = 0)
 
   $
-  f(n, 0) = f(n-1, 1)
+  f(n, 0) = f(n-1, 1) "[Def.]" \
   $
 
-  Nach äußerer Annahme ist $f$ für ein $n-1$ definiert. $checkmark$
+  Nach Induktionsannahme ist $f$ für ein $n-1$ und alle $m in NN_0$, insbesondere $m=1$ definiert. $checkmark$
 
   ==== Induktionsschritt (m - 1 #sym.arrow m)
 
+  Wir nehmen an, dass $f(n, m-1)$ definiert ist, und folgern daraus, dass $f(n, m)$ definiert ist.
+
   $
-  f(n, m) = f(n-1, f(n, m-1))
+  f(n, m) &= f\(n-1, underbrace(f(n, m-1), =: x in NN_0 "(Nach IV)")) "[Def.]" \
+  &= f(n-1, x)
   $
 
-  Nach innerer Induktionsvoraussetzung ist $f$ für ein $m-1$ definiert.
+  Nach innerer Induktionsannahme ist $f(n, m-1) =: x$ definiert. Nach äußerer Induktionsannahme ist $f(n-1, x)$ für alle $x in NN_0$ definiert. $checkmark$
 ]
 
