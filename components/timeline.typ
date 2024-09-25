@@ -5,7 +5,7 @@
   show list: l => {
     layout(((width,)) => {
       let items = ()
-      for child in l.children {
+      for (i, child) in l.children.enumerate() {
         let (height,) = measure(
           block(
             width: width,
@@ -15,7 +15,7 @@
         )
         items.push(block(
           width: 8pt,
-          height: height + 16pt,
+          height: height + if i < l.children.len()-1 {16pt},
           {
             set block(above: 0pt)
             circle(
@@ -26,7 +26,7 @@
             align(center,
               block(
                 width: .5pt,
-                height: height + 8pt,
+                height: height + if i < l.children.len()-1 {8pt} else {-8pt},
                 stroke: theme.fg_light
               )
             )
