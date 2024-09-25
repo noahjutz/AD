@@ -445,7 +445,7 @@ Bei allen anderen $n$ gibt es drei Schritte:
 
 == Rod Cutting Problem
 
-Ziel ist es, einen Stab der Länge $n$ in kleineren Stücken zu verkaufen, um den maximalen Gewinn zu erzielen, wobei jedem Schnittstück ein Preis zugeordnet ist.
+Ziel ist es, einen Stab der Länge $n$ in kleineren Stücken zu verkaufen, um den maximalen Gewinn zu erzielen, wobei jedem Schnittstück ein Preis zugeordnet ist @bib-rodcutting.
 
 #include "rod_cutting.typ"
 
