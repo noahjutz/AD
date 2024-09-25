@@ -91,6 +91,14 @@ $
     $
     log_b_1 n = underbrace(log_b_1 b_2, "konstant") dot log_b_2 n
     $
+  
+  - ...
+
+    hello #lorem(35)
+  
+  - ...
+
+    hi
 ]
 
 == WC, BC, AC

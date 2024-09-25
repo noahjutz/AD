@@ -13,7 +13,7 @@
             child.body
           )
         )
-        items.push(box(
+        items.push(block(
           width: 8pt,
           height: height + 16pt,
           {
@@ -23,11 +23,10 @@
               stroke: none,
               fill: theme.fg_light
             )
-            place(
-              dx: 50%,
-              line(
-                length: height + 8pt,
-                angle: 90deg,
+            align(center,
+              block(
+                width: .5pt,
+                height: height + 8pt,
                 stroke: theme.fg_light
               )
             )
