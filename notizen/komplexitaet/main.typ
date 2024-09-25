@@ -1,4 +1,5 @@
 #import "/components/math.typ": hlp, hls
+#import "/components/timeline.typ": timeline
 
 = Komplexität
 
@@ -75,6 +76,22 @@ g_1 in Theta(f_1), g_2 in Theta(f_2) \
 => g_1+g_2 in Theta(f_1 + f_2) \
 => g_1 dot g_2 in Theta(f_1 dot f_2)
 $
+
+== Komplexitätsklassen
+
+#timeline[
+  - $Theta(1)$
+
+    Diese Laufzeitfunktionen konvergieren gegen einen konstanten Wert. Es gibt keine geringere Komplexität als $Theta(1)$.
+
+  - $Theta(log n)$
+
+    Ein Logarithmus zur Basis $b_1$ kann mit einem konstanten Faktor die Basis $b_2$ verwenden.
+
+    $
+    log_b_1 n = underbrace(log_b_1 b_2, "konstant") dot log_b_2 n
+    $
+]
 
 == WC, BC, AC
 
