@@ -1,3 +1,5 @@
+#import "/config.typ": theme
+
 #let timeline(body) = {
   set list(marker: circle(radius: 4pt, fill: black, stroke: none))
   show list: l => {
@@ -13,19 +15,20 @@
         )
         items.push(box(
           width: 8pt,
-          height: height + 8pt,
+          height: height + 16pt,
           {
             set block(above: 0pt)
             circle(
               radius: 4pt,
               stroke: none,
-              fill: black
+              fill: theme.fg_light
             )
             place(
               dx: 50%,
               line(
-                length: height,
+                length: height + 8pt,
                 angle: 90deg,
+                stroke: theme.fg_light
               )
             )
           }
