@@ -117,7 +117,7 @@
   for i in range(nums.len()) {
     for j in range(i - 1, -1, step: -1) {
       rows.push(row(j, i, nums))
-      rows.push(arrow_row(j, i))
+      rows.push(arrow_row(j+1, j))
     }
   }
   return rows.flatten()
@@ -128,7 +128,7 @@
   align: center,
   stroke: none,
   // ..row(1, 2, nums),
-  ..row(0, 2, nums),
-  ..arrow_row(0, 1),
-  //..rows(nums)
+  // ..row(0, 2, nums),
+  // ..arrow_row(0, 1),
+  ..rows(nums)
 )
