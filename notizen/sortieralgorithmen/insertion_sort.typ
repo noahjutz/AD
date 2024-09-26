@@ -26,75 +26,83 @@
   )
 })
 
-#let arrow(length, direction, key) = cetz.canvas(
-  length: 100%,
-  {
-    import cetz.draw: *
+#let arrow(
+  length,
+  direction,
+  key,
+  crossed
+) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
 
-    let u = 1/(length+1)
+  let u = 1/(length+1)
 
-    let tl = (u/2, 0)
-    let tr = (1-u/2, 0)
+  let tl = (u/2, 0)
+  let tr = (1-u/2, 0)
 
-    if length == 0 {
-      tl = (0, 0)
-      tr = (1, 0)
-    }
-
-    line(
-      tl,
-      (rel: (0, -6pt)),
-      name: "line_start"
-    )
-    arc(
-      "line_start.end",
-      start: 180deg,
-      stop: 270deg,
-      radius: u/2,
-      name: "arc_start"
-    )
-    line(
-      tr,
-      (rel: (0, -6pt)),
-      name: "line_end"
-    )
-    arc(
-      "line_end.end",
-      start: 0deg,
-      stop: -90deg,
-      radius: u/2,
-      name: "arc_end"
-    )
-    line(
-      "arc_start.end",
-      "arc_end.end",
-      name: "line_mid"
-    )
-    let (mark_from, mark_to) = if direction == "left" {
-      ("arc_start", "line_start.start")
-    } else {
-      ("arc_end", "line_end.start")
-    }
-    let m
-    mark(
-      mark_from,
-      mark_to, 
-      symbol: "straight",
-      length: 6pt,
-    )
-
-    if key != none {
-      content(
-        "line_mid.mid",
-        anchor: "south",
-        padding: 4pt,
-        str(key)
-      )
-    }
+  if length == 0 {
+    tl = (0, 0)
+    tr = (1, 0)
   }
-)
 
-#let arrow_row(from, to, n: nums.len(), key: none) = {
+  line(
+    tl,
+    (rel: (0, -6pt)),
+    name: "line_start"
+  )
+  arc(
+    "line_start.end",
+    start: 180deg,
+    stop: 270deg,
+    radius: u/2,
+    name: "arc_start"
+  )
+  line(
+    tr,
+    (rel: (0, -6pt)),
+    name: "line_end"
+  )
+  arc(
+    "line_end.end",
+    start: 0deg,
+    stop: -90deg,
+    radius: u/2,
+    name: "arc_end"
+  )
+  line(
+    "arc_start.end",
+    "arc_end.end",
+    name: "line_mid"
+  )
+  let (mark_from, mark_to) = if direction == "left" {
+    ("arc_start", "line_start.start")
+  } else {
+    ("arc_end", "line_end.start")
+  }
+  let m
+  mark(
+    mark_from,
+    mark_to, 
+    symbol: "straight",
+    length: 6pt,
+  )
+
+  if key != none {
+    content(
+      "line_mid.mid",
+      anchor: "south",
+      padding: 4pt,
+      str(key)
+    )
+  }
+})
+
+#let arrow_row(
+  from,
+  to,
+  n: nums.len(),
+  key: none,
+  crossed: false
+) = {
   let min = calc.min(from, to)
   let max = calc.max(from, to)
   let row = ()
@@ -120,7 +128,8 @@
       arrow(
         max - min,
         if to > from {"right"} else {"left"},
-        key
+        key,
+        crossed
       )
     )
   )
@@ -141,10 +150,15 @@
   for i in range(1, nums.len()) {
     let j = i - 1
     let key = nums.at(i)
-    while j >= 0 and key < nums.at(j) {
-      rows += num_row(j, i, nums)
-      rows += arrow_row(j, j+1)
-      nums.at(j+1) = nums.at(j)
+    while j >= 0 {
+      if key < nums.at(j) {
+        rows += num_row(j, i, nums)
+        rows += arrow_row(j, j+1)
+        nums.at(j+1) = nums.at(j)
+      } else {
+        rows += num_row(j, i, nums)
+        rows += arrow_row(j, j+1, crossed: true)
+      }
       j -= 1
     }
     rows += num_row(j, i, nums)
