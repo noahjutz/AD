@@ -9,7 +9,8 @@
       num_row(
         nums,
         hl1: i,
-        hl2: j
+        hl2: j,
+        j+1
       )
     }
   }

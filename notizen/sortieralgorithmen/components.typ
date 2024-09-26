@@ -5,6 +5,7 @@
   nums,
   hl1: none,
   hl2: none,
+  ..hl3,
   frame: none
 ) = nums.enumerate().map(((k, n)) => {
   let stroke = (:)
@@ -23,6 +24,8 @@
       theme.primary_light
     } else if k == hl2 {
       theme.secondary_light
+    } else if k in hl3.pos() {
+      theme.secondary_light.lighten(50%)
     },
     stroke: stroke,
     str(n),
