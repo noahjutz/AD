@@ -114,11 +114,15 @@
 #let rows(nums) = {
   let rows = ()
   let nums = array(nums)
-  for i in range(nums.len()) {
-    for j in range(i - 1, -1, step: -1) {
+  for i in range(1, nums.len()) {
+    let j = i - 1
+    while j >= 0 and nums.at(i) < nums.at(j) {
       rows.push(row(j, i, nums))
       rows.push(arrow_row(j+1, j))
+      j -= 1
     }
+    rows.push(row(j, i, nums))
+    rows.push(arrow_row(i, j+1))
   }
   return rows.flatten()
 }
