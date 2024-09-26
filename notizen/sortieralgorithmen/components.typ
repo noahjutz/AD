@@ -25,7 +25,7 @@
     } else if k == hl2 {
       theme.secondary_light
     } else if k in hl3.pos() {
-      theme.secondary_light.lighten(50%)
+      theme.secondary_light.lighten(30%)
     },
     stroke: stroke,
     str(n),
