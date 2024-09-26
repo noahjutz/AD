@@ -1,5 +1,4 @@
 #import "components.typ": num_row, finished_row, arrow_row
-#import "@preview/cetz:0.2.2"
 
 #show table: set text(font: "Noto Sans Mono")
 
