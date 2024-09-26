@@ -25,7 +25,7 @@
     rows += num_row(j, i, nums)
     rows += arrow_row(i, j+1, nums.len(), key: key)
     nums.at(j+1) = key
-    rows += finished_row(i+1, nums)
+    rows += finished_row(0, i+1, nums)
     rows.push(table.cell(colspan: nums.len(), ""))
   }
   return rows

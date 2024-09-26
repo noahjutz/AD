@@ -22,12 +22,12 @@
   )
 })
 
-#let finished_row(i, nums) = nums.enumerate().map(((k, n)) => {
+#let finished_row(from, to, nums) = nums.enumerate().map(((k, n)) => {
   let stroke-style = 2pt + theme.success
   let stroke = (:)
-  if k == 0 {stroke.left = stroke-style}
-  if k == i - 1 {stroke.right = stroke-style}
-  if 0 <= k and k <= i - 1 {
+  if k == from {stroke.left = stroke-style}
+  if k == to - 1 {stroke.right = stroke-style}
+  if from <= k and k <= to - 1 {
     stroke.bottom = stroke-style
     stroke.top = stroke-style
   }
