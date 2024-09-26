@@ -1,4 +1,4 @@
-#import "components.typ": num_row, finished_row, arrow_row
+#import "components.typ": num_row, arrow_row
 #import "/config.typ": theme
 
 #show table: set text(font: "Noto Sans Mono")
@@ -53,7 +53,14 @@
     )
     rows += arrow_row(i, j+1, nums.len(), key: key)
     nums.at(j+1) = key
-    rows += finished_row(0, i+1, nums)
+    rows += num_row(
+      nums,
+      frame: (
+        from: 0,
+        to: i,
+        color: theme.success
+      )
+    )
     rows.push(table.cell(colspan: nums.len(), ""))
   }
   return rows

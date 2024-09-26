@@ -29,21 +29,6 @@
   )
 })
 
-#let finished_row(from, to, nums) = nums.enumerate().map(((k, n)) => {
-  let stroke-style = 2pt + theme.success
-  let stroke = (:)
-  if k == from {stroke.left = stroke-style}
-  if k == to - 1 {stroke.right = stroke-style}
-  if from <= k and k <= to - 1 {
-    stroke.bottom = stroke-style
-    stroke.top = stroke-style
-  }
-  table.cell(
-    stroke: stroke,
-    str(n)
-  )
-})
-
 #let arrow(
   length,
   direction,
