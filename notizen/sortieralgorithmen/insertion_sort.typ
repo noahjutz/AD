@@ -27,7 +27,7 @@
 })
 
 #let finished_row(i, nums) = nums.enumerate().map(((k, n)) => {
-  let stroke-style = 2pt + green
+  let stroke-style = 2pt + theme.success
   let stroke = (:)
   if k == 0 {stroke.left = stroke-style}
   if k == i - 1 {stroke.right = stroke-style}

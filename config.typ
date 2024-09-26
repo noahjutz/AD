@@ -9,7 +9,10 @@
   fg_light: black.lighten(50%),
   fg_trans: black.transparentize(50%),
   bg_light: black.lighten(90%),
-  bg_trans: black.transparentize(90%)
+  bg_trans: black.transparentize(90%),
+  success: green.lighten(25%),
+  success_light: green.lighten(75%),
+  success_trans: green.transparentize(75%)
 )
 
 #let config(doc) = {
