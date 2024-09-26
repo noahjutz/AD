@@ -33,4 +33,15 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
 
 == Bubble Sort
 
+In jedem Schleifendurchlauf (Schlüssel rot markiert) wird die Teilliste rechts des Schlüssels (grau umrandet) betrachtet. Von rechts nach links werden Elemente paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
+
+```python
+for i in range(n):
+  for j in reversed(range(i, n-1)):
+    # vertausche a[j] mit a[j+1]
+    # falls a[j] > a[j+1]
+```
+
+Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün umrandet).
+
 #include "bubble_sort.typ"

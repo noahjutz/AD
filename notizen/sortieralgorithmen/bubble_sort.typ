@@ -1,7 +1,7 @@
 #import "components.typ": num_row, arrow_row, empty_row
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 51)
+#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
 #let rows(nums) = {
   for i in range(nums.len()) {
@@ -12,7 +12,7 @@
         hl2: j,
         j+1,
         frame: (
-          from: i+1,
+          from: i,
           to: nums.len() - 1,
           color: theme.fg_light
         )
