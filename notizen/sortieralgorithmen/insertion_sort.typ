@@ -30,7 +30,7 @@
   length: 100%,
   {
     import cetz.draw: *
-    let u = 1/length
+    let u = 1/(length+1)
     line(
       (u/2, 0),
       (u/2, -6pt),
@@ -117,6 +117,7 @@
   for i in range(nums.len()) {
     for j in range(i - 1, -1, step: -1) {
       rows.push(row(j, i, nums))
+      rows.push(arrow_row(j, i))
     }
   }
   return rows.flatten()
@@ -127,7 +128,7 @@
   align: center,
   stroke: none,
   // ..row(1, 2, nums),
-  // ..row(0, 2, nums),
-  // ..arrow_row(5, 0),
-  ..rows(nums)
+  ..row(0, 2, nums),
+  ..arrow_row(0, 1),
+  //..rows(nums)
 )
