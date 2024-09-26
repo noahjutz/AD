@@ -31,16 +31,42 @@
   {
     import cetz.draw: *
     let u = 1/length
-    bezier(
-      (u, 0),
-      (1, 0),
-      (u, -20pt),
-      (1, -20pt),
-      mark: if direction == "right" {
-        (end: ">")
-      } else {
-        (start: ">")
-      }
+    line(
+      (u/2, 0),
+      (u/2, -6pt),
+      name: "line_start"
+    )
+    arc(
+      "line_start.end",
+      start: 180deg,
+      stop: 270deg,
+      radius: u/2,
+      name: "arc_start"
+    )
+    line(
+      (1-u/2, 0),
+      (1-u/2, -6pt),
+      name: "line_end"
+    )
+    arc(
+      "line_end.end",
+      start: 0deg,
+      stop: -90deg,
+      radius: u/2,
+      name: "arc_end"
+    )
+    line("arc_start.end", "arc_end.end")
+    let (mark_from, mark_to) = if direction == "left" {
+      ("arc_start", "line_start.start")
+    } else {
+      ("arc_end", "line_end.start")
+    }
+    let m
+    mark(
+      mark_from,
+      mark_to, 
+      symbol: "straight",
+      length: 6pt,
     )
   }
 )
