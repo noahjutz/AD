@@ -33,3 +33,4 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
 
 == Bubble Sort
 
+#include "bubble_sort.typ"
