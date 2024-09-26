@@ -10,7 +10,12 @@
         nums,
         hl1: i,
         hl2: j,
-        j+1
+        j+1,
+        frame: (
+          from: i+1,
+          to: nums.len() - 1,
+          color: theme.fg_light
+        )
       )
       arrow_row(
         j,
