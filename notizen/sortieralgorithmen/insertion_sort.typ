@@ -118,11 +118,11 @@
     let j = i - 1
     while j >= 0 and nums.at(i) < nums.at(j) {
       rows.push(row(j, i, nums))
-      rows.push(arrow_row(j+1, j))
+      rows.push(arrow_row(j, j+1))
       j -= 1
     }
-    rows.push(row(j, i, nums))
-    rows.push(arrow_row(i, j+1))
+    //rows.push(row(j, i, nums))
+    //rows.push(arrow_row(i, j))
   }
   return rows.flatten()
 }
@@ -132,6 +132,7 @@
   align: center,
   stroke: none,
   // ..row(1, 2, nums),
+  // ..arrow_row(0, 0),
   // ..row(0, 2, nums),
   // ..arrow_row(0, 1),
   ..rows(nums)
