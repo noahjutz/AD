@@ -169,3 +169,6 @@
   return row
 }
 
+#let empty_row(n) = (
+  table.cell(colspan: n, ""),
+)

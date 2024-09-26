@@ -1,4 +1,4 @@
-#import "components.typ": num_row, arrow_row
+#import "components.typ": num_row, arrow_row, empty_row
 #import "/config.typ": theme
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 51)
@@ -13,9 +13,23 @@
         j+1
       )
       arrow_row(
-        j, j+1, nums.len(), direction: "bidirectional"
+        j,
+        j+1,
+        nums.len(),
+        direction: "bidirectional"
       )
     }
+
+    num_row(
+      nums,
+      frame: (
+        from: 0,
+        to: i,
+        color: theme.success
+      )
+    )
+
+    empty_row(nums.len())
   }
 }
 
