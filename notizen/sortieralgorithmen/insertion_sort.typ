@@ -158,9 +158,5 @@
   columns: nums.len(),
   align: center,
   stroke: none,
-  // ..row(1, 2, nums),
-  // ..arrow_row(0, 0),
-  // ..row(0, 2, nums),
-  // ..arrow_row(0, 1),
   ..rows(nums)
 )
