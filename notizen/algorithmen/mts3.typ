@@ -1,6 +1,7 @@
 #import "/config.typ": theme
 
-#show table.cell: set text(font: "Noto Sans Mono", size: 8pt)
+#show table.cell: set text(size: 8pt)
+#show table.cell.where(y: 0): set text(size: 11pt)
 
 #let nums = (-13, 25, 34, 12, -3, 7, -87, 28, -77, 11)
 
@@ -22,7 +23,7 @@
     let next_row = nums.enumerate().map(((i, n)) => {
       table.cell(
         str(n),
-        fill: if start <= i and i < end {theme.primary_light}
+        fill: if start <= i and i < end {theme.primary_trans}
       )
     })
     next_row.insert(0, table.cell[
@@ -36,9 +37,17 @@
 
 #let c = rows(nums)
 
-#table(
-  columns: (1fr,) * (nums.len() + 1),
-  align: end,
-  stroke: none,
-  ..c.flatten()
+#block(
+  stroke: 1pt,
+  table(
+    columns: (1fr,) * (nums.len() + 1),
+    align: end,
+    stroke: (x, y) => {
+      if y == 0 {(bottom: 1pt)}
+      if x == 0 {(right: 1pt)}
+    },
+    table.cell(align: center + horizon)[$sum$],
+    table.cell(colspan: nums.len(), align: start + horizon)[Liste],
+    ..c.flatten()
+  )
 )
