@@ -5,7 +5,6 @@
 
 #let rows(nums) = {
   let rows = ()
-  let nums = array(nums)
   for i in range(1, nums.len()) {
     let j = i - 1
     let key = nums.at(i)
