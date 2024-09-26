@@ -83,18 +83,24 @@
     "arc_end.end",
     name: "line_mid",
   )
-  let (mark_from, mark_to) = if direction == "left" {
-    ("arc_start", "line_start.start")
-  } else {
-    ("arc_end", "line_end.start")
-  }
+
   let m
-  mark(
-    mark_from,
-    mark_to, 
-    symbol: "straight",
-    length: 6pt,
-  )
+  if direction in ("left", "bidirectional") {
+    mark(
+      "arc_start",
+      "line_start.start",
+      symbol: "straight",
+      length: 6pt,
+    )
+  }
+  if direction in ("right", "bidirectional") {
+    mark(
+      "arc_end",
+      "line_end.start",
+      symbol: "straight",
+      length: 6pt,
+    )
+  }
 
   if key != none {
     content(
@@ -111,7 +117,8 @@
   to,
   n,
   key: none,
-  crossed: false
+  crossed: false,
+  direction: "normal" // normal, reversed, bidirectional, none
 ) = {
   let min = calc.min(from, to)
   let max = calc.max(from, to)
@@ -137,7 +144,15 @@
       ),
       arrow(
         max - min,
-        if to > from {"right"} else {"left"},
+        if direction == "bidirectional" {
+          "bidirectional"
+        } else if direction == "none" {
+          "none"
+        } else if direction == "normal" {
+          if to > from {"right"} else {"left"}
+        } else if direction == "reversed" {
+          if to < from {"right"} else {"left"}
+        },
         key,
         crossed
       )

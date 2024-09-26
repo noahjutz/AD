@@ -12,6 +12,9 @@
         hl2: j,
         j+1
       )
+      arrow_row(
+        j, j+1, nums.len(), direction: "bidirectional"
+      )
     }
   }
 }
