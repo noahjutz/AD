@@ -26,6 +26,21 @@
   )
 })
 
+#let finished_row(i, nums) = nums.enumerate().map(((k, n)) => {
+  let stroke-style = 2pt + green
+  let stroke = (:)
+  if k == 0 {stroke.left = stroke-style}
+  if k == i - 1 {stroke.right = stroke-style}
+  if 0 <= k and k <= i - 1 {
+    stroke.bottom = stroke-style
+    stroke.top = stroke-style
+  }
+  table.cell(
+    stroke: stroke,
+    str(n)
+  )
+})
+
 #let arrow(
   length,
   direction,
@@ -169,6 +184,8 @@
     rows += num_row(j, i, nums)
     rows += arrow_row(i, j+1, key: key)
     nums.at(j+1) = key
+    rows += finished_row(i+1, nums)
+    rows.push(table.cell(colspan: nums.len(), ""))
   }
   return rows
 }
