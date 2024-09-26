@@ -1,6 +1,6 @@
 = Sortieralgorithmen
 
-== Insertion Sort
+== Insertion Sort <insertion-sort>
 
 Der Algorithmus iteriert durch alle  Elemente ab dem zweiten (rot markiert: "Schlüssel") und schiebt den Wert so lange nach vorne, bis keine kleineren Werte mehr vor ihm stehen.
 
@@ -30,3 +30,6 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   ```
 
 #include "insertion_sort.typ"
+
+== Bubble Sort
+

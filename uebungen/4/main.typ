@@ -16,4 +16,6 @@ for j in reversed(range(n)):
   a[i-1] = key
 ```
 
+Mehr über Insertion Sort: @insertion-sort
+
 === Bubble Sort
