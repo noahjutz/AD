@@ -1,4 +1,5 @@
 #import "/config.typ": theme
+#import "@preview/cetz:0.2.2"
 
 #show table: set text(font: "Noto Sans Mono")
 
@@ -25,11 +26,63 @@
   )
 })
 
+#let arrow(length, direction) = cetz.canvas(
+  length: 100%,
+  {
+    import cetz.draw: *
+    let u = 1/length
+    bezier(
+      (u, 0),
+      (1, 0),
+      (u, -20pt),
+      (1, -20pt),
+      mark: if direction == "right" {
+        (end: ">")
+      } else {
+        (start: ">")
+      }
+    )
+  }
+)
+
+#let arrow_row(from, to, n: nums.len()) = {
+  let min = calc.min(from, to)
+  let max = calc.max(from, to)
+  return (
+    if min - 1 > 0 {
+      table.cell(
+        colspan: min - 1,
+        ""
+      )
+    },
+    table.cell(
+      colspan: max - min,
+      inset: (
+        bottom: 6pt,
+        top: 0pt,
+        left: 0pt,
+        right: 0pt
+      ),
+      arrow(
+        max - min,
+        if to > from {"right"} else {"left"}
+      )
+    ),
+    if n - max - 1 > 0 {
+      table.cell(
+        colspan: n - max - 1,
+        ""
+      )
+    }
+  )
+}
+
 #table(
   columns: nums.len(),
   align: center,
   stroke: none,
   ..row(1, 2, nums),
-  ..([],)*nums.len(),
+  ..arrow_row(0, 2),
   ..row(0, 2, nums),
+  ..arrow_row(5, 0),
 )
