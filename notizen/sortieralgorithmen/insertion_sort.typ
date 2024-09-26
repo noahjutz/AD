@@ -34,6 +34,10 @@
 ) = cetz.canvas(length: 100%, {
   import cetz.draw: *
 
+  if crossed {
+    set-style(stroke: (paint: theme.fg_light, dash: "dashed"))
+  }
+
   let u = 1/(length+1)
 
   let tl = (u/2, 0)
@@ -71,7 +75,7 @@
   line(
     "arc_start.end",
     "arc_end.end",
-    name: "line_mid"
+    name: "line_mid",
   )
   let (mark_from, mark_to) = if direction == "left" {
     ("arc_start", "line_start.start")
