@@ -162,6 +162,7 @@
       } else {
         rows += num_row(j, i, nums)
         rows += arrow_row(j, j+1, crossed: true)
+        break
       }
       j -= 1
     }
