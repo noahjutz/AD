@@ -21,8 +21,15 @@
         j,
         j+1,
         nums.len(),
-        direction: "bidirectional"
+        direction: "bidirectional",
+        crossed: nums.at(j) <= nums.at(j+1)
       )
+
+      if nums.at(j) > nums.at(j+1) {
+        let h = nums.at(j)
+        nums.at(j) = nums.at(j+1)
+        nums.at(j+1) = h
+      }
     }
 
     num_row(
