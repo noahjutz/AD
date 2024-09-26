@@ -5,7 +5,7 @@
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 51)
 
-#let row(j, i, nums) = nums.enumerate().map(((k, n)) => {
+#let num_row(j, i, nums) = nums.enumerate().map(((k, n)) => {
   let stroke_style = theme.fg_light + 2pt
   let stroke = (:)
   if k == 0 {stroke.left = stroke_style}
@@ -26,7 +26,7 @@
   )
 })
 
-#let arrow(length, direction) = cetz.canvas(
+#let arrow(length, direction, key) = cetz.canvas(
   length: 100%,
   {
     import cetz.draw: *
@@ -55,7 +55,11 @@
       radius: u/2,
       name: "arc_end"
     )
-    line("arc_start.end", "arc_end.end")
+    line(
+      "arc_start.end",
+      "arc_end.end",
+      name: "line_mid"
+    )
     let (mark_from, mark_to) = if direction == "left" {
       ("arc_start", "line_start.start")
     } else {
@@ -68,10 +72,19 @@
       symbol: "straight",
       length: 6pt,
     )
+
+    if key != none {
+      content(
+        "line_mid.mid",
+        anchor: "south",
+        padding: 4pt,
+        str(key)
+      )
+    }
   }
 )
 
-#let arrow_row(from, to, n: nums.len()) = {
+#let arrow_row(from, to, n: nums.len(), key: none) = {
   let min = calc.min(from, to)
   let max = calc.max(from, to)
   let row = ()
@@ -96,7 +109,8 @@
       ),
       arrow(
         max - min,
-        if to > from {"right"} else {"left"}
+        if to > from {"right"} else {"left"},
+        key
       )
     )
   )
@@ -116,15 +130,18 @@
   let nums = array(nums)
   for i in range(1, nums.len()) {
     let j = i - 1
-    while j >= 0 and nums.at(i) < nums.at(j) {
-      rows.push(row(j, i, nums))
-      rows.push(arrow_row(j, j+1))
+    let key = nums.at(i)
+    while j >= 0 and key < nums.at(j) {
+      rows += num_row(j, i, nums)
+      rows += arrow_row(j, j+1)
+      nums.at(j+1) = nums.at(j)
       j -= 1
     }
-    //rows.push(row(j, i, nums))
-    //rows.push(arrow_row(i, j))
+    rows += num_row(j, i, nums)
+    rows += arrow_row(i, j+1, key: key)
+    nums.at(j+1) = key
   }
-  return rows.flatten()
+  return rows
 }
 
 #table(
