@@ -30,10 +30,20 @@
   length: 100%,
   {
     import cetz.draw: *
+
     let u = 1/(length+1)
+
+    let tl = (u/2, 0)
+    let tr = (1-u/2, 0)
+
+    if length == 0 {
+      tl = (0, 0)
+      tr = (1, 0)
+    }
+
     line(
-      (u/2, 0),
-      (u/2, -6pt),
+      tl,
+      (rel: (0, -6pt)),
       name: "line_start"
     )
     arc(
@@ -44,8 +54,8 @@
       name: "arc_start"
     )
     line(
-      (1-u/2, 0),
-      (1-u/2, -6pt),
+      tr,
+      (rel: (0, -6pt)),
       name: "line_end"
     )
     arc(
