@@ -1,20 +1,27 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
-#let num_row(j, i, nums) = nums.enumerate().map(((k, n)) => {
-  let stroke_style = theme.fg_light + 2pt
+#let num_row(
+  nums,
+  hl1: none,
+  hl2: none,
+  frame: none
+) = nums.enumerate().map(((k, n)) => {
   let stroke = (:)
-  if k == 0 {stroke.left = stroke_style}
-  if k == i - 1 {stroke.right = stroke_style}
-  if 0 <= k and k <= i - 1 {
-    stroke.bottom = stroke_style
-    stroke.top = stroke_style
+  if frame != none {
+    let stroke_style = frame.color + 2pt
+    if k == frame.from {stroke.left = stroke_style}
+    if k == frame.to {stroke.right = stroke_style}
+    if frame.from <= k and k <= frame.to {
+      stroke.bottom = stroke_style
+      stroke.top = stroke_style
+    }
   }
 
   table.cell(
-    fill: if k == i {
+    fill: if k == hl1 {
       theme.primary_light
-    } else if k == j {
+    } else if k == hl2 {
       theme.secondary_light
     },
     stroke: stroke,
