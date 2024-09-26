@@ -74,15 +74,20 @@
 #let arrow_row(from, to, n: nums.len()) = {
   let min = calc.min(from, to)
   let max = calc.max(from, to)
-  return (
-    if min - 1 > 0 {
+  let row = ()
+
+  if min > 0 {
+    row.push(
       table.cell(
-        colspan: min - 1,
+        colspan: min,
         ""
       )
-    },
+    )
+  }
+
+  row.push(
     table.cell(
-      colspan: max - min,
+      colspan: max - min + 1,
       inset: (
         bottom: 6pt,
         top: 0pt,
@@ -93,22 +98,36 @@
         max - min,
         if to > from {"right"} else {"left"}
       )
-    ),
-    if n - max - 1 > 0 {
+    )
+  )
+  if n - max - 1 > 0 {
+    row.push(
       table.cell(
         colspan: n - max - 1,
         ""
       )
+    )
+  }
+  return row
+}
+
+#let rows(nums) = {
+  let rows = ()
+  let nums = array(nums)
+  for i in range(nums.len()) {
+    for j in range(i - 1, -1, step: -1) {
+      rows.push(row(j, i, nums))
     }
-  )
+  }
+  return rows.flatten()
 }
 
 #table(
   columns: nums.len(),
   align: center,
   stroke: none,
-  ..row(1, 2, nums),
-  ..arrow_row(0, 2),
-  ..row(0, 2, nums),
-  ..arrow_row(5, 0),
+  // ..row(1, 2, nums),
+  // ..row(0, 2, nums),
+  // ..arrow_row(5, 0),
+  ..rows(nums)
 )
