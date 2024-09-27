@@ -6,31 +6,40 @@
   hl1: none,
   hl2: none,
   ..hl3,
-  frame: none
-) = nums.enumerate().map(((k, n)) => {
-  let stroke = (:)
-  if frame != none {
-    let stroke_style = frame.color + 2pt
-    if k == frame.from {stroke.left = stroke_style}
-    if k == frame.to {stroke.right = stroke_style}
-    if frame.from <= k and k <= frame.to {
-      stroke.bottom = stroke_style
-      stroke.top = stroke_style
+  frame: none,
+  has_arrow: false,
+) = {
+  let row = nums.enumerate().map(((k, n)) => {
+    let stroke = (:)
+    if frame != none {
+      let stroke_style = frame.color + 2pt
+      if k == frame.from {stroke.left = stroke_style}
+      if k == frame.to {stroke.right = stroke_style}
+      if frame.from <= k and k <= frame.to {
+        stroke.bottom = stroke_style
+        stroke.top = stroke_style
+      }
     }
-  }
-
-  table.cell(
-    fill: if k == hl1 {
-      theme.primary_light
-    } else if k == hl2 {
-      theme.secondary_light
-    } else if k in hl3.pos() {
-      theme.secondary_light.lighten(30%)
-    },
-    stroke: stroke,
-    str(n),
-  )
-})
+    table.cell(
+      fill: if k == hl1 {
+        theme.primary_light
+      } else if k == hl2 {
+        theme.secondary_light
+      } else if k in hl3.pos() {
+        theme.secondary_light.lighten(30%)
+      },
+      stroke: stroke,
+      str(n),
+    )
+  })
+  row.insert(0, table.cell(
+    rowspan: if has_arrow {2} else {1},
+    inset: 0pt,
+    breakable: false,
+    []
+  ))
+  return row
+}
 
 #let arrow(
   length,
@@ -170,5 +179,5 @@
 }
 
 #let empty_row(n) = (
-  table.cell(colspan: n, ""),
+  table.cell(colspan: n+1, ""),
 )

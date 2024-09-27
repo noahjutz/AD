@@ -15,7 +15,8 @@
           from: i,
           to: nums.len() - 1,
           color: theme.fg_light
-        )
+        ),
+        has_arrow: true,
       )
       arrow_row(
         j,
@@ -46,7 +47,7 @@
 }
 
 #table(
-  columns: nums.len(),
+  columns: nums.len()+1,
   align: center,
   stroke: none,
   ..rows(nums)

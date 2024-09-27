@@ -17,7 +17,8 @@
             from: 0,
             to: i - 1,
             color: theme.fg_light
-          )
+          ),
+          has_arrow: true
         )
         arrow_row(j, j+1, nums.len())
         nums.at(j+1) = nums.at(j)
@@ -30,7 +31,8 @@
             from: 0,
             to: i - 1,
             color: theme.fg_light
-          )
+          ),
+          has_arrow: true
         )
         arrow_row(j, j+1, nums.len(), crossed: true)
         break
@@ -45,7 +47,8 @@
         from: 0,
         to: i - 1,
         color: theme.fg_light
-      )
+      ),
+      has_arrow: true
     )
     arrow_row(i, j+1, nums.len(), key: key)
     nums.at(j+1) = key
@@ -62,8 +65,8 @@
 }
 
 #table(
-  columns: nums.len(),
+  columns: nums.len()+1,
   align: center,
   stroke: none,
-  ..rows(nums)
+  ..rows(nums),
 )
