@@ -72,3 +72,6 @@ Im Beispiel ist der Zähler rot markiert und das rechte Minimum blau.
 #selection_sort(4, 3, 2, 1)
 
 Längeres Beispiel: @ex-selection-sort
+
+== Quicksort
+
