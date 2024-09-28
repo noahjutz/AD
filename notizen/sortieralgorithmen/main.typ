@@ -40,7 +40,7 @@ Längeres Beispiel: @ex-insertion-sort
 
 === Laufzeit
 
-Für jedes Element in `a[1:]` werden zwischen $0$ und  $n-1$ Verschieoperationen durchgeführt.
+Für jedes Element in `a` werden zwischen $0$ und  $j$ Verschiebeoperationen durchgeführt, um `a[j]` richtig in `a[:j+1]` einzusortieren.
 
 #grid(columns: (1fr,)*2,
   $
@@ -49,14 +49,6 @@ Für jedes Element in `a[1:]` werden zwischen $0$ und  $n-1$ Verschieoperationen
   T^"BC" (n) = Theta(n)
   $
 )
-
-Der Einfachheit halber gehen wir für die AC-Laufzeit von einer gleichverteilt zufälligen Eingabe aus $NN^n$ mit paarweise verschiedenen Elementen aus. Daraus folgt für zwei unterschiedliche Einträge:
-
-$
-P(x_a < x_b) = 1/2
-$
-
-Die inneren Schleife des Algorithmus läuft so lange, bis $x_i > "key"$ nicht mehr gilt. Damit ist in jedem Durchlauf die Wahrscheinlichkeit, dass die Schleife beendet wird $50%$.
 
 == Bubble Sort <bubble-sort>
 
