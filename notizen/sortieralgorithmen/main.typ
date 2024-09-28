@@ -52,7 +52,6 @@ Nach jedem Schleifendurchlauf ist die linke Teilliste bis zum Schlüssel sortier
 Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert von $i=0$ nach $i=n-2=2$.
 
 #import "bubble_sort.typ": bubble_sort
-
 #bubble_sort((4, 3, 2, 1))
 
 Längeres Beispiel: @ex-bubble-sort
@@ -66,6 +65,8 @@ for i in range(n):
   x = a.index(min(a[i:]))
   a[i], a[x] = a[x], a[i]
 ```
+
+Im Beispiel ist der Zähler rot markiert und das rechte Minimum blau.
 
 #import "selection_sort.typ": selection_sort
 #selection_sort(4, 3, 2, 1)
