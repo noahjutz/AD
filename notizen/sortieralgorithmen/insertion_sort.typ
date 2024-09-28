@@ -18,7 +18,6 @@
   nums,
   hl1: i,
   hl2: j,
-  hl3: -1,
   prefix: (str(key),),
   arrow: (
     from: j,
@@ -29,12 +28,19 @@
 #let row_3(nums, i, j, key) = num_row(
   nums,
   hl1: i,
+  hl2: j,
   hl3: -1,
   prefix: (str(key),),
   arrow: (
     from: -1,
-    to: j
+    to: j+1
   )
+)
+
+#let row_4(nums, i) = num_row(
+  nums,
+  prefix: ([],),
+  hl: range(i+1)
 )
 
 #let rows(nums) = {
@@ -48,8 +54,9 @@
       nums.at(j+1) = nums.at(j)
       j -= 1
     }
+    row_3(nums, i, j, key)
     nums.at(j+1) = key
-    row_3(nums, i, j+1, key)
+    row_4(nums, i)
   }
 }
 

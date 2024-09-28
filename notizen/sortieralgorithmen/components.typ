@@ -128,9 +128,10 @@
 
 #let num_row(
   nums,
+  hl: (),
   hl1: none,
   hl2: none,
-  hl3: (),
+  hl3: none,
   frame: none,
   arrow: none,
   prefix: (),
@@ -138,6 +139,9 @@
   let cell_stroke(i, frame) = {
     let style = frame.color
     let stroke = (:)
+    if i == 0 {
+      stroke.left = 1pt
+    }
     if i == frame.start {
       stroke.left = style
     }
@@ -162,6 +166,8 @@
         theme.secondary_light
       } else if i == hl3 {
         theme.tertiary_light
+      } else if i in hl {
+        theme.success_light
       },
       stroke: if frame != none {cell_stroke(i, frame)},
       col
