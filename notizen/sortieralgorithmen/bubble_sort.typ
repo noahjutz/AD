@@ -19,7 +19,7 @@
 )
 
 #let rows(nums) = {
-  for i in range(nums.len()) {
+  for i in range(nums.len()-1) {
     for j in range(i, nums.len()-1).rev() {
       if nums.at(j) > nums.at(j+1) {
         row_swap(nums, i, j, true)
@@ -30,7 +30,7 @@
         row_swap(nums, i, j, false)
       }
     }
-    row_done(nums, i+1)
+    row_done(nums, i+2)
     empty_row(nums.len()+1)
   }
 }

@@ -29,16 +29,16 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
-Im folgenden Beispiel ist Insertion Sort für die zwei-Elementige Eingabeliste $(2, 1)$ illustriert. Der Laufindex startet bei $i=1$ und endet auch dort, weil das der letzte Index der Liste ist.
+Im folgenden Beispiel ist Insertion Sort für die Eingabeliste $(3, 2, 1)$ illustriert. Der Zähler (rot markiert) startet bei $i=1$ und endet bei $i=n-1$.
 
 #import "insertion_sort.typ": insertion_sort
-#insertion_sort((2, 1))
+#insertion_sort((3, 2, 1))
 
 Längeres Beispiel: @ex-insertion-sort
 
 == Bubble Sort
 
-In jedem Schleifendurchlauf (`i` rot markiert) wird die Teilliste `a[i:]` betrachtet. Von rechts nach links werden Elemente paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
+In jedem Schleifendurchlauf wird die rechte Teilliste `a[i:]` betrachtet. Von rechts nach links werden die Elemente `a[j]` und `a[j+1]` paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
 
 ```python
 for i in range(n):
@@ -47,12 +47,12 @@ for i in range(n):
       a[j], a[j+1] = a[j+1], a[j]
 ```
 
-Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün markiert).
+Nach jedem Schleifendurchlauf ist die linke Teilliste bis zum Schlüssel sortiert (grün markiert).
 
-Im Beispiel wird $(3, 2, 1)$ sortiert.
+Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert von $i=0$ nach $i=n-2$
 
 #import "bubble_sort.typ": bubble_sort
 
-#bubble_sort((3, 2, 1))
+#bubble_sort((4, 3, 2, 1))
 
 Längeres Beispiel: @ex-bubble-sort
