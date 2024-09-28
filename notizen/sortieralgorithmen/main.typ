@@ -56,3 +56,16 @@ Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert vo
 #bubble_sort((4, 3, 2, 1))
 
 Längeres Beispiel: @ex-bubble-sort
+
+== Selection Sort
+
+In jedem Schleifendurchlauf ermitteln wir das Minimum in `a[i:]` und vertauschen es mit `a[i]`.
+
+```python
+for i in range(n):
+  x = a.index(min(a[i:]))
+  a[i], a[x] = a[x], a[i]
+```
+
+#import "selection_sort.typ": selection_sort
+#selection_sort(4, 3, 2, 1)
