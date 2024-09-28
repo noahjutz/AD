@@ -28,6 +28,10 @@ for j in reversed(range(n)):
   a[i-1] = key
 ```
 
+==== Laufzeit
+
+Unabhängig davon, ob der Algorithmus von rechts nach links oder andersherum verläuft, hat er eine Schleife durch alle $n$ Elemente, und eine zweite, welche abhängig von der Eingabe null bis $n$ Iterationen hat.
+
 Mehr über Insertion Sort: @insertion-sort
 
 === Bubble Sort
