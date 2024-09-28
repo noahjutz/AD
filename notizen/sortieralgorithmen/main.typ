@@ -32,7 +32,7 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
 Im folgenden Beispiel ist Insertion Sort für die Eingabeliste $(3, 2, 1)$ illustriert. Der Zähler (rot markiert) startet bei $i=1$ und endet bei $i=n-1=2$.
 
 #import "insertion_sort.typ": insertion_sort
-#insertion_sort((3, 2, 1))
+#insertion_sort(3, 2, 1)
 
 Längeres Beispiel: @ex-insertion-sort
 
@@ -52,7 +52,7 @@ Nach jedem Schleifendurchlauf ist die linke Teilliste bis zum Schlüssel sortier
 Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert von $i=0$ nach $i=n-2=2$.
 
 #import "bubble_sort.typ": bubble_sort
-#bubble_sort((4, 3, 2, 1))
+#bubble_sort(4, 3, 2, 1)
 
 Längeres Beispiel: @ex-bubble-sort
 

@@ -35,9 +35,9 @@
   }
 }
 
-#let bubble_sort(nums) = table(
-  columns: (1fr, ) * nums.len() + (auto,),
+#let bubble_sort(..nums) = table(
+  columns: (1fr, ) * nums.pos().len() + (auto,),
   align: center,
   stroke: none,
-  ..rows(nums)
+  ..rows(nums.pos())
 )
