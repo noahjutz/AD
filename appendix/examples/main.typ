@@ -40,3 +40,8 @@ $
 
 #import "/notizen/sortieralgorithmen/insertion_sort.typ": insertion_sort
 #insertion_sort((34, 45, 12, 34, 23, 18, 38, 17, 43, 51))
+
+== Bubble Sort <ex-bubble-sort>
+
+#import "/notizen/sortieralgorithmen/bubble_sort.typ": bubble_sort
+#bubble_sort((34, 45, 12, 34, 23, 18, 38, 17, 43, 7))

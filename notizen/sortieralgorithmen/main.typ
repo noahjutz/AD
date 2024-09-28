@@ -52,3 +52,5 @@ Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (
 #import "bubble_sort.typ": bubble_sort
 
 #bubble_sort((3, 2, 1))
+
+Längeres Beispiel: @ex-bubble-sort
