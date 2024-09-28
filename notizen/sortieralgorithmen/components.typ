@@ -1,57 +1,11 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
-#let num_row(
-  nums,
-  hl1: none,
-  hl2: none,
-  ..hl3,
-  frame: none,
-  has_arrow: false,
-) = {
-  let row = nums.enumerate().map(((k, n)) => {
-    let stroke = (:)
-    if frame != none {
-      let stroke_style = frame.color + 2pt
-      if k == frame.from {stroke.left = stroke_style}
-      if k == frame.to {stroke.right = stroke_style}
-      if frame.from <= k and k <= frame.to {
-        stroke.bottom = stroke_style
-        stroke.top = stroke_style
-      }
-    }
-    table.cell(
-      fill: if k == hl1 {
-        theme.primary_light
-      } else if k == hl2 {
-        theme.secondary_light
-      } else if k in hl3.pos() {
-        theme.secondary_light.lighten(30%)
-      },
-      stroke: stroke,
-      str(n),
-    )
-  })
-  row.insert(0, table.cell(
-    rowspan: if has_arrow {2} else {1},
-    inset: 0pt,
-    breakable: false,
-    []
-  ))
-  return row
-}
-
 #let arrow(
   length,
-  direction,
-  key,
-  crossed
+  direction
 ) = cetz.canvas(length: 100%, {
   import cetz.draw: *
-
-  if crossed {
-    set-style(stroke: (paint: theme.fg_light, dash: "dashed"))
-  }
 
   let u = 1/(length+1)
 
@@ -110,23 +64,12 @@
       length: 6pt,
     )
   }
-
-  if key != none {
-    content(
-      "line_mid.mid",
-      anchor: "south",
-      padding: 4pt,
-      str(key)
-    )
-  }
 })
 
 #let arrow_row(
   from,
   to,
   n,
-  key: none,
-  crossed: false,
   direction: "normal" // normal, reversed, bidirectional, none
 ) = {
   let min = calc.min(from, to)
@@ -162,8 +105,6 @@
         } else if direction == "reversed" {
           if to < from {"right"} else {"left"}
         },
-        key,
-        crossed
       )
     )
   )
@@ -181,3 +122,47 @@
 #let empty_row(n) = (
   table.cell(colspan: n+1, ""),
 )
+
+#let num_row(
+  nums,
+  hl1: none,
+  hl2: none,
+  ..hl3,
+  frame: none,
+  arrow: none,
+) = {
+  let row = nums.enumerate().map(((k, n)) => {
+    let stroke = (:)
+    if frame != none {
+      let stroke_style = frame.color + 2pt
+      if k == frame.from {stroke.left = stroke_style}
+      if k == frame.to {stroke.right = stroke_style}
+      if frame.from <= k and k <= frame.to {
+        stroke.bottom = stroke_style
+        stroke.top = stroke_style
+      }
+    }
+    table.cell(
+      fill: if k == hl1 {
+        theme.primary_light
+      } else if k == hl2 {
+        theme.secondary_light
+      } else if k in hl3.pos() {
+        theme.secondary_light.lighten(30%)
+      },
+      stroke: stroke,
+      str(n),
+    )
+  })
+  // This is so that num rows aren't separated from their arrow rows
+  row.insert(0, table.cell(
+    rowspan: if arrow != none {2} else {1},
+    inset: 0pt,
+    breakable: false,
+    []
+  ))
+  if arrow != none {
+    row += arrow_row(..arrow)
+  }
+  return row
+}

@@ -29,6 +29,8 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
+Im Beispiel wird der Schlüssel an Stelle 5 
+
 #include "insertion_sort.typ"
 
 == Bubble Sort
@@ -44,4 +46,4 @@ for i in range(n):
 
 Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün umrandet).
 
-#include "bubble_sort.typ"
+// #include "bubble_sort.typ"
