@@ -28,11 +28,12 @@
     let j = min_index(nums, i)
     row_swap(nums, i, j)
     row_done(nums, i)
-    empty_row(nums.len()+1)
 
     let h = nums.at(i)
     nums.at(i) = nums.at(j)
     nums.at(j) = h
+
+    empty_row(nums.len()+1)
   }
 }
 
