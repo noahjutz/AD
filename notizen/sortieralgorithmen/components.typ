@@ -3,19 +3,19 @@
 
 #let arrow_canvas(
   length,
-  direction
+  direction,
+  color: black
 ) = cetz.canvas(length: 100%, {
   import cetz.draw: *
-
   let u = 1/(length+1)
-
   let tl = (u/2, 0)
   let tr = (1-u/2, 0)
-
   if length == 0 {
     tl = (0, 0)
     tr = (1, 0)
   }
+
+  stroke(color)
 
   line(
     tl,
@@ -101,6 +101,7 @@
         } else if arrow.direction == "reversed" {
           if arrow.to < arrow.from {"right"} else {"left"}
         } else {arrow.direction},
+        color: if "color" in arrow.keys() {arrow.color} else {black}
       )
     )
   )
