@@ -1,6 +1,6 @@
-#import "components.typ": num_row
+#import "components.typ": num_row, empty_row
 
-#let swap_row(nums, i, j) = num_row(
+#let row_swap(nums, i, j) = num_row(
   nums,
   hl1: i,
   hl2: j,
@@ -9,6 +9,11 @@
     to: i,
     direction: "bidirectional"
   )
+)
+
+#let row_done(nums, i) = num_row(
+  nums,
+  hl: range(i+1)
 )
 
 #let rows(nums) = {
@@ -21,7 +26,9 @@
   }
   for i in range(nums.len()) {
     let j = min_index(nums, i)
-    swap_row(nums, i, j)
+    row_swap(nums, i, j)
+    row_done(nums, i)
+    empty_row(nums.len()+1)
 
     let h = nums.at(i)
     nums.at(i) = nums.at(j)
