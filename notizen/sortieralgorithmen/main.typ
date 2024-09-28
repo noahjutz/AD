@@ -29,12 +29,34 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
+=== Beispiel
+
 Im folgenden Beispiel ist Insertion Sort für die Eingabeliste $(3, 2, 1)$ illustriert. Der Zähler (rot markiert) startet bei $i=1$ und endet bei $i=n-1=2$.
 
 #import "insertion_sort.typ": insertion_sort
 #insertion_sort(3, 2, 1)
 
 Längeres Beispiel: @ex-insertion-sort
+
+=== Laufzeit
+
+Für jedes Element in `a[1:]` werden zwischen $0$ und  $n-1$ Verschieoperationen durchgeführt.
+
+#grid(columns: (1fr,)*2,
+  $
+  T^"WC" (n) = Theta(n^2) #h(16pt)
+  $,$
+  T^"BC" (n) = Theta(n)
+  $
+)
+
+Der Einfachheit halber gehen wir für die AC-Laufzeit von einer gleichverteilt zufälligen Eingabe aus $NN^n$ mit paarweise verschiedenen Elementen aus. Daraus folgt für zwei unterschiedliche Einträge:
+
+$
+P(x_a < x_b) = 1/2
+$
+
+Die inneren Schleife des Algorithmus läuft so lange, bis $x_i > "key"$ nicht mehr gilt. Damit ist in jedem Durchlauf die Wahrscheinlichkeit, dass die Schleife beendet wird $50%$.
 
 == Bubble Sort <bubble-sort>
 
