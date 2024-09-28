@@ -23,11 +23,10 @@ Mehr über Insertion Sort: @insertion-sort
 Um das Maximum nach hinten wandern zu lassen, drehen wir wieder beide Schleifen um. Es wird auch nicht mehr vertauscht, wenn der vorgänger kleiner ist, sondern wenn er größer ist.
 
 ```python
-for i in reversed(range(len(items))):
+for i in reversed(range(n)):
   for j in range(i):
-   if items[j] > items[j+1]:
-      items[j], items[j+1] =
-        items[j+1], items[j]
+   if a[j] > a[j+1]:
+      a[j], a[j+1] = a[j+1], a[j]
 ```
 
 Mehr über Bubble Sort: @bubble-sort
@@ -35,10 +34,12 @@ Mehr über Bubble Sort: @bubble-sort
 === Selection Sort
 
 ```python
-for i in reversed(range(len(items))):
-  x = items.index(max(items[:i+1]))
-  items[i], items[x] =
-    items[x], items[i]
+for i in reversed(range(n)):
+  x = a.index(max(a[:i+1]))
+  a[i], a[x] = a[x], a[i]
 ```
 
 Mehr über Selection Sort: @selection-sort
+
+=== Quicksort
+
