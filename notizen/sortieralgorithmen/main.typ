@@ -70,3 +70,5 @@ Im Beispiel ist der Zähler rot markiert und das rechte Minimum blau.
 
 #import "selection_sort.typ": selection_sort
 #selection_sort(4, 3, 2, 1)
+
+Längeres Beispiel: @ex-selection-sort

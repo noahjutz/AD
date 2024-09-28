@@ -45,3 +45,8 @@ $
 
 #import "/notizen/sortieralgorithmen/bubble_sort.typ": bubble_sort
 #bubble_sort((34, 45, 12, 34, 23, 18, 38, 17, 43, 7))
+
+== Selection Sort <ex-selection-sort>
+
+#import "/notizen/sortieralgorithmen/selection_sort.typ": selection_sort
+#selection_sort(34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
