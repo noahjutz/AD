@@ -70,8 +70,15 @@
   from,
   to,
   n,
+  offset: 0,
   direction: "normal" // normal, reversed, bidirectional, none
 ) = {
+  return (table.cell(
+    colspan: n,
+    "This is an arrow"
+  ),)
+  from += offset
+  to += offset
   let min = calc.min(from, to)
   let max = calc.max(from, to)
   let row = ()
@@ -120,49 +127,99 @@
 }
 
 #let empty_row(n) = (
-  table.cell(colspan: n+1, ""),
+  table.cell(colspan: n, ""),
 )
 
 #let num_row(
   nums,
   hl1: none,
   hl2: none,
-  ..hl3,
+  hl3: (),
   frame: none,
   arrow: none,
+  prefix: (),
 ) = {
-  let row = nums.enumerate().map(((k, n)) => {
+  let cell_stroke(i, frame) = {
+    let style = frame.color
     let stroke = (:)
-    if frame != none {
-      let stroke_style = frame.color + 2pt
-      if k == frame.from {stroke.left = stroke_style}
-      if k == frame.to {stroke.right = stroke_style}
-      if frame.from <= k and k <= frame.to {
-        stroke.bottom = stroke_style
-        stroke.top = stroke_style
-      }
+    if i == frame.start {
+      stroke.left = style
     }
+    if i == frame.end {
+      stroke.right = style
+    }
+    if i <= frame.start and frame.end <= i {
+      stroke.bottom = style
+      stroke.top = style
+    }
+    return stroke
+  }
+  let columns = ()
+  columns += prefix
+  columns += nums.map(n => str(n))
+  columns = columns.enumerate().map(((i, col)) => {
+    i = i - prefix.len()
+
     table.cell(
-      fill: if k == hl1 {
+      fill: if i == hl1 {
         theme.primary_light
-      } else if k == hl2 {
+      } else if i == hl2 {
         theme.secondary_light
-      } else if k in hl3.pos() {
-        theme.secondary_light.lighten(30%)
+      } else if i == hl3 {
+        theme.tertiary_light
       },
-      stroke: stroke,
-      str(n),
+      stroke: if frame != none {cell_stroke(i, frame)},
+      col
     )
   })
-  // This is so that num rows aren't separated from their arrow rows
-  row.insert(0, table.cell(
+
+  columns.push(table.cell(
     rowspan: if arrow != none {2} else {1},
     inset: 0pt,
-    breakable: false,
-    []
+    ""
   ))
-  if arrow != none {
-    row += arrow_row(..arrow)
-  }
-  return row
+
+
+  // let row = nums.enumerate().map(((k, n)) => {
+  //   let stroke = (:)
+  //   if frame != none {
+  //     let stroke_style = frame.color + 2pt
+  //     if k == frame.from {stroke.left = stroke_style}
+  //     if k == frame.to {stroke.right = stroke_style}
+  //     if frame.from <= k and k <= frame.to {
+  //       stroke.bottom = stroke_style
+  //       stroke.top = stroke_style
+  //     }
+  //   }
+  //   table.cell(
+  //     fill: if k == hl1 {
+  //       theme.primary_light
+  //     } else if k == hl2 {
+  //       theme.secondary_light
+  //     } else if k in hl3 {
+  //       theme.secondary_light.lighten(30%)
+  //     },
+  //     stroke: stroke,
+  //     str(n),
+  //   )
+  // })
+  // if prefix.len() > 0 {
+  //   row = prefix + row
+  // }
+  // if arrow != none {
+  //   row += arrow_row(
+  //     arrow.from,
+  //     arrow.to,
+  //     nums.len() + prefix.len() + 1,
+  //     offset: prefix.len() + 1
+  //   )
+  // }
+  // // This is so that num rows aren't separated from their arrow rows
+  // row.insert(0, table.cell(
+  //   rowspan: if arrow != none {2} else {1},
+  //   inset: 0pt,
+  //   breakable: false,
+  //   []
+  // ))
+  return columns
 }
