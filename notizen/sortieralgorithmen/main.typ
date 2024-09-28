@@ -49,4 +49,4 @@ for i in range(n):
 
 Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün umrandet).
 
-// #include "bubble_sort.typ"
+#include "bubble_sort.typ"

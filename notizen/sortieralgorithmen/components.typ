@@ -1,7 +1,7 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
-#let arrow(
+#let arrow_canvas(
   length,
   direction
 ) = cetz.canvas(length: 100%, {
@@ -66,17 +66,12 @@
   }
 })
 
-#let arrow_row(
-  from,
-  to,
-  n,
-  offset: 0,
-  direction: "normal" // normal, reversed, bidirectional, none
-) = {
-  from += offset
-  to += offset
-  let min = calc.min(from, to)
-  let max = calc.max(from, to)
+// Directions: normal, reversed, bidirectional, none
+#let arrow_row(arrow, n, offset: 0) = {
+  arrow.from += offset
+  arrow.to += offset
+  let min = calc.min(arrow.from, arrow.to)
+  let max = calc.max(arrow.from, arrow.to)
   let row = ()
 
   if min > 0 {
@@ -99,17 +94,13 @@
         right: 0pt
       ),
       stroke: none,
-      arrow(
+      arrow_canvas(
         max - min,
-        if direction == "bidirectional" {
-          "bidirectional"
-        } else if direction == "none" {
-          "none"
-        } else if direction == "normal" {
-          if to > from {"right"} else {"left"}
-        } else if direction == "reversed" {
-          if to < from {"right"} else {"left"}
-        },
+        if "direction" not in arrow.keys() or arrow.direction == "normal" {
+          if arrow.to > arrow.from {"right"} else {"left"}
+        } else if arrow.direction == "reversed" {
+          if arrow.to < arrow.from {"right"} else {"left"}
+        } else {arrow.direction},
       )
     )
   )
@@ -179,8 +170,7 @@
 
   if arrow != none {
     columns += arrow_row(
-      arrow.from,
-      arrow.to,
+      arrow,
       nums.len() + prefix.len(),
       offset: prefix.len()
     )
