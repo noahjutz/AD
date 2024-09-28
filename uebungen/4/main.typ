@@ -33,3 +33,12 @@ for i in reversed(range(len(items))):
 Mehr über Bubble Sort: @bubble-sort
 
 === Selection Sort
+
+```python
+for i in reversed(range(len(items))):
+  x = items.index(max(items[:i+1]))
+  items[i], items[x] =
+    items[x], items[i]
+```
+
+Mehr über Selection Sort: @selection-sort

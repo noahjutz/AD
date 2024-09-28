@@ -56,7 +56,7 @@ Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert vo
 
 Längeres Beispiel: @ex-bubble-sort
 
-== Selection Sort
+== Selection Sort <selection-sort>
 
 In jedem Schleifendurchlauf ermitteln wir das Minimum in `a[i:]` und vertauschen es mit `a[i]`.
 
