@@ -31,3 +31,5 @@ for i in reversed(range(len(items))):
 ```
 
 Mehr über Bubble Sort: @bubble-sort
+
+=== Selection Sort
