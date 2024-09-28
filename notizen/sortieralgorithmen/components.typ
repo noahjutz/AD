@@ -125,8 +125,13 @@
   return row
 }
 
-#let empty_row(n) = (
-  table.cell(colspan: n, stroke: none, ""),
+#let empty_row(n, pad: 6pt) = (
+  table.cell(
+    colspan: n,
+    stroke: none,
+    inset: 0pt,
+    box(height: pad)
+  ),
 )
 
 #let num_row(
