@@ -83,6 +83,7 @@
     row.push(
       table.cell(
         colspan: min,
+        stroke: none,
         ""
       )
     )
@@ -97,6 +98,7 @@
         left: 0pt,
         right: 0pt
       ),
+      stroke: none,
       arrow(
         max - min,
         if direction == "bidirectional" {
@@ -115,6 +117,7 @@
     row.push(
       table.cell(
         colspan: n - max - 1,
+        stroke: none,
         ""
       )
     )
@@ -169,7 +172,7 @@
       } else if i in hl {
         theme.success_light
       },
-      stroke: if frame != none {cell_stroke(i, frame)},
+      //stroke: if frame != none {cell_stroke(i, frame)},
       col
     )
   })
@@ -177,6 +180,7 @@
   columns.push(table.cell(
     rowspan: if arrow != none {2} else {1},
     inset: 0pt,
+    stroke: none,
     ""
   ))
 

@@ -63,6 +63,6 @@
 #table(
   columns: (1fr,) * (nums.len()+1) + (auto,),
   align: center,
-  stroke: none,
+  stroke: black,
   ..rows(nums)
 )
