@@ -39,6 +39,7 @@
   nums,
   prefix: (str(key),),
   hl: range(i+1),
+  below: auto
 )
 
 #let rows(nums) = {
@@ -54,7 +55,6 @@
     row_pop_key(nums, i, j, key)
     nums.at(j+1) = key
     row_complete(nums, i, key)
-    empty_row(nums.len() + 2)
   }
 }
 

@@ -113,12 +113,12 @@
   return row
 }
 
-#let empty_row(n, pad: 6pt) = (
+#let empty_row(n, pad: auto) = (
   table.cell(
     colspan: n,
     stroke: none,
     inset: 0pt,
-    box(height: pad)
+    box(height: if pad == auto {6pt} else {pad})
   ),
 )
 
@@ -130,6 +130,7 @@
   hl3: none,
   frame: none,
   arrow: none,
+  below: none,
   prefix: (),
 ) = {
   let columns = ()
@@ -158,7 +159,7 @@
   })
 
   columns.push(table.cell(
-    rowspan: if arrow != none {2} else {1},
+    rowspan: if arrow != none or below != none {2} else {1},
     breakable: false,
     inset: 0pt,
     stroke: none,
@@ -170,6 +171,13 @@
       arrow,
       nums.len() + prefix.len(),
       offset: prefix.len()
+    )
+  }
+
+  if below != none {
+    columns += empty_row(
+      nums.len() + prefix.len(),
+      pad: below
     )
   }
 

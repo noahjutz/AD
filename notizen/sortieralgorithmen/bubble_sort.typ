@@ -1,4 +1,4 @@
-#import "components.typ": num_row, empty_row
+#import "components.typ": num_row
 #import "/config.typ": theme
 
 #let row_swap(nums, i, j, is_swap) = num_row(
@@ -15,7 +15,8 @@
 
 #let row_done(nums, i) = num_row(
   nums,
-  hl: range(i)
+  hl: range(i),
+  below: auto
 )
 
 #let rows(nums) = {
@@ -31,7 +32,6 @@
       }
     }
     row_done(nums, i+2)
-    empty_row(nums.len()+1)
   }
 }
 
