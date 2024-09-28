@@ -19,3 +19,15 @@ for j in reversed(range(n)):
 Mehr über Insertion Sort: @insertion-sort
 
 === Bubble Sort
+
+Um das Maximum nach hinten wandern zu lassen, drehen wir wieder beide Schleifen um. Es wird auch nicht mehr vertauscht, wenn der vorgänger kleiner ist, sondern wenn er größer ist.
+
+```python
+for i in reversed(range(len(items))):
+  for j in range(i):
+   if items[j] > items[j+1]:
+      items[j], items[j+1] =
+        items[j+1], items[j]
+```
+
+Mehr über Bubble Sort: @bubble-sort

@@ -36,7 +36,7 @@ Im folgenden Beispiel ist Insertion Sort für die Eingabeliste $(3, 2, 1)$ illus
 
 Längeres Beispiel: @ex-insertion-sort
 
-== Bubble Sort
+== Bubble Sort <bubble-sort>
 
 In jedem Schleifendurchlauf wird die rechte Teilliste `a[i:]` betrachtet. Von rechts nach links werden die Elemente `a[j]` und `a[j+1]` paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
 
