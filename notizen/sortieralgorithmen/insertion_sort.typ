@@ -1,8 +1,6 @@
 #import "components.typ": num_row, arrow_row, empty_row
 #import "/config.typ": theme
 
-#let nums = (10, 1, 2, 3)
-
 #let row_push_key(nums, i, key) = num_row(
   nums,
   hl1: i,
@@ -58,7 +56,7 @@
   }
 }
 
-#table(
+#let insertion_sort(nums) = table(
   columns: (1fr,) * (nums.len()+1) + (auto,),
   align: center,
   stroke: black,

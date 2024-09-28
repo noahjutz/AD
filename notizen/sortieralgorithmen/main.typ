@@ -29,9 +29,10 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
-Im Beispiel wird der Schlüssel an Stelle 5 
+... TODO
 
-#include "insertion_sort.typ"
+#import "insertion_sort.typ": insertion_sort
+#insertion_sort((1, 2))
 
 == Bubble Sort
 
