@@ -7,7 +7,8 @@
   prefix: (str(key),),
   arrow: (
     from: i,
-    to: -1
+    to: -1,
+    color: theme.fg_light
   )
 )
 
@@ -29,7 +30,8 @@
   prefix: (str(key),),
   arrow: (
     from: -1,
-    to: j+1
+    to: j+1,
+    color: theme.fg_light
   )
 )
 
