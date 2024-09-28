@@ -73,10 +73,6 @@
   offset: 0,
   direction: "normal" // normal, reversed, bidirectional, none
 ) = {
-  return (table.cell(
-    colspan: n,
-    "This is an arrow"
-  ),)
   from += offset
   to += offset
   let min = calc.min(from, to)
@@ -159,7 +155,6 @@
   columns += nums.map(n => str(n))
   columns = columns.enumerate().map(((i, col)) => {
     i = i - prefix.len()
-
     table.cell(
       fill: if i == hl1 {
         theme.primary_light
@@ -179,47 +174,14 @@
     ""
   ))
 
+  if arrow != none {
+    columns += arrow_row(
+      arrow.from,
+      arrow.to,
+      nums.len() + prefix.len(),
+      offset: prefix.len()
+    )
+  }
 
-  // let row = nums.enumerate().map(((k, n)) => {
-  //   let stroke = (:)
-  //   if frame != none {
-  //     let stroke_style = frame.color + 2pt
-  //     if k == frame.from {stroke.left = stroke_style}
-  //     if k == frame.to {stroke.right = stroke_style}
-  //     if frame.from <= k and k <= frame.to {
-  //       stroke.bottom = stroke_style
-  //       stroke.top = stroke_style
-  //     }
-  //   }
-  //   table.cell(
-  //     fill: if k == hl1 {
-  //       theme.primary_light
-  //     } else if k == hl2 {
-  //       theme.secondary_light
-  //     } else if k in hl3 {
-  //       theme.secondary_light.lighten(30%)
-  //     },
-  //     stroke: stroke,
-  //     str(n),
-  //   )
-  // })
-  // if prefix.len() > 0 {
-  //   row = prefix + row
-  // }
-  // if arrow != none {
-  //   row += arrow_row(
-  //     arrow.from,
-  //     arrow.to,
-  //     nums.len() + prefix.len() + 1,
-  //     offset: prefix.len() + 1
-  //   )
-  // }
-  // // This is so that num rows aren't separated from their arrow rows
-  // row.insert(0, table.cell(
-  //   rowspan: if arrow != none {2} else {1},
-  //   inset: 0pt,
-  //   breakable: false,
-  //   []
-  // ))
   return columns
 }
