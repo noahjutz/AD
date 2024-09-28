@@ -38,15 +38,17 @@ Längeres Beispiel: @ex-insertion-sort
 
 == Bubble Sort
 
-In jedem Schleifendurchlauf (Schlüssel rot markiert) wird die Teilliste rechts des Schlüssels (grau umrandet) betrachtet. Von rechts nach links werden Elemente paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
+In jedem Schleifendurchlauf (`i` rot markiert) wird die Teilliste `a[i:]` betrachtet. Von rechts nach links werden Elemente paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
 
 ```python
 for i in range(n):
   for j in reversed(range(i, n-1)):
-    # vertausche a[j] mit a[j+1]
-    # falls a[j] > a[j+1]
+    if a[j] > a[j+1]:
+      a[j], a[j+1] = a[j+1], a[j]
 ```
 
-Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün umrandet).
+Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün markiert).
 
-#include "bubble_sort.typ"
+#import "bubble_sort.typ": bubble_sort
+
+#bubble_sort((3, 2, 1))

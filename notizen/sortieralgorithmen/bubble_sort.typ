@@ -1,8 +1,6 @@
 #import "components.typ": num_row, empty_row
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
-
 #let row_swap(nums, i, j, is_swap) = num_row(
   nums,
   hl1: i,
@@ -32,13 +30,13 @@
         row_swap(nums, i, j, false)
       }
     }
-    row_done(nums, i)
+    row_done(nums, i+1)
     empty_row(nums.len()+1)
   }
 }
 
-#table(
-  columns: nums.len()+1,
+#let bubble_sort(nums) = table(
+  columns: (1fr, ) * nums.len() + (auto,),
   align: center,
   stroke: none,
   ..rows(nums)
