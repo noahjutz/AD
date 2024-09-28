@@ -145,7 +145,9 @@
   columns = columns.enumerate().map(((i, col)) => {
     i = i - prefix.len()
     table.cell(
-      fill: if i == hl1 {
+      fill: if i < 0 {
+        none
+      } else if i == hl1 {
         theme.primary_light
       } else if i == hl2 {
         theme.secondary_light
@@ -154,7 +156,11 @@
       } else if i in hl {
         theme.success_light
       },
-      col
+      stroke: if i < 0 {gray} else {black},
+      text(
+        fill: if i < 0 {gray} else {black},
+        col
+      )
     )
   })
 

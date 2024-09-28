@@ -6,7 +6,6 @@
 #let row_1(nums, i, key) = num_row(
   nums,
   hl1: i,
-  hl3: -1,
   prefix: (str(key),),
   arrow: (
     from: i,
@@ -29,7 +28,6 @@
   nums,
   hl1: i,
   hl2: j,
-  hl3: -1,
   prefix: (str(key),),
   arrow: (
     from: -1,
@@ -41,7 +39,6 @@
   nums,
   prefix: (str(key),),
   hl: range(i+1),
-  hl3: -1
 )
 
 #let rows(nums) = {
