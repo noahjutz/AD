@@ -30,7 +30,11 @@ for j in reversed(range(n)):
 
 ==== Laufzeit
 
-Unabhängig davon, ob der Algorithmus von rechts nach links oder andersherum verläuft, hat er eine Schleife durch alle $n$ Elemente, und eine zweite, welche abhängig von der Eingabe null bis $n$ Iterationen hat.
+Unabhängig davon, ob der Algorithmus von rechts nach links oder andersherum verläuft, hat er eine Schleife durch alle $n$ Elemente, und eine zweite, welche abhängig von der Eingabe null bis $j$ Iterationen hat. Die Laufzeit unterscheidet sich also nicht von der des originellen Algorithmus.
+
+==== Korrektheit
+
+
 
 Mehr über Insertion Sort: @insertion-sort
 
