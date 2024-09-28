@@ -56,6 +56,36 @@ $
 T^"AC" (n) = sum_(j=1)^(n-1) j/2 = Theta(n^2)
 $
 
+=== Korrektheit
+
+Nach jeden $j$-ten Schleifendurchlauf ist `a[:j+1]` sortiert.
+
+==== Induktionsanfang (j = 1)
+
+Ein Durchlauf der Schleife mit Zähler $j$ sieht so aus:
+
+```python
+key = a[j]
+i = j-1
+while i >= 0 and a[i] > key:
+  a[i+1] = a[i]
+  i -= 1
+a[i+1] = key
+```
+
+Setzen wir den festen Wert $j=1$ in den Code ein, dann wird die while-Schleife höchstens einmal betreten. Vereinfacht kann man das als if-else-Block darstellen:
+
+```python
+key = a[1]
+if a[0] > a[1]:
+  a[1] = a[0]
+  a[0] = key
+else:
+  a[1] = key
+```
+
+Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. $checkmark$
+
 == Bubble Sort <bubble-sort>
 
 In jedem Schleifendurchlauf wird die rechte Teilliste `a[i:]` betrachtet. Von rechts nach links werden die Elemente `a[j]` und `a[j+1]` paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
