@@ -13,7 +13,7 @@ Zum Schluss von jeder Iteration ist die Liste bis zur jeweiligen Stelle sortiert
 
 Das "nach vorne schieben" erfolgt in drei Schritten:
 
-1. Merke dir den Wert des Schlüssels.
+1. Merke dir den Wert des Schlüssels (graue Spalte).
   ```python
   key = a[j]
   ```
