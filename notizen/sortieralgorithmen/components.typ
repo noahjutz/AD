@@ -126,7 +126,7 @@
 }
 
 #let empty_row(n) = (
-  table.cell(colspan: n, ""),
+  table.cell(colspan: n, stroke: none, ""),
 )
 
 #let num_row(
@@ -139,24 +139,6 @@
   arrow: none,
   prefix: (),
 ) = {
-  let cell_stroke(i, frame) = {
-    let style = frame.color
-    let stroke = (:)
-    if i == 0 {
-      stroke.left = 1pt
-    }
-    if i == frame.start {
-      stroke.left = style
-    }
-    if i == frame.end {
-      stroke.right = style
-    }
-    if i <= frame.start and frame.end <= i {
-      stroke.bottom = style
-      stroke.top = style
-    }
-    return stroke
-  }
   let columns = ()
   columns += prefix
   columns += nums.map(n => str(n))
@@ -172,7 +154,6 @@
       } else if i in hl {
         theme.success_light
       },
-      //stroke: if frame != none {cell_stroke(i, frame)},
       col
     )
   })

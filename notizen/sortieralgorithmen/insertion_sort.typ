@@ -37,10 +37,11 @@
   )
 )
 
-#let row_4(nums, i) = num_row(
+#let row_4(nums, i, key) = num_row(
   nums,
-  prefix: ([],),
-  hl: range(i+1)
+  prefix: (str(key),),
+  hl: range(i+1),
+  hl3: -1
 )
 
 #let rows(nums) = {
@@ -56,7 +57,8 @@
     }
     row_3(nums, i, j, key)
     nums.at(j+1) = key
-    row_4(nums, i)
+    row_4(nums, i, key)
+    empty_row(nums.len() + 2)
   }
 }
 
