@@ -40,7 +40,7 @@ Längeres Beispiel: @ex-insertion-sort
 
 === Laufzeit
 
-Für jedes Element in `a` werden zwischen $0$ und  $j$ Verschiebeoperationen durchgeführt, um `a[j]` richtig in `a[:j+1]` einzusortieren.
+Für jedes Element `a[j]` werden zwischen $0$ und  $j$ Verschiebeoperationen durchgeführt, um `a[j]` richtig in `a[:j+1]` einzusortieren.
 
 #grid(columns: (1fr,)*2,
   $
@@ -49,6 +49,12 @@ Für jedes Element in `a` werden zwischen $0$ und  $j$ Verschiebeoperationen dur
   T^"BC" (n) = Theta(n)
   $
 )
+
+Im Schnitt benötigt es $j slash 2$ Verschiebeoperationen, damit ist die AC-Laufzeit
+
+$
+T^"AC" (n) = sum_(j=1)^(n-1) j/2 = Theta(n^2)
+$
 
 == Bubble Sort <bubble-sort>
 
