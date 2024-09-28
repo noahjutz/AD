@@ -2,14 +2,14 @@
 
 == Insertion Sort <insertion-sort>
 
-Der Algorithmus iteriert durch alle  Elemente ab dem zweiten (rot markiert: "Schlüssel") und schiebt den Wert so lange nach vorne, bis keine kleineren Werte mehr vor ihm stehen.
+Der Algorithmus iteriert durch alle  Elemente ab dem zweiten (rot markiert) und schiebt den Wert so lange nach vorne, bis keine kleineren Werte mehr vor ihm stehen.
 
 ```python
 for j in range(1, n):
   # a[j] nach vorne schieben
 ```
 
-Zum Schluss von jeder Iteration ist die Liste bis zur jeweiligen Stelle sortiert (grün umrandet: "Schleifeninvariante").
+Zum Schluss von jeder Iteration ist die Liste bis zur jeweiligen Stelle sortiert (grün markiert).
 
 Das "nach vorne schieben" erfolgt in drei Schritten:
 
@@ -29,10 +29,12 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
-... TODO
+Im folgenden Beispiel ist Insertion Sort für die zwei-Elementige Eingabeliste $(2, 1)$ illustriert.
 
 #import "insertion_sort.typ": insertion_sort
-#insertion_sort((1, 2))
+#insertion_sort((2, 1))
+
+Längeres Beispiel: @ex-insertion-sort
 
 == Bubble Sort
 

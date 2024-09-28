@@ -35,3 +35,8 @@ T^"AC"_A (n) = 1/2^n dot 2 in O(1)
 $
 
 #include "binary_complexity.typ"
+
+== Insertion Sort <ex-insertion-sort>
+
+#import "/notizen/sortieralgorithmen/insertion_sort.typ": insertion_sort
+#insertion_sort((34, 45, 12, 34, 23, 18, 38, 17, 43, 51))
