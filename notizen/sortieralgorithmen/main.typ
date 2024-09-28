@@ -29,7 +29,7 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
   a[i+1] = key
   ```
 
-Im folgenden Beispiel ist Insertion Sort für die zwei-Elementige Eingabeliste $(2, 1)$ illustriert.
+Im folgenden Beispiel ist Insertion Sort für die zwei-Elementige Eingabeliste $(2, 1)$ illustriert. Der Laufindex startet bei $i=1$ und endet auch dort, weil das der letzte Index der Liste ist.
 
 #import "insertion_sort.typ": insertion_sort
 #insertion_sort((2, 1))
@@ -48,6 +48,8 @@ for i in range(n):
 ```
 
 Nach jedem Schleifendurchlauf ist die Teilliste links des Schlüssels sortiert (grün markiert).
+
+Im Beispiel wird $(3, 2, 1)$ sortiert.
 
 #import "bubble_sort.typ": bubble_sort
 
