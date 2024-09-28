@@ -19,26 +19,26 @@
 
   line(
     tl,
-    (rel: (0, -6pt)),
+    (rel: (0, -10pt)),
     name: "line_start"
   )
   arc(
     "line_start.end",
     start: 180deg,
     stop: 270deg,
-    radius: u/2,
+    radius: 4pt,
     name: "arc_start"
   )
   line(
     tr,
-    (rel: (0, -6pt)),
+    (rel: (0, -10pt)),
     name: "line_end"
   )
   arc(
     "line_end.end",
     start: 0deg,
     stop: -90deg,
-    radius: u/2,
+    radius: 4pt,
     name: "arc_end"
   )
   line(
@@ -166,6 +166,7 @@
 
   columns.push(table.cell(
     rowspan: if arrow != none {2} else {1},
+    breakable: false,
     inset: 0pt,
     stroke: none,
     ""

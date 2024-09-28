@@ -1,7 +1,7 @@
 #import "components.typ": num_row, arrow_row, empty_row
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 51)
+#let nums = (34, 45, 12, 34)
 
 #let row_push_key(nums, i, key) = num_row(
   nums,
