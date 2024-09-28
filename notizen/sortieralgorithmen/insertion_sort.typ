@@ -1,4 +1,4 @@
-#import "components.typ": num_row, arrow_row, empty_row
+#import "components.typ": num_row, empty_row
 #import "/config.typ": theme
 
 #let row_push_key(nums, i, key) = num_row(
