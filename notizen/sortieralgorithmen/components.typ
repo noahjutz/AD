@@ -8,12 +8,8 @@
 ) = cetz.canvas(length: 100%, {
   import cetz.draw: *
   let u = 1/(length+1)
-  let tl = (u/2, 0)
-  let tr = (1-u/2, 0)
-  if length == 0 {
-    tl = (0, 0)
-    tr = (1, 0)
-  }
+  let tl = (0, 0)
+  let tr = if length == 0 {(8pt, 0)} else {(u/2, 0)}
 
   stroke(color)
 
