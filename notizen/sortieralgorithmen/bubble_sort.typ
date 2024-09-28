@@ -15,6 +15,10 @@
   )
 )
 
+#let row_done(nums, i) = num_row(
+  nums,
+  hl: range(i)
+)
 
 #let rows(nums) = {
   for i in range(nums.len()) {
@@ -28,6 +32,8 @@
         row_swap(nums, i, j, false)
       }
     }
+    row_done(nums, i)
+    empty_row(nums.len()+1)
   }
 }
 
