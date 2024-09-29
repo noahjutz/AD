@@ -86,6 +86,10 @@ else:
 
 Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. $checkmark$
 
+==== Induktionsschritt (j - 1 #sym.arrow j)
+
+
+
 == Bubble Sort <bubble-sort>
 
 In jedem Schleifendurchlauf wird die rechte Teilliste `a[i:]` betrachtet. Von rechts nach links werden die Elemente `a[j]` und `a[j+1]` paarweise vertauscht, um den minimalen Wert nach vorne zu bringen.
