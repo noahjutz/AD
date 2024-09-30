@@ -155,11 +155,6 @@
   prefix: (),
 ) = {
   let n = prefix.len() + nums.len()
-  if labels != none {
-    (_label_row(
-      n
-    ),)
-  }
 
   (table.cell(
     rowspan: 2 + (arrow, labels)
@@ -170,6 +165,12 @@
     stroke: none,
     []
   ),)
+
+  if labels != none {
+    (_label_row(
+      n
+    ),)
+  }
 
   _prefix_row(prefix)
   _nums_row(

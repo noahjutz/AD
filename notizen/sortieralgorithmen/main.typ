@@ -86,7 +86,7 @@ else:
   a[1] = key
 ```
 
-Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. $checkmark$
+Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. #sym.checkmark
 
 ==== Induktionsschritt (j - 1 #sym.arrow j)
 
