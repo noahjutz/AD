@@ -110,6 +110,8 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 
   Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. #sym.checkmark
 
+  #include "insertion_sort_induction_1.typ"
+
   ==== Induktionsschritt (i - 1 #sym.arrow i)
 
   Wir nehmen an, dass `a[i:j+1]` sortiert ist. Falls $i-1<0$ 
