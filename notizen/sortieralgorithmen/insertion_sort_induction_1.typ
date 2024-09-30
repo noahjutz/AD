@@ -7,8 +7,7 @@
   nums,
   hl_success: (0, 2),
   labels: (
-    "0": `0:i`,
-    "2": `j:j+1`
+    (0, 2, "hi"),
   ),
   arrow: (
     from: 1,

@@ -5,10 +5,10 @@
 #single_num_row(
   nums,
   hl_success: range(2),
-  labels: (
-    "0": `j-1`,
-    "1": `j`
-  ),
+  //labels: (
+  //  "0": (content: `j-1`),
+  //  "1": (content: `j`)
+  //),
   arrow: (
     from: 0,
     to: 1,

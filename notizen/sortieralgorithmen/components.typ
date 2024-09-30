@@ -79,12 +79,7 @@
 
   (table.cell(
     colspan: max - min + 1,
-    inset: (
-      bottom: 0pt,
-      top: 0pt,
-      left: 0pt,
-      right: 0pt
-    ),
+    inset: 0pt,
     stroke: none,
     _arrow_canvas(
       max - min,
@@ -97,7 +92,7 @@
     )
   ),)
 
-  if n - max - 1 > 0 {
+  if max < n - 1 {
     (table.cell(
       colspan: n - max - 1,
       stroke: none,
@@ -113,8 +108,8 @@
   box(
     height: if pad == auto {6pt}
       else if pad == none {0pt}
-      else {pad}
-    )
+      else {pad},
+  )
 )
 
 #let _prefix_row(prefix) = prefix.map(p => table.cell(
@@ -134,13 +129,30 @@
     else if i == hl_tertiary {theme.tertiary_light}
     else if i in hl_success {theme.success_light},
   str(n)
-
 ))
 
-#let _label_row(n, labels) = range(n).map(i => table.cell(
-  stroke: none,
-  labels.at(str(i), default: [])
-))
+#let _label_row(
+  n,
+  labels
+) = {
+  let first = labels.first().at(0)
+  let last = labels.last().at(1)
+  if first > 0 {
+    (table.cell(colspan: first, stroke: none, ""),)
+  }
+
+  for (from, to, content) in labels {
+    (table.cell(
+      colspan: to - from,
+      stroke: none,
+      content
+    ),)
+  }
+
+  if last < n {
+    (table.cell(colspan: n - last, stroke: none, ""),)
+  }
+}
 
 #let num_row(
   nums,
