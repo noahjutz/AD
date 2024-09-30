@@ -261,7 +261,12 @@
     name: "brace"
   )
 
-  content("brace.content", body)
+  content(
+    "brace.spike",
+    anchor: "south",
+    padding: (bottom: 2pt),
+    body
+  )
 })
 
 #let arrowed(body) = cetz.canvas(length: 100%, {
