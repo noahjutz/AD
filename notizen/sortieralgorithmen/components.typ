@@ -1,7 +1,7 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.2.2"
 
-#let arrow_canvas(
+#let _arrow_canvas(
   length,
   direction,
   color: black
@@ -63,7 +63,7 @@
 })
 
 // Directions: normal, reversed, bidirectional, none
-#let arrow_row(arrow, n, offset: 0) = {
+#let _arrow_row(arrow, n, offset: 0) = {
   arrow.from += offset
   arrow.to += offset
   let min = calc.min(arrow.from, arrow.to)
@@ -86,7 +86,7 @@
       right: 0pt
     ),
     stroke: none,
-    arrow_canvas(
+    _arrow_canvas(
       max - min,
       if "direction" not in arrow.keys() or arrow.direction == "normal" {
         if arrow.to > arrow.from {"right"} else {"left"}
@@ -106,7 +106,7 @@
   }
 }
 
-#let empty_row(n, pad: auto) = table.cell(
+#let _empty_row(n, pad: auto) = table.cell(
   colspan: n,
   stroke: none,
   inset: 0pt,
@@ -117,12 +117,12 @@
     )
 )
 
-#let prefix_row(prefix) = prefix.map(p => table.cell(
+#let _prefix_row(prefix) = prefix.map(p => table.cell(
   stroke: theme.fg_light,
   text(fill: theme.fg_light, p)
 ))
 
-#let nums_row(
+#let _nums_row(
   nums,
   hl_primary,
   hl_secondary,
@@ -148,8 +148,8 @@
   below: auto,
   prefix: (),
 ) = {
-  prefix_row(prefix)
-  nums_row(
+  _prefix_row(prefix)
+  _nums_row(
     nums,
     hl1,
     hl2,
@@ -166,14 +166,14 @@
   ),)
 
   if arrow != none {
-    arrow_row(
+    _arrow_row(
       arrow,
       nums.len() + prefix.len(),
       offset: prefix.len()
     )
   }
 
-  (empty_row(
+  (_empty_row(
     nums.len() + prefix.len(),
     pad: below
   ),)
