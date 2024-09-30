@@ -38,7 +38,7 @@
 }
 
 #let selection_sort(..nums) = table(
-  columns: (1fr,) * nums.pos().len() + (auto,),
+  columns: (auto,) + (1fr,) * nums.pos().len(),
   align: center,
   ..rows(nums.pos())
 )

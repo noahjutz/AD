@@ -168,7 +168,7 @@
     breakable: false,
     inset: 0pt,
     stroke: none,
-    ""
+    []
   ),)
 
   _prefix_row(prefix)
