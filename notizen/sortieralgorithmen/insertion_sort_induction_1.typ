@@ -1,4 +1,4 @@
-#import "components.typ": single_num_row, braced
+#import "components.typ": single_num_row, braced, arrowed
 #import "/config.typ": theme
 
 #let nums = (1, 5, 5, 3, 2)
@@ -7,7 +7,8 @@
   nums,
   hl_success: (0, 2),
   labels: (
-    (0, 2, braced[hi]),
+    (0, 2, arrowed[hi]),
+    //(3, 4, arrowed[hello])
   ),
   arrow: (
     from: 1,

@@ -263,3 +263,19 @@
 
   content("brace.content", body)
 })
+
+#let arrowed(body) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  line(
+    (0, .5),
+    (rel: (0, -16pt)),
+    mark: (end: ">"),
+    name: "arrow"
+  )
+  content(
+    "arrow.start", 
+    anchor: "south",
+    padding: (bottom: 2pt),
+    body
+  )
+})
