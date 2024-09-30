@@ -8,5 +8,10 @@
   labels: (
     "0": `a[i]`,
     "1": `a[i+1]`
+  ),
+  arrow: (
+    from: 0,
+    to: 1,
+    direction: "bidirectional"
   )
 )

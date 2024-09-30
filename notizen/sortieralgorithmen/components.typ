@@ -137,10 +137,10 @@
 
 ))
 
-#let _label_row(n) = {
-  // TODO implement
-  _empty_row(n)
-}
+#let _label_row(n, labels) = range(n).map(i => table.cell(
+  stroke: none,
+  labels.at(str(i), default: [])
+))
 
 #let num_row(
   nums,
@@ -167,9 +167,10 @@
   ),)
 
   if labels != none {
-    (_label_row(
-      n
-    ),)
+    _label_row(
+      n,
+      labels
+    )
   }
 
   _prefix_row(prefix)
