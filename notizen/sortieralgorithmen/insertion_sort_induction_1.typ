@@ -7,7 +7,7 @@
   nums,
   hl_success: (0, 2),
   labels: (
-    (0, 2, "hi"),
+    (0, 2, box(stroke: red, width: 100%, height: 10pt)),
   ),
   arrow: (
     from: 1,

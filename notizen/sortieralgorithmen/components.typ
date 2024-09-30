@@ -138,19 +138,30 @@
   let first = labels.first().at(0)
   let last = labels.last().at(1)
   if first > 0 {
-    (table.cell(colspan: first, stroke: none, ""),)
+    (table.cell(
+      colspan: first,
+      stroke: none,
+      inset: 0pt,
+      ""
+    ),)
   }
 
   for (from, to, content) in labels {
     (table.cell(
       colspan: to - from,
       stroke: none,
+      inset: 0pt,
       content
     ),)
   }
 
   if last < n {
-    (table.cell(colspan: n - last, stroke: none, ""),)
+    (table.cell(
+      colspan: n - last,
+      stroke: none,
+      inset: 0pt,
+      ""
+    ),)
   }
 }
 
