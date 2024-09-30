@@ -17,13 +17,13 @@
 )
 
 #let rows(nums) = {
-  let min_index(nums, i) = {
-    let x = calc.min(..nums.slice(i, nums.len()))
-    let (j, ..) = nums.enumerate()
-      .find(((.., n)) => n == x)
-    return j
-
+  let min_index(nums, start) = {
+    let sublist = nums.slice(start, nums.len())
+    return sublist.enumerate()
+      .find(((i, x)) => x == calc.min(..sublist))
+      .at(0) + start
   }
+
   for i in range(nums.len()) {
     let j = min_index(nums, i)
     row_swap(nums, i, j)
