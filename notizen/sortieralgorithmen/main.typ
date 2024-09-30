@@ -97,7 +97,7 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 #admonition(
   [Verschachtelte Induktion]
 )[
-  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf ist `a[i+1:j+1]` sortiert.
+  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf sind `a[:i]` und `a[i+1:j+1]` sortiert.
 
   ==== Induktionsanfang (i = j - 1)
 
@@ -108,18 +108,29 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
     a[j] = a[j-1]
   ```
 
-  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. #sym.checkmark
+  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:i]` bleibt unberührt. #sym.checkmark
 
   #include "insertion_sort_induction_1.typ"
 
-  ==== Induktionsschritt (i #sym.arrow i + 1)
+  ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Wir nehmen an, dass `a[i:j+1]` sortiert ist. Falls $i-1<0$ ist `a[1:j+1]` sortiert. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+  Falls $i-1<0$ gibt es keine Nummern vor `a[i]`, welche einsortiert werden müssen. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
   ```python
   if a[i] > key:
     a[i+1] = a[i]
   ```
+
+  Nach Induktionsvoraussetzung gilt:
+  
+  - `a[:i+1]` ist sortiert
+  - `a[i+2:j+1]` ist sortiert
+
+  Nach Ausführung des obigen Codes wird der letzte und damit größte Wert aus der linken sortierten Teilliste `a[:i+1]` an den Anfang der rechten sortierten Teilliste `a[i+2:j+1]` gesetzt, falls er größer als `a[i+1]` ist.
+
+  #include "insertion_sort_induction_2.typ"
+
+  
 ]
 
 == Bubble Sort <bubble-sort>
