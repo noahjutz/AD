@@ -3,7 +3,7 @@
 
 #let row_push_key(nums, i, key) = num_row(
   nums,
-  hl1: i,
+  hl_primary: i,
   prefix: (str(key),),
   arrow: (
     from: i,
@@ -14,8 +14,8 @@
 
 #let row_shift_forward(nums, i, j, key) = num_row(
   nums,
-  hl1: i,
-  hl2: j,
+  hl_primary: i,
+  hl_secondary: j,
   prefix: (str(key),),
   arrow: (
     from: j,
@@ -25,8 +25,8 @@
 
 #let row_pop_key(nums, i, j, key) = num_row(
   nums,
-  hl1: i,
-  hl2: j,
+  hl_primary: i,
+  hl_secondary: j,
   prefix: (str(key),),
   arrow: (
     from: -1,
@@ -38,7 +38,7 @@
 #let row_complete(nums, i, key) = num_row(
   nums,
   prefix: (str(key),),
-  hl: range(i+1),
+  hl_success: range(i+1),
 )
 
 #let rows(nums) = {

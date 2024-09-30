@@ -139,10 +139,10 @@
 
 #let num_row(
   nums,
-  hl1: none,
-  hl2: none,
-  hl3: none,
-  hl: (),
+  hl_primary: none,
+  hl_secondary: none,
+  hl_tertiary: none,
+  hl_success: (),
   frame: none,
   arrow: none,
   below: auto,
@@ -151,10 +151,10 @@
   _prefix_row(prefix)
   _nums_row(
     nums,
-    hl1,
-    hl2,
-    hl3,
-    hl
+    hl_primary,
+    hl_secondary,
+    hl_tertiary,
+    hl_success
   )
 
   (table.cell(

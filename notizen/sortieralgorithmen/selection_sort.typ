@@ -2,8 +2,8 @@
 
 #let row_swap(nums, i, j) = num_row(
   nums,
-  hl1: i,
-  hl2: j,
+  hl_primary: i,
+  hl_secondary: j,
   arrow: (
     from: j,
     to: i,
@@ -13,7 +13,7 @@
 
 #let row_done(nums, i) = num_row(
   nums,
-  hl: range(i+1)
+  hl_success: range(i+1)
 )
 
 #let rows(nums) = {
