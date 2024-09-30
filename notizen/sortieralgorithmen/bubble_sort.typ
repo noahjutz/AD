@@ -38,6 +38,5 @@
 #let bubble_sort(..nums) = table(
   columns: (1fr, ) * nums.pos().len() + (auto,),
   align: center,
-  stroke: none,
   ..rows(nums.pos())
 )

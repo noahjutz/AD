@@ -1,4 +1,4 @@
-#import "components.typ": num_row, empty_row
+#import "components.typ": num_row
 
 #let row_swap(nums, i, j) = num_row(
   nums,
@@ -33,7 +33,7 @@
     nums.at(j) = h
 
     row_done(nums, i)
-    empty_row(nums.len()+1)
+    //empty_row(nums.len()+1)
   }
 }
 

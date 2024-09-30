@@ -61,6 +61,5 @@
 #let insertion_sort(..nums) = table(
   columns: (1fr,) * (nums.pos().len()+1) + (auto,),
   align: center,
-  stroke: black,
   ..rows(nums.pos())
 )
