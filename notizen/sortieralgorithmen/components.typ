@@ -140,7 +140,12 @@
   let last = labels.last().at(1)
 
   if first > 0 {
-    (table.cell(colspan: first, ""),)
+    (table.cell(
+      colspan: first,
+      inset: 0pt,
+      stroke: none,
+      ""
+    ),)
   }
 
   labels.zip(labels.slice(1) + ((-1, -1, none),))
@@ -148,6 +153,9 @@
       (
         table.cell(
           colspan: t1 - f1,
+          align: bottom,
+          inset: 0pt,
+          stroke: none,
           b1
         ),
         if f2 - t1 > 0 {
@@ -162,7 +170,12 @@
     .filter(it => it != none)
   
   if last < n {
-    (table.cell(colspan: n - last, ""),)
+    (table.cell(
+      colspan: n - last,
+      inset: 0pt,
+      stroke: none,
+      ""
+    ),)
   }
 }
 
