@@ -254,7 +254,7 @@
   circle((0, 0), radius: 0, name: "brace_start")
   circle((1, 0), radius: 0, name: "brace_end")
 
-  set-viewport((0, 0), (32pt, 32pt))
+  set-viewport((0, 0), (24pt, 24pt))
   cetz.decorations.flat-brace(
     "brace_start",
     "brace_end",
