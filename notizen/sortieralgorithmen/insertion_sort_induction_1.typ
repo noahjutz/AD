@@ -7,7 +7,7 @@
   nums,
   hl_success: (0, 2),
   labels: (
-    (0, 1, braced[`:j-i`]),
+    (0, 1, braced[`:i`]),
     (1, 2, arrowed[`i`]),
     (2, 3, braced[`j:j+1`])
   ),

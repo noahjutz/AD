@@ -112,9 +112,14 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 
   #include "insertion_sort_induction_1.typ"
 
-  ==== Induktionsschritt (i - 1 #sym.arrow i)
+  ==== Induktionsschritt (i #sym.arrow i + 1)
 
-  Wir nehmen an, dass `a[i:j+1]` sortiert ist. Falls $i-1<0$ 
+  Wir nehmen an, dass `a[i:j+1]` sortiert ist. Falls $i-1<0$ ist `a[1:j+1]` sortiert. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+
+  ```python
+  if a[i] > key:
+    a[i+1] = a[i]
+  ```
 ]
 
 == Bubble Sort <bubble-sort>
