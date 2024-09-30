@@ -7,8 +7,8 @@
   nums,
   hl_success: (0, 2),
   labels: (
-    (0, 2, braced[`a[:j]`]),
-    (2, 3, arrowed[`a[j+1]`])
+    (0, 1, braced[`:j-i`]),
+    (2, 3, braced[`j:j+1`])
   ),
   arrow: (
     from: 1,
