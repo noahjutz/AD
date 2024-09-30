@@ -101,15 +101,16 @@
   }
 }
 
-#let _empty_row(n, pad: auto) = table.cell(
+#let _empty_row(n, pad: auto, body: []) = table.cell(
   colspan: n,
   stroke: none,
   inset: 0pt,
   box(
-    height: if pad == auto {6pt}
+    height: if body != [] {auto}
+      else if pad == auto {6pt}
       else if pad == none {0pt}
       else {pad},
-  )
+  )[#body]
 )
 
 #let _prefix_row(prefix) = prefix.map(p => table.cell(
@@ -137,32 +138,31 @@
 ) = {
   let first = labels.first().at(0)
   let last = labels.last().at(1)
+
   if first > 0 {
-    (table.cell(
-      colspan: first,
-      stroke: none,
-      inset: 0pt,
-      ""
-    ),)
+    (table.cell(colspan: first, ""),)
   }
 
-  for (from, to, content) in labels {
-    (table.cell(
-      colspan: to - from,
-      stroke: none,
-      inset: 0pt,
-      align: bottom,
-      content
-    ),)
-  }
-
+  labels.zip(labels.slice(1) + ((-1, -1, none),))
+    .map((((f1, t1, b1), (f2, t2, b2))) => {
+      (
+        table.cell(
+          colspan: t1 - f1,
+          b1
+        ),
+        if f2 - t1 > 0 {
+          table.cell(
+            colspan: f2 - t1,
+            []
+          )
+        }
+      )
+    })
+    .flatten()
+    .filter(it => it != none)
+  
   if last < n {
-    (table.cell(
-      colspan: n - last,
-      stroke: none,
-      inset: 0pt,
-      ""
-    ),)
+    (table.cell(colspan: n - last, ""),)
   }
 }
 
