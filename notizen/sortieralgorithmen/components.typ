@@ -137,6 +137,11 @@
 
 ))
 
+#let _label_row(n) = {
+  // TODO implement
+  _empty_row(n)
+}
+
 #let num_row(
   nums,
   hl_primary: none,
@@ -145,9 +150,27 @@
   hl_success: (),
   frame: none,
   arrow: none,
+  labels: none,
   below: auto,
   prefix: (),
 ) = {
+  let n = prefix.len() + nums.len()
+  if labels != none {
+    (_label_row(
+      n
+    ),)
+  }
+
+  (table.cell(
+    rowspan: 2 + (arrow, labels)
+      .map(it => int(it != none))
+      .sum(),
+    breakable: false,
+    inset: 0pt,
+    stroke: none,
+    ""
+  ),)
+
   _prefix_row(prefix)
   _nums_row(
     nums,
@@ -157,24 +180,16 @@
     hl_success
   )
 
-  (table.cell(
-    rowspan: if arrow != none {3} else {2},
-    breakable: false,
-    inset: 0pt,
-    stroke: none,
-    ""
-  ),)
-
   if arrow != none {
     _arrow_row(
       arrow,
-      nums.len() + prefix.len(),
+      n,
       offset: prefix.len()
     )
   }
 
   (_empty_row(
-    nums.len() + prefix.len(),
+    n,
     pad: below
   ),)
 }
