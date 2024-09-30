@@ -1,3 +1,5 @@
+#import "/components/admonition.typ": admonition
+
 = Sortieralgorithmen
 
 == Insertion Sort <insertion-sort>
@@ -58,7 +60,7 @@ $
 
 === Korrektheit
 
-Nach jeden $j$-ten Schleifendurchlauf ist `a[:j+1]` sortiert.
+Behauptung: Nach jeden $j$-ten Schleifendurchlauf ist `a[:j+1]` sortiert.
 
 ==== Induktionsanfang (j = 1)
 
@@ -88,7 +90,15 @@ Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, 
 
 ==== Induktionsschritt (j - 1 #sym.arrow j)
 
+Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:j+1]` sortiert ist, ist der Induktionsschritt erfüllt.
 
+#admonition(
+  [Verschachtelte Induktion]
+)[
+  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf ist `a[i:j+1]` sortiert.
+
+  ==== Induktionsanfang (i = j - 1)
+]
 
 == Bubble Sort <bubble-sort>
 
