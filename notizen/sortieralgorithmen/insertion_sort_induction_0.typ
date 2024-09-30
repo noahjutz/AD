@@ -1,6 +1,6 @@
 #import "components.typ": single_num_row, arrowed, braced
 
-#let nums = (1, 5, 4, 3, 2)
+#let nums = (4, 5, 3, 2, 1)
 
 #single_num_row(
   nums,

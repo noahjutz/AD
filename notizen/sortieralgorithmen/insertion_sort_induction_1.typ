@@ -1,7 +1,7 @@
 #import "components.typ": single_num_row, braced, arrowed
 #import "/config.typ": theme
 
-#let nums = (1, 5, 5, 3, 2)
+#let nums = (4, 5, 5, 2, 1)
 
 #single_num_row(
   nums,
