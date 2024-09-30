@@ -161,6 +161,8 @@
         if f2 - t1 > 0 {
           table.cell(
             colspan: f2 - t1,
+            inset: 0pt,
+            stroke: none,
             []
           )
         }
