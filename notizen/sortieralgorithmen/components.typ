@@ -151,6 +151,7 @@
       colspan: to - from,
       stroke: none,
       inset: 0pt,
+      align: bottom,
       content
     ),)
   }
