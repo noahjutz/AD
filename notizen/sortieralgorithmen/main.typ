@@ -88,6 +88,8 @@ else:
 
 Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. #sym.checkmark
 
+#include "induction.typ"
+
 ==== Induktionsschritt (j - 1 #sym.arrow j)
 
 Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:j+1]` sortiert ist, ist der Induktionsschritt erfüllt.
@@ -107,8 +109,6 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
   ```
 
   Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. #sym.checkmark
-
-  #include "induction.typ"
 
   ==== Induktionsschritt (i - 1 #sym.arrow i)
 

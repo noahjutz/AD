@@ -218,7 +218,7 @@
     frame: frame,
     arrow: arrow,
     labels: labels,
-    below: below,
+    below: 0pt,
     prefix: prefix
   )
 )
