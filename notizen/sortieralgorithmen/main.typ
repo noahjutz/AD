@@ -88,7 +88,7 @@ else:
 
 Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. #sym.checkmark
 
-#include "induction.typ"
+#include "insertion_sort_induction_0.typ"
 
 ==== Induktionsschritt (j - 1 #sym.arrow j)
 
