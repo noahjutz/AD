@@ -289,14 +289,14 @@
   import cetz.draw: *
   line(
     (0, .5),
-    (rel: (0, -16pt)),
+    (rel: (0, -14pt)),
     mark: (end: ">"),
     name: "arrow"
   )
   content(
     "arrow.start", 
     anchor: "south",
-    padding: (bottom: 2pt),
+    padding: (bottom: 4pt),
     body
   )
 })
