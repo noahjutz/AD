@@ -133,7 +133,11 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
   Weil der kleinste Wert des rechten Teils immer noch größer sein muss als der größte des linken, ist `a[i+1:j+1]` jetzt sortiert. #sym.square.filled
 ]
 
+Nach dieser inneren Schleifeninvariante sind `a[:i]` und `a[i+1:j+1`] nach Beendigung der While-Schleife mit irgend einem $i$ sortiert. Ferner gilt folgendes:
 
+`a[i-1]` $<=$ `key` $<=$ `a[i+1]`
+
+Nachdem also der Schlüssel an Stelle `a[i]` setzt, ist `a[:j+1]` sortiert. #sym.square.filled
 
 == Bubble Sort <bubble-sort>
 
