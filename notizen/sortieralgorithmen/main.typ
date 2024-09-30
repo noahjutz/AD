@@ -114,7 +114,7 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Falls $i-1<0$ gibt es keine Nummern vor `a[i]`, welche einsortiert werden müssen. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+  Falls $i+1=0$ gibt es keine Nummern vor `a[i+1]`, welche einsortiert werden müssen. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
   ```python
   if a[i] > key:
@@ -126,11 +126,11 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
   - `a[:i+1]` ist sortiert
   - `a[i+2:j+1]` ist sortiert
 
-  Nach Ausführung des obigen Codes wird der letzte und damit größte Wert aus der linken sortierten Teilliste `a[:i+1]` an den Anfang der rechten sortierten Teilliste `a[i+2:j+1]` gesetzt, falls er größer als `a[i+1]` ist.
+  Nach Ausführung des obigen Codes wird der letzte und damit größte Wert aus der linken sortierten Teilliste `a[:i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt, falls er größer als `a[i+1]` ist.
 
   #include "insertion_sort_induction_2.typ"
 
-  
+
 ]
 
 == Bubble Sort <bubble-sort>
