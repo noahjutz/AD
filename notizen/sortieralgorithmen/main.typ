@@ -95,9 +95,22 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 #admonition(
   [Verschachtelte Induktion]
 )[
-  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf ist `a[i:j+1]` sortiert.
+  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf ist `a[i+1:j+1]` sortiert.
 
   ==== Induktionsanfang (i = j - 1)
+
+  Setzen wir $i = j - 1$ in die While-Schleife ein, erhalten wir diese äquivalente if-Anweisung:
+
+  ```python
+  if a[j-1] > a[j]:
+    a[j] = a[j-1]
+  ```
+
+  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. #sym.checkmark
+
+  ==== Induktionsschritt (i - 1 #sym.arrow i)
+
+  Wir nehmen an, dass `a[i:j+1]` sortiert ist. Falls $i-1<0$ 
 ]
 
 == Bubble Sort <bubble-sort>
