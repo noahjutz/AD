@@ -249,7 +249,7 @@
 
 #let braced(body) = cetz.canvas(length: 100%, {
   import cetz.draw: *
-  circle((0, -4pt), radius: 0)
+  circle((0, -2pt), radius: 0)
 
   circle((0, 0), radius: 0, name: "brace_start")
   circle((1, 0), radius: 0, name: "brace_end")
