@@ -194,3 +194,31 @@
     pad: below
   ),)
 }
+
+#let single_num_row(
+  nums,
+  hl_primary: none,
+  hl_secondary: none,
+  hl_tertiary: none,
+  hl_success: (),
+  frame: none,
+  arrow: none,
+  labels: none,
+  below: auto,
+  prefix: (),
+) = table(
+  columns: (auto,) + (1fr,) * (nums.len() + prefix.len()),
+  align: center,
+  ..num_row(
+    nums,
+    hl_primary: hl_primary,
+    hl_secondary: hl_secondary,
+    hl_tertiary: hl_tertiary,
+    hl_success: hl_success,
+    frame: frame,
+    arrow: arrow,
+    labels: labels,
+    below: below,
+    prefix: prefix
+  )
+)
