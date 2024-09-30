@@ -246,3 +246,20 @@
     prefix: prefix
   )
 )
+
+#let braced(body) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  circle((0, -4pt), radius: 0)
+
+  circle((0, 0), radius: 0, name: "brace_start")
+  circle((1, 0), radius: 0, name: "brace_end")
+
+  set-viewport((0, 0), (32pt, 32pt))
+  cetz.decorations.flat-brace(
+    "brace_start",
+    "brace_end",
+    name: "brace"
+  )
+
+  content("brace.content", body)
+})
