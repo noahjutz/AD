@@ -1,4 +1,4 @@
-#import "components.typ": num_row, empty_row
+#import "components.typ": num_row
 #import "/config.typ": theme
 
 #let row_push_key(nums, i, key) = num_row(
@@ -39,7 +39,6 @@
   nums,
   prefix: (str(key),),
   hl: range(i+1),
-  below: auto
 )
 
 #let rows(nums) = {

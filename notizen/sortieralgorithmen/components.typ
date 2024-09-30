@@ -80,7 +80,7 @@
   (table.cell(
     colspan: max - min + 1,
     inset: (
-      bottom: 6pt,
+      bottom: 0pt,
       top: 0pt,
       left: 0pt,
       right: 0pt
@@ -110,7 +110,11 @@
   colspan: n,
   stroke: none,
   inset: 0pt,
-  box(height: if pad == auto {6pt} else {pad})
+  box(
+    height: if pad == auto {6pt}
+      else if pad == none {0pt}
+      else {pad}
+    )
 )
 
 #let prefix_row(prefix) = prefix.map(p => table.cell(
@@ -141,7 +145,7 @@
   hl: (),
   frame: none,
   arrow: none,
-  below: none,
+  below: auto,
   prefix: (),
 ) = {
   prefix_row(prefix)
@@ -154,7 +158,7 @@
   )
 
   (table.cell(
-    rowspan: if arrow != none or below != none {2} else {1},
+    rowspan: if arrow != none {3} else {2},
     breakable: false,
     inset: 0pt,
     stroke: none,
@@ -169,10 +173,8 @@
     )
   }
 
-  if below != none {
-    (empty_row(
-      nums.len() + prefix.len(),
-      pad: below
-    ),)
-  }
+  (empty_row(
+    nums.len() + prefix.len(),
+    pad: below
+  ),)
 }
