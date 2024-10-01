@@ -28,13 +28,9 @@ for j in reversed(range(n)):
   a[i-1] = key
 ```
 
-==== Laufzeit
+==== Laufzeit & Korrektheit
 
-Unabhängig davon, ob der Algorithmus von rechts nach links oder andersherum verläuft, hat er eine Schleife durch alle $n$ Elemente, und eine zweite, welche abhängig von der Eingabe null bis $j$ Iterationen hat. Die Laufzeit unterscheidet sich also nicht von der des originellen Algorithmus.
-
-==== Korrektheit
-
-
+Die Laufzeit bleibt gleich. Der Korrektheitsbeweis erfolgt analog zum Beweis des ursprünglichen Algorithmus.
 
 Mehr über Insertion Sort: @insertion-sort
 
@@ -57,6 +53,10 @@ for i in reversed(range(n)):
    if a[j] > a[j+1]:
       a[j], a[j+1] = a[j+1], a[j]
 ```
+
+==== Laufzeit & Korrektheit
+
+Entspricht dem ursprünglichen Algorithmus.
 
 Mehr über Bubble Sort: @bubble-sort
 
