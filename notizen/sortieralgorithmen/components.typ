@@ -129,7 +129,7 @@
     else if i == hl_secondary {theme.secondary_light}
     else if i == hl_tertiary {theme.tertiary_light}
     else if i in hl_success {theme.success_light},
-  str(n)
+  if type(n) != content {str(n)} else {n}
 ))
 
 #let _label_row(
