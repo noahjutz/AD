@@ -120,17 +120,15 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   Nach Induktionsvoraussetzung gilt nach dem Durchlauf mit $i+1$:
   
-  - `a[:i+1]` ist sortiert
-  - `a[i+1:j+1]` ist sortiert
+  `a[i+2:j+1]` ist korrekt
 
   Wenn wir zeigen können, dass nach dem Durchlauf mit $i$ gilt:
 
-  - `a[:i]` ist sortiert
-  - `a[i:j+1]` ist sortiert
+  `a[i+1:j+1]` ist korrekt
 
   Dann ist der Induktionsschritt erfüllt.
 
-  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[:i]` leer und `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss. #sym.checkmark
+  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss. #sym.checkmark
   
   Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
