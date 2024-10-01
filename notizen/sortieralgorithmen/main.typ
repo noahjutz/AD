@@ -121,21 +121,28 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[:i]` leer und `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss.
-  
-  Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
-
-  ```python
-  if a[i] > key:
-    a[i+1] = a[i]
-  ```
-
   Nach Induktionsvoraussetzung gilt:
   
   - `a[:i+1]` ist sortiert
   - `a[i+2:j+1]` ist sortiert
 
-  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `key` ist nach IV auch `a[i]` $<=$ `a[i+1]`.
+  Wenn wir zeigen können, dass nach dem Durchlauf mit $i$ gilt:
+
+  - `a[:i]` ist sortiert
+  - `a[i+1:j+1]` ist sortiert
+
+  Dann ist der Induktionsschritt erfüllt.
+
+  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[:i]` leer und `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss. #sym.checkmark
+  
+  Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+
+  ```python
+  if a[i] > a[j]:
+    a[i+1] = a[i]
+  ```
+
+  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `a[j]` ist auch `a[i]` $<=$ `a[i+1]`, weil nach IV `a[i+2:j+1]` sortiert ist.
 
   Nach Ausführung des obigen Codes wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt, falls er größer als `key` ist.
 
