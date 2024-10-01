@@ -160,12 +160,49 @@ for i in range(n):
 
 Nach jedem Schleifendurchlauf ist die linke Teilliste bis zum Schlüssel sortiert (grün markiert).
 
+=== Beispiel
+
 Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert von $i=0$ nach $i=n-2=2$.
 
 #import "bubble_sort.typ": bubble_sort
 #bubble_sort(4, 3, 2, 1)
 
 Längeres Beispiel: @ex-bubble-sort
+
+=== Korrektheit
+
+Nach jedem $i$-ten Schleifendurchlauf ist `a[:i+2]` sortiert.
+
+==== Induktionsanfang (i = 0)
+
+#admonition("Verschachtelte Induktion")[
+  Nach jedem $j$-ten Schleifendurchlauf ist `min(a)` in `a[:j+1]` und `a[j]` $<=$ `a[j+1]`
+  ==== Induktionsanfang (j = n - 2)
+
+  Die letzten beiden Elemente `a[n-1]` und `a[n-2]` werden ggf. vertauscht, um sie in die richtige Reihenfolge zu bringen. #sym.checkmark
+
+  ==== Induktionsschritt (j + 1 #sym.arrow j)
+
+  Nach IV ist `min(a)` in `a[:j+2]`. Es werden `a[j]` und `a[j+1]` wieder ggf. vertauscht, um sie in die richtige Reihenfolge zu bringen. #sym.checkmark
+]
+
+==== Induktionsschritt (i - 1 #sym.arrow i)
+
+#admonition("Verschachtelte Induktion")[
+  Nach jedem $j$-ten Schleifendurchlauf ist `min(a[i:])` in `a[i:j+1]`.
+
+  ==== Induktionsanfang (j = n - 2)
+
+  Siehe obige verschachtelte Induktion. #sym.checkmark
+
+  ==== Induktionsschritt (j + 1 #sym.arrow j)
+
+  Siehe obige verschachtelte Induktion. #sym.checkmark
+]
+
+==== Induktionsschluss
+
+Nach dem $n-1$-ten Schleifendurchlauf ist `a[:n+1]` sortiert. #sym.square.filled
 
 == Selection Sort <selection-sort>
 
