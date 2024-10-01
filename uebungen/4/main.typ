@@ -76,6 +76,10 @@ for i in reversed(range(n)):
   a[i], a[x] = a[x], a[i]
 ```
 
+==== Laufzeit & Korrektheit 
+
+Entspricht dem ursprünglichen Algorithmus.
+
 Mehr über Selection Sort: @selection-sort
 
 === Quicksort
