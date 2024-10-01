@@ -128,13 +128,17 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   Dann ist der Induktionsschritt erfüllt.
 
-  Falls $i+1=0$ wird die while-Schleife für $i$ nicht ausgeführt. Wir beweisen also für dieses $i$ nichts. #sym.checkmark
+  Falls $i+1=0$ wird die while-Schleife verlassen, bevor sie für $i$ ausgeführt werden kann. Wir beweisen also für dieses $i$ nichts. #sym.checkmark
   
-  Falls `a[i]` $<=$ `key` wird die while-Schleife auch nicht betreten. #sym.checkmark
+  Falls `a[i]` $<=$ `key` wird die while-Schleife auch verlassen. #sym.checkmark
 
   Sonst wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt.
 
   #include "insertion_sort_induction_3.typ"
+
+  Dort gehört dieser Wert auch hin, weil er durch die äußere IV (`a[:j]` ist sortiert) der größte noch nicht einsortierte Wert ist.
+
+  `a[:i]` $<=$ `a[i]` $<=$ `a[i+1:j+1]` #sym.checkmark
 ]
 
 Nach dieser inneren Schleifeninvariante sind `a[:i]` und `a[i+1:j+1`] nach Beendigung der While-Schleife mit irgend einem $i$ sortiert. Ferner gilt folgendes:
