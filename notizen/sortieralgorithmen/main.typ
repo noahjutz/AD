@@ -101,7 +101,10 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 #admonition(
   [Verschachtelte Induktion]
 )[
-  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf sind `a[:i]` und `a[i+1:j+1]` sortiert.
+  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf gilt: 
+  
+  - `a[:i]` ist leer oder sortiert
+  - `a[i+1:j+1]` ist leer oder sortiert.
 
   ==== Induktionsanfang (i = j - 1)
 
@@ -112,13 +115,13 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
     a[j] = a[j-1]
   ```
 
-  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:i]` bleibt unberührt. #sym.checkmark
+  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:i]` bleibt unberührt. #sym.checkmark
 
   #include "insertion_sort_induction_2.typ"
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Falls $i+1=0$ gibt es keine Nummern vor `a[i+1]`, welche einsortiert werden müssen. Damit ist `a[:i]` leer und `a[i+1:j+1]` sortiert. #sym.checkmark
+  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[:i]` leer und `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss.
   
   Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
