@@ -103,8 +103,8 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 )[
   Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf gilt: 
   
-  - `a[:i]` ist leer oder sortiert
-  - `a[i+1:j+1]` ist leer oder sortiert.
+  - `a[:i]` ist sortiert
+  - `a[i:j+1]` ist sortiert.
 
   ==== Induktionsanfang (i = j - 1)
 
@@ -115,7 +115,7 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
     a[j] = a[j-1]
   ```
 
-  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:i]` bleibt unberührt. #sym.checkmark
+  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j-1:j+1]` sortiert. `a[:j-1]` bleibt unberührt. #sym.checkmark
 
   #include "insertion_sort_induction_2.typ"
 
@@ -124,12 +124,12 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
   Nach Induktionsvoraussetzung gilt:
   
   - `a[:i+1]` ist sortiert
-  - `a[i+2:j+1]` ist sortiert
+  - `a[i+1:j+1]` ist sortiert
 
   Wenn wir zeigen können, dass nach dem Durchlauf mit $i$ gilt:
 
   - `a[:i]` ist sortiert
-  - `a[i+1:j+1]` ist sortiert
+  - `a[i:j+1]` ist sortiert
 
   Dann ist der Induktionsschritt erfüllt.
 
@@ -138,11 +138,11 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
   Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
   ```python
-  if a[i] > a[j]:
+  if a[i] > key:
     a[i+1] = a[i]
   ```
 
-  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `a[j]` ist auch `a[i]` $<=$ `a[i+1]`, weil nach IV `a[i+2:j+1]` sortiert ist.
+  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `key` ist auch `a[i]` $<=$ `a[i+1]`, weil nach IV `a[i+2:j+1]` sortiert ist.
 
   Nach Ausführung des obigen Codes wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt, falls er größer als `key` ist.
 
