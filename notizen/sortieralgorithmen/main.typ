@@ -99,6 +99,8 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 )[
   Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf sind `a[:i]` und `a[i+1:j+1]` sortiert.
 
+  #include "insertion_sort_induction_1.typ"
+
   ==== Induktionsanfang (i = j - 1)
 
   Setzen wir $i = j - 1$ in die While-Schleife ein, erhalten wir diese äquivalente if-Anweisung:
@@ -110,11 +112,13 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
 
   Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j+1]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:i]` bleibt unberührt. #sym.checkmark
 
-  #include "insertion_sort_induction_1.typ"
+  #include "insertion_sort_induction_2.typ"
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Falls $i+1=0$ gibt es keine Nummern vor `a[i+1]`, welche einsortiert werden müssen. Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+  Falls $i+1=0$ gibt es keine Nummern vor `a[i+1]`, welche einsortiert werden müssen. Damit ist `a[:i]` leer und `a[i+1:j+1]` sortiert. #sym.checkmark
+  
+  Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
 
   ```python
   if a[i] > key:
@@ -126,9 +130,11 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist. Wenn wir ze
   - `a[:i+1]` ist sortiert
   - `a[i+2:j+1]` ist sortiert
 
-  Nach Ausführung des obigen Codes wird der letzte und damit größte Wert aus der linken sortierten Teilliste `a[:i+1]` an den Anfang der rechten sortierten Teilliste `a[i+2:j+1]` gesetzt, falls er größer als `key` ist.
+  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `key` ist nach IV auch `a[i]` $<=$ `a[i+1]`.
 
-  #include "insertion_sort_induction_2.typ"
+  Nach Ausführung des obigen Codes wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt, falls er größer als `key` ist.
+
+  #include "insertion_sort_induction_3.typ"
 
   Weil der kleinste Wert des rechten Teils immer noch größer sein muss als der größte des linken, ist `a[i+1:j+1]` jetzt sortiert. #sym.square.filled
 ]
