@@ -265,38 +265,47 @@
 
 #let braced(body) = cetz.canvas(length: 100%, {
   import cetz.draw: *
-  circle((0, -2pt), radius: 0)
+  circle((0, 0), radius: 0)
 
-  circle((0, 0), radius: 0, name: "brace_start")
-  circle((1, 0), radius: 0, name: "brace_end")
-
-  set-viewport((0, 0), (24pt, 24pt))
-  cetz.decorations.flat-brace(
-    "brace_start",
-    "brace_end",
-    name: "brace"
+  hide(line((0, 0), (1, 0), name: "brace_line"))
+  circle(
+    (rel: (0, 2pt), to: "brace_line.start"),
+    radius: 0,
+    name: "start"
+  )
+  circle(
+    (rel: (0, 2pt), to: "brace_line.end"),
+    radius: 0,
+    name: "end"
   )
 
+  group({
+    set-viewport((0, 0), (24pt, 24pt))
+    cetz.decorations.flat-brace(
+      "start",
+      "end",
+    )
+  })
+
   content(
-    "brace.spike",
+    (rel: (0, 16pt), to: "brace_line.mid"),
     anchor: "south",
-    padding: (bottom: 6pt),
     body
   )
 })
 
 #let arrowed(body) = cetz.canvas(length: 100%, {
   import cetz.draw: *
+  circle((0, 0), radius: 0)
   line(
-    (0, .5),
-    (rel: (0, -14pt)),
+    (0, 14pt),
+    (0, 0),
     mark: (end: ">"),
     name: "arrow"
   )
   content(
-    "arrow.start", 
+    (0, 16pt), 
     anchor: "south",
-    padding: (bottom: 4pt),
     body
   )
 })
