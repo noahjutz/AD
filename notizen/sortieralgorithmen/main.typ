@@ -222,12 +222,36 @@ for i in range(n):
   a[i], a[x] = a[x], a[i]
 ```
 
+=== Beispiel
+
 Im Beispiel ist der Zähler rot markiert und das rechte Minimum blau.
 
 #import "selection_sort.typ": selection_sort
 #selection_sort(4, 3, 2, 1)
 
 Längeres Beispiel: @ex-selection-sort
+
+=== Laufzeit
+
+$
+T^"WC" (n) = T^"BC" (n) = T^"AC" (n) = n^2
+$
+
+=== Korrektheit
+
+Nach jedem $i$-ten Schleifendurchlauf ist `a[:i+1]` sortiert.
+
+==== Induktionsanfang (i = 0)
+
+`a[0]` und `min(a)` werden vertauscht. (Verschachtelte Induktion für die Berechnung des Minimums wird weggelassen) #sym.checkmark
+
+==== Induktionsschritt (i - 1 #sym.arrow i)
+
+`a[i]` und `min(a[i:])` werden vertauscht. `a[:i]` ist nach IV bereits sortiert. #sym.checkmark
+
+==== Induktionsschluss
+
+Nach dem $n$-ten Schleifendurchlauf ist die gesamte Liste `a[:n+1]` sortiert. #sym.square.filled
 
 == Quicksort
 
