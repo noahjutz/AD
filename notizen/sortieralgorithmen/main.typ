@@ -128,22 +128,13 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   Dann ist der Induktionsschritt erfüllt.
 
-  Falls $i+1=0$ wird die while-Schleife verlassen. In diesem Fall ist `a[i+1:j+1]` sortiert, weil es keine Zahl vor `a[0]` gibt, die einsortiert werden muss. #sym.checkmark
+  Falls $i+1=0$ wird die while-Schleife für $i$ nicht ausgeführt. Wir beweisen also für dieses $i$ nichts. #sym.checkmark
   
-  Sonst wird in Durchlauf $i$ folgender Code ausgeführt:
+  Falls `a[i]` $<=$ `key` wird die while-Schleife auch nicht betreten. #sym.checkmark
 
-  ```python
-  if a[i] > key:
-    a[i+1] = a[i]
-  ```
-
-  Als konsequenz ist `a[i]` größer als alle Vorgänger. Falls `a[i]` $<=$ `key` ist auch `a[i]` $<=$ `a[i+1]`, weil nach IV `a[i+2:j+1]` sortiert ist.
-
-  Nach Ausführung des obigen Codes wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt, falls er größer als `key` ist.
+  Sonst wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt.
 
   #include "insertion_sort_induction_3.typ"
-
-  Weil der kleinste Wert des rechten Teils immer noch größer sein muss als der größte des linken, ist `a[i+1:j+1]` jetzt sortiert. #sym.square.filled
 ]
 
 Nach dieser inneren Schleifeninvariante sind `a[:i]` und `a[i+1:j+1`] nach Beendigung der While-Schleife mit irgend einem $i$ sortiert. Ferner gilt folgendes:
