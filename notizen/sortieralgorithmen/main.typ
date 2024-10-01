@@ -169,6 +169,14 @@ Im Beispiel wird $(4, 3, 2, 1)$ sortiert. Der Zähler (rot markiert)  wandert vo
 
 Längeres Beispiel: @ex-bubble-sort
 
+=== Laufzeit
+
+Es gibt zwei verschachtelte for-Schleifen in Abhängigkeit von $n$.
+
+$
+T^"WC" (n) = T^"BC" (n) = T^"AC" (n) = n^2
+$
+
 === Korrektheit
 
 Nach jedem $i$-ten Schleifendurchlauf ist `a[:i+2]` sortiert.
