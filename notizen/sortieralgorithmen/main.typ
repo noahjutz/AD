@@ -101,10 +101,7 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 #admonition(
   [Verschachtelte Induktion]
 )[
-  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf gilt: 
-  
-  - `a[:i]` ist sortiert
-  - `a[i:j+1]` ist sortiert.
+  Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf gilt sind die Elemente in `a[i+1:j+1]` an der richtigen Stelle.
 
   ==== Induktionsanfang (i = j - 1)
 
@@ -115,13 +112,13 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
     a[j] = a[j-1]
   ```
 
-  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j-1:j+1]` sortiert. `a[:j-1]` bleibt unberührt. #sym.checkmark
+  Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:j-1]` bleibt unberührt. #sym.checkmark
 
   #include "insertion_sort_induction_2.typ"
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
-  Nach Induktionsvoraussetzung gilt:
+  Nach Induktionsvoraussetzung gilt nach dem Durchlauf mit $i+1$:
   
   - `a[:i+1]` ist sortiert
   - `a[i+1:j+1]` ist sortiert

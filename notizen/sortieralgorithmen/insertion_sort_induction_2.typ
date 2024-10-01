@@ -5,10 +5,11 @@
 
 #single_num_row(
   nums,
-  hl_success: range(3),
+  hl_success: (0, 2),
   labels: (
     (0, 1, braced[`:j-1`]),
-    (1, 3, braced[`j-1:j+1`])
+    (1, 2, arrowed[`j-1`]),
+    (2, 3, braced[`j:j+1`])
   ),
   arrow: (
     from: 1,
