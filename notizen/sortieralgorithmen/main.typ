@@ -105,7 +105,7 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   ==== Induktionsanfang (i = j - 1)
 
-  Setzen wir $i = j - 1$ in die While-Schleife ein, erhalten wir diese äquivalente if-Anweisung:
+  Im ersten Durchlauf mit $i = j - 1$ werden folgende Anweisungen ausgeführt:
 
   ```python
   if a[j-1] > a[j]:
