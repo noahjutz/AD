@@ -37,30 +37,33 @@
   nums_finalize
 ) = partition_finalize(nums_loop, pivot, j_loop - 1)
 
-#table(
-  columns: (auto,) + (1fr,) * nums.len(),
-  align: center,
-  ..num_row(
-    nums,
-    hl_tertiary: pivot,
-    below: 0pt,
-    arrow_down: swaps_loop,
-    labels: (
-      (0, 1, arrowed[`pivot`]),
+#block(
+  breakable: false,
+  table(
+    columns: (auto,) + (1fr,) * nums.len(),
+    align: center,
+    ..num_row(
+      nums,
+      hl_tertiary: pivot,
+      below: 0pt,
+      arrow_down: swaps_loop,
+      labels: (
+        (0, 1, arrowed[`pivot`]),
+      )
+    ),
+    ..num_row(
+      nums_loop,
+      hl_primary: range(1, j_loop),
+      hl_secondary: range(j_loop, nums.len()),
+      hl_tertiary: pivot,
+      below: 0pt,
+      arrow_down: swaps_finalize
+    ),
+    ..num_row(
+      nums_finalize,
+      hl_primary: range(j_loop - 1),
+      hl_secondary: range(j_loop, nums.len()),
+      hl_tertiary: j_loop - 1
     )
-  ),
-  ..num_row(
-    nums_loop,
-    hl_primary: range(1, j_loop),
-    hl_secondary: range(j_loop, nums.len()),
-    hl_tertiary: pivot,
-    below: 0pt,
-    arrow_down: swaps_finalize
-  ),
-  ..num_row(
-    nums_finalize,
-    hl_primary: range(j_loop - 1),
-    hl_secondary: range(j_loop, nums.len()),
-    hl_tertiary: j_loop - 1
   )
 )
