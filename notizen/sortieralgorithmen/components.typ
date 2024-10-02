@@ -184,8 +184,27 @@
 #let _arrow_down_row(
   arrow_down,
   n
-) = _full_row(n, cetz.canvas({
+) = _full_row(n, cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  hide(line((0, 0), (1, 0)))
 
+  for (from, to, ..style) in arrow_down {
+    let x_from = from / n
+    let x_to = to / n
+
+    group({
+      if style.len() > 0 {
+        stroke(style.at(0))
+      }
+      bezier(
+        (x_from, 0),
+        (x_to, -32pt),
+        (x_from, -16pt),
+        (x_to, -16pt),
+        mark: (end: ">")
+      )
+    })
+  }
 }))
 
 #let num_row(

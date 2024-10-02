@@ -22,7 +22,11 @@
   ..num_row(
     nums,
     below: 0pt,
-    arrow_down: ()
+    arrow_down: (
+      (0, 0),
+      (0, 1, (paint: red)),
+      (nums.len()-1, 0)
+    )
   )
 )
 
