@@ -1,4 +1,5 @@
 #import "@preview/cetz:0.2.2"
+#import "components.typ": num_row
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 #let pivot = 0
@@ -15,12 +16,15 @@
   return nums
 }
 
-#cetz.canvas({
-  import cetz.draw: *
-  import cetz.tree
-
-  
-})
+#table(
+  columns: (auto,) + (1fr,) * nums.len(),
+  align: center,
+  ..num_row(
+    nums,
+    below: 0pt,
+    arrow_down: ()
+  )
+)
 
 #nums
 

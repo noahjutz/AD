@@ -184,7 +184,9 @@
 #let _arrow_down_row(
   arrow_down,
   n
-) = _full_row([])
+) = _full_row(n, cetz.canvas({
+
+}))
 
 #let num_row(
   nums,
@@ -202,7 +204,7 @@
   let n = prefix.len() + nums.len()
 
   (table.cell(
-    rowspan: 2 + (arrow, labels)
+    rowspan: 2 + (arrow, arrow_down, labels)
       .map(it => int(it != none))
       .sum(),
     breakable: false,
@@ -236,10 +238,10 @@
   }
 
   if arrow_down != none {
-    _arrow_down_row(
+    (_arrow_down_row(
       arrow_down,
       n,
-    )
+    ),)
   }
 
   (_empty_row(
