@@ -261,8 +261,10 @@ In jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element `pivot`
 pivot = a[f]
 ```
 
+Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und rechts des Pivotelement werden rekursiv sortiert.
+
 === Partition
 
 Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
 
-#include "quicksort_pivot.typ"
+#include "quicksort_partition.typ"
