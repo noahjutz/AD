@@ -265,7 +265,8 @@ Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und re
 
 === Partition
 
-Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen. Um das mit `pivot = a[0]` zu realisieren, wird `a[1:]` iteriert
+Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
 
 #include "quicksort_partition.typ"
 
+Um das mit `pivot = a[0]` zu realisieren, werden alle Elemente in `a[1:]`, welche kleiner als das Pivot sind, nach vorne vertauscht.

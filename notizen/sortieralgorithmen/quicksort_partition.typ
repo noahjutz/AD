@@ -40,19 +40,21 @@
 #block(
   breakable: false,
   table(
-    columns: (auto,) + (1fr,) * nums.len(),
+    columns: (auto,) + (1fr,) * (nums.len()+1),
     align: center,
     ..num_row(
       nums,
+      prefix: ([],),
       hl_tertiary: 0,
       below: 0pt,
       arrow_down: swaps_loop,
       labels: (
         (0, 1, arrowed[`pivot`]),
-      )
+      ),
     ),
     ..num_row(
       nums_loop,
+      prefix: ([],),
       hl_primary: range(1, j_loop + 1),
       hl_secondary: range(j_loop + 1, nums.len()),
       hl_tertiary: 0,
@@ -61,6 +63,7 @@
     ),
     ..num_row(
       nums_finalize,
+      prefix: ([],),
       hl_primary: range(j_loop),
       hl_secondary: range(j_loop + 1, nums.len()),
       hl_tertiary: j_loop

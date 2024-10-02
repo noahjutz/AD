@@ -115,7 +115,7 @@
 
 #let _prefix_row(prefix) = prefix.map(p => table.cell(
   stroke: theme.fg_light,
-  text(fill: theme.fg_light, p)
+  text(fill: theme.fg_light, p) 
 ))
 
 #let _nums_row(
@@ -149,10 +149,13 @@
 
 #let _label_row(
   n,
-  labels
+  labels,
+  offset: 0
 ) = {
   let first = labels.first().at(0)
   let last = labels.last().at(1)
+  first += offset
+  last += offset
 
   if first > 0 {
     (table.cell(
@@ -252,7 +255,8 @@
   if labels != none {
     _label_row(
       n,
-      labels
+      labels,
+      offset: prefix.len()
     )
   }
 
