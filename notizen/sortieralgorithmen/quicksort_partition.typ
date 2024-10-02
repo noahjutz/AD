@@ -59,8 +59,8 @@
       nums_loop,
       prefix: ([(b)],),
       prefix_frame: none,
-      hl_primary: range(1, j_loop + 1),
-      hl_secondary: range(j_loop + 1, nums.len()),
+      hl_primary: range(1, j_loop),
+      hl_secondary: range(j_loop, nums.len()),
       hl_tertiary: 0,
       below: 0pt,
       arrow_down: swaps_finalize
