@@ -186,7 +186,9 @@
   n
 ) = _full_row(n, cetz.canvas(length: 100%, {
   import cetz.draw: *
-  hide(line((0, 0), (1, 0)))
+  line((0, 0), (1, 0), stroke: none)
+
+  translate(x: .5/n)
 
   for (from, to, ..style) in arrow_down {
     let x_from = from / n
