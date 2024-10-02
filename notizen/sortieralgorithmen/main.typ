@@ -269,4 +269,18 @@ Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor
 
 #include "quicksort_partition.typ"
 
-Um das mit `pivot = a[0]` zu realisieren, werden alle Elemente in `a[1:]`, welche kleiner als das Pivot sind, nach vorne vertauscht.
+Um von (a) auf (b) zu kommen, jede Zahl in `a[f+1:]` nach vorne vertauscht, falls sie kleiner als das Pivot ist.
+
+```python
+j = f+1
+for i in range(f+1, l+1):
+  if a[i] <= key:
+    a[i], a[j] = a[j], a[i]
+    j += 1
+```
+
+Jetzt ist `a[1:j]` kleiner, und `a[j:n+1]` größer als das Pivot. Wenn wir also das Pivot bei `a[f]` mit `a[j-1]` vertauschen, ist es an der richtigen Stelle (c).
+
+```python
+a[f], a[j-1] = a[j-1], a[f]
+```

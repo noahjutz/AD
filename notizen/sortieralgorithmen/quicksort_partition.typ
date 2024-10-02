@@ -15,7 +15,7 @@
       j += 1
     }
   }
-  return (swaps, nums, j - 1)
+  return (swaps, nums, j)
 }
 
 #let partition_finalize(nums, j) = {
@@ -35,7 +35,7 @@
 #let (
   swaps_finalize,
   nums_finalize
-) = partition_finalize(nums_loop, j_loop)
+) = partition_finalize(nums_loop, j_loop - 1)
 
 #block(
   breakable: false,
@@ -51,7 +51,8 @@
       below: 0pt,
       arrow_down: swaps_loop,
       labels: (
-        (0, 1, arrowed[`pivot`]),
+        (0, 1, arrowed[`f`]),
+        (nums.len()-1, nums.len(), arrowed[`l`])
       ),
     ),
     ..num_row(
@@ -68,9 +69,9 @@
       nums_finalize,
       prefix: ([(c)],),
       prefix_frame: none,
-      hl_primary: range(j_loop),
-      hl_secondary: range(j_loop + 1, nums.len()),
-      hl_tertiary: j_loop
+      hl_primary: range(j_loop - 1),
+      hl_secondary: range(j_loop, nums.len()),
+      hl_tertiary: j_loop - 1
     )
   )
 )
