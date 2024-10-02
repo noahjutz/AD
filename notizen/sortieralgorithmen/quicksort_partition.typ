@@ -54,7 +54,7 @@
     ),
     ..num_row(
       nums_loop,
-      prefix: ([],),
+      prefix: ([(1)],),
       hl_primary: range(1, j_loop + 1),
       hl_secondary: range(j_loop + 1, nums.len()),
       hl_tertiary: 0,

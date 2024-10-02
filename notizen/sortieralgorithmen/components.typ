@@ -201,7 +201,8 @@
 
 #let _arrow_down_row(
   arrow_down,
-  n
+  n,
+  offset: 0
 ) = _full_row(n, cetz.canvas(length: 100%, {
   import cetz.draw: *
   line((0, 0), (1, 0), stroke: none)
@@ -209,6 +210,8 @@
   translate(x: .5/n)
 
   for (from, to, ..style) in arrow_down {
+    from += offset
+    to += offset
     let x_from = from / n
     let x_to = to / n
 
@@ -281,6 +284,7 @@
     (_arrow_down_row(
       arrow_down,
       n,
+      offset: prefix.len()
     ),)
   }
 
