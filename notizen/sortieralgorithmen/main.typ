@@ -255,10 +255,10 @@ Nach dem $n$-ten Schleifendurchlauf ist die gesamte Liste `a[:n+1]` sortiert. #s
 
 == Quicksort
 
-In jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element ausgewählt. In unserer Implementation wählen wir
+Um eine Liste `a[f:l+1]` zu sortieren, wird in jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element ausgewählt. In unserer Implementation wählen wir
 
 ```
-pivot = a[0]
+pivot = a[f]
 ```
 
 Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und rechts des Pivots werden anschließend rekursiv sortiert.
