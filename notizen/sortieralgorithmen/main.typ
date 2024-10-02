@@ -268,3 +268,4 @@ Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und re
 Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
 
 #include "quicksort_partition.typ"
+
