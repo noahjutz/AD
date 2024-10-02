@@ -124,13 +124,28 @@
   hl_secondary,
   hl_tertiary,
   hl_success
-) = nums.enumerate().map(((i, n)) => table.cell(
-  fill: if i == hl_primary {theme.primary_light}
-    else if i == hl_secondary {theme.secondary_light}
-    else if i == hl_tertiary {theme.tertiary_light}
-    else if i in hl_success {theme.success_light},
-  if type(n) != content {str(n)} else {n}
-))
+) = {
+  if type(hl_primary) != array {
+    hl_primary = (hl_primary,)
+  }
+  if type(hl_secondary) != array {
+    hl_secondary = (hl_secondary,)
+  }
+  if type(hl_tertiary) != array {
+    hl_tertiary = (hl_tertiary,)
+  }
+  if type(hl_success) != array {
+    hl_success = (hl_success,)
+  }
+
+  return nums.enumerate().map(((i, n)) => table.cell(
+    fill: if i in hl_primary {theme.primary_light}
+      else if i in hl_secondary {theme.secondary_light}
+      else if i in hl_tertiary {theme.tertiary_light}
+      else if i in hl_success {theme.success_light},
+    if type(n) != content {str(n)} else {n}
+  ))
+}
 
 #let _label_row(
   n,
