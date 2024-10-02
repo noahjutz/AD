@@ -7,6 +7,10 @@
   let pivot = nums.at(pivot_index)
   let j = 0
   for (i, x) in nums.enumerate() {
+    if i == pivot_index {
+      j += 1
+      continue
+    }
     if x <= pivot {
       swaps.push((i, j))
       swaps.push((j, i, (paint: theme.bg_trans)))
@@ -26,7 +30,7 @@
 }
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
-#let pivot = 0
+#let pivot = 1
 #let (
   swaps_loop,
   nums_loop,
@@ -48,13 +52,13 @@
       below: 0pt,
       arrow_down: swaps_loop,
       labels: (
-        (0, 1, arrowed[`pivot`]),
+        (pivot, pivot+1, arrowed[`pivot`]),
       )
     ),
     ..num_row(
       nums_loop,
-      hl_primary: range(1, j_loop + 1),
-      hl_secondary: range(j_loop + 1, nums.len()),
+      hl_primary: range(j_loop + 1).filter(i => i != pivot),
+      hl_secondary: range(pivot + 1, nums.len()),
       hl_tertiary: pivot,
       below: 0pt,
       arrow_down: swaps_finalize
