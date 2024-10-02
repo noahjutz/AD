@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "components.typ": num_row, arrowed
+#import "components.typ": num_row, arrowed, arrowed_b
 #import "/config.typ": theme
 
 #let partition_loop(nums) = {
@@ -71,7 +71,10 @@
       prefix_frame: none,
       hl_primary: range(j_loop - 1),
       hl_secondary: range(j_loop, nums.len()),
-      hl_tertiary: j_loop - 1
+      hl_tertiary: j_loop - 1,
+      labels_b: (
+        (6, 7, arrowed_b[`j-1`]),
+      )
     )
   )
 )

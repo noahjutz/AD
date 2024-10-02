@@ -243,6 +243,7 @@
   arrow: none,
   arrow_down: none,
   labels: none,
+  labels_b: none,
   below: 4pt,
   prefix: (),
   prefix_frame: theme.fg_light
@@ -250,7 +251,7 @@
   let n = prefix.len() + nums.len()
 
   (table.cell(
-    rowspan: 2 + (arrow, arrow_down, labels)
+    rowspan: 2 + (arrow, arrow_down, labels, labels_b)
       .map(it => int(it != none))
       .sum(),
     breakable: false,
@@ -275,6 +276,14 @@
     hl_tertiary,
     hl_success
   )
+
+  if labels_b != none {
+    _label_row(
+      n,
+      labels_b,
+      offset: prefix.len()
+    )
+  }
 
   if arrow != none {
     _arrow_row(
@@ -369,6 +378,22 @@
   content(
     (0, 16pt), 
     anchor: "south",
+    body
+  )
+})
+
+#let arrowed_b(body) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  circle((0, 0), radius: 0)
+  line(
+    (0, -14pt),
+    (0, 0),
+    mark: (end: ">"),
+    name: "arrow"
+  )
+  content(
+    (0, -16pt), 
+    anchor: "north",
     body
   )
 })
