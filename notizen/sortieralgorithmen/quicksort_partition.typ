@@ -44,7 +44,7 @@
     align: center,
     ..num_row(
       nums,
-      prefix: ([],),
+      prefix: ([(a)],),
       prefix_frame: none,
       hl_tertiary: 0,
       below: 0pt,
@@ -55,7 +55,7 @@
     ),
     ..num_row(
       nums_loop,
-      prefix: ([(a)],),
+      prefix: ([(b)],),
       prefix_frame: none,
       hl_primary: range(1, j_loop + 1),
       hl_secondary: range(j_loop + 1, nums.len()),
@@ -65,7 +65,7 @@
     ),
     ..num_row(
       nums_finalize,
-      prefix: ([(b)],),
+      prefix: ([(c)],),
       prefix_frame: none,
       hl_primary: range(j_loop),
       hl_secondary: range(j_loop + 1, nums.len()),
