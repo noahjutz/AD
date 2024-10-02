@@ -42,6 +42,7 @@
   table(
     columns: (auto,) + (1fr,) * (nums.len()+1),
     align: center,
+    column-gutter: (0pt, 4pt, 0pt),
     ..num_row(
       nums,
       prefix: ([(a)],),
