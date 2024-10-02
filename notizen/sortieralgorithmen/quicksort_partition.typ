@@ -73,7 +73,7 @@
       hl_secondary: range(j_loop, nums.len()),
       hl_tertiary: j_loop - 1,
       labels_b: (
-        (6, 7, arrowed_b[`j-1`]),
+        (j_loop - 1, j_loop, arrowed_b[`j-1`]),
       )
     )
   )
