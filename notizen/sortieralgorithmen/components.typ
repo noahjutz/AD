@@ -101,16 +101,20 @@
   }
 }
 
-#let _empty_row(n, pad: auto, body: []) = table.cell(
+#let _full_row(n, body) = table.cell(
   colspan: n,
   stroke: none,
   inset: 0pt,
+  body
+)
+
+#let _empty_row(n, pad: auto) = _full_row(
+  n,
   box(
-    height: if body != [] {auto}
-      else if pad == auto {6pt}
+    height: if pad == auto {6pt}
       else if pad == none {0pt}
       else {pad},
-  )[#body]
+  )
 )
 
 #let _prefix_row(prefix) = prefix.map(p => table.cell(
@@ -181,6 +185,11 @@
   }
 }
 
+#let _arrow_down_row(
+  arrow_down,
+  n
+) = _full_row([])
+
 #let num_row(
   nums,
   hl_primary: none,
@@ -189,6 +198,7 @@
   hl_success: (),
   frame: none,
   arrow: none,
+  arrow_down: none,
   labels: none,
   below: auto,
   prefix: (),
@@ -226,6 +236,13 @@
       arrow,
       n,
       offset: prefix.len()
+    )
+  }
+
+  if arrow_down != none {
+    _arrow_down_row(
+      arrow_down,
+      n,
     )
   }
 
