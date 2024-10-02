@@ -42,15 +42,18 @@
   align: center,
   ..num_row(
     nums,
+    hl_tertiary: pivot,
     below: 0pt,
     arrow_down: swaps_loop
   ),
   ..num_row(
     nums_loop,
+    hl_tertiary: pivot,
     below: 0pt,
     arrow_down: swaps_finalize
   ),
   ..num_row(
-    nums_finalize
+    nums_finalize,
+    hl_tertiary: j_loop - 1
   )
 )
