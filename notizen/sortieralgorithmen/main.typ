@@ -284,3 +284,18 @@ Jetzt ist `a[1:j]` kleiner, und `a[j:n+1]` größer als das Pivot. Wenn wir also
 ```python
 a[f], a[j-1] = a[j-1], a[f]
 ```
+
+=== Rekursion
+
+Quicksort wird einmal für die Elemente links des Pivots und einmal für die rechts des Pivots aufgerufen. Falls es links oder rechts keine Elemente gibt, ist keine Aktion mehr erforderlich (base case).
+
+```python
+def quicksort(nums, f, l):
+  if f >= l:
+    return # base case
+  part = partition(nums, f, l)
+  quicksort(nums, f, part-1)
+  quicksort(nums, part+1, l)
+```
+
+#include "quicksort_recursion.typ"
