@@ -27,7 +27,7 @@
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 #let (swaps_loop, nums_loop, j_loop) = partition_loop(nums, 0)
-#let (swaps_finalize, nums_finalize) = partition_finalize(nums, 0, j_loop)
+#let (swaps_finalize, nums_finalize) = partition_finalize(nums_loop, 0, j_loop - 1)
 
 #table(
   columns: (auto,) + (1fr,) * nums.len(),
