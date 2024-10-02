@@ -108,13 +108,9 @@
   body
 )
 
-#let _empty_row(n, pad: auto) = _full_row(
+#let _empty_row(n, pad) = _full_row(
   n,
-  box(
-    height: if pad == auto {6pt}
-      else if pad == none {0pt}
-      else {pad},
-  )
+  box(height: pad)
 )
 
 #let _prefix_row(prefix) = prefix.map(p => table.cell(
@@ -200,7 +196,7 @@
   arrow: none,
   arrow_down: none,
   labels: none,
-  below: auto,
+  below: 4pt,
   prefix: (),
 ) = {
   let n = prefix.len() + nums.len()
@@ -248,7 +244,7 @@
 
   (_empty_row(
     n,
-    pad: below
+    below
   ),)
 }
 
@@ -261,7 +257,7 @@
   frame: none,
   arrow: none,
   labels: none,
-  below: auto,
+  below: 0pt,
   prefix: (),
 ) = table(
   columns: (auto,) + (1fr,) * (nums.len() + prefix.len()),
@@ -275,7 +271,7 @@
     frame: frame,
     arrow: arrow,
     labels: labels,
-    below: 0pt,
+    below: below,
     prefix: prefix
   )
 )

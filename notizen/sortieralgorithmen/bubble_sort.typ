@@ -16,7 +16,6 @@
 #let row_done(nums, i) = num_row(
   nums,
   hl_success: range(i),
-  below: auto
 )
 
 #let rows(nums) = {
