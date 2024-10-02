@@ -153,6 +153,7 @@
 #let _label_row(
   n,
   labels,
+  align,
   offset: 0
 ) = {
   let first = labels.first().at(0)
@@ -174,7 +175,7 @@
       (
         table.cell(
           colspan: t1 - f1,
-          align: bottom,
+          align: align,
           inset: 0pt,
           stroke: none,
           b1
@@ -264,6 +265,7 @@
     _label_row(
       n,
       labels,
+      bottom,
       offset: prefix.len()
     )
   }
@@ -281,6 +283,7 @@
     _label_row(
       n,
       labels_b,
+      top,
       offset: prefix.len()
     )
   }
@@ -393,6 +396,37 @@
   )
   content(
     (0, -16pt), 
+    anchor: "north",
+    body
+  )
+})
+
+#let braced_b(body) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  circle((0, 0), radius: 0)
+
+  hide(line((0, 0), (1, 0), name: "brace_line"))
+  circle(
+    (rel: (0, -2pt), to: "brace_line.start"),
+    radius: 0,
+    name: "end"
+  )
+  circle(
+    (rel: (0, -2pt), to: "brace_line.end"),
+    radius: 0,
+    name: "start"
+  )
+
+  group({
+    set-viewport((0, 0), (24pt, 24pt))
+    cetz.decorations.flat-brace(
+      "start",
+      "end",
+    )
+  })
+
+  content(
+    (rel: (0, -16pt), to: "brace_line.mid"),
     anchor: "north",
     body
   )
