@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "components.typ": num_row
+#import "components.typ": num_row, arrowed
 #import "/config.typ": theme
 
 #let partition_loop(nums, pivot_index) = {
@@ -44,7 +44,10 @@
     nums,
     hl_tertiary: pivot,
     below: 0pt,
-    arrow_down: swaps_loop
+    arrow_down: swaps_loop,
+    labels: (
+      (0, 1, arrowed[`pivot`]),
+    )
   ),
   ..num_row(
     nums_loop,

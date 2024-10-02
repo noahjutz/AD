@@ -261,8 +261,8 @@ In jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element `pivot`
 pivot = a[f]
 ```
 
+=== Partition
+
 Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
 
 #include "quicksort_pivot.typ"
-
-=== Partition
