@@ -5,8 +5,9 @@
 #let partition_loop(nums) = {
   let swaps = ()
   let pivot = nums.at(0)
-  let j = 0
+  let j = 1
   for (i, x) in nums.enumerate() {
+    if i == 0 {continue}
     if x <= pivot {
       swaps.push((i, j))
       swaps.push((j, i, (paint: theme.bg_trans)))
