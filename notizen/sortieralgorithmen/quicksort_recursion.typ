@@ -7,7 +7,7 @@
   stack(
     dir: ltr,
     ..nums.pos().map(n => box(
-      inset: 4pt,
+      inset: (left: 2pt, right: 2pt, top: 4pt, bottom: 4pt),
       str(n)
     ))
   )
@@ -21,17 +21,54 @@
       j += 1
     }
   }
-  return nums
+  return (
+    nums.slice(1, j),
+    nums.at(0),
+    nums.slice(j, nums.len())
+  )
 }
 
-#let nums = partition(nums)
+#let quicksort_tree(root) = {
+  if root.len() == 0 {
+    return
+  }
+  let (left, pivot, right) = partition(root)
 
-#cetz.canvas(length: 100%, {
+  let node = (root,)
+  if left.len() == 1 {
+    node.push(left)
+  } else if left.len() > 1 {
+    node.push(quicksort_tree(left))
+  }
+  node.push(pivot)
+  if right.len() == 1 {
+    node.push(right)
+  } else if right.len() > 1 {
+    node.push(quicksort_tree(right))
+  }
+  return node
+}
+
+#let tree_to_content(root) = {
+  if type(root) != array {
+    return row(root)
+  }
+  let (root, ..children) = root
+
+  return (
+    row(..(root,).flatten()),
+    ..children.map(c => tree_to_content(c))
+  )
+}
+
+#let mytree = quicksort_tree(nums)
+
+#cetz.canvas({
   import cetz.draw: *
   import cetz.tree
 
   tree.tree(
-    (row(..nums))
+    tree_to_content(mytree),
   )
 })
 
