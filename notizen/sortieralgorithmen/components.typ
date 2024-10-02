@@ -113,8 +113,11 @@
   box(height: pad)
 )
 
-#let _prefix_row(prefix) = prefix.map(p => table.cell(
-  stroke: theme.fg_light,
+#let _prefix_row(
+  prefix,
+  frame
+) = prefix.map(p => table.cell(
+  stroke: frame,
   text(fill: theme.fg_light, p) 
 ))
 
@@ -242,6 +245,7 @@
   labels: none,
   below: 4pt,
   prefix: (),
+  prefix_frame: theme.fg_light
 ) = {
   let n = prefix.len() + nums.len()
 
@@ -263,7 +267,7 @@
     )
   }
 
-  _prefix_row(prefix)
+  _prefix_row(prefix, prefix_frame)
   _nums_row(
     nums,
     hl_primary,

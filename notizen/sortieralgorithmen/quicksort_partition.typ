@@ -45,6 +45,7 @@
     ..num_row(
       nums,
       prefix: ([],),
+      prefix_frame: none,
       hl_tertiary: 0,
       below: 0pt,
       arrow_down: swaps_loop,
@@ -54,7 +55,8 @@
     ),
     ..num_row(
       nums_loop,
-      prefix: ([(1)],),
+      prefix: ([(a)],),
+      prefix_frame: none,
       hl_primary: range(1, j_loop + 1),
       hl_secondary: range(j_loop + 1, nums.len()),
       hl_tertiary: 0,
@@ -63,7 +65,8 @@
     ),
     ..num_row(
       nums_finalize,
-      prefix: ([],),
+      prefix: ([(b)],),
+      prefix_frame: none,
       hl_primary: range(j_loop),
       hl_secondary: range(j_loop + 1, nums.len()),
       hl_tertiary: j_loop
