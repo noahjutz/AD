@@ -255,17 +255,17 @@ Nach dem $n$-ten Schleifendurchlauf ist die gesamte Liste `a[:n+1]` sortiert. #s
 
 == Quicksort
 
-In jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element `pivot` aus der Liste `a[f:l]` ausgewählt. In unserer Implementation wählen wir
+In jedem Rekursionsschritt wird ein beliebiges sogenanntes Pivot-Element ausgewählt. In unserer Implementation wählen wir
 
 ```
-pivot = a[f]
+pivot = a[0]
 ```
 
-Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und rechts des Pivotelement werden rekursiv sortiert.
+Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und rechts des Pivots werden anschließend rekursiv sortiert.
 
 === Partition
 
-Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
+Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen. Um das mit `pivot = a[0]` zu realisieren, wird `a[1:]` iteriert
 
 #include "quicksort_partition.typ"
 
