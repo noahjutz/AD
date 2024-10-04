@@ -298,4 +298,5 @@ def quicksort(nums, f, l):
   quicksort(nums, part+1, l)
 ```
 
+#include "quicksort_recursion_old.typ"
 #include "quicksort_recursion.typ"
