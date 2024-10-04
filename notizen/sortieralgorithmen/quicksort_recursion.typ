@@ -31,23 +31,24 @@
 #let quicksort_tree(root) = {
   let (left, pivot, right) = partition(root)
 
-  let node = (root,)
-  if left.len() == 0 {
-    node.push(hide("1"))
-  } else if left.len() == 1 {
-    node.push(left)
-  } else if left.len() > 1 {
-    node.push(quicksort_tree(left))
-  }
-  node.push(pivot)
-  if right.len() == 0 {
-    node.push(hide("1"))
-  } else if right.len() == 1 {
-    node.push(right)
-  } else if right.len() > 1 {
-    node.push(quicksort_tree(right))
-  }
-  return node
+  return (
+    root,
+    if left.len() == 0 {
+      hide("1")
+    } else if left.len() == 1 {
+      left
+    } else if left.len() > 1 {
+      quicksort_tree(left)
+    },
+    pivot,
+    if right.len() == 0 {
+      hide("1")
+    } else if right.len() == 1 {
+      right
+    } else if right.len() > 1 {
+      quicksort_tree(right)
+    }
+  )
 }
 
 #let tree_to_content(root) = {
