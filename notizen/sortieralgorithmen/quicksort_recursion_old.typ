@@ -1,6 +1,9 @@
 #import "@preview/cetz:0.2.2"
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
+//#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
+//#let nums = (1, 2, 3, 4, 5, 6, 7, 8)
+//#let nums = (8, 7, 7, 5, 4, 3, 2, 1)
+#let nums = (4, 5, 3, 6, 2, 7, 1, 8)
 
 #let row(..nums) = box(
   stroke: black,
