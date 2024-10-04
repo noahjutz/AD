@@ -8,7 +8,7 @@
     dir: ltr,
     ..nums.pos().map(n => box(
       inset: (left: 2pt, right: 2pt, top: 4pt, bottom: 4pt),
-      str(n)
+      if type(n) != content {str(n)} else {n}
     ))
   )
 )
@@ -29,19 +29,20 @@
 }
 
 #let quicksort_tree(root) = {
-  if root.len() == 0 {
-    return
-  }
   let (left, pivot, right) = partition(root)
 
   let node = (root,)
-  if left.len() == 1 {
+  if left.len() == 0 {
+    node.push(hide("1"))
+  } else if left.len() == 1 {
     node.push(left)
   } else if left.len() > 1 {
     node.push(quicksort_tree(left))
   }
   node.push(pivot)
-  if right.len() == 1 {
+  if right.len() == 0 {
+    node.push(hide("1"))
+  } else if right.len() == 1 {
     node.push(right)
   } else if right.len() > 1 {
     node.push(quicksort_tree(right))
@@ -69,6 +70,11 @@
 
   tree.tree(
     tree_to_content(mytree),
+    draw-edge: (from, to, ..) => {
+      line(from, to, mark: (end: ">"))
+    },
+    spread: .7
   )
 })
 
+#line(length: 100%)
