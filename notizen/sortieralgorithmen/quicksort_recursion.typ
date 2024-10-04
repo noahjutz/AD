@@ -36,7 +36,10 @@
     if left.len() == 0 {
       hide("1")
     } else if left.len() == 1 {
-      left
+      if left.at(0) == 7 {
+        ([], ([], 7))
+      }
+      else {left}
     } else if left.len() > 1 {
       quicksort_tree(left)
     },
