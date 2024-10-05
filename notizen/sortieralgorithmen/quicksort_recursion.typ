@@ -74,6 +74,11 @@
         inset: 0pt,
         line(length: 20pt, angle: 90deg)
       )
+    } else if p.len() == 1 {
+      table.cell(
+        fill: theme.success_light,
+        str(p.at(0))
+      )
     } else {
       p.enumerate().map(((i, n)) => {
         table.cell(
@@ -101,7 +106,6 @@
       (to, -32pt),
       (from, -16pt),
       (to, -16pt),
-      stroke: if from == 0 {yellow} else {black}
     )
   }
 })
@@ -111,6 +115,9 @@
   num_row((nums,))
   for (swaps, parts) in quicksort((nums,)).chunks(2) {
     arrow_row(swaps)
-    num_row(parts, is_final: parts.flatten() == parts.flatten().sorted())
+    num_row(
+      parts,
+      is_final: parts.flatten() == parts.flatten().sorted()
+    )
   }
 }
