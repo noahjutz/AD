@@ -57,10 +57,10 @@
 }
 
 #let quicksort(parts) = {
+  let (swaps, parts) = step(parts)
   if parts.all(p => p.len() == 1) {
     return ()
   }
-  let (swaps, parts) = step(parts)
   return (swaps, parts) + quicksort(parts)
 }
 
