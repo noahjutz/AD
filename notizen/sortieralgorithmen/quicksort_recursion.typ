@@ -30,12 +30,35 @@
   )
 }
 
-#let (l, p, r, s) = partition(nums)
+#let step(parts) = {
+  let out_parts = ()
+  let out_swaps = ()
+  let i = 0
+  for part in parts {
+    if part.len() <= 1 {
+      out_parts += part
+      out_swaps.push(i)
+      i += 1
+      continue
+    }
+    let (l, p, r, s) = partition(part)
+    out_parts += (l, p, r)
+    out_swaps += s.map(s => s + i)
+    i += (l + p + r).len()
+  }
+  return (out_parts, out_swaps)
+}
+
+#let (parts, swaps) = step((nums,))
+#let (parts2, swaps2) = step(parts)
 
 #table(
   columns: (1fr,)*nums.len(),
   align: center,
   ..nums.map(n => str(n)),
-  ..s.map(n => str(n)),
-  ..(l + p + r).map(n => str(n))
+  ..swaps.map(n => str(n)),
+  ..parts.flatten().map(n => str(n)),
+  ..swaps2.map(n => str(n)),
+  ..parts2.flatten().map(n => str(n))
+  //..(l + p + r).map(n => str(n))
 )
