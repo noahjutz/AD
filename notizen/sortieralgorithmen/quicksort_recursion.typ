@@ -1,51 +1,34 @@
-#import "@preview/cetz:0.2.2"
 #import "components.typ": num_row
-
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
-#let partition(nums) = {
+// Returns (pivots, swaps)
+#let step(nums) = {
   let swaps = ()
-  let j = 1
-  for i in range(1, nums.len()) {
-    if nums.at(i) <= nums.at(0) {
-      (nums.at(i), nums.at(j)) = (nums.at(j), nums.at(i))
-      swaps.push((i, j))
-      j += 1
+  for partition in nums {
+    if partition.len() == 1 {
+      swaps.push(0)
     }
   }
-  (nums.at(0), nums.at(j - 1)) = (
-    nums.at(j - 1), nums.at(0)
-  )
-  return (
-    swaps,
-    nums,
-    j - 1
-  )
-}
-
-#let quicksort_row(nums, depth: calc.inf) = {
-  if nums.len() <= 1 or depth == 0 {
-    return (
-      nums, ()
-    )
-  }
-  let (swaps, nums, j) = partition(nums)
-  let (l_nums, l_swaps) = quicksort_row(
-    nums.slice(0, j),
-    depth: depth - 1
-  )
-  let (r_nums, r_swaps) = quicksort_row(
-    nums.slice(j+1, nums.len()),
-    depth: depth - 1
-  )
-  return (
-    (..l_nums, ..r_nums),
-    ()
-  )
 }
 
 #table(
-  columns: nums.len() * (1fr,),
+  columns: (auto,) + (1fr,) * nums.len(),
   align: center,
-  ..quicksort_row(nums, depth: 3).at(0).map(n => str(n))
+  ..num_row(
+    (7, 12, 23, 18, 17, 34, 34, 43, 38, 45),
+    hl_success: (0, 1, 6, 9),
+    hl_primary: (3, 4, 8),
+    hl_secondary: 5,
+    hl_tertiary: (2, 7),
+    arrow_down: (
+      (0, 0), (1, 1), (2, 4), (3, 2),
+      (4, 3), (5, 5), (6, 6), (7, 8),
+      (8, 7), (9, 9)
+    ),
+    below: 0pt,
+  ),
+  ..num_row(
+    (7, 12, 18, 17, 23, 34, 34, 38, 43, 45),
+    hl_success: (0, 1, 4, 5, 6, 7, 8, 9)
+  )
 )
