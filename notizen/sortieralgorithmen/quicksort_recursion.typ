@@ -23,8 +23,8 @@
   trace = swap_trace(trace, 0, j - 1)
 
   return (
-    (nums.at(0),),
-    nums.slice(1, j),
+    nums.slice(0, j - 1),
+    (nums.at(j - 1),),
     nums.slice(j, nums.len()),
     trace
   )
@@ -49,26 +49,15 @@
     out_swaps += s.map(s => s + i)
     i += (l + p + r).len()
   }
-  return (out_parts, out_swaps)
-}
-
-#let quicksort(nums) = {
-  let parts = (nums,)
-  let rows = (parts,)
-  let i = 0
-  while parts.flatten() != nums.sorted() {
-    let (p, swaps) = step(parts)
-    parts = p
-    rows += swaps
-    rows += parts
-    if i == 4 {break}
-    i += 1
-  }
-  return rows
+  return (out_swaps, out_parts)
 }
 
 #table(
   columns: (1fr,)*nums.len(),
   align: center,
-  ..quicksort(nums).flatten().map(n => str(n))
+  stroke: none,
+  ..nums.map(n => str(n)),
+  ..step((nums,)).flatten().map(n => str(n))
 )
+
+#step((nums,)).at(1)
