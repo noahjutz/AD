@@ -93,22 +93,6 @@
 )
 
 #let arrow_row(swaps, parts) = cetz.canvas(length: 100%, {
-  let get_fill(from, to) = {
-    let i = 0
-    for part in parts {
-      let j = 0
-      for n in part {
-        if i == from {
-          return if j == 0 {theme.tertiary}
-            else if from <= to {theme.secondary}
-            else {theme.primary}
-        }
-        i += 1
-        j += 1
-      }
-    }
-  }
-
   import cetz.draw: *
   let n = swaps.len()
   line((0, 0), (1, 0), stroke: none)
@@ -122,7 +106,6 @@
       (to_x, -32pt),
       (from_x, -16pt),
       (to_x, -16pt),
-      stroke: get_fill(from, to)
     )
   }
 })
