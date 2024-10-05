@@ -84,3 +84,24 @@ Mehr über Selection Sort: @selection-sort
 
 === Quicksort
 
+Anstatt einen zufälligen Index zu wählen, können wir einfach `a[f]` mit einer zufälligen Zahl vertauschen.
+
+```python
+j = f
+for i in range(1, l+1):
+  if a[i] <= a[f]:
+    a[i], a[j] = a[j], a[i]
+    j += 1
+a[f], a[j-1] = a[j-1], a[f]
+```
+
+#align(center, sym.arrow.b)
+
+```python
+a[f] = a[random(f, l+1)]
+# gleicher code wie oben ...
+```
+
+==== Laufzeit & Korrektheit
+
+Jeder Rekursionsschritt benötigt ohnehin $n$ Schritte, daher bleibt die Komplexität gleich.
