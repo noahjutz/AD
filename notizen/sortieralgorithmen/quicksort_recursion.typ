@@ -52,12 +52,12 @@
   return (out_swaps, out_parts)
 }
 
-#let quicksort(swaps, parts) = {
+#let quicksort(parts) = {
   if parts.flatten() == parts.flatten().sorted() {
     return ()
   }
   let (swaps, parts) = step(parts)
-  return (swaps, parts) + quicksort(swaps, parts)
+  return (swaps, parts) + quicksort(parts)
 }
 
 #table(
@@ -65,5 +65,5 @@
   align: center,
   stroke: none,
   ..nums.map(n => str(n)),
-  ..quicksort(none, (nums,)).flatten().map(n => str(n))
+  ..quicksort((nums,)).flatten().map(n => str(n))
 )
