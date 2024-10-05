@@ -1,34 +1,41 @@
-#import "components.typ": num_row
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
-// Returns (pivots, swaps)
-#let step(nums) = {
-  let swaps = ()
-  for partition in nums {
-    if partition.len() == 1 {
-      swaps.push(0)
-    }
-  }
+#let swap_trace(trace, i, j) = {
+  let k = trace.position(n => n == i)
+  let l = trace.position(n => n == j)
+
+  (trace.at(k), trace.at(l)) = (trace.at(l), trace.at(k))
+  return trace
 }
 
-#table(
-  columns: (auto,) + (1fr,) * nums.len(),
-  align: center,
-  ..num_row(
-    (7, 12, 23, 18, 17, 34, 34, 43, 38, 45),
-    hl_success: (0, 1, 6, 9),
-    hl_primary: (3, 4, 8),
-    hl_secondary: 5,
-    hl_tertiary: (2, 7),
-    arrow_down: (
-      (0, 0), (1, 1), (2, 4), (3, 2),
-      (4, 3), (5, 5), (6, 6), (7, 8),
-      (8, 7), (9, 9)
-    ),
-    below: 0pt,
-  ),
-  ..num_row(
-    (7, 12, 18, 17, 23, 34, 34, 38, 43, 45),
-    hl_success: (0, 1, 4, 5, 6, 7, 8, 9)
+#let partition(nums) = {
+  let trace = range(nums.len())
+  let j = 1
+  for i in range(1, nums.len()) {
+    if nums.at(i) <= nums.at(0) {
+      (nums.at(i), nums.at(j)) = (nums.at(j), nums.at(i))
+      trace = swap_trace(trace, i, j)
+      j += 1
+    }
+  }
+
+  (nums.at(0), nums.at(j - 1)) = (nums.at(j - 1), nums.at(0))
+  trace = swap_trace(trace, 0, j - 1)
+
+  return (
+    (nums.at(0),),
+    nums.slice(1, j),
+    nums.slice(j, nums.len()),
+    trace
   )
+}
+
+#let (l, p, r, s) = partition(nums)
+
+#table(
+  columns: (1fr,)*nums.len(),
+  align: center,
+  ..nums.map(n => str(n)),
+  ..s.map(n => str(n)),
+  ..(l + p + r).map(n => str(n))
 )
