@@ -1,3 +1,5 @@
+#import "/config.typ": theme
+
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
 #let swap_trace(trace, i, j) = {
@@ -60,10 +62,28 @@
   return (swaps, parts) + quicksort(parts)
 }
 
-#table(
-  columns: (1fr,)*nums.len(),
+#let num_row(parts) = table(
+  columns: (1fr,) * parts.flatten().len(),
   align: center,
-  stroke: none,
-  ..nums.map(n => str(n)),
-  ..quicksort((nums,)).flatten().map(n => str(n))
+  ..parts.map(p => {
+    if p.len() == 1 {
+      table.cell(
+        text(fill: theme.fg_light, str(p.at(0)))
+      )
+    } else {
+      p.map(p => {
+        table.cell(
+          str(p)
+        )
+      })
+    }
+  }).flatten()
 )
+
+#{
+  set block(above: 0pt)
+  num_row((nums,))
+  for (swaps, parts) in quicksort((nums,)).chunks(2) {
+    num_row(parts)
+  }
+}
