@@ -35,8 +35,11 @@
   let out_swaps = ()
   let i = 0
   for part in parts {
-    if part.len() <= 1 {
-      out_parts += part
+    if part.len() == 0 {
+      continue
+    }
+    if part.len() == 1 {
+      out_parts.push(part)
       out_swaps.push(i)
       i += 1
       continue
@@ -49,16 +52,23 @@
   return (out_parts, out_swaps)
 }
 
-#let (parts, swaps) = step((nums,))
-#let (parts2, swaps2) = step(parts)
+#let quicksort(nums) = {
+  let parts = (nums,)
+  let rows = (parts,)
+  let i = 0
+  while parts.flatten() != nums.sorted() {
+    let (p, swaps) = step(parts)
+    parts = p
+    rows += swaps
+    rows += parts
+    if i == 4 {break}
+    i += 1
+  }
+  return rows
+}
 
 #table(
   columns: (1fr,)*nums.len(),
   align: center,
-  ..nums.map(n => str(n)),
-  ..swaps.map(n => str(n)),
-  ..parts.flatten().map(n => str(n)),
-  ..swaps2.map(n => str(n)),
-  ..parts2.flatten().map(n => str(n))
-  //..(l + p + r).map(n => str(n))
+  ..quicksort(nums).flatten().map(n => str(n))
 )
