@@ -92,7 +92,7 @@
   }).flatten()
 )
 
-#let arrow_row(swaps, parts) = cetz.canvas(length: 100%, {
+#let arrow_row(swaps, is_final: false) = cetz.canvas(length: 100%, {
   import cetz.draw: *
   let n = swaps.len()
   line((0, 0), (1, 0), stroke: none)
@@ -106,6 +106,7 @@
       (to_x, -32pt),
       (from_x, -16pt),
       (to_x, -16pt),
+      mark: if is_final {(end: ">")}
     )
   }
 })
@@ -115,11 +116,9 @@
   block(breakable: false, {
     num_row((nums,))
     for (swaps, parts) in quicksort((nums,)).chunks(2) {
-      arrow_row(swaps, parts)
-      num_row(
-        parts,
-        is_final: parts.flatten() == parts.flatten().sorted()
-      )
+    let is_final = parts.flatten() == parts.flatten().sorted()
+      arrow_row(swaps, is_final: is_final)
+      num_row(parts, is_final: is_final)
     }
   })
 }
