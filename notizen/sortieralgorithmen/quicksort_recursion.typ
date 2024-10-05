@@ -71,9 +71,12 @@
         text(fill: theme.fg_light, str(p.at(0)))
       )
     } else {
-      p.map(p => {
+      p.enumerate().map(((i, n)) => {
         table.cell(
-          str(p)
+          fill: if i == 0 {theme.tertiary_light}
+            else if n <= p.first() {theme.secondary_light}
+            else {theme.primary_light},
+          str(n)
         )
       })
     }
