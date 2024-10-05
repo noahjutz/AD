@@ -57,7 +57,7 @@
 }
 
 #let quicksort(parts) = {
-  if parts.flatten() == parts.flatten().sorted() {
+  if parts.all(p => p.len() == 1) {
     return ()
   }
   let (swaps, parts) = step(parts)
@@ -116,7 +116,7 @@
   block(breakable: false, {
     num_row((nums,))
     for (swaps, parts) in quicksort((nums,)).chunks(2) {
-    let is_final = parts.flatten() == parts.flatten().sorted()
+      let is_final = parts.all(p => p.len() <= 1)
       arrow_row(swaps, is_final: is_final)
       num_row(parts, is_final: is_final)
     }
