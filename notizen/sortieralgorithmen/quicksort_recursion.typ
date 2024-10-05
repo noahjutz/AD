@@ -1,5 +1,7 @@
 #import "/config.typ": theme
 
+#import "@preview/cetz:0.2.2"
+
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
 #let swap_trace(trace, i, j) = {
@@ -62,13 +64,15 @@
   return (swaps, parts) + quicksort(parts)
 }
 
-#let num_row(parts) = table(
+#let num_row(parts, is_final: false) = table(
   columns: (1fr,) * parts.flatten().len(),
-  align: center,
+  align: center + horizon,
   ..parts.map(p => {
-    if p.len() == 1 {
+    if p.len() == 1 and not is_final {
       table.cell(
-        text(fill: theme.fg_light, str(p.at(0)))
+        stroke: none,
+        inset: 0pt,
+        line(length: 20pt, angle: 90deg)
       )
     } else {
       p.enumerate().map(((i, n)) => {
@@ -83,10 +87,30 @@
   }).flatten()
 )
 
+#let arrow_row(swaps) = cetz.canvas(length: 100%, {
+  import cetz.draw: *
+  let n = swaps.len()
+  line((0, 0), (1, 0), stroke: none)
+  translate(x: .5/n)
+  for (from, to) in swaps.enumerate() {
+    from /= n
+    to /= n
+
+    bezier(
+      (from, 0),
+      (to, -32pt),
+      (from, -16pt),
+      (to, -16pt),
+      stroke: if from == 0 {yellow} else {black}
+    )
+  }
+})
+
 #{
   set block(above: 0pt)
   num_row((nums,))
   for (swaps, parts) in quicksort((nums,)).chunks(2) {
-    num_row(parts)
+    arrow_row(swaps)
+    num_row(parts, is_final: parts.flatten() == parts.flatten().sorted())
   }
 }
