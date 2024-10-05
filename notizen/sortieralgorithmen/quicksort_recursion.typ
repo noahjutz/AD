@@ -112,12 +112,14 @@
 
 #{
   set block(above: 0pt)
-  num_row((nums,))
-  for (swaps, parts) in quicksort((nums,)).chunks(2) {
-    arrow_row(swaps, parts)
-    num_row(
-      parts,
-      is_final: parts.flatten() == parts.flatten().sorted()
-    )
-  }
+  block(breakable: false, {
+    num_row((nums,))
+    for (swaps, parts) in quicksort((nums,)).chunks(2) {
+      arrow_row(swaps, parts)
+      num_row(
+        parts,
+        is_final: parts.flatten() == parts.flatten().sorted()
+      )
+    }
+  })
 }
