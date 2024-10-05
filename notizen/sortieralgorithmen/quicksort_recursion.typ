@@ -83,8 +83,8 @@
       p.enumerate().map(((i, n)) => {
         table.cell(
           fill: if i == 0 {theme.tertiary_light}
-            else if n <= p.first() {theme.secondary_light}
-            else {theme.primary_light},
+            else if n <= p.first() {theme.primary_light}
+            else {theme.secondary_light},
           str(n)
         )
       })
@@ -92,20 +92,37 @@
   }).flatten()
 )
 
-#let arrow_row(swaps) = cetz.canvas(length: 100%, {
+#let arrow_row(swaps, parts) = cetz.canvas(length: 100%, {
+  let get_fill(from, to) = {
+    let i = 0
+    for part in parts {
+      let j = 0
+      for n in part {
+        if i == from {
+          return if j == 0 {theme.tertiary}
+            else if from <= to {theme.secondary}
+            else {theme.primary}
+        }
+        i += 1
+        j += 1
+      }
+    }
+  }
+
   import cetz.draw: *
   let n = swaps.len()
   line((0, 0), (1, 0), stroke: none)
   translate(x: .5/n)
   for (from, to) in swaps.enumerate() {
-    from /= n
-    to /= n
+    let from_x = from / n
+    let to_x = to / n
 
     bezier(
-      (from, 0),
-      (to, -32pt),
-      (from, -16pt),
-      (to, -16pt),
+      (from_x, 0),
+      (to_x, -32pt),
+      (from_x, -16pt),
+      (to_x, -16pt),
+      stroke: get_fill(from, to)
     )
   }
 })
@@ -114,7 +131,7 @@
   set block(above: 0pt)
   num_row((nums,))
   for (swaps, parts) in quicksort((nums,)).chunks(2) {
-    arrow_row(swaps)
+    arrow_row(swaps, parts)
     num_row(
       parts,
       is_final: parts.flatten() == parts.flatten().sorted()
