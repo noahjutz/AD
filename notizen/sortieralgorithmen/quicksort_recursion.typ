@@ -2,8 +2,6 @@
 
 #import "@preview/cetz:0.2.2"
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
-
 #let swap_trace(trace, i, j) = {
   let k = trace.position(n => n == i)
   let l = trace.position(n => n == j)
@@ -56,12 +54,12 @@
   return (out_swaps, out_parts)
 }
 
-#let quicksort(parts) = {
+#let quicksort_rows(parts) = {
   let (swaps, parts) = step(parts)
   if parts.all(p => p.len() == 1) {
     return ()
   }
-  return (swaps, parts) + quicksort(parts)
+  return (swaps, parts) + quicksort_rows(parts)
 }
 
 #let num_row(parts, is_final: false) = table(
@@ -111,11 +109,11 @@
   }
 })
 
-#{
+#let quicksort(..nums) = {
   set block(above: 0pt)
   block(breakable: false, {
-    num_row((nums,))
-    for (swaps, parts) in quicksort((nums,)).chunks(2) {
+    num_row((nums.pos(),))
+    for (swaps, parts) in quicksort_rows((nums.pos(),)).chunks(2) {
       let is_final = parts.all(p => p.len() <= 1)
       arrow_row(swaps, is_final: is_final)
       num_row(parts, is_final: is_final)
