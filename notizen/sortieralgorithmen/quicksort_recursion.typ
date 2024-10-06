@@ -48,6 +48,7 @@
 
   tree.tree(
     quicksort_tree(nums),
-    direction: "right"
+    direction: "right",
+    grow: 1.1
   )
 })
