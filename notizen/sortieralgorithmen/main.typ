@@ -287,7 +287,7 @@ a[f], a[j-1] = a[j-1], a[f]
 
 === Rekursion
 
-Quicksort wird einmal für die Elemente links des Pivots und einmal für die rechts des Pivots aufgerufen. Falls es links oder rechts keine Elemente gibt, ist keine Aktion mehr erforderlich (base case).
+Quicksort wird einmal für die Elemente links des Pivots und einmal für die rechts des Pivots aufgerufen. Falls es links oder rechts ein oder kein Element gibt, ist keine Aktion mehr erforderlich (base case).
 
 ```python
 def quicksort(nums, f, l):
@@ -297,6 +297,8 @@ def quicksort(nums, f, l):
   quicksort(nums, f, part-1)
   quicksort(nums, part+1, l)
 ```
+
+#include "quicksort_recursion.typ"
 
 === Laufzeit
 
