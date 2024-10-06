@@ -135,21 +135,21 @@
           mark: (end: ">")
         )
       })
-    } else if kind == "right" {
-      group({
-        stroke(theme.secondary)
-        move-to((from_x, 0))
-        arrow
-      })
-    } else if kind == "left" {
-      group({
-        circle((from_x, 0), radius: 0, name: "anc")
-        scale(x: -100%)
-        move-to("anc")
-        stroke(theme.primary)
-        arrow
-      })
-    }
+    }// else if kind == "right" {
+    //   group({
+    //     stroke(theme.secondary)
+    //     move-to((from_x, 0))
+    //     arrow
+    //   })
+    // } else if kind == "left" {
+    //   group({
+    //     circle((from_x, 0), radius: 0, name: "anc")
+    //     scale(x: -100%)
+    //     move-to("anc")
+    //     stroke(theme.primary)
+    //     arrow
+    //   })
+    // }
   }
 })
 
