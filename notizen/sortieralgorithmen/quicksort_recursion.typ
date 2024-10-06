@@ -90,33 +90,75 @@
   }).flatten()
 )
 
-#let arrow_row(swaps, is_final: false) = cetz.canvas(length: 100%, {
+#let arrow_row(parts, swaps) = cetz.canvas(length: 100%, {
   import cetz.draw: *
+  let kind(parts, index) = {
+    let i = 0
+    for x in parts {
+      let j = 0
+      for y in x {
+        if i == index {
+          return if x.len() == 1 {
+            "pass_through"
+          } else if j == 0 {
+            "pivot"
+          } else if y <= x.first() {
+            "left"
+          } else {
+            "right"
+          }
+        }
+        i += 1
+        j += 1
+      }
+    }
+  }
+  let arrow = group({
+    arc((), start: 180deg, stop: 270deg, radius: 8pt)
+    mark((), (rel: (4pt, 0)),
+      end: "straight"
+    )
+  })
   let n = swaps.len()
   line((0, 0), (1, 0), stroke: none)
   translate(x: .5/n)
   for (from, to) in swaps.enumerate() {
     let from_x = from / n
     let to_x = to / n
+    let kind = kind(parts, from)
 
-    bezier(
-      (from_x, 0),
-      (to_x, -32pt),
-      (from_x, -16pt),
-      (to_x, -16pt),
-      mark: if is_final {(end: ">")}
-    )
+    if kind == "pass_through" {
+      line((0, 0), (0, -32pt))
+    } else if kind == "pivot" {
+      bezier(
+        (from_x, 0),
+        (to_x, -32pt),
+        (from_x, -16pt),
+        (to_x, -16pt),
+      )
+    } else if kind == "right" {
+      move-to((from_x, 0))
+      arrow
+    } else if kind == "left" {
+      group({
+        circle((from_x, 0), radius: 0, name: "anc")
+        scale(x: -100%)
+        move-to("anc")
+        arrow
+      })
+    }
   }
 })
 
 #let quicksort(..nums) = {
   set block(above: 0pt)
+  let rows = quicksort_rows((nums.pos(),))
+  rows.insert(0, (nums.pos(),))
   block(breakable: false, {
-    num_row((nums.pos(),))
-    for (swaps, parts) in quicksort_rows((nums.pos(),)).chunks(2) {
+    for (parts, swaps) in rows.chunks(2, exact: true) {
       let is_final = parts.all(p => p.len() <= 1)
-      arrow_row(swaps, is_final: is_final)
       num_row(parts, is_final: is_final)
+      arrow_row(parts, swaps)
     }
   })
 }

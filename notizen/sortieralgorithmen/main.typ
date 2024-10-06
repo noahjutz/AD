@@ -305,3 +305,4 @@ def quicksort(nums, f, l):
 
 ==== Best Case
 
+#quicksort(0, 1)
