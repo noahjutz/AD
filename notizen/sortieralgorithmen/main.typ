@@ -298,11 +298,9 @@ def quicksort(nums, f, l):
   quicksort(nums, part+1, l)
 ```
 
-#import "quicksort_recursion.typ": quicksort
-#quicksort(34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
-
 === Laufzeit
 
 ==== Best Case
 
+#import "quicksort.typ": quicksort
 #quicksort(0, 1, 2, 3)
