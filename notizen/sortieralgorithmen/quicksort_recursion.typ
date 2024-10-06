@@ -123,11 +123,9 @@
     let to_x = to / n
     let kind = kind(parts, from)
 
-    if kind == "pass_through" {
-
-    } else if kind == "pivot" {
-      group({
-        // stroke(theme.tertiary + 2pt)
+    if kind == "pivot" {
+      on-layer(1, {
+        stroke(2pt)
         bezier(
           (from_x, 0),
           (to_x, -height),
@@ -136,21 +134,29 @@
           mark: (end: ">")
         )
       })
-    }// else if kind == "right" {
-    //   group({
-    //     stroke(theme.secondary)
-    //     move-to((from_x, 0))
-    //     arrow
-    //   })
-    // } else if kind == "left" {
-    //   group({
-    //     circle((from_x, 0), radius: 0, name: "anc")
-    //     scale(x: -100%)
-    //     move-to("anc")
-    //     stroke(theme.primary)
-    //     arrow
-    //   })
-    // }
+    } else if kind == "right" {
+      group({
+        stroke(theme.secondary_trans)
+        bezier(
+          (from_x, 0),
+          (to_x, -height),
+          (from_x, -height/2),
+          (to_x, -height/2),
+          mark: (end: ">")
+        )
+      })
+    } else if kind == "left" {
+      group({
+        stroke(theme.primary_trans)
+        bezier(
+          (from_x, 0),
+          (to_x, -height),
+          (from_x, -height/2),
+          (to_x, -height/2),
+          mark: (end: ">")
+        )
+      })
+    }
   }
 })
 
