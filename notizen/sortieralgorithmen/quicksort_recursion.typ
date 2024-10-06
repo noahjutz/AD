@@ -1,9 +1,11 @@
 #import "@preview/cetz:0.2.2"
+#import "/config.typ": theme
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
 #let row(nums) = table(
-  ..nums.map(n => str(n))
+  ..nums.map(n => str(n)),
+  fill: if nums.len() == 1 {theme.success_light}
 )
 
 #let partition(nums) = {
