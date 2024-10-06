@@ -36,9 +36,9 @@
   let (l, p, r) = partition(root)
   return (
     row(root),
-    quicksort_tree(l),
+    quicksort_tree(r),
     row(p),
-    quicksort_tree(r)
+    quicksort_tree(l),
   )
 }
 
