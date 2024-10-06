@@ -118,9 +118,9 @@
     }
   }
   let arrow = group({
-    arc((), start: 180deg, stop: 270deg, radius: 8pt)
-    mark((), (rel: (4pt, 0)),
-      end: "straight"
+    arc((), start: 180deg, stop: 270deg, radius: 4pt)
+    line((), (rel: (8pt, 0)),
+      mark: (end: ">")
     )
   })
   let n = swaps.len()
