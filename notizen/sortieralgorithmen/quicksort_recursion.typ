@@ -124,6 +124,7 @@
     )
   })
   let n = swaps.len()
+  //content((0, -10pt))[#swaps]
   line((0, 0), (1, 0), stroke: none)
   translate(x: .5/n)
   for (from, to) in swaps.enumerate() {
@@ -134,7 +135,7 @@
     if kind == "pass_through" {
       group({
         stroke(theme.tertiary + 3pt)
-        line((0, 0), (0, -32pt))
+        line((from_x, 0), (from_x, -32pt))
       })
     } else if kind == "pivot" {
       group({
