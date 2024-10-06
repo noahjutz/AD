@@ -66,17 +66,7 @@
   columns: (1fr,) * parts.flatten().len(),
   align: center + horizon,
   ..parts.map(p => {
-    //if p.len() == 1 and not is_final {
-    //  table.cell(
-    //    stroke: none,
-    //    inset: 0pt,
-    //    line(
-    //      length: 20pt,
-    //      angle: 90deg,
-    //      stroke: theme.tertiary + 3pt,
-    //    )
-    //  )
-    /*} else */if p.len() == 1 {
+    if p.len() == 1 {
       table.cell(
         fill: theme.success_light,
         str(p.at(0))
@@ -133,10 +123,7 @@
     let kind = kind(parts, from)
 
     if kind == "pass_through" {
-      // group({
-      //   stroke(theme.tertiary + 3pt)
-      //   line((from_x, 0), (from_x, -32pt), mark: (end: ">"))
-      // })
+
     } else if kind == "pivot" {
       group({
         stroke(theme.tertiary + 3pt)
@@ -164,9 +151,6 @@
       })
     }
   }
-
-  //for i in range(parts.flatten().len())
-    //.filter(i => i not in )
 })
 
 #let quicksort(..nums) = {
