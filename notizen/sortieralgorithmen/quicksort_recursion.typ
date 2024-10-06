@@ -133,10 +133,10 @@
     let kind = kind(parts, from)
 
     if kind == "pass_through" {
-      group({
-        stroke(theme.tertiary + 3pt)
-        line((from_x, 0), (from_x, -32pt), mark: (end: ">"))
-      })
+      // group({
+      //   stroke(theme.tertiary + 3pt)
+      //   line((from_x, 0), (from_x, -32pt), mark: (end: ">"))
+      // })
     } else if kind == "pivot" {
       group({
         stroke(theme.tertiary + 3pt)
