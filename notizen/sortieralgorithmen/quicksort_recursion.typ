@@ -118,6 +118,7 @@
     }
   }
   let arrow = group({
+    line((), (rel: (0, -12pt)))
     arc((), start: 180deg, stop: 270deg, radius: 4pt)
     line((), (rel: (8pt, 0)),
       mark: (end: ">")
