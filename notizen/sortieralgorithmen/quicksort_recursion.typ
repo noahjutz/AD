@@ -70,7 +70,11 @@
       table.cell(
         stroke: none,
         inset: 0pt,
-        line(length: 20pt, angle: 90deg)
+        line(
+          length: 20pt,
+          angle: 90deg,
+          stroke: theme.tertiary + 3pt,
+        )
       )
     } else if p.len() == 1 {
       table.cell(
