@@ -66,17 +66,17 @@
   columns: (1fr,) * parts.flatten().len(),
   align: center + horizon,
   ..parts.map(p => {
-    if p.len() == 1 and not is_final {
-      table.cell(
-        stroke: none,
-        inset: 0pt,
-        line(
-          length: 20pt,
-          angle: 90deg,
-          stroke: theme.tertiary + 3pt,
-        )
-      )
-    } else if p.len() == 1 {
+    //if p.len() == 1 and not is_final {
+    //  table.cell(
+    //    stroke: none,
+    //    inset: 0pt,
+    //    line(
+    //      length: 20pt,
+    //      angle: 90deg,
+    //      stroke: theme.tertiary + 3pt,
+    //    )
+    //  )
+    /*} else */if p.len() == 1 {
       table.cell(
         fill: theme.success_light,
         str(p.at(0))
@@ -124,8 +124,7 @@
     )
   })
   let n = swaps.len()
-  //content((0, -10pt))[#swaps]
-  line((0, 0), (1, 0), stroke: none)
+  line((0, 0), (1, -32pt), stroke: none)
   translate(x: .5/n)
   for (from, to) in swaps.enumerate() {
     let from_x = from / n
@@ -135,7 +134,7 @@
     if kind == "pass_through" {
       group({
         stroke(theme.tertiary + 3pt)
-        line((from_x, 0), (from_x, -32pt))
+        line((from_x, 0), (from_x, -32pt), mark: (end: ">"))
       })
     } else if kind == "pivot" {
       group({
@@ -145,6 +144,7 @@
           (to_x, -32pt),
           (from_x, -16pt),
           (to_x, -16pt),
+          mark: (end: ">")
         )
       })
     } else if kind == "right" {
