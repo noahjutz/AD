@@ -128,22 +128,32 @@
     let kind = kind(parts, from)
 
     if kind == "pass_through" {
-      line((0, 0), (0, -32pt))
+      group({
+        stroke(theme.tertiary + 3pt)
+        line((0, 0), (0, -32pt))
+      })
     } else if kind == "pivot" {
-      bezier(
-        (from_x, 0),
-        (to_x, -32pt),
-        (from_x, -16pt),
-        (to_x, -16pt),
-      )
+      group({
+        stroke(theme.tertiary + 3pt)
+        bezier(
+          (from_x, 0),
+          (to_x, -32pt),
+          (from_x, -16pt),
+          (to_x, -16pt),
+        )
+      })
     } else if kind == "right" {
-      move-to((from_x, 0))
-      arrow
+      group({
+        stroke(theme.secondary)
+        move-to((from_x, 0))
+        arrow
+      })
     } else if kind == "left" {
       group({
         circle((from_x, 0), radius: 0, name: "anc")
         scale(x: -100%)
         move-to("anc")
+        stroke(theme.primary)
         arrow
       })
     }
