@@ -115,7 +115,8 @@
     )
   })
   let n = swaps.len()
-  line((0, 0), (1, -32pt), stroke: none)
+  let height = 20pt
+  line((0, 0), (1, -height), stroke: none)
   translate(x: .5/n)
   for (from, to) in swaps.enumerate() {
     let from_x = from / n
@@ -126,12 +127,12 @@
 
     } else if kind == "pivot" {
       group({
-        stroke(theme.tertiary + 3pt)
+        // stroke(theme.tertiary + 2pt)
         bezier(
           (from_x, 0),
-          (to_x, -32pt),
-          (from_x, -16pt),
-          (to_x, -16pt),
+          (to_x, -height),
+          (from_x, -height/2),
+          (to_x, -height/2),
           mark: (end: ">")
         )
       })
