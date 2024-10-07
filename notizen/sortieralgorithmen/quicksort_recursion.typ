@@ -1,6 +1,8 @@
 #import "@preview/cetz:0.2.2"
 #import "/config.typ": theme
 
+#set text(font: "Noto Sans Mono")
+#set table(align: center)
 #show table.cell: box.with(width: 24pt)
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
@@ -31,7 +33,7 @@
 
 #let quicksort_tree(root) = {
   if root.len() == 0 {
-    return table(hide("11"))
+    return table(sym.emptyset)
   }
   if root.len() == 1 {
     return row(root)
