@@ -62,7 +62,7 @@
   return (swaps, parts) + quicksort_rows(parts)
 }
 
-#let num_row(parts, is_final: false) = table(
+#let num_row(parts) = table(
   columns: (1fr,) * parts.flatten().len(),
   align: center + horizon,
   ..parts.map(p => {
@@ -168,7 +168,7 @@
     set block(above: 0pt)
     for (parts, swaps) in rows.chunks(2) {
       let is_final = parts.all(p => p.len() <= 1)
-      num_row(parts, is_final: is_final)
+      num_row(parts)
       if swaps != none {
         arrow_row(parts, swaps)
       }
