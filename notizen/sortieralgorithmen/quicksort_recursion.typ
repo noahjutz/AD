@@ -5,8 +5,7 @@
 #set table(align: center)
 #show table.cell: box.with(width: 24pt)
 
-//#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
-#let nums = (1, 4, 2, 3, 9, 6, 5, 7, 8, 0, 11, 14, 12, 13, 10, 17, 16, 15, 18, 19)
+#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
 #let row(nums) = table(
   align: center,
