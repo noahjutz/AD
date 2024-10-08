@@ -55,10 +55,10 @@
 }
 
 #let quicksort_rows(parts) = {
-  let (swaps, parts) = step(parts)
   if parts.all(p => p.len() == 1) {
     return ()
   }
+  let (swaps, parts) = step(parts)
   return (swaps, parts) + quicksort_rows(parts)
 }
 
@@ -167,7 +167,6 @@
   block(breakable: false, {
     set block(above: 0pt)
     for (parts, swaps) in rows.chunks(2) {
-      let is_final = parts.all(p => p.len() <= 1)
       num_row(parts)
       if swaps != none {
         arrow_row(parts, swaps)
