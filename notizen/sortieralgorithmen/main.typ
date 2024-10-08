@@ -304,5 +304,7 @@ def quicksort(nums, f, l):
 
 ==== Best Case
 
+Der Best-Case tritt auf, wenn das Pivot-Element in jedem Schritt die Eingabe halbiert.
+
 #import "quicksort.typ": quicksort
-#quicksort(0, 1, 2, 3)
+#quicksort(4, 1, 3, 2, 6, 5, 7)

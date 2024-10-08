@@ -161,11 +161,11 @@
 })
 
 #let quicksort(..nums) = {
-  set block(above: 0pt)
   let rows = quicksort_rows((nums.pos(),))
   rows.insert(0, (nums.pos(),))
   rows.push(none)
   block(breakable: false, {
+    set block(above: 0pt)
     for (parts, swaps) in rows.chunks(2) {
       let is_final = parts.all(p => p.len() <= 1)
       num_row(parts, is_final: is_final)
