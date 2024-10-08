@@ -302,9 +302,15 @@ def quicksort(nums, f, l):
 
 === Laufzeit
 
+==== Worst Case
+
+Wenn die eingabe aufsteigend oder absteigend sortiert ist, wird das Problem in jedem Rekursionsschritt um nur 1 kleiner.
+
+#import "quicksort.typ": quicksort
+#quicksort(1, 2, 3, 4)
+
 ==== Best Case
 
 Der Best-Case tritt auf, wenn das Pivot-Element in jedem Schritt die Eingabe halbiert.
 
-#import "quicksort.typ": quicksort
 #quicksort(4, 1, 3, 2, 6, 5, 7)
