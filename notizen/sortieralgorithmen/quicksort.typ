@@ -55,7 +55,7 @@
 }
 
 #let quicksort_rows(parts) = {
-  if parts.all(p => p.len() == 1) {
+  if parts.all(p => p.len() <= 1) {
     return ()
   }
   let (swaps, parts) = step(parts)

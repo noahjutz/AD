@@ -314,3 +314,6 @@ Wenn die eingabe aufsteigend oder absteigend sortiert ist, wird das Problem in j
 Der Best-Case tritt auf, wenn das Pivot-Element in jedem Schritt die Eingabe halbiert.
 
 #quicksort(4, 1, 3, 2, 6, 5, 7)
+
+== Merge Sort
+
