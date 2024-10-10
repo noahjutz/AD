@@ -321,6 +321,8 @@ Genauso wie Quicksort spaltet Merge Sort die Eingabe in jedem Rekursionsschritt 
 
 === Merge
 
-Die Merge-Prozedur nimmt zwei sortierte Listen `a1[f:m]` und `a2[m:l+1]`, und mischt sie, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
+Die Merge-Prozedur nimmt als Eingabe zwei sortierte Listen `a1[f:m]` und `a2[m:l+1]`.
 
-#include "mergesort_merge.typ"
+#include "mergesort_merge_input.typ"
+
+Die beiden Listen werden gemischt, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
