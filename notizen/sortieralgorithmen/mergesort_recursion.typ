@@ -8,15 +8,30 @@
   ..nums.map(n => str(n))
 )
 
+#let split(nums) = {
+  let n = nums.len()
+  let m = calc.div-euclid(n, 2)
+  if nums.len() == 1 {
+    return row(nums)
+  }
+  let a1 = nums.slice(0, m)
+  let a2 = nums.slice(m, n)
+  stack(
+    dir: ltr,
+    spacing: 4pt,
+    row(nums),
+    stack(
+      spacing: 8pt,
+      split(a1),
+      split(a2)
+    )
+  )
+}
+
 #block(
   breakable: false,
   align(
     horizon,
-    stack(
-      dir: ltr,
-      spacing: 4pt,
-      row(nums),
-      row(nums, splits: (n/2-1,))
-    )
+    split(nums)
   )
 )
