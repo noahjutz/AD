@@ -1,8 +1,7 @@
 #import "@preview/cetz:0.2.2"
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34, 23)
-#let nums = (7, 12, 17, 18, 23, 34, 34, 38, 43, 45)
+#let nums = (12, 23, 34, 34, 45, 7, 17, 18, 38, 43)
 #let n = nums.len()
 
 #show table.cell: box.with(width: 18pt)
