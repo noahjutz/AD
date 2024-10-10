@@ -328,6 +328,17 @@ Der Best-Case tritt auf, wenn das Pivot-Element in jedem Schritt die Eingabe hal
 
 #quicksort(4, 1, 3, 2, 6, 5, 7)
 
+In diesem Fall wird das Problem in jedem Schritt halbiert.
+
+$
+T(n) = cases(
+  Theta(1) "falls" n <= 1,
+  2T(n/2) + Theta(n) "sonst"
+)
+$
+
+Die Lösung dieser Rekursionsgleichung ist $Theta(n log n)$.
+
 == Merge Sort
 
 Genauso wie Quicksort spaltet Merge Sort die Eingabe in jedem Rekursionsschritt in zwei Sublisten.
