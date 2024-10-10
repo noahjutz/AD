@@ -357,3 +357,9 @@ Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der ander
 Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Element hat (base case). Die zwei Teile werden dann gemischt.
 
 #include "mergesort_recursion.typ"
+
+=== In Place
+
+Um die Merge-Funktion ohne die hilfsliste `anew` zu implementieren, kann man Einträge der Liste nach vorne verschieben.
+
+#include "mergesort_merge_inplace.typ"
