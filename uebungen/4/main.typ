@@ -87,21 +87,20 @@ Mehr über Selection Sort: @selection-sort
 Anstatt einen zufälligen Index zu wählen, können wir einfach `a[f]` mit einer zufälligen Zahl vertauschen.
 
 ```python
-j = f
-for i in range(1, l+1):
-  if a[i] <= a[f]:
-    a[i], a[j] = a[j], a[i]
-    j += 1
-a[f], a[j-1] = a[j-1], a[f]
+def partition(a, f, l):
+  # ...
 ```
 
 #align(center, sym.arrow.b)
 
 ```python
-a[f] = a[random(f, l+1)]
-# gleicher code wie oben ...
+def partition(a, f, l):
+  a[f] = a[random(f, l+1)]
+  # ...
 ```
 
 ==== Laufzeit & Korrektheit
 
-Jeder Rekursionsschritt benötigt ohnehin $n$ Schritte, daher bleibt die Komplexität gleich.
+Es wird mal pro `partition`-Aufruf mit $Theta(1)$ zufällig vertauscht, damit bleibt die Laufzeit unverändert.
+
+Wenn die nicht-randomisierte Partition korrekt ist, dann ist die Randomisierte auch korrekt, weil die Eingabe `a[f:l+1]` in beliebiger Permutation auftreten darf. Die Reihenfolge der Elemente hat keinen Einfluss auf die Funktionsweise.
