@@ -328,3 +328,7 @@ Die Merge-Prozedur nimmt als Eingabe zwei sortierte Listen `a1[f:m]` und `a2[m:l
 Die beiden Listen werden gemischt, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
 
 #include "mergesort_merge_output.typ"
+
+Um in Linearzeit zu mischen, nutzt quicksort, dass das Minimum zwei sortierter Listen `a1` und `a2` entweder `a1[0]` oder `a2[0]` sein muss.
+
+#include "mergesort_merge_algorithm_0.typ"
