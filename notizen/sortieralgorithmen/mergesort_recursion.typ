@@ -1,12 +1,15 @@
 #import "@preview/cetz:0.2.2"
+#import "/config.typ": theme
 
 #let nums = (34, 45, 12, 34, 23)
 #let n = nums.len()
 
-#let row(nums, splits: ()) = table(
+#let row(
+  nums,
+  is_complete: false
+) = table(
   align: center,
-  row-gutter: range(nums.len())
-    .map(i => if i in splits {4pt} else {auto}),
+  fill: if is_complete {theme.success_light},
   ..nums.map(n => str(n))
 )
 
@@ -54,7 +57,7 @@
       fig(l),
       fig(r),
     ),
-    row(m.sorted())
+    row(m.sorted(), is_complete: true)
   )
 }
 
