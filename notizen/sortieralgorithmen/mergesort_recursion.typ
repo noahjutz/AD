@@ -12,6 +12,22 @@
   let n = nums.len()
   let m = calc.div-euclid(n, 2)
   if nums.len() == 1 {
+    return nums
+  }
+  let a1 = nums.slice(0, m)
+  let a2 = nums.slice(m, n)
+  return (nums, split(a1), split(a2))
+}
+
+#let merge(a1, a2) = {
+
+}
+
+#let contentify(nums) = {
+  // todo
+  let n = nums.len()
+  let m = calc.div-euclid(n, 2)
+  if nums.len() == 1 {
     return row(nums)
   }
   let a1 = nums.slice(0, m)
@@ -32,6 +48,27 @@
   breakable: false,
   align(
     horizon,
-    split(nums)
+    "todo"
   )
 )
+
+#import "@preview/cetz:0.2.2"
+
+#let deepmap(tuple) = {
+  let l = ()
+  for x in tuple {
+    if type(x.at(0)) == array {
+      l.push(deepmap(x))
+    }
+    else {
+      l.push(repr(x))
+    }
+  }
+  return l
+}
+
+#cetz.canvas({
+  cetz.tree.tree(
+    deepmap(split(nums))
+  )
+})
