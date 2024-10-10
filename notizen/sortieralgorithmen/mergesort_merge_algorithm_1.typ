@@ -10,6 +10,7 @@
   ..num_row(
     nums,
     hl_tertiary: (0, m+1),
+    hl_gray: m,
     arrow_down: (
       (0, 1), (m+1, 1)
     ),

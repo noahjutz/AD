@@ -126,7 +126,8 @@
   hl_primary,
   hl_secondary,
   hl_tertiary,
-  hl_success
+  hl_success,
+  hl_gray
 ) = {
   if type(hl_primary) != array {
     hl_primary = (hl_primary,)
@@ -140,12 +141,16 @@
   if type(hl_success) != array {
     hl_success = (hl_success,)
   }
+  if type(hl_gray) != array {
+    hl_gray = (hl_gray,)
+  }
 
   return nums.enumerate().map(((i, n)) => table.cell(
     fill: if i in hl_primary {theme.primary_light}
       else if i in hl_secondary {theme.secondary_light}
       else if i in hl_tertiary {theme.tertiary_light}
-      else if i in hl_success {theme.success_light},
+      else if i in hl_success {theme.success_light}
+      else if i in hl_gray {theme.fg_light},
     if type(n) != content {str(n)} else {n}
   ))
 }
@@ -239,7 +244,8 @@
   hl_primary: none,
   hl_secondary: none,
   hl_tertiary: none,
-  hl_success: (),
+  hl_success: none,
+  hl_gray: none,
   arrow: none,
   arrow_down: none,
   labels: none,
@@ -275,7 +281,8 @@
     hl_primary,
     hl_secondary,
     hl_tertiary,
-    hl_success
+    hl_success,
+    hl_gray
   )
 
   if labels_b != none {
