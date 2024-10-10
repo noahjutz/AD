@@ -290,24 +290,37 @@ a[f], a[j-1] = a[j-1], a[f]
 Quicksort wird einmal für die Elemente links des Pivots und einmal für die rechts des Pivots aufgerufen. Falls es links oder rechts ein oder kein Element gibt, ist keine Aktion mehr erforderlich (base case).
 
 ```python
-def quicksort(nums, f, l):
+def quicksort(a, f, l):
   if f >= l:
     return # base case
-  part = partition(nums, f, l)
-  quicksort(nums, f, part-1)
-  quicksort(nums, part+1, l)
+  part = partition(a, f, l)
+  quicksort(a, f, part-1)
+  quicksort(a, part+1, l)
 ```
 
 #include "quicksort_recursion.typ"
 
 === Laufzeit
 
+Die Partition läuft die Eingabe einmal durch, hat also eine lineare Laufzeit $Theta(n)$.
+
 ==== Worst Case
 
-Wenn die eingabe aufsteigend oder absteigend sortiert ist, wird das Problem in jedem Rekursionsschritt um nur 1 kleiner.
+Wenn die Eingabe aufsteigend oder absteigend sortiert ist, wird das Problem in jedem Rekursionsschritt um nur 1 kleiner.
 
 #import "quicksort.typ": quicksort
 #quicksort(1, 2, 3, 4)
+
+Ist sie aufsteigend sortiert, so wird nur der zweite rekursive Aufruf mit einer Eingabelänge von $n-1$ aufgerufen.
+
+$
+T(n) = cases(
+  Theta(1) "falls" n <= 1,
+  T(n-1) + Theta(n) "sonst"
+)
+$
+
+Die Rekursionsgleichung ist in $Theta(n^2)$.
 
 ==== Best Case
 
