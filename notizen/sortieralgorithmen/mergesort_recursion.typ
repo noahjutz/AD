@@ -53,7 +53,7 @@
     spacing: 4pt,
     row(m),
     stack(
-      spacing: 4pt,
+      spacing: 8pt,
       fig(l),
       fig(r),
     ),
