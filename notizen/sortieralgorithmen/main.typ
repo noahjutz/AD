@@ -317,3 +317,10 @@ Der Best-Case tritt auf, wenn das Pivot-Element in jedem Schritt die Eingabe hal
 
 == Merge Sort
 
+Genauso wie Quicksort spaltet Merge Sort die Eingabe in jedem Rekursionsschritt in zwei Sublisten.
+
+=== Merge
+
+Die Merge-Prozedur nimmt zwei sortierte Listen `a1[f:m]` und `a2[m:l+1]`, und mischt sie, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
+
+#include "mergesort_merge.typ"

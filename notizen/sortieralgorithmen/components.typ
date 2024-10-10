@@ -317,6 +317,7 @@
   hl_success: (),
   arrow: none,
   labels: none,
+  labels_b: none,
   below: 0pt,
   prefix: (),
 ) = table(
@@ -330,6 +331,7 @@
     hl_success: hl_success,
     arrow: arrow,
     labels: labels,
+    labels_b: labels_b,
     below: below,
     prefix: prefix
   )
