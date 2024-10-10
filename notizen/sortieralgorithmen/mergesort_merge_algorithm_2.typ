@@ -15,7 +15,7 @@
       (3, n - 1),
     ),
     labels: (
-      (0, 1, arrowed[`a1f`]),
+      (3, 4, arrowed[`a1f`]),
       (n, n+1, arrowed[`a2f`])
     ),
     below: 0pt
