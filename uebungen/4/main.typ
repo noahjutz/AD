@@ -95,7 +95,8 @@ def partition(a, f, l):
 
 ```python
 def partition(a, f, l):
-  a[f] = a[random(f, l+1)]
+  i = randint(f, l)
+  a[f], a[i] = a[i], a[f]
   # ...
 ```
 
@@ -104,3 +105,5 @@ def partition(a, f, l):
 Es wird mal pro `partition`-Aufruf mit $Theta(1)$ zufällig vertauscht, damit bleibt die Laufzeit unverändert.
 
 Wenn die nicht-randomisierte Partition korrekt ist, dann ist die Randomisierte auch korrekt, weil die Eingabe `a[f:l+1]` in beliebiger Permutation auftreten darf. Die Reihenfolge der Elemente hat keinen Einfluss auf die Funktionsweise.
+
+== Zeitmessungen
