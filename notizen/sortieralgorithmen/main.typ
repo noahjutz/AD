@@ -363,3 +363,11 @@ Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Ele
 Um die Merge-Funktion ohne die hilfsliste `anew` zu implementieren, kann man Einträge der Liste nach vorne verschieben.
 
 #include "mergesort_merge_inplace.typ"
+
+```python
+while a1f < a2f and a2f < l+1:
+  if a[a2f] < a[a1f]:
+    a.insert(a1f, a.pop(a2f))
+    a2f += 1
+  a1f += 1
+```
