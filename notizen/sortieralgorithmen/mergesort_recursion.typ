@@ -2,13 +2,17 @@
 #import "/config.typ": theme
 
 #let nums = (34, 45, 12, 34, 23)
+#let nums = (7, 12, 17, 18, 23, 34, 34, 38, 43, 45)
 #let n = nums.len()
+
+#show table.cell: box.with(width: 18pt)
 
 #let row(
   nums,
   is_complete: false
 ) = table(
   align: center,
+  inset: (x: 0pt, y: 4pt),
   fill: if is_complete {theme.success_light},
   ..nums.map(n => str(n))
 )
