@@ -7,9 +7,10 @@
 #table(
   columns: (auto, ) + (1fr,) * nums.len(),
   align: center,
+  stroke: (x, _) => if x == n+1 {none} else {1pt},
   ..num_row(
     nums,
-    hl_tertiary: (3, n),
+    hl_tertiary: 3,
     hl_gray: range(3) + range(4, n),
     arrow_down: (
       (3, n - 1),
