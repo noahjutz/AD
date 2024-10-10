@@ -293,9 +293,9 @@ Quicksort wird einmal für die Elemente links des Pivots und einmal für die rec
 def quicksort(a, f, l):
   if f >= l:
     return # base case
-  part = partition(a, f, l)
-  quicksort(a, f, part-1)
-  quicksort(a, part+1, l)
+  m = partition(a, f, l)
+  quicksort(a, f, m-1)
+  quicksort(a, m+1, l)
 ```
 
 #include "quicksort_recursion.typ"
@@ -341,7 +341,7 @@ Die Lösung dieser Rekursionsgleichung ist $Theta(n log n)$.
 
 ==== Average Case
 
-
+Die Laufzeit hängt davon ab, an welcher Stelle $m$ das Pivotelement landet. Ist immer $m=f$ oder $m=l$, haben wir den Worst Case. Ist $m=(f+l) slash 2$, haben wir den Best Case.
 
 == Merge Sort
 
