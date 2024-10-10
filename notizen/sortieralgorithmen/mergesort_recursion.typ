@@ -61,10 +61,13 @@
   )
 }
 
-#block(
-  breakable: false,
-  align(
-    center + horizon,
-    fig(nums)
+#align(
+  center,
+  block(
+    breakable: false,
+    align(
+      horizon,
+      fig(nums)
+    )
   )
 )
