@@ -355,3 +355,5 @@ Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der ander
 === Rekursion
 
 Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Element hat (base case). Die zwei Teile werden dann gemischt.
+
+#include "mergesort_recursion.typ"
