@@ -64,7 +64,7 @@
 #block(
   breakable: false,
   align(
-    horizon,
+    center + horizon,
     fig(nums)
   )
 )
