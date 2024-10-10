@@ -332,3 +332,5 @@ Die beiden Listen werden gemischt, um eine sortierte Liste `anew[f:l+1]` zu prod
 Um in Linearzeit zu mischen, nutzt quicksort, dass das Minimum zwei sortierter Listen `a1` und `a2` entweder `a1[0]` oder `a2[0]` sein muss.
 
 #include "mergesort_merge_algorithm_0.typ"
+
+Streichen wir den kleineren Wert, so bleiben zwei sortierte Listen übrig, für die wiederum das gleiche gilt.
