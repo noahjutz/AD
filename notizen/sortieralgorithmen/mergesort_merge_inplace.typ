@@ -27,8 +27,9 @@
 
 #let numrow(nums, a1f, a2f) = num_row(
   nums,
-  hl_primary: a1s(nums),
-  hl_secondary: a2s(nums),
+  hl_primary: a1s(nums).filter(n => n != a1f),
+  hl_secondary: a2s(nums).filter(n => n != a2f),
+  hl_tertiary: (a1f, a2f),
   arrow: (
     from: min_idx(nums, a1f, a2f),
     to: a1f
@@ -52,7 +53,7 @@
 #table(
   columns: (auto,) + (1fr,) * nums.len(),
   align: center,
-  ..for i in range(9) {
+  ..for i in range(3) {
     numrow(
       ..step(i, nums, a1f, a2f)
     )
