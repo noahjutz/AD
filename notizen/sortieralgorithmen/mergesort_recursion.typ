@@ -18,7 +18,7 @@
   }
   let a1 = nums.slice(0, m)
   let a2 = nums.slice(m, n)
-  return (nums, split(a1), split(a2))
+  return (nums, a1, a2)
 }
 
 #let merge(a1, a2) = {
@@ -39,9 +39,29 @@
   return l
 }
 
-#cetz.canvas({
-  cetz.tree.tree(
-    deepmap(split(nums)),
-    direction: "right",
+#let fig(nums) = {
+  if nums.len() == 1 {
+    return row(nums)
+  }
+  let (m, l, r) = split(nums)
+
+  stack(
+    dir: ltr,
+    spacing: 4pt,
+    row(m),
+    stack(
+      spacing: 4pt,
+      fig(l),
+      fig(r),
+    ),
+    row(m.sorted())
   )
-})
+}
+
+#block(
+  breakable: false,
+  align(
+    horizon,
+    fig(nums)
+  )
+)

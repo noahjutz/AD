@@ -356,4 +356,5 @@ Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der ander
 
 Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Element hat (base case). Die zwei Teile werden dann gemischt.
 
+#pagebreak()
 #include "mergesort_recursion.typ"
