@@ -341,7 +341,22 @@ Die Lösung dieser Rekursionsgleichung ist $Theta(n log n)$.
 
 ==== Average Case
 
-Die Laufzeit hängt davon ab, an welcher Stelle $m$ das Pivotelement landet. Ist immer $m=f$ oder $m=l$, haben wir den Worst Case. Ist $m=(f+l) slash 2$, haben wir den Best Case.
+Die Laufzeit hängt davon ab, an welcher Stelle $m$ das Pivotelement landet. Ist immer $m=f$ oder $m=l$, haben wir den Worst Case. Ist immer $m=floor((f+l) slash 2)$, haben wir den Best Case.
+
+Im allgemeinen gilt für beliebige $m in {f,...,l}$:
+
+$
+T_m (n) = 
+underbrace(T(m-f), "links") +
+underbrace(T(l-m), "rechts") +
+underbrace(Theta(n), "partition")
+$
+
+Weil wir wissen, dass $l-f+1=n$, gilt für $i in {1,...,n}$:
+
+$
+T_i (n) = T(i-1) + T(n-i) + Theta(n)
+$
 
 == Merge Sort
 
