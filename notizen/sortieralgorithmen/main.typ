@@ -339,6 +339,10 @@ $
 
 Die Lösung dieser Rekursionsgleichung ist $Theta(n log n)$.
 
+==== Average Case
+
+
+
 == Merge Sort
 
 Genauso wie Quicksort spaltet Merge Sort die Eingabe in jedem Rekursionsschritt in zwei Sublisten.
