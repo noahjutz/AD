@@ -14,5 +14,7 @@
   labels_b: (
     (0, m, braced_b[`a1`]),
     (m, n, braced_b[`a2`])
-  )
+  ),
+  hl_primary: range(m),
+  hl_secondary: range(m, n)
 )

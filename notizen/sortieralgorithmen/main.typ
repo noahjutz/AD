@@ -326,3 +326,5 @@ Die Merge-Prozedur nimmt als Eingabe zwei sortierte Listen `a1[f:m]` und `a2[m:l
 #include "mergesort_merge_input.typ"
 
 Die beiden Listen werden gemischt, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
+
+#include "mergesort_merge_output.typ"
