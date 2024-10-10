@@ -1,4 +1,4 @@
-#import "components.typ": num_row, braced
+#import "components.typ": num_row, arrowed
 
 #let nums = (12, 23, 34, 45, 7, 17, 18, 38, 43)
 #let n = nums.len()
@@ -14,8 +14,8 @@
       (0, 0), (m, 0)
     ),
     labels: (
-      (0, m, braced[`a1`]),
-      (m, n, braced[`a2`])
+      (0, 1, arrowed[`a1f`]),
+      (m, m+1, arrowed[`a2f`])
     ),
     below: 0pt
   ),

@@ -1,6 +1,6 @@
 #import "components.typ": num_row, arrowed
 
-#let nums = (12, 23, 34, 45, [], 17, 18, 38, 43)
+#let nums = (12, 23, 34, 45, 7, 17, 18, 38, 43)
 #let n = nums.len()
 #let m = calc.div-euclid(n, 2)
 
