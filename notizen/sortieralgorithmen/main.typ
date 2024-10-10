@@ -336,3 +336,18 @@ Um in Linearzeit zu mischen, nutzt quicksort, dass das Minimum zwei sortierter L
 Streichen wir den kleineren Wert, so bleiben zwei sortierte Listen übrig, für die wiederum das gleiche gilt.
 
 #include "mergesort_merge_algorithm_1.typ"
+
+In Code kann das folgendermaßen implementiert werden:
+
+```python
+if a[a1f] <= a[a2f]:
+  anew[i] = a[a1f]
+  a1f += 1
+else:
+  anew[i] = a[a2f]
+  a2f += 1
+```
+
+Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der anderen Liste angehängt.
+
+#include "mergesort_merge_algorithm_2.typ"
