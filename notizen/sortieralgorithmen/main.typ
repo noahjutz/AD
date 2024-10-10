@@ -334,3 +334,5 @@ Um in Linearzeit zu mischen, nutzt quicksort, dass das Minimum zwei sortierter L
 #include "mergesort_merge_algorithm_0.typ"
 
 Streichen wir den kleineren Wert, so bleiben zwei sortierte Listen übrig, für die wiederum das gleiche gilt.
+
+#include "mergesort_merge_algorithm_1.typ"
