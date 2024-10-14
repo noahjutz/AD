@@ -209,3 +209,15 @@ def insertion_sort(a: list, n: int):
 ```
 
 === Merge Sort Iterativ
+
+Für jedes $i$ in der Zahlenfolge $(2, 4, 8, ..., n)$ wird die Eingabe in $i$-Elementige Teillisten gespaltet.
+
+```python
+for i in (2 ** i for i in count(1)):
+  for j in range(0, len(a), i):
+    f = j
+    l = min(len(a)-1, j+i-1)
+    # merge a[f:l+1]
+  if i >= len(a):
+    break
+```
