@@ -14,6 +14,9 @@
         right: if x == 0 {black} else {theme.bg_trans},
         bottom: if y == 1 {black} else {theme.bg_trans},
     ),
+    fill: (_, y) => {
+      if y == 4 {theme.success_trans}
+    },
     table.header(
       "",
       table.cell(colspan: 2)[Bubblesort],
