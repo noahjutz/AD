@@ -139,3 +139,54 @@ Mit einer Tiefe von 20 erhalte ich folgende Eingabelängen $n$, welche innerhalb
 #include "measure_table.typ"
 
 Quicksort überschreitet die maximale Rekursionstiefe, bevor die Zeitgrenze von einer Minute erreicht wird.
+
+== Minkowski-Summe
+
+Gefragt ist, ob es ein $s in ZZ$ gibt, welches sich aus der Summe von zwei Elementen $a_i, a_j in A$ ergibt.
+
+$
+s in {a_i+a_j mid(|) (a_i, a_j) in A times A, i != j}
+$
+
+=== Naiver Ansatz
+
+Für alle ${a_i + a_j mid(|) (a_i, a_j) in A times A, i != j}$ prüfen, ob $a_i+a_j = s$.
+
+```python
+for ai, aj in itertools.product(A, A):
+  if ai == aj: continue
+  if ai + aj == s: return True
+return False
+```
+
+=== Besserer Ansatz
+
+Wählen wir $a_i = min(A)$ und $a_j = max(A)$, dann ist die nächstgrößere Summe
+
+$ "sum"_> = min(A without {a_i}) + a_j $
+
+und die nächstkleinere Summe
+
+$ "sum"_< = a_i + max(A without {a_j}) $
+
+Wenn $A$ sortiert ist, dann lässt sich der nächste Wert in $Theta(1)$ berechnen:
+
+$ "sum"_> = a_(i+1) + a_j $
+
+$ "sum"_< = a_i + a_(j-1) $
+
+Wir starten mit $l=0$ und $r=n-1$, und laufen zur Mitte.
+
+```python
+a.sort()
+l = 0
+r = len(a) - 1
+while l < r:
+  sum = a[l] + a[r]
+  if sum == s: return True
+  if sum < s: l += 1
+  else: r -= 1
+return False
+```
+
+Das sortieren dauert $Theta(n log n)$, damit dauert der gesamte Algorithmus $Theta(n log n)$.
