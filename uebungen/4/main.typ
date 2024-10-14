@@ -153,8 +153,7 @@ $
 Für alle ${a_i + a_j mid(|) (a_i, a_j) in A times A, i != j}$ prüfen, ob $a_i+a_j = s$.
 
 ```python
-for ai, aj in itertools.product(A, A):
-  if ai == aj: continue
+for ai, aj in itertools.combinations(A, 2):
   if ai + aj == s: return True
 return False
 ```
