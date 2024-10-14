@@ -190,3 +190,22 @@ return False
 ```
 
 Das sortieren dauert $Theta(n log n)$, damit dauert der gesamte Algorithmus $Theta(n log n)$.
+
+== Iterativ/Rekursiv
+
+=== Insertion Sort Rekursiv
+
+In jedem Rekursionsschritt wird die Eingabelänge $n$ um 1 reduziert.
+
+```python
+def insertion_sort(a: list, n: int):
+  if n <= 1: return
+
+  insertion_sort(a, n-1)
+  for i in range(n):
+    if a[n-1] < a[i]:
+      a.insert(i, a.pop(n-1))
+      return
+```
+
+=== Merge Sort Iterativ
