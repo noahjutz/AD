@@ -107,3 +107,35 @@ Es wird mal pro `partition`-Aufruf mit $Theta(1)$ zufällig vertauscht, damit bl
 Wenn die nicht-randomisierte Partition korrekt ist, dann ist die Randomisierte auch korrekt, weil die Eingabe `a[f:l+1]` in beliebiger Permutation auftreten darf. Die Reihenfolge der Elemente hat keinen Einfluss auf die Funktionsweise.
 
 == Zeitmessungen
+
+Zufällige Zahlenfolge der Länge $n$:
+
+```python
+[randint(-5, 256) for _ in range(n)]
+```
+
+Um die maximale Eingabelänge zunächst grob zu ermitteln, prüfen wir jede Potenz von 2 (`max_input.py`).
+
+```python
+for n in (2**i for i in count()):
+  if runtime > 60:
+    return n
+```
+
+Das Infimum der Eingabelängen muss also in $"lo":=n/2$ und $"hi":=n$ liegen. Mit der Intervallhalbierungsmethode können wir dieses $n$ zu einer beliebigen Genauigkeit `depth` berechnen (`exact_input.py`).
+
+```python
+for _ in range(depth):
+  m = (hi + lo) // 2
+  if runtime > 60:
+    hi = m
+  else:
+    lo = m
+return lo
+```
+
+Das Liefert bei mir folgende Eingabelängen, welche innerhalb von einer Minute berechnet werden können:
+
+#include "measure_table.typ"
+
+Quicksort überschreitet die maximale Rekursionstiefe, bevor die Zeitgrenze von einer Minute erreicht wird.
