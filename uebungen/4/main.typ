@@ -134,7 +134,7 @@ for _ in range(depth):
 return lo
 ```
 
-Das Liefert bei mir folgende Eingabelängen, welche innerhalb von einer Minute berechnet werden können:
+Das Liefert bei mir folgende Eingabelängen $n$, welche innerhalb von $t<60s$ berechnet werden können:
 
 #include "measure_table.typ"
 
