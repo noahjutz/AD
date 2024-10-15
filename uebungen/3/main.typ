@@ -20,9 +20,9 @@ Man könnte durch alle Teilmatrizen iterieren und die Summen vergleichen. Laufze
 
 ```python
 for i2 in range(n+1):
-  for i1 in range(i1):
+  for i1 in range(i2):
     for j2 in range(n+1):
-      for j1 in range(j1):
+      for j1 in range(j2):
         matrix[i1:i2, j1:j2].sum()
 ```
 
