@@ -434,14 +434,9 @@ $
 
 ==== Beweis
 
-#[
-#let lim=$lim_(n -> infinity)$
 $
-lim 5^(log_3n)/n^2
-&= lim (3^(log_3n) dot 0.6^(log_3n))/n^2 \
-&= lim (n dot 0.6^(log_3n))/n^2 \
-&= lim 0.6^(log_3n)/n \
-&= 0
-#h(4pt) square.filled
+5^(log_3n) &< 9^(log_3n) \
+&= 3^(log_3n) dot 3^(log_3n) \
+&= n^2
+#h(4pt)square.filled
 $
-]
