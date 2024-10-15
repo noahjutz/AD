@@ -88,3 +88,7 @@ Die Nullstellen dieses Polynoms sind die Eigenwerte von $A$. Die Eigenvektoren m
 $
 (A - lambda I) dot arrow(v) = arrow(0)
 $
+
+== Strukturelle Induktion
+
+Verallgemeinerung der vollständigen Induktion; siehe #link("https://de.wikipedia.org/wiki/Strukturelle_Induktion")[Wikipedia].
