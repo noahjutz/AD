@@ -31,12 +31,11 @@
     let is_right = calc.rem(index, 2) == 0
 
     if is_right {
-      index = (index - 1)/2
       turns.push("1")
     } else {
-      index = (index - 2)/2
       turns.push("0")
     }
+    index = calc.div-euclid(index - 1, 2)
   }
   turns = turns.rev()
   return "0-" + turns.join("-")
