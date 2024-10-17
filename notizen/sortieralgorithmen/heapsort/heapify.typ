@@ -1,4 +1,4 @@
-#import "components.typ": bintree, idx
+#import "components.typ": bintree, name_to_index, index_to_name
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.3.0"
@@ -12,13 +12,14 @@
   tree(
     bintree(nums.map(n => str(n))),
     draw-node: (node, ..) => {
-      let index = idx(node.name)
+      let index = name_to_index(node.name)
+      let name = index_to_name(index)
       content(
         (),
         frame: "circle",
         fill: if index == 0 {theme.primary_light},
         padding: 7pt,
-        place(center + horizon, node.content),
+        place(center + horizon, name),
       )
     }
   )

@@ -9,7 +9,7 @@
   return node
 }
 
-#let idx(name) = {
+#let name_to_index(name) = {
   let turns = name.split("-").map(s => int(s)).slice(1)
   let i = 0
   for turn in turns {
@@ -20,4 +20,24 @@
     }
   }
   return i
+}
+
+#let index_to_name(index) = {
+  if index == 0 {
+    return "0"
+  }
+  let turns = ()
+  while index > 0 {
+    let is_right = calc.rem(index, 2) == 0
+
+    if is_right {
+      index = (index - 1)/2
+      turns.push("1")
+    } else {
+      index = (index - 2)/2
+      turns.push("0")
+    }
+  }
+  turns = turns.rev()
+  return "0-" + turns.join("-")
 }
