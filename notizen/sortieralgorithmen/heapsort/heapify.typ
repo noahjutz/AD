@@ -20,6 +20,17 @@
     fun("i.0", "i.1")
   }
 
+  let box_around(top, bl, br, fun) = {
+    top = "tree." + i2n(top)
+    bl = "tree." + i2n(bl)
+    br = "tree." + i2n(br)
+
+    fun(
+      (rel: (-14pt, 14pt), to: (bl, "|-", top)),
+      (rel: (14pt, -14pt), to: br)
+    )
+  }
+
   tree(
     bintree(nums.map(n => str(n))),
     draw-node: (node, ..) => {
@@ -27,15 +38,50 @@
       content(
         (),
         frame: "circle",
-        fill: if index == 0 {theme.primary_light},
+        fill: if index == 0 {theme.primary_light} else {white},
         padding: 7pt,
         place(center + horizon, node.content),
       )
     },
+    spread: 1.5,
     name: "tree",
   )
 
   arrow(0, 3, (from, to) => {
     bezier(from, to, (1pt, 1pt), mark: (symbol: ">"))
+  })
+
+  cetz.decorations.flat-brace(
+    (rel: (12pt, -16pt), to: "tree." + i2n(9)),
+    (rel: (-12pt, -16pt), to: "tree." + i2n(7)),
+    name: "left"
+  )
+  content("left.content")[Heap]
+  cetz.decorations.flat-brace(
+    (rel: (12pt, -16pt), to: "tree." + i2n(6)),
+    (rel: (-12pt, -16pt), to: "tree." + i2n(5)),
+    name: "right"
+  )
+  content("right.content")[Heap]
+
+  on-layer(-1, {
+    box_around(
+      2, 7, 9,
+      (tl, br) => rect(
+        tl, br,
+        radius: 4pt,
+        fill: theme.success_trans,
+        stroke: none
+      )
+    )
+    box_around(
+      2, 5, 6,
+      (tl, br) => rect(
+        tl, br,
+        radius: 4pt,
+        fill: theme.success_trans,
+        stroke: none
+      )
+    )
   })
 })
