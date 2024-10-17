@@ -1,6 +1,6 @@
 #import "@preview/cetz:0.3.0"
 #import "/config.typ": theme
-#import "bintree.typ": bintree
+#import "components.typ": bintree
 
 #cetz.canvas({
   import cetz.draw: *
