@@ -426,7 +426,7 @@ Ein Baum ist linksvoll, wenn alle Schichten bis auf die letzte voll besetzt sind
   columns: 2,
   column-gutter: 12pt,
   align: horizon,
-  include "heapsort/heap.typ",
+  include "heapsort/linksvoll.typ",
   {
     table(
       columns: (1fr,)*6,
