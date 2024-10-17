@@ -466,3 +466,5 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten die Heap-Eigenscha
   "Maxheap:",
   [Vorgänger $>=$ Nachfolger],
 )
+
+=== Heapify
