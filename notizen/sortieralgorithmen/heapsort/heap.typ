@@ -1,23 +1,13 @@
 #import "@preview/cetz:0.3.0"
 #import "/config.typ": theme
-
-#let binary_tree(n, i: 0) = {
-  let node = ($a_#i$,)
-  if n >= 2 * i + 1 {
-    node.push(binary_tree(n, i: 2*i+1))
-  }
-  if n >= 2*i+2 {
-    node.push(binary_tree(n, i: 2*i+2))
-  }
-  return node
-}
+#import "bintree.typ": bintree
 
 #cetz.canvas({
   import cetz.draw: *
   import cetz.tree: tree
 
   tree(
-    binary_tree(5),
+    bintree(range(6).map(i => $a_#i$)),
     draw-node: (node, ..) => {
       content(
         (),
