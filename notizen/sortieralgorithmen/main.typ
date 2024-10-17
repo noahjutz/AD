@@ -1,4 +1,5 @@
 #import "/components/admonition.typ": admonition
+#import "/config.typ": theme
 
 = Sortieralgorithmen
 
@@ -437,4 +438,25 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eig
   $
 )
 
-#include "heapsort/heap.typ"
+#grid(
+  columns: 2,
+  column-gutter: 12pt,
+  align: horizon,
+  include "heapsort/heap.typ",
+  table(
+    columns: 2,
+    align: horizon,
+    table.cell(
+      fill: theme.primary_light,
+      "Linker NF"
+    ), $ 2i+1 $,
+    table.cell(
+      fill: theme.secondary_light,
+      "Rechter NF"
+    ), $ 2i+2 $,
+    table.cell(
+      fill: theme.tertiary_light,
+      "Vorgänger"
+    ), $ floor((i-1)/2) $
+  )
+)
