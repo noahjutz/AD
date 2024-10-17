@@ -16,6 +16,18 @@
   import cetz.tree: tree
 
   tree(
-    binary_tree(5)
+    binary_tree(5),
+    draw-node: (node, ..) => {
+      content(
+        (),
+        frame: "circle",
+        padding: 7pt,
+        place(
+          center + horizon,
+          dy: -1pt,
+          node.content
+        )
+      )
+    }
   )
 })
