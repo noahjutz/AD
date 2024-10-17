@@ -418,6 +418,41 @@ while a1f < a2f and a2f < l+1:
 
 == Heap Sort
 
+=== Linksvoll
+
+Ein Baum ist linksvoll, wenn alle Schichten bis auf die letzte voll besetzt sind, und die letzte von links nach rechts besetzt ist.
+
+#grid(
+  columns: 2,
+  column-gutter: 12pt,
+  align: horizon,
+  include "heapsort/heap.typ",
+  {
+    table(
+      columns: (1fr,)*6,
+      ..range(6).map(i => {
+        box(baseline: -3pt)[$a_#i$]
+      })
+    )
+    table(
+      columns: (auto, 1fr),
+      align: horizon,
+      table.cell(
+        fill: theme.primary_light,
+        "Linker NF"
+      ), $ 2i+1 $,
+      table.cell(
+        fill: theme.secondary_light,
+        "Rechter NF"
+      ), $ 2i+2 $,
+      table.cell(
+        fill: theme.tertiary_light,
+        "Vorgänger"
+      ), $ floor((i-1)/2) $
+    )
+  }
+)
+
 === Heap
 
 Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eigenschaft erfüllt:
@@ -436,27 +471,4 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eig
   a_i >= underbrace(a_(2i+1), "links") and
   a_i >= underbrace(a_(2i+2), "rechts")
   $
-)
-
-#grid(
-  columns: 2,
-  column-gutter: 12pt,
-  align: horizon,
-  include "heapsort/heap.typ",
-  table(
-    columns: 2,
-    align: horizon,
-    table.cell(
-      fill: theme.primary_light,
-      "Linker NF"
-    ), $ 2i+1 $,
-    table.cell(
-      fill: theme.secondary_light,
-      "Rechter NF"
-    ), $ 2i+2 $,
-    table.cell(
-      fill: theme.tertiary_light,
-      "Vorgänger"
-    ), $ floor((i-1)/2) $
-  )
 )
