@@ -5,7 +5,7 @@
   secondary: blue,
   secondary_light: blue.lighten(75%),
   secondary_trans: blue.transparentize(75%),
-  tertiary: yellow,
+  tertiary: orange,
   tertiary_light: yellow.lighten(75%),
   tertiary_trans: yellow.transparentize(75%),
   fg: black,

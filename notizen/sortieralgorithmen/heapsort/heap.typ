@@ -1,4 +1,5 @@
 #import "@preview/cetz:0.3.0"
+#import "/config.typ": theme
 
 #let binary_tree(n, i: 0) = {
   let node = ($a_#i$,)
@@ -28,6 +29,30 @@
           node.content
         )
       )
-    }
+    },
+    draw-edge: (from, to, ..) => {
+      if from == "g0" and to == "g0-0" {
+        line(
+          from, to,
+          stroke: theme.primary + 2pt,
+          mark: (end: ">")
+        )
+      } else if from == "g0" and to == "g0-1" {
+        line(
+          from, to,
+          stroke: theme.secondary + 2pt,
+          mark: (end: ">")
+        )
+      } else if from == "g0-1" and to == "g0-1-0" {
+        line(
+          from, to,
+          stroke: theme.tertiary + 2pt,
+          mark: (start: ">")
+        )
+      } else {
+        line(from, to)
+      }
+    },
+    grow: 1.3
   )
 })
