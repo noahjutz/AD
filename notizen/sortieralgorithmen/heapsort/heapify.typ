@@ -9,6 +9,17 @@
   import cetz.draw: *
   import cetz.tree: tree
 
+  let arrow(from, to) = {
+    from = "tree." + i2n(from)
+    to = "tree." + i2n(to)
+    intersections("i", {
+      hide(circle(from, radius: 10pt))
+      hide(circle(to, radius: 10pt))
+      hide(line(from, to))
+    })
+    line("i.0", "i.1", mark: (end: ">"))
+  }
+
   tree(
     bintree(nums.map(n => str(n))),
     draw-node: (node, ..) => {
@@ -24,5 +35,5 @@
     name: "tree",
   )
 
-  line("tree." + i2n(0), "tree." + i2n(6))
+  arrow(0, 4)
 })
