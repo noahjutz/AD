@@ -25,7 +25,7 @@
         padding: 7pt,
         place(
           center + horizon,
-          dy: -1pt,
+          dy: -2pt,
           node.content
         )
       )
