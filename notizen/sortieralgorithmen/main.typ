@@ -471,4 +471,7 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten die Heap-Eigenscha
 
 Bevor wir ein beliebiges Array in einen Heap umwandeln, lösen wir ein einfacheres Problem: Ein Knoten $a_i$, dessen linker und rechter Teilbaum bereits Heaps sind, soll an die richtige Stelle vertauscht werden.
 
-#include "heapsort/heapify.typ"
+#align(
+  center,
+  include "heapsort/heapify.typ"
+)
