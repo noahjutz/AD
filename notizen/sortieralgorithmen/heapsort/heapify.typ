@@ -1,4 +1,4 @@
-#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n
+#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, arrow, box_around
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -8,28 +8,6 @@
 #cetz.canvas({
   import cetz.draw: *
   import cetz.tree: tree
-
-  let arrow(from, to, fun) = {
-    from = "tree." + i2n(from)
-    to = "tree." + i2n(to)
-    intersections("i", {
-      hide(circle(from, radius: 10pt))
-      hide(circle(to, radius: 10pt))
-      hide(fun(from, to))
-    })
-    fun("i.0", "i.1")
-  }
-
-  let box_around(top, bl, br, fun) = {
-    top = "tree." + i2n(top)
-    bl = "tree." + i2n(bl)
-    br = "tree." + i2n(br)
-
-    fun(
-      (rel: (-14pt, 14pt), to: (bl, "|-", top)),
-      (rel: (14pt, -14pt), to: br)
-    )
-  }
 
   tree(
     bintree(nums.map(n => str(n))),

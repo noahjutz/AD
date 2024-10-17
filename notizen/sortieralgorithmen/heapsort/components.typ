@@ -40,3 +40,28 @@
   turns = turns.rev()
   return "0-" + turns.join("-")
 }
+
+#import "@preview/cetz:0.3.0": draw
+#import draw: *
+
+#let arrow(from, to, fun) = {
+  from = "tree." + index_to_name(from)
+  to = "tree." + index_to_name(to)
+  intersections("i", {
+    hide(circle(from, radius: 10pt))
+    hide(circle(to, radius: 10pt))
+    hide(fun(from, to))
+  })
+  fun("i.0", "i.1")
+}
+
+#let box_around(top, bl, br, fun) = {
+  top = "tree." + index_to_name(top)
+  bl = "tree." + index_to_name(bl)
+  br = "tree." + index_to_name(br)
+
+  fun(
+    (rel: (-14pt, 14pt), to: (bl, "|-", top)),
+    (rel: (14pt, -14pt), to: br)
+  )
+}
