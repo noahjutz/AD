@@ -1,7 +1,7 @@
 #import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n
 #import "/config.typ": theme
 
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.2.2"
 
 #let nums = (34, 45, 38, 43, 23, 18, 12, 17, 34, 7)
 
@@ -9,15 +9,15 @@
   import cetz.draw: *
   import cetz.tree: tree
 
-  let arrow(from, to) = {
+  let arrow(from, to, fun) = {
     from = "tree." + i2n(from)
     to = "tree." + i2n(to)
     intersections("i", {
       hide(circle(from, radius: 10pt))
       hide(circle(to, radius: 10pt))
-      hide(line(from, to))
+      hide(fun(from, to))
     })
-    line("i.0", "i.1", mark: (end: ">"))
+    fun("i.0", "i.1")
   }
 
   tree(
@@ -35,5 +35,7 @@
     name: "tree",
   )
 
-  arrow(0, 4)
+  arrow(0, 3, (from, to) => {
+    bezier(from, to, (1pt, 1pt), mark: (symbol: ">"))
+  })
 })
