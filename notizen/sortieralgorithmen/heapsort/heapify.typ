@@ -1,4 +1,4 @@
-#import "components.typ": bintree
+#import "components.typ": bintree, idx
 
 #import "@preview/cetz:0.3.0"
 
@@ -15,7 +15,7 @@
         (),
         frame: "circle",
         padding: 7pt,
-        place(center + horizon, node.content),
+        place(center + horizon, repr(idx(node.name))),
       )
     }
   )
