@@ -416,3 +416,23 @@ while a1f < a2f and a2f < l+1:
 ```
 
 == Heap Sort
+
+=== Heap
+
+Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eigenschaft erfüllt:
+
+#grid(
+  columns: 2,
+  column-gutter: 8pt,
+  row-gutter: 8pt,
+  "Minheap:",
+  $
+  a_i <= a_(2i+1) and
+  a_i <= a_(2i+2)
+  $,
+  "Maxheap:",
+  $
+  a_i >= underbrace(a_(2i+1), "links") and
+  a_i >= underbrace(a_(2i+2), "rechts")
+  $
+)
