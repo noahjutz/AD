@@ -1,4 +1,4 @@
-#import "components.typ": single_num_row, arrowed, braced_b
+#import "../components.typ": single_num_row, arrowed, braced_b
 
 #let nums = (12, 23, 34, 34, 45, 7, 17, 18, 38, 43)
 #let n = nums.len()

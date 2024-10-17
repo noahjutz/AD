@@ -1,4 +1,4 @@
-#import "components.typ": num_row, arrowed
+#import "../components.typ": num_row, arrowed
 
 #let nums = (12, 23, 34, 34, 45, 7, 17, 18, 38, 43)
 #let n = nums.len()

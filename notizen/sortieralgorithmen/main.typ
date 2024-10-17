@@ -366,19 +366,19 @@ Genauso wie Quicksort spaltet Merge Sort die Eingabe in jedem Rekursionsschritt 
 
 Die Merge-Prozedur nimmt als Eingabe zwei sortierte Listen `a1[f:m]` und `a2[m:l+1]`.
 
-#include "mergesort_merge_input.typ"
+#include "mergesort/merge_input.typ"
 
 Die beiden Listen werden gemischt, um eine sortierte Liste `anew[f:l+1]` zu produzieren.
 
-#include "mergesort_merge_output.typ"
+#include "mergesort/merge_output.typ"
 
 Um in Linearzeit zu mischen, nutzt quicksort, dass das Minimum zwei sortierter Listen `a1` und `a2` entweder `a1[0]` oder `a2[0]` sein muss.
 
-#include "mergesort_merge_algorithm_0.typ"
+#include "mergesort/merge_algorithm_0.typ"
 
 Streichen wir den kleineren Wert, so bleiben zwei sortierte Listen übrig, für die wiederum das gleiche gilt.
 
-#include "mergesort_merge_algorithm_1.typ"
+#include "mergesort/merge_algorithm_1.typ"
 
 In Code kann das folgendermaßen implementiert werden:
 
@@ -393,19 +393,19 @@ else:
 
 Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der anderen Liste angehängt.
 
-#include "mergesort_merge_algorithm_2.typ"
+#include "mergesort/merge_algorithm_2.typ"
 
 === Rekursion
 
 Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Element hat (base case). Die zwei Teile werden dann gemischt.
 
-#include "mergesort_recursion.typ"
+#include "mergesort/recursion.typ"
 
 === In Place
 
 Um die Merge-Funktion ohne die hilfsliste `anew` zu implementieren, kann man Einträge der Liste nach vorne verschieben.
 
-#include "mergesort_merge_inplace.typ"
+#include "mergesort/merge_inplace.typ"
 
 ```python
 while a1f < a2f and a2f < l+1:
