@@ -267,7 +267,7 @@ Die Partitionsfunktion sortiert das Pivotelement ein. Die Sublisten links und re
 
 Die Partitionsfunktion vertauscht die Liste so, dass alle kleineren Elemente vor dem Pivot und alle größeren hinter ihm stehen.
 
-#include "quicksort_partition.typ"
+#include "quicksort/partition.typ"
 
 Um von (a) auf (b) zu kommen, jede Zahl in `a[f+1:]` nach vorne vertauscht, falls sie kleiner als das Pivot ist.
 
@@ -298,7 +298,7 @@ def quicksort(a, f, l):
   quicksort(a, m+1, l)
 ```
 
-#include "quicksort_recursion.typ"
+#include "quicksort/recursion_tree.typ"
 
 === Laufzeit
 
@@ -308,7 +308,7 @@ Die Partition läuft die Eingabe einmal durch, hat also eine lineare Laufzeit $T
 
 Wenn die Eingabe aufsteigend oder absteigend sortiert ist, wird das Problem in jedem Rekursionsschritt um nur 1 kleiner.
 
-#import "quicksort.typ": quicksort
+#import "quicksort/quicksort.typ": quicksort
 #quicksort(1, 2, 3, 4)
 
 Ist sie aufsteigend sortiert, so wird nur der zweite rekursive Aufruf mit einer Eingabelänge von $n-1$ aufgerufen.
