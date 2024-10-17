@@ -1,7 +1,7 @@
 #import "@preview/cetz:0.2.2"
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
+#let nums = (34, 45, 12, 34)
 #let n = nums.len()
 
 #show table.cell: box.with(width: 18pt)
@@ -10,6 +10,7 @@
   nums,
   is_complete: false
 ) = table(
+  columns: nums.len(),
   align: center,
   inset: (x: 0pt, y: 4pt),
   fill: if is_complete {theme.success_light},
@@ -52,10 +53,11 @@
   let (m, l, r) = split(nums)
 
   stack(
-    dir: ltr,
+    dir: ttb,
     spacing: 4pt,
     row(m),
     stack(
+      dir: ltr,
       spacing: 8pt,
       fig(l),
       fig(r),
@@ -68,9 +70,6 @@
   center,
   block(
     breakable: false,
-    align(
-      horizon,
-      fig(nums)
-    )
+    fig(nums)
   )
 )
