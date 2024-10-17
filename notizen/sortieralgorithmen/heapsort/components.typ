@@ -74,6 +74,7 @@
   hl_secondary: (),
   hl_tertiary: (),
   hl_success: (),
+  ..sink
 ) = {
   let index = name_to_index(node.name)
   hl_primary = (hl_primary,).flatten()

@@ -11,7 +11,7 @@
 
   tree(
     bintree(nums.map(n => str(n))),
-    draw-node: (node, ..) => draw_node(node, hl_primary: 0),
+    draw-node: draw_node.with(hl_primary: 0),
     spread: 1.5,
     name: "tree",
   )
