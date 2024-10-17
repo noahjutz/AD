@@ -418,7 +418,7 @@ while a1f < a2f and a2f < l+1:
 
 == Heap Sort
 
-=== Linksvoll
+=== Linksvoller Baum
 
 Ein Baum ist linksvoll, wenn alle Schichten bis auf die letzte voll besetzt sind, und die letzte von links nach rechts besetzt ist.
 
