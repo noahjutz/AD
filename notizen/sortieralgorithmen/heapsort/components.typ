@@ -1,3 +1,5 @@
+#import "/config.typ": theme
+
 #let bintree(nodes, i: 0) = {
   let node = (nodes.at(i),)
   if nodes.len() > 2 * i + 1 {
@@ -63,5 +65,30 @@
   fun(
     (rel: (-14pt, 14pt), to: (bl, "|-", top)),
     (rel: (14pt, -14pt), to: br)
+  )
+}
+
+#let draw_node(
+  node,
+  hl_primary: (),
+  hl_secondary: (),
+  hl_tertiary: (),
+  hl_success: (),
+) = {
+  let index = name_to_index(node.name)
+  hl_primary = (hl_primary,).flatten()
+  hl_secondary = (hl_secondary,).flatten()
+  hl_tertiary = (hl_tertiary,).flatten()
+  hl_success = (hl_success,).flatten()
+  content(
+    (),
+    frame: "circle",
+    fill: if index in hl_primary {theme.primary_light}
+      else if index in hl_secondary {theme.secondary_light}
+      else if index in hl_tertiary {theme.tertiary_light}
+      else if index in hl_success {theme.success_light}
+      else {white},
+    padding: 7pt,
+    place(center + horizon, node.content),
   )
 }

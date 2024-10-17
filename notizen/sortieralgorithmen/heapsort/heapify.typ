@@ -1,4 +1,4 @@
-#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, arrow, box_around
+#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, arrow, box_around, draw_node
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -11,16 +11,7 @@
 
   tree(
     bintree(nums.map(n => str(n))),
-    draw-node: (node, ..) => {
-      let index = n2i(node.name)
-      content(
-        (),
-        frame: "circle",
-        fill: if index == 0 {theme.primary_light} else {white},
-        padding: 7pt,
-        place(center + horizon, node.content),
-      )
-    },
+    draw-node: (node, ..) => draw_node(node, hl_primary: 0),
     spread: 1.5,
     name: "tree",
   )
