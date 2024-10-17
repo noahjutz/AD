@@ -38,7 +38,7 @@ $
 
 == Insertion Sort <ex-insertion-sort>
 
-#import "/notizen/sortieralgorithmen/insertion_sort.typ": insertion_sort
+#import "/notizen/sortieralgorithmen/insertion_sort/insertion_sort.typ": insertion_sort
 #insertion_sort(34, 45, 12, 34, 23, 18, 38, 17, 43, 51)
 
 == Bubble Sort <ex-bubble-sort>

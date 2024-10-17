@@ -1,4 +1,4 @@
-#import "components.typ": single_num_row, braced, arrowed
+#import "../components.typ": single_num_row, braced, arrowed
 #import "/config.typ": theme
 
 #let nums = (12, 34, 34, 45, 45, 18, 38, 17, 43, 51)

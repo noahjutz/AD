@@ -35,7 +35,7 @@ Das "nach vorne schieben" erfolgt in drei Schritten:
 
 Im folgenden Beispiel ist Insertion Sort für die Eingabeliste $(3, 2, 1)$ illustriert. Der Zähler (rot markiert) startet bei $i=1$ und endet bei $i=n-1=2$.
 
-#import "insertion_sort.typ": insertion_sort
+#import "insertion_sort/insertion_sort.typ": insertion_sort
 #insertion_sort(3, 2, 1)
 
 Längeres Beispiel: @ex-insertion-sort
@@ -88,13 +88,13 @@ else:
 
 Dieser Code vertauscht `a[0]` und `a[1]`, wenn `a[0]` größer ist. Das heißt, dass `a[0:2]` sortiert sind. #sym.checkmark
 
-#include "insertion_sort_induction_0.typ"
+#include "insertion_sort/induction_0.typ"
 
 ==== Induktionsschritt (j - 1 #sym.arrow j)
 
 Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist.
 
-#include "insertion_sort_induction_1.typ"
+#include "insertion_sort/induction_1.typ"
 
 Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:j+1]` sortiert ist, ist der Induktionsschritt erfüllt.
 
@@ -114,7 +114,7 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   Weil wir annehmen, dass `a[:j]` sortiert ist, ist `a[j-1]` der größte Wert in `a[:j]`. Nach der Ausführung des obigen Codes ist `a[j]` der größte Wert aus `a[:j+1]`. Damit ist `a[j:j+1]` sortiert. `a[:j-1]` bleibt unberührt. #sym.checkmark
 
-  #include "insertion_sort_induction_2.typ"
+  #include "insertion_sort/induction_2.typ"
 
   ==== Induktionsschritt (i + 1 #sym.arrow i)
 
@@ -134,7 +134,7 @@ Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:
 
   Sonst wird `a[i]` an den Anfang der rechten sortierten Teilliste `a[i+1:j+1]` gesetzt.
 
-  #include "insertion_sort_induction_3.typ"
+  #include "insertion_sort/induction_3.typ"
 
   Dort gehört dieser Wert auch hin, weil er durch die äußere IV (`a[:j]` ist sortiert) der größte noch nicht einsortierte Wert ist.
 
