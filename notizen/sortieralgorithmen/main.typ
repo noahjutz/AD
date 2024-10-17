@@ -436,3 +436,5 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eig
   a_i >= underbrace(a_(2i+2), "rechts")
   $
 )
+
+#include "heapsort/heap.typ"
