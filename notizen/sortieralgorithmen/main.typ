@@ -455,20 +455,14 @@ Ein Baum ist linksvoll, wenn alle Schichten bis auf die letzte voll besetzt sind
 
 === Heap
 
-Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten $a_i$ die Heap-Eigenschaft erfüllt:
+Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten die Heap-Eigenschaft erfüllt:
 
 #grid(
   columns: 2,
   column-gutter: 8pt,
   row-gutter: 8pt,
   "Minheap:",
-  $
-  a_i <= a_(2i+1) and
-  a_i <= a_(2i+2)
-  $,
+  [Vorgänger $<=$ Nachfolger],
   "Maxheap:",
-  $
-  a_i >= underbrace(a_(2i+1), "links") and
-  a_i >= underbrace(a_(2i+2), "rechts")
-  $
+  [Vorgänger $>=$ Nachfolger],
 )
