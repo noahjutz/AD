@@ -67,6 +67,7 @@
     (rel: (14pt, -14pt), to: br)
   )
 }
+
 #let note(at, body) = {
   let to = "tree." + index_to_name(at)
   let from = (rel: (0, -32pt), to: to)
@@ -87,11 +88,11 @@
 
   content(
     "line.start",
-    box(
-      fill: white,
-      inset: 2pt,
-      "hi"
-    )
+    frame: "rect",
+    padding: 2pt,
+    fill: white,
+    stroke: none,
+    body
   )
 }
 

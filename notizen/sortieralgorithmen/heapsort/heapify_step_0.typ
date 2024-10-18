@@ -12,5 +12,5 @@
     name: "tree"
   )
 
-  note(0)[hi]
+  note(0)[hello]
 })
