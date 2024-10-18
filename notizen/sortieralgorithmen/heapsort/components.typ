@@ -74,7 +74,7 @@
   ang = eval(str(ang) + "deg")
 
   let to = "tree." + index_to_name(at)
-  let from = (rel: (0, 32pt), to: to)
+  let from = (rel: (0, 28pt), to: to)
 
   rotate(ang, origin: to)
   intersections("i", {
@@ -82,11 +82,9 @@
     hide(line(from, to))
   })
 
-  to = "i.0"
-  let ctrl = (rel: (-8pt, 0), to: (from, 50%, to))
 
-  bezier(
-    from, to, ctrl,
+  line(
+    from, "i.0",
     name: "line",
     mark: (end: ">")
   )
@@ -95,14 +93,15 @@
     "line.start",
     frame: "rect",
     padding: 2pt,
-    fill: white,
     stroke: none,
-    anchor: if 45deg < ang and ang < 135deg {"west"}
-      else if 135deg < ang and ang < 225deg {"north"}
-      else if 225deg < ang and ang < 315deg {"east"}
+    anchor: if 45deg < ang and ang <= 135deg {"east"}
+      else if 135deg < ang and ang <= 225deg {"north"}
+      else if 225deg < ang and ang <= 315deg {"west"}
       else {"south"},
     body
   )
+
+  rotate(-ang, origin: to)
 }
 
 #let draw_node(

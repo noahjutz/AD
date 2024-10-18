@@ -12,5 +12,6 @@
     name: "tree"
   )
 
-  note(0, ang: 0deg)[hello]
+  note(0, ang: 45deg)[key]
+  note(1, ang: 225deg)[max]
 })
