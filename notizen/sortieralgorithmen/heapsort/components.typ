@@ -131,17 +131,17 @@
 
   points.insert(0, lowest)
 
-  // Construct a
-  let a = points.slice(0, 3)
+  // Construct stack
+  let stack = points.slice(0, 3)
   for (i, point) in points.enumerate().slice(2) {
-    let prod = cross(a.at(-2), a.at(-1), point)
-    while a.len() >= 2 and prod <= 0 {
-      let _ = a.pop()
+    let prod = cross(stack.at(-2), stack.at(-1), point)
+    while stack.len() >= 2 and prod <= 0 {
+      let _ = stack.pop()
     }
-    a.push(point)
+    stack.push(point)
   }
 
-  fun(..a)
+  fun(..stack)
 })
 
 #let note(ang: 0deg, at, body) = {
