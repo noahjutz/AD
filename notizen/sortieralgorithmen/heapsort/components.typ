@@ -26,7 +26,7 @@
 
 #let index_to_name(index) = {
   if index == 0 {
-    return "0"
+    return "tree.0"
   }
   let turns = ()
   while index > 0 {
@@ -40,15 +40,15 @@
     index = calc.div-euclid(index - 1, 2)
   }
   turns = turns.rev()
-  return "0-" + turns.join("-")
+  return "tree.0-" + turns.join("-")
 }
 
 #import "@preview/cetz:0.3.0": draw
 #import draw: *
 
 #let connect(from, to, fun) = {
-  from = "tree." + index_to_name(from)
-  to = "tree." + index_to_name(to)
+  from = index_to_name(from)
+  to = index_to_name(to)
   intersections("i", {
     hide(circle(from, radius: 10pt))
     hide(circle(to, radius: 10pt))
@@ -58,13 +58,12 @@
 }
 
 #let bent_line(from, to, bend, ..args) = {
-  
 }
 
 #let box_around(top, bl, br, fun) = {
-  top = "tree." + index_to_name(top)
-  bl = "tree." + index_to_name(bl)
-  br = "tree." + index_to_name(br)
+  top = index_to_name(top)
+  bl = index_to_name(bl)
+  br = index_to_name(br)
 
   fun(
     (rel: (-14pt, 14pt), to: (bl, "|-", top)),
@@ -77,7 +76,7 @@
   if ang < 0 {ang += 360}
   ang = eval(str(ang) + "deg")
 
-  let to = "tree." + index_to_name(at)
+  let to = index_to_name(at)
   let from = (rel: (0, 28pt), to: to)
 
   rotate(ang, origin: to)
