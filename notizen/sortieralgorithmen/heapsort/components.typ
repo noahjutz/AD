@@ -108,18 +108,27 @@
 })
 
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
+  // Get absolute position of nodes
   let points = nodes.pos().map(n => {
     let name = index_to_name(n)
     let (_, (x, y, z)) = resolve(ctx, name)
     (x, y)
   })
   
-  let lowest = points.sorted(key: ((x, y)) => {y}).first()
-  let points = points.sorted(key: point => {
-    cetz.vector.angle2(lowest, point)
-  })
+  // Get initial point for Graham Scan
+  points = points.sorted(key: ((x, y)) => {y})
+  let lowest = points.remove(0)
 
+  // Sort by polar angle, farthest first
+  points = points.sorted(key: point => (
+    cetz.vector.angle2(lowest, point),
+    -cetz.vector.dist(lowest, point)
+  ))
+
+  // Construct stack
+  let stack = (0,)
   for (i, point) in points.enumerate() {
+    i += 1
     on-layer(10, {
     content(point, fill: white, padding: 4pt, frame: "rect")[#i]
     })
