@@ -125,7 +125,7 @@
   })
   
   // Get initial point for Graham Scan
-  points = points.sorted(key: ((x, y)) => {y})
+  points = points.sorted(key: ((x, y)) => {(y, x)})
   let lowest = points.remove(0)
 
   // Sort by polar angle, farthest first
