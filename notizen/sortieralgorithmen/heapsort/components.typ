@@ -77,16 +77,26 @@
   rotate(-90deg, origin: mid)
 })
 
-#let box_around(top, bl, br, fun) = {
-  top = index_to_name(top)
-  bl = index_to_name(bl)
-  br = index_to_name(br)
+#let box_around(..nodes, fun) = get-ctx(ctx => {
+  let min_x = calc.inf
+  let max_x = -calc.inf
+  let min_y = calc.inf
+  let max_y = -calc.inf
+
+  for node in nodes.pos() {
+    let name = index_to_name(node)
+    let (_, (x, y, z)) = cetz.coordinate.resolve(ctx, name)
+    min_x = calc.min(min_x, x)
+    max_x = calc.max(min_x, x)
+    min_y = calc.min(min_y, y)
+    max_y = calc.max(max_y, y)
+  }
 
   fun(
-    (rel: (-14pt, 14pt), to: (bl, "|-", top)),
-    (rel: (14pt, -14pt), to: br)
+    (min_x, min_y),
+    (max_x, max_y)
   )
-}
+})
 
 #let note(ang: 0deg, at, body) = {
   ang = calc.rem(ang.deg(), 360)
