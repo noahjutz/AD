@@ -45,6 +45,7 @@
 
 #import "@preview/cetz:0.2.2"
 #import cetz.draw: *
+#import cetz.coordinate: resolve
 
 #let connect(from, to, fun) = {
   from = index_to_name(from)
@@ -58,7 +59,7 @@
 }
 
 #let bent_line(from, to, bend: 0, ..args) = get-ctx(ctx => {
-  let (ctx, from_abs, to_abs) = cetz.coordinate.resolve(
+  let (ctx, from_abs, to_abs) = resolve(
     ctx,
     from,
     to
@@ -85,14 +86,14 @@
 
   for node in nodes.pos() {
     let name = index_to_name(node)
-    let (_, (x, y, z)) = cetz.coordinate.resolve(ctx, name)
+    let (_, (x, y, z)) = resolve(ctx, name)
     min_x = calc.min(min_x, x)
     max_x = calc.max(min_x, x)
     min_y = calc.min(min_y, y)
     max_y = calc.max(max_y, y)
   }
 
-  let (_, a, b) = cetz.coordinate.resolve(ctx, (0, 0), (0, pad))
+  let (_, a, b) = resolve(ctx, (0, 0), (0, pad))
   let dist = cetz.vector.dist(a, b)
 
   min_x -= dist
@@ -104,6 +105,13 @@
     (min_x, min_y),
     (max_x, max_y)
   )
+})
+
+#let polygon_around(..nodes, fun) = get-ctx(ctx => {
+  let lowest = (none, calc.inf)
+  for node in nodes.pos() {
+    let (_, (x, y, z)) = resolve(ctx, node)
+  }
 })
 
 #let note(ang: 0deg, at, body) = {
