@@ -132,10 +132,11 @@
   points.insert(0, lowest)
 
   // Construct stack
-  let stack = points.slice(0, 3)
-  for (i, point) in points.enumerate().slice(2) {
-    let prod = cross(stack.at(-2), stack.at(-1), point)
-    while stack.len() >= 2 and prod <= 0 {
+  let stack = points.slice(0, 2)
+  for (i, point) in points.enumerate().slice(3) {
+    let v-1 = vec.as-vec(vec.add(points.at(-1), point))
+    let v-2 = vec.as-vec(vec.add(points.at(-2), points.at(-1)))
+    while stack.len() >= 2 and vec.len(vec.cross(v-1, v-2)) < 0 {
       let _ = stack.pop()
     }
     stack.push(point)
