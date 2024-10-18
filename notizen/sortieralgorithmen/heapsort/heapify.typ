@@ -1,4 +1,4 @@
-#import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around
+#import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around, poly_fill
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -32,31 +32,11 @@
   on-layer(-1, {
     polygon_around(
       1, 3, 4, 7, 8, 9,
-      (..points) => line(
-        ..points,
-        fill: theme.success_light,
-        stroke: (
-          paint: theme.success_light,
-          thickness: 32pt,
-          join: "round"
-        ),
-        close: true
-      )
+      poly_fill.with(fill: theme.success_light)
     )
     polygon_around(
       2, 5, 6,
-      (..points) => {
-        line(
-        ..points,
-        close: true,
-        stroke: (
-          paint: theme.success_light,
-          thickness: 32pt,
-          join: "round"
-        ),
-        fill: theme.success_light,
-        name: "heap_r"
-      )}
+      poly_fill.with(fill: theme.success_light)
     )
   })
 

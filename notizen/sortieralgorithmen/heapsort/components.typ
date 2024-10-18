@@ -108,6 +108,19 @@
   )
 })
 
+#let poly_fill(..points, fill: none) = {
+  line(
+    ..points,
+    close: true,
+    stroke: (
+      paint: fill,
+      thickness: 32pt,
+      join: "round"
+    ),
+    fill: fill,
+  )
+}
+
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
   let is_right_turn(p1, p2, p3) = {
     return vec.len(
