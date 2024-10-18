@@ -12,5 +12,5 @@
     name: "tree"
   )
 
-  note(0)[hello]
+  note(0, angle: 180deg)[hello]
 })

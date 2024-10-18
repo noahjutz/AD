@@ -93,7 +93,7 @@
     fill: white,
     stroke: none,
     anchor: if 45deg < angle and angle < 135deg {"west"}
-      else if 135deg < angle and angle < 225deg {"north"}
+      else if 135deg < angle and angle < 225deg {"south"}
       else if 225deg < angle and angle < 315deg {"east"}
       else {"north"},
     body
