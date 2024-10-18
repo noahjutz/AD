@@ -68,10 +68,10 @@
   )
 }
 
-#let note(at, body) = {
+#let note(angle: 0deg, at, body) = {
   let to = "tree." + index_to_name(at)
   let from = (rel: (0, -32pt), to: to)
-  rotate(0deg)
+  rotate(angle)
   intersections("i", {
     hide(circle(to, radius: 10pt))
     hide(line(from, to))
@@ -81,7 +81,7 @@
   let ctrl = (rel: (-8pt, 0), to: (from, 50%, to))
 
   bezier(
-    from, "i.0", ctrl,
+    from, to, ctrl,
     name: "line",
     mark: (end: ">")
   )
@@ -92,6 +92,10 @@
     padding: 2pt,
     fill: white,
     stroke: none,
+    anchor: if 45deg < angle and angle < 135deg {"west"}
+      else if 135deg < angle and angle < 225deg {"north"}
+      else if 225deg < angle and angle < 315deg {"east"}
+      else {"north"},
     body
   )
 }
