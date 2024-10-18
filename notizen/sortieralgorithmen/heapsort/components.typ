@@ -108,10 +108,24 @@
 })
 
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
-  let lowest = (none, calc.inf)
-  for node in nodes.pos() {
-    let (_, (x, y, z)) = resolve(ctx, node)
+  let points = nodes.pos().map(n => {
+    let name = index_to_name(n)
+    let (_, (x, y, z)) = resolve(ctx, name)
+    (x, y)
+  })
+  
+  let lowest = points.sorted(key: ((x, y)) => {y}).first()
+  let points = points.sorted(key: point => {
+    cetz.vector.angle2(lowest, point)
+  })
+
+  for (i, point) in points.enumerate() {
+    on-layer(10, {
+    content(point, fill: white, padding: 4pt, frame: "rect")[#i]
+    })
   }
+
+  fun((0, 0), (10pt, 10pt))
 })
 
 #let note(ang: 0deg, at, body) = {

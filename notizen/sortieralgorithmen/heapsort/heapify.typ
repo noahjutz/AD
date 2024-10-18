@@ -1,4 +1,4 @@
-#import "components.typ": bintree, connect, box_around, draw_node, bent_line
+#import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -30,8 +30,8 @@
   )
 
   on-layer(-1, {
-    box_around(
-      2, 7, 9,
+    polygon_around(
+      1, 3, 4, 7, 8, 9,
       (tl, br) => rect(
         tl, br,
         radius: 4pt,
