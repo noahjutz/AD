@@ -1,4 +1,4 @@
-#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, arrow, box_around, draw_node
+#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, connect, box_around, draw_node
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -16,22 +16,9 @@
     name: "tree",
   )
 
-  arrow(0, 3, (from, to) => {
+  connect(0, 3, (from, to) => {
     bezier(from, to, (1pt, 1pt), mark: (symbol: ">"))
   })
-
-  cetz.decorations.flat-brace(
-    (rel: (12pt, -16pt), to: "tree." + i2n(9)),
-    (rel: (-12pt, -16pt), to: "tree." + i2n(7)),
-    name: "left"
-  )
-  content("left.content")[Heap]
-  cetz.decorations.flat-brace(
-    (rel: (12pt, -16pt), to: "tree." + i2n(6)),
-    (rel: (-12pt, -16pt), to: "tree." + i2n(5)),
-    name: "right"
-  )
-  content("right.content")[Heap]
 
   on-layer(-1, {
     box_around(
@@ -40,7 +27,8 @@
         tl, br,
         radius: 4pt,
         fill: theme.success_trans,
-        stroke: none
+        stroke: none,
+        name: "heap_l"
       )
     )
     box_around(
@@ -49,8 +37,23 @@
         tl, br,
         radius: 4pt,
         fill: theme.success_trans,
-        stroke: none
+        stroke: none,
+        name: "heap_r"
       )
     )
   })
+
+  let d(a) = (rel: (0, -4pt), to: a)
+  cetz.decorations.flat-brace(
+    d("heap_l.south-east"),
+    d("heap_l.south-west"),
+    name: "left"
+  )
+  content("left.content")[Heap]
+  cetz.decorations.flat-brace(
+    d("heap_r.south-east"),
+    d("heap_r.south-west"),
+    name: "right"
+  )
+  content("right.content")[Heap]
 })

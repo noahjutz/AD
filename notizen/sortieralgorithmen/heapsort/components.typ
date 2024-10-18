@@ -46,7 +46,7 @@
 #import "@preview/cetz:0.3.0": draw
 #import draw: *
 
-#let arrow(from, to, fun) = {
+#let connect(from, to, fun) = {
   from = "tree." + index_to_name(from)
   to = "tree." + index_to_name(to)
   intersections("i", {
