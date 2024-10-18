@@ -68,10 +68,15 @@
   )
 }
 
-#let note(angle: 0deg, at, body) = {
+#let note(ang: 0deg, at, body) = {
+  ang = calc.rem(ang.deg(), 360)
+  if ang < 0 {ang += 360}
+  ang = eval(str(ang) + "deg")
+
   let to = "tree." + index_to_name(at)
-  let from = (rel: (0, -32pt), to: to)
-  rotate(angle)
+  let from = (rel: (0, 32pt), to: to)
+
+  rotate(ang, origin: to)
   intersections("i", {
     hide(circle(to, radius: 10pt))
     hide(line(from, to))
@@ -92,10 +97,10 @@
     padding: 2pt,
     fill: white,
     stroke: none,
-    anchor: if 45deg < angle and angle < 135deg {"west"}
-      else if 135deg < angle and angle < 225deg {"south"}
-      else if 225deg < angle and angle < 315deg {"east"}
-      else {"north"},
+    anchor: if 45deg < ang and ang < 135deg {"west"}
+      else if 135deg < ang and ang < 225deg {"north"}
+      else if 225deg < ang and ang < 315deg {"east"}
+      else {"south"},
     body
   )
 }
