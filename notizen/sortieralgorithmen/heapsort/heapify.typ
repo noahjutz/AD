@@ -60,17 +60,33 @@
     )
   })
 
+  hide(
+    box_around(
+      1, 3, 4, 7, 8, 9,
+      (tl, br) => {
+        rect(tl, br, name: "heap_l")
+      }
+    )
+  )
+  hide(
+    box_around(
+      2, 5, 6,
+      (tl, br) => {
+        rect(tl, br, name: "heap_r")
+      }
+    )
+  )
   let d(a) = (rel: (0, -4pt), to: a)
-  // cetz.decorations.flat-brace(
-  //   d("heap_l.south-east"),
-  //   d("heap_l.south-west"),
-  //   name: "left"
-  // )
-  // content("left.content")[Heap]
-  // cetz.decorations.flat-brace(
-  //   d("heap_r.south-east"),
-  //   d("heap_r.south-west"),
-  //   name: "right"
-  // )
-  // content("right.content")[Heap]
+  cetz.decorations.flat-brace(
+    d("heap_l.south-east"),
+    d("heap_l.south-west"),
+    name: "left"
+  )
+  content("left.content")[Heap]
+  cetz.decorations.flat-brace(
+    d("heap_r.south-east"),
+    d("heap_r.south-west"),
+    name: "right"
+  )
+  content("right.content")[Heap]
 })
