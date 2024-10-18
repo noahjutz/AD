@@ -43,8 +43,8 @@
   return "tree.0-" + turns.join("-")
 }
 
-#import "@preview/cetz:0.3.0": draw
-#import draw: *
+#import "@preview/cetz:0.2.2"
+#import cetz.draw: *
 
 #let connect(from, to, fun) = {
   from = index_to_name(from)
@@ -57,8 +57,24 @@
   fun("i.0", "i.1")
 }
 
-#let bent_line(from, to, bend, ..args) = {
-}
+#let bent_line(from, to, bend: 0, ..args) = get-ctx(ctx => {
+  let (ctx, from_abs, to_abs) = cetz.coordinate.resolve(
+    ctx,
+    from,
+    to
+  )
+  let length = cetz.vector.dist(to_abs, from_abs)
+  let mid = (from, 50%, to)
+
+  rotate(90deg, origin: mid)
+  hide(line(from_abs, to_abs, name: "perp"))
+  bezier-through(
+    from,
+    ("perp.start", (bend+1)/2 * 100%, "perp.end"),
+    to,
+    ..args
+  )
+})
 
 #let box_around(top, bl, br, fun) = {
   top = index_to_name(top)
