@@ -39,13 +39,13 @@
         close: true
       )
     )
-    box_around(
+    polygon_around(
       2, 5, 6,
-      (tl, br) => rect(
-        tl, br,
-        radius: 4pt,
-        fill: theme.success_trans,
-        stroke: none,
+      (..points) => line(
+        ..points,
+        close: true,
+        fill: red,
+        stroke: red,
         name: "heap_r"
       )
     )
@@ -58,10 +58,10 @@
   //   name: "left"
   // )
   // content("left.content")[Heap]
-  cetz.decorations.flat-brace(
-    d("heap_r.south-east"),
-    d("heap_r.south-west"),
-    name: "right"
-  )
-  content("right.content")[Heap]
+  // cetz.decorations.flat-brace(
+  //   d("heap_r.south-east"),
+  //   d("heap_r.south-west"),
+  //   name: "right"
+  // )
+  // content("right.content")[Heap]
 })

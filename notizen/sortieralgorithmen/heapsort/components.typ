@@ -109,8 +109,13 @@
 })
 
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
-  let cross(o, a, b) = {
-    return (a.at(0) - o.at(0)) * (b.at(1) - o.at(1)) - (a.at(1) - o.at(1)) * (b.at(0) - o.at(0))
+  let is_left_turn(p1, p2, p3) = {
+    return vec.len(
+      vec.cross(
+        vec.as-vec(vec.sub(p2, p1)),
+        vec.as-vec(vec.sub(p3, p2))
+      )
+    ) <= 0
   }
   // Get absolute position of nodes
   let points = nodes.pos().map(n => {
@@ -132,12 +137,10 @@
   points.insert(0, lowest)
 
   // Construct stack
-  let stack = points.slice(0, 2)
+  let stack = points.slice(0, 3)
   for (i, point) in points.enumerate().slice(3) {
-    let v-1 = vec.as-vec(vec.add(points.at(-1), point))
-    let v-2 = vec.as-vec(vec.add(points.at(-2), points.at(-1)))
-    while stack.len() >= 2 and vec.len(vec.cross(v-1, v-2)) < 0 {
-      let _ = stack.pop()
+    while stack.len() >= 2 and is_left_turn(point, stack.at(-1), stack.at(-2)) {
+      point = stack.pop()
     }
     stack.push(point)
   }
