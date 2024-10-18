@@ -34,20 +34,21 @@
       1, 3, 4, 7, 8, 9,
       (..points) => line(
         ..points,
-        stroke: red,
-        fill: red,
+        fill: theme.success_light,
+        stroke: none,
         close: true
       )
     )
     polygon_around(
       2, 5, 6,
-      (..points) => line(
+      (..points) => {
+        line(
         ..points,
         close: true,
-        fill: red,
-        stroke: red,
+        fill: theme.success_light,
+        stroke: none,
         name: "heap_r"
-      )
+      )}
     )
   })
 
