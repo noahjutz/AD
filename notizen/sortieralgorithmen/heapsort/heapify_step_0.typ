@@ -8,7 +8,7 @@
 
   tree(
     bintree((34, 45, 38).map(n => str(n))),
-    draw-node: draw_node.with(hl_primary: 0, hl_secondary: 1),
+    draw-node: draw_node.with(hl_primary: 0),
     spread: 2,
     name: "tree"
   )

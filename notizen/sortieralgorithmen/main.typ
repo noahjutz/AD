@@ -489,3 +489,4 @@ Zunächst vergleichen wir den Knoten mit seinen unmittelbaren Nachfolgern. Der m
     include "heapsort/heapify_step_1.typ"
   )
 )
+

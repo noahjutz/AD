@@ -18,7 +18,15 @@
 
   connect(
     0, 3,
-    bent_line.with(bend: -.5, mark: (symbol: ">"))
+    bent_line.with(bend: -.5, mark: (end: ">"), stroke: theme.fg_light)
+  )
+  connect(
+    1, 3,
+    bent_line.with(bend: .5, mark: (start: ">"), stroke: theme.fg_light)
+  )
+  connect(
+    0, 1,
+    bent_line.with(bend: .5, mark: (start: ">"), stroke: theme.fg_light)
   )
 
   on-layer(-1, {
