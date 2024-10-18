@@ -126,10 +126,11 @@
     -vec.dist(lowest, point)
   ))
 
+  points.insert(0, lowest)
+
   // Construct stack
-  let stack = (0,)
+  let stack = points.slice(0, 3)
   for (i, point) in points.enumerate() {
-    i += 1
     on-layer(10, {
     content(point, fill: white, padding: 4pt, frame: "rect")[#i]
     })
