@@ -57,6 +57,10 @@
   fun("i.0", "i.1")
 }
 
+#let bent_line(from, to, bend, ..args) = {
+  
+}
+
 #let box_around(top, bl, br, fun) = {
   top = "tree." + index_to_name(top)
   bl = "tree." + index_to_name(bl)

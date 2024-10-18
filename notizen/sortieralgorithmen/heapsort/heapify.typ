@@ -1,4 +1,4 @@
-#import "components.typ": bintree, name_to_index as n2i, index_to_name as i2n, connect, box_around, draw_node
+#import "components.typ": bintree, connect, box_around, draw_node
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
