@@ -77,7 +77,7 @@
   rotate(-90deg, origin: mid)
 })
 
-#let box_around(..nodes, fun) = get-ctx(ctx => {
+#let box_around(..nodes, pad: 14pt, fun) = get-ctx(ctx => {
   let min_x = calc.inf
   let max_x = -calc.inf
   let min_y = calc.inf
@@ -91,6 +91,14 @@
     min_y = calc.min(min_y, y)
     max_y = calc.max(max_y, y)
   }
+
+  let (_, a, b) = cetz.coordinate.resolve(ctx, (0, 0), (0, pad))
+  let dist = cetz.vector.dist(a, b)
+
+  min_x -= dist
+  max_x += dist
+  min_y -= dist
+  max_y += dist
 
   fun(
     (min_x, min_y),
