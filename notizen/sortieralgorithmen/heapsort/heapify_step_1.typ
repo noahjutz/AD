@@ -13,8 +13,6 @@
     name: "tree"
   )
 
-  note(0, ang: 0deg)[key]
-  note(1, ang: 180deg)[max]
   connect(
     0, 1,
     bent_line.with(bend: -.5, mark: (symbol: ">"))

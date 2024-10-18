@@ -480,5 +480,11 @@ Zunächst vergleichen wir den Knoten mit seinen unmittelbaren Nachfolgern. Der m
 
 #align(
   center,
-  include "heapsort/heapify_step_0.typ"
+  grid(
+    columns: 2,
+    align: horizon,
+    column-gutter: 8pt,
+    include "heapsort/heapify_step_0.typ",
+    include "heapsort/heapify_step_1.typ"
+  )
 )
