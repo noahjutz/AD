@@ -35,7 +35,11 @@
       (..points) => line(
         ..points,
         fill: theme.success_light,
-        stroke: none,
+        stroke: (
+          paint: theme.success_light,
+          thickness: 32pt,
+          join: "round"
+        ),
         close: true
       )
     )
@@ -45,8 +49,12 @@
         line(
         ..points,
         close: true,
+        stroke: (
+          paint: theme.success_light,
+          thickness: 32pt,
+          join: "round"
+        ),
         fill: theme.success_light,
-        stroke: none,
         name: "heap_r"
       )}
     )
