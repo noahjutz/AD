@@ -478,4 +478,7 @@ Bevor wir ein beliebiges Array in einen Heap umwandeln, lösen wir ein einfacher
 
 Zunächst vergleichen wir den Knoten mit seinen unmittelbaren Nachfolgern. Der maximale Wert muss nach oben, um die Heap-Eigenschaft zu erfüllen.
 
-#include "heapsort/heapify_step_0.typ"
+#align(
+  center,
+  include "heapsort/heapify_step_0.typ"
+)

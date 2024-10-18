@@ -67,6 +67,33 @@
     (rel: (14pt, -14pt), to: br)
   )
 }
+#let note(at, body) = {
+  let to = "tree." + index_to_name(at)
+  let from = (rel: (0, -32pt), to: to)
+  rotate(0deg)
+  intersections("i", {
+    hide(circle(to, radius: 10pt))
+    hide(line(from, to))
+  })
+
+  to = "i.0"
+  let ctrl = (rel: (-8pt, 0), to: (from, 50%, to))
+
+  bezier(
+    from, "i.0", ctrl,
+    name: "line",
+    mark: (end: ">")
+  )
+
+  content(
+    "line.start",
+    box(
+      fill: white,
+      inset: 2pt,
+      "hi"
+    )
+  )
+}
 
 #let draw_node(
   node,
