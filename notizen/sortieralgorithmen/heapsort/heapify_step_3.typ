@@ -1,4 +1,4 @@
-#import "components.typ": bintree, draw_node, note, connect, bent_line
+#import "components.typ": bintree, draw_node, note, connect, bent_line, fade
 
 #import "@preview/cetz:0.2.2"
 
@@ -12,4 +12,9 @@
     spread: 2,
     name: "tree"
   )
+
+  fade(0, ang: 45deg)
+  fade(1, ang: -45deg)
+  fade(1, ang: 225deg)
+  fade(2, ang: -90deg)
 })
