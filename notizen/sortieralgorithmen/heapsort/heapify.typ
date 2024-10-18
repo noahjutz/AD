@@ -32,12 +32,11 @@
   on-layer(-1, {
     polygon_around(
       1, 3, 4, 7, 8, 9,
-      (tl, br) => rect(
-        tl, br,
-        radius: 4pt,
-        fill: theme.success_trans,
-        stroke: none,
-        name: "heap_l"
+      (..points) => line(
+        ..points,
+        stroke: red,
+        fill: red,
+        close: true
       )
     )
     box_around(
@@ -53,12 +52,12 @@
   })
 
   let d(a) = (rel: (0, -4pt), to: a)
-  cetz.decorations.flat-brace(
-    d("heap_l.south-east"),
-    d("heap_l.south-west"),
-    name: "left"
-  )
-  content("left.content")[Heap]
+  // cetz.decorations.flat-brace(
+  //   d("heap_l.south-east"),
+  //   d("heap_l.south-west"),
+  //   name: "left"
+  // )
+  // content("left.content")[Heap]
   cetz.decorations.flat-brace(
     d("heap_r.south-east"),
     d("heap_r.south-west"),

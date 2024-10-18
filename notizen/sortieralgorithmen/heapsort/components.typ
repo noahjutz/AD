@@ -109,6 +109,9 @@
 })
 
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
+  let cross(o, a, b) = {
+    return (a.at(0) - o.at(0)) * (b.at(1) - o.at(1)) - (a.at(1) - o.at(1)) * (b.at(0) - o.at(0))
+  }
   // Get absolute position of nodes
   let points = nodes.pos().map(n => {
     let name = index_to_name(n)
@@ -128,15 +131,17 @@
 
   points.insert(0, lowest)
 
-  // Construct stack
-  let stack = points.slice(0, 3)
-  for (i, point) in points.enumerate() {
-    on-layer(10, {
-    content(point, fill: white, padding: 4pt, frame: "rect")[#i]
-    })
+  // Construct a
+  let a = points.slice(0, 3)
+  for (i, point) in points.enumerate().slice(2) {
+    let prod = cross(a.at(-2), a.at(-1), point)
+    while a.len() >= 2 and prod <= 0 {
+      let _ = a.pop()
+    }
+    a.push(point)
   }
 
-  fun((0, 0), (10pt, 10pt))
+  fun(..a)
 })
 
 #let note(ang: 0deg, at, body) = {
