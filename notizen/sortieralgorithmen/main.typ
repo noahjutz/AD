@@ -490,3 +490,17 @@ Zunächst vergleichen wir den Knoten mit seinen unmittelbaren Nachfolgern. Der m
   )
 )
 
+Durch den Tausch könnte die Heap-Eigenschaft jetzt im linken Teilbaum verletzt sein, also rufen wir Heapify rekursiv auf.
+
+#align(
+  center,
+  grid(
+    columns: 3,
+    align: horizon,
+    column-gutter: 8pt,
+    include "heapsort/heapify_step_2.typ",
+    sym.arrow,
+    include "heapsort/heapify_step_3.typ"
+  )
+)
+
