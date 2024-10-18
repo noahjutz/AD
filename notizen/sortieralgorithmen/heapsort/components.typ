@@ -46,6 +46,7 @@
 #import "@preview/cetz:0.2.2"
 #import cetz.draw: *
 #import cetz.coordinate: resolve
+#import cetz.vector as vec
 
 #let connect(from, to, fun) = {
   from = index_to_name(from)
@@ -64,7 +65,7 @@
     from,
     to
   )
-  let length = cetz.vector.dist(to_abs, from_abs)
+  let length = vec.dist(to_abs, from_abs)
   let mid = (from, 50%, to)
 
   rotate(90deg, origin: mid)
@@ -94,7 +95,7 @@
   }
 
   let (_, a, b) = resolve(ctx, (0, 0), (0, pad))
-  let dist = cetz.vector.dist(a, b)
+  let dist = vec.dist(a, b)
 
   min_x -= dist
   max_x += dist
@@ -121,8 +122,8 @@
 
   // Sort by polar angle, farthest first
   points = points.sorted(key: point => (
-    cetz.vector.angle2(lowest, point),
-    -cetz.vector.dist(lowest, point)
+    vec.angle2(lowest, point),
+    -vec.dist(lowest, point)
   ))
 
   // Construct stack
