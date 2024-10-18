@@ -125,6 +125,28 @@
   rotate(-ang, origin: to)
 }
 
+#let fade(at, ang: 0deg) = {
+  let to = index_to_name(at)
+  let from = (rel: (28pt, 0), to: to)
+
+  rotate(ang, origin: to)
+  intersections("i", {
+    hide(circle(to, radius: 10pt))
+    hide(line(from, to))
+  })
+
+  line(
+    from, "i.0",
+    name: "line",
+    stroke: gradient.linear(
+      black, white,
+      angle: -ang
+    ),
+  )
+
+  rotate(-ang, origin: to)
+}
+
 #let draw_node(
   node,
   hl_primary: (),
