@@ -74,6 +74,7 @@
     to,
     ..args
   )
+  rotate(-90deg, origin: mid)
 })
 
 #let box_around(top, bl, br, fun) = {

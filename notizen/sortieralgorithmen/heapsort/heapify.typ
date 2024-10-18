@@ -1,4 +1,4 @@
-#import "components.typ": bintree, connect, box_around, draw_node
+#import "components.typ": bintree, connect, box_around, draw_node, bent_line
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.2.2"
@@ -16,9 +16,10 @@
     name: "tree",
   )
 
-  connect(0, 3, (from, to) => {
-    bezier(from, to, (1pt, 1pt), mark: (symbol: ">"))
-  })
+  connect(
+    0, 3,
+    bent_line.with(bend: -.5, mark: (symbol: ">"))
+  )
 
   on-layer(-1, {
     box_around(
