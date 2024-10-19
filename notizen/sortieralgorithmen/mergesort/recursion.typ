@@ -1,18 +1,12 @@
 #import "@preview/cetz:0.2.2"
 #import "/config.typ": theme
 
-#let nums = (34, 45, 12, 34)
-#let n = nums.len()
-
-#show table.cell: box.with(width: 18pt)
-
 #let row(
   nums,
   is_complete: false
 ) = table(
   columns: nums.len(),
-  align: center,
-  inset: (x: 0pt, y: 4pt),
+  align: center + horizon,
   fill: if is_complete {theme.success_light},
   ..nums.map(n => str(n))
 )
@@ -28,11 +22,6 @@
   return (nums, a1, a2)
 }
 
-#let merge(a1, a2) = {
-
-}
-
-
 #let deepmap(tuple) = {
   let l = ()
   for x in tuple {
@@ -46,30 +35,22 @@
   return l
 }
 
-#let fig(nums) = {
+#let mergesort_recursion(nums) = {
   if nums.len() == 1 {
     return row(nums)
   }
-  let (m, l, r) = split(nums)
+  let (all, l, r) = split(nums)
 
   stack(
     dir: ttb,
     spacing: 4pt,
-    row(m),
+    row(all),
     stack(
       dir: ltr,
       spacing: 8pt,
-      fig(l),
-      fig(r),
+      mergesort_recursion(l),
+      mergesort_recursion(r),
     ),
-    row(m.sorted(), is_complete: true)
+    row(all.sorted(), is_complete: true)
   )
 }
-
-#align(
-  center,
-  block(
-    breakable: false,
-    fig(nums)
-  )
-)

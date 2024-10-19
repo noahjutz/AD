@@ -1,3 +1,5 @@
 = Heaps
 
-== MergeSort und QuickSort
+== Mergesort und Quicksort
+
+=== Mergesort

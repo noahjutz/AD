@@ -400,7 +400,11 @@ Sobald die eine der beiden Listen durchgearbeitet wurde, wird der Rest der ander
 
 Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Element hat (base case). Die zwei Teile werden dann gemischt.
 
-#include "mergesort/recursion.typ"
+#import "mergesort/recursion.typ": mergesort_recursion
+#align(
+  center,
+  mergesort_recursion((34, 45, 12, 34))
+)
 
 === In Place
 
