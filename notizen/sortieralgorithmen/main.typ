@@ -549,5 +549,5 @@ Zuerst bauen wir einen Heap in $O(n)$ Zeit auf. Dann vertauschen wir `a[0]` und 
 build_heap(a)
 for i in range(n-1, 1, -1):
   a[0], a[n-1] = a[n-1], a[0]
-  heapify(a[:n-1], root=i)
+  heapify(n=n-1, root=i)
 ```
