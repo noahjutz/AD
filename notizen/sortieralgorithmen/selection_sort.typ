@@ -1,4 +1,4 @@
-#import "components.typ": num_row
+#import "/components/num_row.typ": num_row
 
 #let row_swap(nums, i, j) = num_row(
   nums,

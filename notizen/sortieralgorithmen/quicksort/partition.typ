@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "../components.typ": num_row, arrowed, arrowed_b, braced_b
+#import "/components/num_row.typ": num_row, arrowed, arrowed_b, braced_b
 #import "/config.typ": theme
 
 #let partition_loop(nums) = {

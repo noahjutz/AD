@@ -1,4 +1,4 @@
-#import "../components.typ": single_num_row, braced_b
+#import "/components/num_row.typ": single_num_row, braced_b
 
 #let a1 = (12, 23, 34, 34, 45)
 #let a2 = (7, 17, 18, 38, 43)

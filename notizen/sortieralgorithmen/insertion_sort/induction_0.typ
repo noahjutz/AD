@@ -1,4 +1,4 @@
-#import "../components.typ": single_num_row, arrowed, braced
+#import "/components/num_row.typ": single_num_row, arrowed, braced
 
 #let nums = (4, 5, 3, 2, 1)
 
