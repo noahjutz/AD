@@ -25,5 +25,7 @@
     )
   })
 
-  note(4, ang: -135deg)[$ floor(n/2) $]
+  note(4, ang: -135deg)[$ floor(n/2)-1 $]
+  note(0, ang: 45deg)[`f`]
+  note(nums.len()-1, ang: 135deg)[`l`]
 })

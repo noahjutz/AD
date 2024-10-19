@@ -515,4 +515,9 @@ Wie bringen wir einen beliebigen linksvollen Baum in Max-Heap-Form? Alle Blätte
   include "heapsort/buildheap_step_0.typ"
 )
 
-Wenn wir von ganz unten bis nach oben zur Wurzel für alle nicht-Blätter Heapify aufrufen, dann wird der gesamte Baum schrittweise zu einem Heap.
+Wenn wir von ganz unten bis nach oben zur Wurzel für alle nicht-Blätter Heapify aufrufen, dann wird der gesamte Baum schrittweise zu einem Heap. Die inneren Knoten sind in `a[:n//2]`, weil der Vorgänger des letzten Blattes $n-1$ ist:
+
+$
+floor((n-1-1)/2) = floor(n/2)-1
+$
+
