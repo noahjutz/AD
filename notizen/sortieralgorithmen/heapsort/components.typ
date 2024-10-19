@@ -202,6 +202,26 @@
   rotate(-ang, origin: to)
 }
 
+#let number(at, body) = {
+  let pos = index_to_name(at)
+  content(
+    (rel: (-20pt, 0), to: pos),
+    fill: black,
+    stroke: none,
+    frame: "circle",
+    padding: 4pt,
+    place(
+      center + horizon,
+      text(
+        fill: white,
+        size: 9pt,
+        weight: "bold",
+        body
+      )
+    )
+  )
+}
+
 #let fade(at, ang: 0deg) = {
   let to = index_to_name(at)
   let from = (rel: (28pt, 0), to: to)

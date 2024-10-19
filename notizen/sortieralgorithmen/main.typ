@@ -521,3 +521,9 @@ $
 floor((n-1-1)/2) = floor(n/2)-1
 $
 
+Wir iterieren von rechts nach links durch `a` und rufen für jeden Knoten Heapify auf.
+
+#align(
+  center,
+  include "heapsort/buildheap_step_1.typ"
+)
