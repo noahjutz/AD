@@ -1,7 +1,7 @@
 #import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around, poly_fill
 #import "/config.typ": theme
 
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.0"
 
 #let nums = (34, 45, 38, 43, 23, 18, 12, 17, 34, 7)
 

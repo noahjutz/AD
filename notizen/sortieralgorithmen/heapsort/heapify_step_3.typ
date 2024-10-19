@@ -1,6 +1,6 @@
 #import "components.typ": bintree, draw_node, note, connect, bent_line, fade
 
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.0"
 
 #cetz.canvas({
   import cetz.draw: *

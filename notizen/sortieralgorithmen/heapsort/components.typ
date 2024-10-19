@@ -43,7 +43,7 @@
   return "tree.0-" + turns.join("-")
 }
 
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.0"
 #import cetz.draw: *
 #import cetz.coordinate: resolve
 #import cetz.vector as vec

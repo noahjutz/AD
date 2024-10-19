@@ -1,5 +1,5 @@
 #import "components.typ": bintree, draw_node, polygon_around, poly_fill
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.0"
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
