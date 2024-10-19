@@ -16,7 +16,7 @@
   tree(
     bintree(nums.map(n => str(n))),
     draw-node: draw_node,
-    spread: 1.5,
+    spread: 1.2,
     name: "tree"
   )
 

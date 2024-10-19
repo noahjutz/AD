@@ -506,6 +506,8 @@ Durch den Tausch könnte die Heap-Eigenschaft jetzt im linken Teilbaum verletzt 
 
 Die Rekursion ist dann beendet, wenn der Knoten größer als seine Nachfolger ist (oder keine Nachfolger hat), weil dann die Heap-Eigenschaft erfüllt ist.
 
+Heapify hat eine Laufzeit von $O(log n)$, weil die Wurzel im schlimmsten Fall nach ganz unten wandern muss.
+
 === BuildHeap
 
 Wie bringen wir einen beliebigen linksvollen Baum in Max-Heap-Form? Alle Blätter sind bereits korrekte Heaps, weil sie keine Nachfolger haben. Beispiel:
@@ -527,3 +529,10 @@ Wir iterieren von rechts nach links durch `a[:n//2]` und rufen für jeden Knoten
   center,
   include "heapsort/buildheap_step_1.typ"
 )
+
+Da wir für $n slash 2$ Knoten Heapify aufrufen, ist die Laufzeit von BuildHeap durch $O(n log n)$ nach oben beschränkt. Tatsächlich ist BuildHeap noch schneller, weil die meisten Knoten, für die Heapify aufgerufen wird, weit unten sind.
+
+$
+T^"WC" (n) = sum_(h=0)^floor(log n) underbrace(ceil(n slash 2^(h+1)), "Anz. Knoten\nauf Höhe h")
+= O(n)
+$
