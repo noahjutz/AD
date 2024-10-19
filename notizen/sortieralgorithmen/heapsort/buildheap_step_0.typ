@@ -1,4 +1,4 @@
-#import "components.typ": bintree, draw_node, polygon_around, poly_fill, note
+#import "/components/lefttree.typ": bintree, draw_node, polygon_around, poly_fill, note
 #import "/components/num_row.typ": single_num_row
 #import "@preview/cetz:0.3.0"
 
