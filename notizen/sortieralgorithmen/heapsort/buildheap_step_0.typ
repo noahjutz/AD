@@ -1,11 +1,12 @@
 #import "components.typ": bintree, draw_node, polygon_around, poly_fill, note
+#import "/components/num_row.typ": single_num_row
 #import "@preview/cetz:0.3.0"
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 
-#table(
-  columns: 10,
-  ..(34, 45, 12, 34, 23, 18, 38, 17, 43, 7).map(n => str(n))
+#single_num_row(
+  (34, 45, 12, 34, 23, 18, 38, 17, 43, 7),
+  hl_success: (5, 6, 7, 8, 9)
 )
 
 #cetz.canvas({

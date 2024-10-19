@@ -1,14 +1,15 @@
 #import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around, poly_fill
+#import "/components/num_row.typ": single_num_row
 #import "/config.typ": theme
 
 #import "@preview/cetz:0.3.0"
 
 #let nums = (34, 45, 38, 43, 23, 18, 12, 17, 34, 7)
 
-#table(
-  columns: (1fr,) * 10,
-  align: center,
-  ..(34, 45, 38, 43, 23, 18, 12, 17, 34, 7).map(n => str(n))
+#single_num_row(
+  (34, 45, 38, 43, 23, 18, 12, 17, 34, 7),
+  hl_primary: 0,
+  hl_success: range(nums.len()).slice(1)
 )
 
 #cetz.canvas({
