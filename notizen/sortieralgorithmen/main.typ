@@ -533,6 +533,8 @@ Wir iterieren von rechts nach links durch `a[:n//2]` und rufen für jeden Knoten
 Da wir für $n slash 2$ Knoten Heapify aufrufen, ist die Laufzeit von BuildHeap durch $O(n log n)$ nach oben beschränkt. Tatsächlich ist BuildHeap noch schneller, weil die meisten Knoten, für die Heapify aufgerufen wird, weit unten sind.
 
 $
-T^"WC" (n) = sum_(h=0)^floor(log n) underbrace(ceil(n slash 2^(h+1)), "Anz. Knoten\nauf Höhe h")
+T^"WC" (n) = sum_(h=0)^floor(log n)
+underbrace(ceil(n slash 2^(h+1)), "Anz. Knoten\nauf Höhe h")
+dot underbrace(O(h), "Heapify")
 = O(n)
 $
