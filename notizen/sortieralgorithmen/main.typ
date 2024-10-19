@@ -469,7 +469,7 @@ Ein Heap ist ein linksvoller Binärbaum, der für alle Knoten die Heap-Eigenscha
 
 === Heapify
 
-Bevor wir ein beliebiges Array in einen Heap umwandeln, lösen wir ein einfacheres Problem: Ein Knoten $a_i$, dessen linker und rechter Teilbaum bereits Heaps sind, soll an die richtige Stelle vertauscht werden. Im folgenden implementieren wir Heapify für einen Maxheap.
+Bevor wir ein beliebiges Array in einen Heap umwandeln, lösen wir ein einfacheres Problem: Ein Knoten $a_i$, dessen linker und rechter Teilbaum bereits Heaps sind, soll an die richtige Stelle vertauscht werden. Im folgenden implementieren wir Heapify für einen Maxheap. Betrachten wir als Beispiel
 
 #align(
   center,
@@ -508,7 +508,7 @@ Die Rekursion ist dann beendet, wenn der Knoten größer als seine Nachfolger is
 
 === BuildHeap
 
-Wie bringen wir einen beliebigen linksvollen Baum in Max-Heap-Form? Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben.
+Wie bringen wir einen beliebigen linksvollen Baum in Max-Heap-Form? Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben. Beispiel:
 
 #align(
   center,

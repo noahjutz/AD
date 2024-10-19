@@ -5,6 +5,12 @@
 
 #let nums = (34, 45, 38, 43, 23, 18, 12, 17, 34, 7)
 
+#table(
+  columns: (1fr,) * 10,
+  align: center,
+  ..(34, 45, 38, 43, 23, 18, 12, 17, 34, 7).map(n => str(n))
+)
+
 #cetz.canvas({
   import cetz.draw: *
   import cetz.tree: tree
