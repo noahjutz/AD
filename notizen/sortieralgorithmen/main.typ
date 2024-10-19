@@ -540,3 +540,14 @@ dot underbrace(O(h), "Heapify")
 $
 
 === HeapSort
+
+HeapSort nutzt die Eigenschaft des Max-Heaps, dass der größte Wert in der Wurzel `a[f]` steht.
+
+Zuerst bauen wir einen Heap in $O(n)$ Zeit auf. Dann vertauschen wir `a[0]` und `a[n-1]`, was dazu führt, dass der größte Wert an der letzten Stelle steht. Im nächsten Schritt vernachlässigen wir `a[n-1]` und wiederholen das gleiche für die Subliste `a[:n-1]`. Um diese zu einem Heap zu machen, müssen wir nur Heapify aufrufen.
+
+```python
+build_heap(a)
+for i in range(n-1, 1, -1):
+  a[0], a[n-1] = a[n-1], a[0]
+  heapify(a[:n-1], root=i)
+```
