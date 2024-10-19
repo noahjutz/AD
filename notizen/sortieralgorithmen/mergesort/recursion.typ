@@ -7,7 +7,7 @@
 ) = table(
   columns: nums.len(),
   align: center + horizon,
-  fill: if is_complete {theme.success_light},
+  fill: if is_complete {theme.success_trans},
   ..nums.map(n => str(n))
 )
 
@@ -35,7 +35,7 @@
   return l
 }
 
-#let mergesort_recursion(nums) = {
+#let mergesort_recursion(nums, spacing: 8pt) = {
   if nums.len() == 1 {
     return row(nums)
   }
@@ -47,7 +47,7 @@
     row(all),
     stack(
       dir: ltr,
-      spacing: 8pt,
+      spacing: spacing,
       mergesort_recursion(l),
       mergesort_recursion(r),
     ),
