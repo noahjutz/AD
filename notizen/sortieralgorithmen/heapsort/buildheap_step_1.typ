@@ -1,4 +1,4 @@
-#import "/components/lefttree.typ": bintree, draw_node, number, note
+#import "/components/lefttree.typ": lefttree, draw_node, number, note
 #import "@preview/cetz:0.3.0"
 
 #let nums = (45, 43, 38, 34, 23, 18, 12, 17, 34, 7)
@@ -8,7 +8,7 @@
   import cetz.tree: tree
 
   tree(
-    bintree(nums.map(n => str(n))),
+    lefttree(nums.map(n => str(n))),
     spread: 1.2,
     draw-node: draw_node,
     name: "tree"

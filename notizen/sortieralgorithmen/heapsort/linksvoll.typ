@@ -1,13 +1,13 @@
 #import "@preview/cetz:0.3.0"
 #import "/config.typ": theme
-#import "/components/lefttree.typ": bintree
+#import "/components/lefttree.typ": lefttree
 
 #cetz.canvas({
   import cetz.draw: *
   import cetz.tree: tree
 
   tree(
-    bintree(range(6).map(i => $a_#i$)),
+    lefttree(range(6).map(i => $a_#i$)),
     draw-node: (node, ..) => {
       content(
         (),

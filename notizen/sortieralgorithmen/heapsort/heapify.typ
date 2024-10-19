@@ -1,4 +1,4 @@
-#import "/components/lefttree.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around
+#import "/components/lefttree.typ": lefttree, connect, box_around, draw_node, bent_line, polygon_around
 #import "/components/num_row.typ": single_num_row
 #import "/config.typ": theme
 
@@ -17,7 +17,7 @@
   import cetz.tree: tree
 
   tree(
-    bintree(nums.map(n => str(n))),
+    lefttree(nums.map(n => str(n))),
     draw-node: draw_node.with(hl_primary: 0),
     spread: 1.5,
     name: "tree",

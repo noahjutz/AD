@@ -1,4 +1,4 @@
-#import "/components/lefttree.typ": bintree, draw_node, note, connect, bent_line, fade
+#import "/components/lefttree.typ": lefttree, draw_node, note, connect, bent_line, fade
 
 #import "@preview/cetz:0.3.0"
 
@@ -7,7 +7,7 @@
   import cetz.tree: tree
 
   tree(
-    bintree((34, 45, 38).map(n => str(n))),
+    lefttree((34, 45, 38).map(n => str(n))),
     draw-node: draw_node.with(hl_primary: 0),
     spread: 2,
     name: "tree"
