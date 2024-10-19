@@ -31,6 +31,6 @@
     )
   })
 
-  note(0, ang: 45deg)[`f`]
-  note(nums.len()-1, ang: 135deg)[`l`]
+  note(0, ang: 90deg)[`f`]
+  note(nums.len()-1, ang: -90deg)[`l`]
 })
