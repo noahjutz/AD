@@ -521,7 +521,7 @@ $
 floor((n-1-1)/2) = floor(n/2)-1
 $
 
-Wir iterieren von rechts nach links durch `a` und rufen für jeden Knoten Heapify auf.
+Wir iterieren von rechts nach links durch `a[:n//2]` und rufen für jeden Knoten Heapify auf.
 
 #align(
   center,
