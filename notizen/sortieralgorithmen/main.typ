@@ -504,8 +504,8 @@ Durch den Tausch könnte die Heap-Eigenschaft jetzt im linken Teilbaum verletzt 
   )
 )
 
-Die Rekursion ist dann beendet, wenn der Knoten größer als seine Nachfolger ist, weil dann die Heap-Eigenschaft erfüllt ist.
+Die Rekursion ist dann beendet, wenn der Knoten größer als seine Nachfolger ist (oder keine Nachfolger hat), weil dann die Heap-Eigenschaft erfüllt ist.
 
 === BuildHeap
 
-Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben. Wenn wir von ganz unten zur Wurzel für alle nicht-Blätter `Heapify` aufrufen, dann ist der gesamte Baum ein Heap.
+Wie bringen wir einen beliebigen linksvollen Baum in Heap-Form? Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben. Wenn wir von ganz unten bis nach oben zur Wurzel für alle nicht-Blätter Heapify aufrufen, dann wird der gesamte Baum schrittweise zu einem Heap.
