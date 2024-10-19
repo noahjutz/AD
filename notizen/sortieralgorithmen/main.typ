@@ -538,3 +538,5 @@ underbrace(ceil(n slash 2^(h+1)), "Anz. Knoten\nauf Höhe h")
 dot underbrace(O(h), "Heapify")
 = O(n)
 $
+
+=== HeapSort

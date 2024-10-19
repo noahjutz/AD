@@ -1,4 +1,4 @@
-#import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around, poly_fill
+#import "components.typ": bintree, connect, box_around, draw_node, bent_line, polygon_around
 #import "/components/num_row.typ": single_num_row
 #import "/config.typ": theme
 
@@ -37,13 +37,13 @@
   )
 
   on-layer(-1, {
-    polygon_around(
+    box_around(
       1, 3, 4, 7, 8, 9,
-      poly_fill.with(fill: theme.success_light)
+      rect.with(fill: theme.success_light, stroke: none, radius: 14pt)
     )
-    polygon_around(
+    box_around(
       2, 5, 6,
-      poly_fill.with(fill: theme.success_light)
+      rect.with(fill: theme.success_light, stroke: none, radius: 14pt)
     )
   })
 
