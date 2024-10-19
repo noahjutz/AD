@@ -1,4 +1,4 @@
-#import "components.typ": bintree, draw_node, polygon_around, poly_fill
+#import "components.typ": bintree, draw_node, polygon_around, poly_fill, note
 #import "@preview/cetz:0.3.0"
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
@@ -24,4 +24,8 @@
       poly_fill
     )
   })
+
+  for a in range(8).map(n => 360/8*n) {
+    note(0, ang: eval(str(a+12) + "deg"))[#a]
+  }
 })
