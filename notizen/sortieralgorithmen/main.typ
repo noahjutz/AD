@@ -508,4 +508,11 @@ Die Rekursion ist dann beendet, wenn der Knoten größer als seine Nachfolger is
 
 === BuildHeap
 
-Wie bringen wir einen beliebigen linksvollen Baum in Heap-Form? Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben. Wenn wir von ganz unten bis nach oben zur Wurzel für alle nicht-Blätter Heapify aufrufen, dann wird der gesamte Baum schrittweise zu einem Heap.
+Wie bringen wir einen beliebigen linksvollen Baum in Max-Heap-Form? Alle Blätter sind korrekte Heaps, weil sie keine Nachfolger haben.
+
+#align(
+  center,
+  include "heapsort/buildheap_step_0.typ"
+)
+
+Wenn wir von ganz unten bis nach oben zur Wurzel für alle nicht-Blätter Heapify aufrufen, dann wird der gesamte Baum schrittweise zu einem Heap.

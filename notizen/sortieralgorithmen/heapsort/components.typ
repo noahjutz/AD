@@ -108,7 +108,7 @@
   )
 })
 
-#let poly_fill(..points, fill: none) = {
+#let poly_fill(..points, fill: theme.success_light) = {
   line(
     ..points,
     close: true,
