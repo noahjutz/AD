@@ -25,7 +25,5 @@
     )
   })
 
-  for a in range(8).map(n => 360/8*n) {
-    note(0, ang: eval(str(a+12) + "deg"))[#a]
-  }
+  note(4, ang: -135deg)[$ floor(n/2) $]
 })
