@@ -58,5 +58,11 @@
     })
 
   })
-  single_num_row(nums)
+  single_num_row(
+    nums,
+    hl_primary: hl_primary,
+    hl_secondary: hl_secondary,
+    hl_tertiary: hl_tertiary,
+    hl_success: hl_success
+  )
 }
