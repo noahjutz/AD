@@ -63,7 +63,10 @@
 
     for (from, to) in swaps {
       if from == to {continue}
-      connect(from, to, bent_line.with(bend: .5))
+      connect(
+        from, to,
+        bent_line.with(bend: .75, mark: (symbol: ">"))
+      )
     }
   })
 
