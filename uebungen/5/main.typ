@@ -41,7 +41,8 @@ mergesort(a, 0, len(a)-1)
 print(a)
 ```
 
-
-
 === Heapsort
 
+#import "heap.typ": heap
+#let nums = (-5, 13, -32, 7, -3, 17, 23, 12, -35, 19)
+#heap(nums)
