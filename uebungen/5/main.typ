@@ -56,9 +56,9 @@ print(a)
   let done = ()
   let heapify(i) = {
     let swaps = ()
-    let max = (i, 2*i+1, 2*i+2)
+    let l = (i, (2*i)+1, (2*i)+2)
       .sorted(key: i => nums.at(i, default: -calc.inf))
-      .last()
+    let max = l.last()
     swaps.push((i, max))
     if i != max {
       swaps += heapify(max)
@@ -67,15 +67,15 @@ print(a)
   }
   let m = calc.div-euclid(nums.len(), 2)
   for i in range(m - 1, -1, step: -1) {
-    for (from, to) in heapify(i) {
+    for (x, y) in heapify(i) {
       heap(
         nums,
-        annotations: ((from, "i"),),
-        swaps: ((from, to),),
+        annotations: ((x, "i"),),
+        swaps: ((x, y),),
         hl_success: done,
         bg_tertiary: subtree(i, nums.len())
       )
-      nums.insert(from, nums.remove(to))
+      (nums.at(x), nums.at(y)) = (nums.at(y), nums.at(x))
     }
     done += subtree(i, nums.len())
     heap(
