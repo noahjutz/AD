@@ -34,7 +34,7 @@
       nums.at(max),
       nums.at(i)
     )
-    if i != max and max < calc.div-euclid(n - 1, 2) {
+    if i != max {
       queue.push(max)
     }
   }
@@ -43,7 +43,7 @@
 
 #let heaps = ()
 #let n = nums.len()
-#while true {
+#while n > 2 {
   heaps.push(box[
     #heap(
       nums,
@@ -55,28 +55,23 @@
   ])
   (nums.at(0), nums.at(n - 1)) = (nums.at(n - 1), nums.at(0))
   
-  n -= 1
-
-  if n == 1 {
-    heaps.push(box[
-      #heap(
-        nums,
-        hl_success: range(nums.len()),
-        detached: range(nums.len())
-      )
-      #place(top + left)[sortiert #sym.checkmark]
-    ])
-    break
-  }
-
-
-  let (numbers, h) = heapify_root(nums, n)
+  let (numbers, h) = heapify_root(nums, n - 1)
   nums = numbers
   heaps += h.map(h => box[
     #h
     #place(top + left)[heapify]
   ])
+  n -= 1
 }
+
+#heaps.push(box[
+  #heap(
+    nums,
+    hl_success: range(nums.len()),
+    detached: range(nums.len())
+  )
+  #place(top + left)[sortiert #sym.checkmark]
+])
 
 #grid(
   columns: (1fr,)*2,
