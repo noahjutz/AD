@@ -53,6 +53,7 @@ print(a)
 
 #{
   import "/components/lefttree.typ": subtree
+  let done = ()
   let heapify(i) = {
     let swaps = ()
     let max = (i, 2*i+1, 2*i+2)
@@ -71,13 +72,15 @@ print(a)
         nums,
         annotations: ((from, "i"),),
         swaps: ((from, to),),
+        hl_success: done,
         bg_tertiary: subtree(i, nums.len())
       )
       nums.insert(from, nums.remove(to))
     }
+    done += subtree(i, nums.len())
     heap(
       nums,
-      hl_success: subtree(i, nums.len()),
+      hl_success: done,
       bg_tertiary: subtree(i, nums.len())
     )
   }
