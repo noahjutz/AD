@@ -10,7 +10,7 @@
   bg_tertiary: subtree(i, nums.len()),
   hl_success: done,
   swaps: ((x, y),),
-  annotations: ((x, "i"),)
+  annotations: ((x, `i`),)
 )
 
 #let heapify(index, nums, done) = {
