@@ -70,7 +70,7 @@
       } else {
         connect( 
           from, to,
-          bent_line.with(bend: .75, mark: (symbol: ">"))
+          bent_line.with(bend: .5, mark: (symbol: ">"))
         )
       }
     }

@@ -52,3 +52,7 @@ print(a)
 1. BuildHeap
 
 #include "buildheap.typ"
+
+2. Sortieren
+
+#include "heapsort.typ"
