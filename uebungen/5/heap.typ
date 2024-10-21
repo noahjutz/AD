@@ -26,7 +26,12 @@
         nums.map(n => str(n)),
       ),
       spread: 1.5,
-      draw-node: draw_node,
+      draw-node: draw_node.with(
+        hl_primary: hl_primary,
+        hl_secondary: hl_secondary,
+        hl_tertiary: hl_tertiary,
+        hl_success: hl_success
+      ),
       name: "tree"
     )
 

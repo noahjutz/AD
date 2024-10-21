@@ -73,7 +73,7 @@ print(a)
     }
     heap(
       nums,
-      bg_success: subtree(i, nums.len())
+      hl_success: subtree(i, nums.len())
     )
   }
 }
