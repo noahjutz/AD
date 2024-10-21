@@ -41,6 +41,7 @@
   }
   let (all, l, r) = split(nums)
 
+  set block(breakable: false)
   stack(
     dir: ttb,
     spacing: 4pt,
