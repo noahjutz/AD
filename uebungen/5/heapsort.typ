@@ -11,6 +11,9 @@
 )
 
 #let heapify_root(nums, n) = {
+  if n <= 2 {
+    return (nums, ())
+  }
   let return_content = ()
 
   let queue = (0,)
@@ -36,7 +39,7 @@
 
 #let heaps = ()
 #let n = nums.len()
-#for i in range(n - 1, 1, step: -1) {
+#while true {
   heaps.push(box[
     #heap(
       nums,
@@ -49,6 +52,19 @@
   (nums.at(0), nums.at(n - 1)) = (nums.at(n - 1), nums.at(0))
   
   n -= 1
+
+  if n == 1 {
+    heaps.push(box[
+      #heap(
+        nums,
+        hl_success: range(nums.len()),
+        detached: range(nums.len())
+      )
+      #place(top + left)[sortiert #sym.checkmark]
+    ])
+    break
+  }
+
 
   let (numbers, h) = heapify_root(nums, n)
   nums = numbers
