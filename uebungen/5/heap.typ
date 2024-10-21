@@ -15,7 +15,7 @@
   hl_success: (),
   swaps: (),
   annotations: (),
-) = block(height: 150pt, breakable: false, {
+) = {
   set align(center + bottom)
   cetz.canvas({
     import cetz.tree: tree
@@ -83,4 +83,4 @@
     hl_tertiary: hl_tertiary,
     hl_success: hl_success
   )
-})
+}

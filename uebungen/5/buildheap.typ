@@ -14,7 +14,7 @@
 )
 
 #let heapify(index, nums, done) = {
-  let return_content = ([])
+  let return_content = ()
 
   let queue = (index,)
   while queue.len() > 0 {
@@ -22,7 +22,7 @@
     let max = (i, 2*i+1, 2*i+2)
       .sorted(key: i => nums.at(i, default: -calc.inf))
       .last()
-    return_content += step(index, i, max, nums, done)
+    return_content.push(step(index, i, max, nums, done))
     (
       nums.at(i),
       nums.at(max)
@@ -38,14 +38,23 @@
 }
 
 #let m = calc.div-euclid(nums.len(), 2)
+#let heaps = ()
 #for i in range(m - 1, -1, step: -1) {
   let (ret_nums, figs) = heapify(i, nums, done)
   nums = ret_nums
-  figs
+  heaps += figs
   done += subtree(i, nums.len())
-  heap(
+  heaps.push(heap(
     nums,
     hl_success: done,
     bg_success: subtree(i, nums.len())
-  )
+  ))
 }
+
+#grid(
+  columns: (1fr,)*2,
+  column-gutter: 4pt,
+  row-gutter: 8pt,
+  align: bottom,
+  ..heaps.map(scale.with(50%, reflow: true))
+)
