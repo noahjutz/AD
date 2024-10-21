@@ -62,8 +62,23 @@
   }
 })
 
+#let _full_row(n, body) = table.cell(
+  colspan: n,
+  stroke: none,
+  inset: 0pt,
+  body
+)
+
+#let _empty_row(n, pad) = _full_row(
+  n,
+  box(height: pad)
+)
+
 // Directions: normal, reversed, bidirectional, none
 #let _arrow_row(arrow, n, offset: 0) = {
+  if arrow.keys().len() == 0 {
+    return (_empty_row(n, 14pt),)
+  }
   arrow.from += offset
   arrow.to += offset
   let min = calc.min(arrow.from, arrow.to)
@@ -102,18 +117,6 @@
     ),)
   }
 }
-
-#let _full_row(n, body) = table.cell(
-  colspan: n,
-  stroke: none,
-  inset: 0pt,
-  body
-)
-
-#let _empty_row(n, pad) = _full_row(
-  n,
-  box(height: pad)
-)
 
 #let _prefix_row(
   prefix,
