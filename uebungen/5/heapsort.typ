@@ -11,7 +11,7 @@
 )
 
 #let heapify_root(nums, n) = {
-  if n <= 2 {
+  if n <= 1 {
     return (nums, ())
   }
   let return_content = ()
@@ -43,7 +43,7 @@
 
 #let heaps = ()
 #let n = nums.len()
-#while n > 2 {
+#while n > 0 {
   heaps.push(box[
     #heap(
       nums,
