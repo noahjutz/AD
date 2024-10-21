@@ -69,10 +69,11 @@ print(a)
     for (from, to) in heapify(i) {
       heap(
         nums,
-        annotations: ((i, "i"),),
+        annotations: ((from, "i"),),
         swaps: ((from, to),),
         bg_tertiary: subtree(i, nums.len())
       )
+      nums.insert(from, nums.remove(to))
     }
     heap(
       nums,
