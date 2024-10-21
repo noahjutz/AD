@@ -408,7 +408,7 @@ Die Eingabe wird rekursiv in 2 Teile gespalten, bis die Eingabe nur noch ein Ele
 
 === In Place
 
-Um die Merge-Funktion ohne die hilfsliste `anew` zu implementieren, kann man Einträge der Liste nach vorne verschieben.
+Um die Merge-Funktion ohne die hilfsliste `anew` zu implementieren, kann man Einträge der rechten Hälfte nach vorne verschieben, wenn sie kleiner sind. Weil in jedem Schritt entweder `a[a2f]` nach vorne gezogen wird oder `a[a1f]` stehen bleibt, wird `a1f` jedes mal inkrementiert, und `a2f` nur, wenn der Wert nach vorne gezogen wird.
 
 #include "mergesort/merge_inplace.typ"
 
