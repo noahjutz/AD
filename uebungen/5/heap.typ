@@ -87,6 +87,7 @@
     hl_primary: hl_primary,
     hl_secondary: hl_secondary,
     hl_tertiary: hl_tertiary,
-    hl_success: hl_success
+    hl_success: hl_success,
+    arrow: if swaps.len() > 0 {(from: swaps.at(0).at(0), to: swaps.at(0).at(1))}
   )
 }

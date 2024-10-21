@@ -73,6 +73,7 @@
     (table.cell(
       colspan: min,
       stroke: none,
+      inset: 0pt,
       ""
     ),)
   }
@@ -96,6 +97,7 @@
     (table.cell(
       colspan: n - max - 1,
       stroke: none,
+      inset: 0pt,
       ""
     ),)
   }
