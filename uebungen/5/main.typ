@@ -60,6 +60,7 @@ print(a)
       .sorted(key: i => nums.at(i, default: -calc.inf))
     let max = l.last()
     swaps.push((i, max))
+    (nums.at(x), nums.at(y)) = (nums.at(y), nums.at(x))
     if i != max {
       swaps += heapify(max)
     }
@@ -75,7 +76,6 @@ print(a)
         hl_success: done,
         bg_tertiary: subtree(i, nums.len())
       )
-      (nums.at(x), nums.at(y)) = (nums.at(y), nums.at(x))
     }
     done += subtree(i, nums.len())
     heap(
