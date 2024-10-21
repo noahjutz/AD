@@ -43,6 +43,32 @@ print(a)
 
 === Heapsort
 
+0. Eingabe
+
 #import "heap.typ": heap
 #let nums = (-5, 13, -32, 7, -3, 17, 23, 12, -35, 19)
 #heap(nums)
+
+1. BuildHeap
+
+#{
+  let heapify(i) = {
+    let swaps = ()
+    let max = (i, 2*i+1, 2*i+2)
+      .sorted(key: i => nums.at(i, default: -calc.inf))
+      .last()
+    swaps.push((i, max))
+    if i != max {
+      swaps += heapify(max)
+    }
+    return swaps
+  }
+  let m = calc.div-euclid(nums.len(), 2)
+  for i in range(m - 1, -1, step: -1) {
+    for (from, to) in heapify(i) {
+      heap(
+        nums
+      )
+    }
+  }
+}

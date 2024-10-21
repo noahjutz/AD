@@ -2,21 +2,25 @@
 #import "/components/lefttree.typ": lefttree, draw_node
 #import "@preview/cetz:0.3.0"
 
-#let _heap(nums) = cetz.canvas({
-  import cetz.tree: tree
+#let heap(
+  nums,
+  complete: (),
+  swaps: (),
+  annotations: (),
+) = {
+  align(
+    center,
+    cetz.canvas({
+      import cetz.tree: tree
 
-  tree(
-    lefttree(
-      nums.map(n => str(n)),
-    ),
-    spread: 1.5,
-    draw-node: draw_node
-  )
-})
-
-#let heap(nums) = {
-  align(center,
-    _heap(nums)
+      tree(
+        lefttree(
+          nums.map(n => str(n)),
+        ),
+        spread: 1.5,
+        draw-node: draw_node
+      )
+    })
   )
   single_num_row(nums)
 }
