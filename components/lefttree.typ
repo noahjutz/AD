@@ -105,7 +105,7 @@
     let name = index_to_name(node)
     let (_, (x, y, z)) = resolve(ctx, name)
     min_x = calc.min(min_x, x)
-    max_x = calc.max(min_x, x)
+    max_x = calc.max(max_x, x)
     min_y = calc.min(min_y, y)
     max_y = calc.max(max_y, y)
   }
