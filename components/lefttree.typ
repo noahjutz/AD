@@ -43,6 +43,22 @@
   return "tree.0-" + turns.join("-")
 }
 
+#let subtree(i, n) = {
+  let nodes = ()
+  let queue = (i,)
+  while queue.len() > 0 {
+    let node = queue.remove(0)
+    if node < n {
+      nodes.push(node)
+      let l = 2*node+1
+      let r = 2*node+2
+      if l < n {queue.push(l)}
+      if r < n {queue.push(r)}
+    }
+  }
+  return nodes
+}
+
 #import "@preview/cetz:0.3.0"
 #import cetz.draw: *
 #import cetz.coordinate: resolve
@@ -122,6 +138,7 @@
 }
 
 #let polygon_around(..nodes, fun) = get-ctx(ctx => {
+  assert(nodes.pos().len() >= 2)
   let is_right_turn(p1, p2, p3) = {
     return vec.len(
       vec.cross(
@@ -136,7 +153,7 @@
     let (_, (x, y, z)) = resolve(ctx, name)
     (x, y)
   })
-  
+
   // Get initial point for Graham Scan
   points = points.sorted(key: ((x, y)) => {(y, x)})
   let lowest = points.remove(0)

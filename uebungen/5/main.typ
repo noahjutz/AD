@@ -52,6 +52,7 @@ print(a)
 1. BuildHeap
 
 #{
+  import "/components/lefttree.typ": subtree
   let heapify(i) = {
     let swaps = ()
     let max = (i, 2*i+1, 2*i+2)
@@ -70,5 +71,9 @@ print(a)
         nums
       )
     }
+    heap(
+      nums,
+      complete: subtree(i, nums.len())
+    )
   }
 }
