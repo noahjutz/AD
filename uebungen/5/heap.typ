@@ -14,11 +14,9 @@
   )
 })
 
-#let _arr(nums) = single_num_row(nums)
-
 #let heap(nums) = {
   align(center,
     _heap(nums)
   )
-  _arr(nums)
+  single_num_row(nums)
 }
