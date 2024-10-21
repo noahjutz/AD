@@ -5,7 +5,14 @@
 
 #let heap(
   nums,
-  complete: (),
+  bg_primary: (),
+  bg_secondary: (),
+  bg_tertiary: (),
+  bg_success: (),
+  hl_primary: (),
+  hl_secondary: (),
+  hl_tertiary: (),
+  hl_success: (),
   swaps: (),
   annotations: (),
 ) = {
@@ -24,17 +31,24 @@
     )
 
     on-layer(-1, {
-      if complete == range(nums.len()) {
-        box_around(..complete, rect.with(
-          stroke: none,
-          fill: theme.success_light,
-          radius: 14pt,
-        ))
-      }
-      else if complete.len() >= 2 {
-        polygon_around(
-          ..complete, poly_fill
-        )
+      for (indices, fill) in (
+        (bg_primary, theme.primary_light),
+        (bg_secondary, theme.secondary_light),
+        (bg_tertiary, theme.tertiary_light),
+        (bg_success, theme.success_light),
+      ) {
+        if indices == range(nums.len()) {
+          box_around(..indices, rect.with(
+            stroke: none,
+            fill: fill,
+            radius: 14pt,
+          ))
+        } else if indices.len() >= 2 {
+          polygon_around(
+            ..indices,
+            poly_fill.with(fill: fill)
+          )
+        }
       }
     })
 
