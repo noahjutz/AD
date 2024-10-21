@@ -1,6 +1,6 @@
 #import "/config.typ": theme
 #import "/components/num_row.typ": single_num_row
-#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name
+#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name, loop_line
 #import "@preview/cetz:0.3.0"
 
 #let heap(
@@ -65,7 +65,7 @@
       if from == to {
         connect(
           from, to,
-          (from, to) => {/* todo */}
+          loop_line.with(ang: 90deg)
         )
       } else {
         connect( 

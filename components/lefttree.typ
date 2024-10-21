@@ -59,6 +59,7 @@
   return nodes
 }
 
+// Most functions from here must be called from within a canvas that contains a tree with a named anchor "tree".
 #import "@preview/cetz:0.3.0"
 #import cetz.draw: *
 #import cetz.coordinate: resolve
@@ -70,7 +71,9 @@
   intersections("i", {
     hide(fun(from, to))
     hide(circle(from, radius: 10pt))
-    hide(circle(to, radius: 10pt))
+    if from != to {
+      hide(circle(to, radius: 10pt))
+    }
   })
   fun("i.0", "i.1")
 }
@@ -285,4 +288,16 @@
     padding: 7pt,
     place(center + horizon, node.content),
   )
+}
+
+#let loop_line(from, to, ang: 0deg) = {
+  rotate(ang)
+  bezier(
+    from,
+    to,
+    (rel: (16pt, 20pt), to: from),
+    (rel: (-16pt, 20pt), to: to),
+    mark: (symbol: ">")
+  )
+  rotate(-ang)
 }
