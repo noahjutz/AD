@@ -20,7 +20,11 @@
   while queue.len() > 0 {
     let i = queue.remove(0)
     let max = (i, 2*i+1, 2*i+2)
-      .sorted(key: i => nums.at(i, default: -calc.inf))
+      .sorted(key: i => {
+        if i < n {
+          nums.at(i, default: -calc.inf)
+        } else {-calc.inf}
+      })
       .last()
     return_content.push(step(i, max, nums, n))
     (
