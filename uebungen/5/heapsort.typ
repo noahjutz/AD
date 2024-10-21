@@ -36,18 +36,24 @@
 #let heaps = ()
 #let n = nums.len()
 #for i in range(n - 1, 1, step: -1) {
-  heaps.push(heap(
-    nums,
-    swaps: ((0, n - 1),),
-    hl_success: range(n, nums.len())
-  ))
+  heaps.push(box[
+    #heap(
+      nums,
+      swaps: ((0, n - 1),),
+      hl_success: range(n, nums.len())
+    )
+    #place(top + left)[swap]
+  ])
   (nums.at(0), nums.at(n - 1)) = (nums.at(n - 1), nums.at(0))
   
   n -= 1
 
   let (numbers, h) = heapify_root(nums, n)
   nums = numbers
-  heaps += h
+  heaps += h.map(h => box[
+    #h
+    #place(top + left)[heapify]
+  ])
 }
 
 #grid(
