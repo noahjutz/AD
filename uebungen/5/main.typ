@@ -70,12 +70,14 @@ print(a)
       heap(
         nums,
         annotations: ((i, "i"),),
-        swaps: ((from, to),)
+        swaps: ((from, to),),
+        bg_tertiary: subtree(i, nums.len())
       )
     }
     heap(
       nums,
-      hl_success: subtree(i, nums.len())
+      hl_success: subtree(i, nums.len()),
+      bg_tertiary: subtree(i, nums.len())
     )
   }
 }

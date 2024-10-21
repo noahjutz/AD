@@ -65,7 +65,7 @@
       if from == to {
         connect(
           from, to,
-          loop_line.with(ang: 90deg)
+          loop_line.with(ang: 180deg)
         )
       } else {
         connect( 
