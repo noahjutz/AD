@@ -62,11 +62,17 @@
     }
 
     for (from, to) in swaps {
-      if from == to {continue}
-      connect(
-        from, to,
-        bent_line.with(bend: .75, mark: (symbol: ">"))
-      )
+      if from == to {
+        connect(
+          from, to,
+          (from, to) => {/* todo */}
+        )
+      } else {
+        connect( 
+          from, to,
+          bent_line.with(bend: .75, mark: (symbol: ">"))
+        )
+      }
     }
   })
 
