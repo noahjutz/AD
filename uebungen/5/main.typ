@@ -68,7 +68,9 @@ print(a)
   for i in range(m - 1, -1, step: -1) {
     for (from, to) in heapify(i) {
       heap(
-        nums
+        nums,
+        annotations: ((i, "i"),),
+        swaps: ((from, to),)
       )
     }
     heap(

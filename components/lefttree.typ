@@ -68,9 +68,9 @@
   from = index_to_name(from)
   to = index_to_name(to)
   intersections("i", {
+    hide(fun(from, to))
     hide(circle(from, radius: 10pt))
     hide(circle(to, radius: 10pt))
-    hide(fun(from, to))
   })
   fun("i.0", "i.1")
 }

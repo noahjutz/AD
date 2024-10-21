@@ -1,6 +1,6 @@
 #import "/config.typ": theme
 #import "/components/num_row.typ": single_num_row
-#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around
+#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name
 #import "@preview/cetz:0.3.0"
 
 #let heap(
@@ -57,7 +57,16 @@
       }
     })
 
+    for (i, ann) in annotations {
+      number(i, ann)
+    }
+
+    for (from, to) in swaps {
+      if from == to {continue}
+      connect(from, to, bent_line.with(bend: .5))
+    }
   })
+
   single_num_row(
     nums,
     hl_primary: hl_primary,
