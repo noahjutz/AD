@@ -54,34 +54,63 @@ print(a)
 #{
   import "/components/lefttree.typ": subtree
   let done = ()
-  let heapify(i) = {
+
+  let heapify(i, nums) = {
     let swaps = ()
-    let l = (i, (2*i)+1, (2*i)+2)
+    let max = (i, (2*i)+1, (2*i)+2)
       .sorted(key: i => nums.at(i, default: -calc.inf))
-    let max = l.last()
+      .last()
     swaps.push((i, max))
-    (nums.at(x), nums.at(y)) = (nums.at(y), nums.at(x))
+    (nums.at(i), nums.at(max)) = (nums.at(max), nums.at(i))
     if i != max {
-      swaps += heapify(max)
+      let (s, n) = heapify(max, nums)
+      swaps += s
+      nums = n
     }
-    return swaps
+    return (swaps, nums)
   }
+
+  let step(i, x, y, nums, done) = heap(
+    nums, 
+    bg_tertiary: subtree(i, nums.len()),
+    hl_success: done,
+    swaps: ((x, y),)
+  )
+
+  let heapify(index, nums, done) = {
+    let return_content = ([])
+
+    let queue = (index,)
+    while queue.len() > 0 {
+      let i = queue.remove(0)
+      let max = (i, 2*i+1, 2*i+2)
+        .sorted(key: i => nums.at(i, default: -calc.inf))
+        .last()
+      return_content += step(index, i, max, nums, done)
+      (
+        nums.at(i),
+        nums.at(max)
+      ) = (
+        nums.at(max),
+        nums.at(i)
+      )
+      if i != max {
+        queue.push(max)
+      }
+    }
+    return (nums, return_content)
+  }
+
   let m = calc.div-euclid(nums.len(), 2)
   for i in range(m - 1, -1, step: -1) {
-    for (x, y) in heapify(i) {
-      heap(
-        nums,
-        annotations: ((x, "i"),),
-        swaps: ((x, y),),
-        hl_success: done,
-        bg_tertiary: subtree(i, nums.len())
-      )
-    }
+    let (ret_nums, figs) = heapify(i, nums, done)
+    nums = ret_nums
+    figs
     done += subtree(i, nums.len())
     heap(
       nums,
       hl_success: done,
-      bg_tertiary: subtree(i, nums.len())
+      bg_success: subtree(i, nums.len())
     )
   }
 }
