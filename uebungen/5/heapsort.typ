@@ -6,7 +6,8 @@
   nums, 
   hl_success: range(n, nums.len()),
   swaps: ((x, y),),
-  annotations: ((x, `i`),)
+  annotations: ((x, `i`),),
+  detached: range(n, nums.len())
 )
 
 #let heapify_root(nums, n) = {
@@ -40,7 +41,8 @@
     #heap(
       nums,
       swaps: ((0, n - 1),),
-      hl_success: range(n, nums.len())
+      hl_success: range(n, nums.len()),
+      detached: range(n, nums.len())
     )
     #place(top + left)[swap]
   ])

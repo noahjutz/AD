@@ -1,6 +1,6 @@
 #import "/config.typ": theme
 #import "/components/num_row.typ": single_num_row
-#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name, loop_line
+#import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name, name_to_index, loop_line
 #import "@preview/cetz:0.3.0"
 
 #let heap(
@@ -15,6 +15,7 @@
   hl_success: (),
   swaps: (),
   annotations: (),
+  detached: (),
 ) = {
   set align(center + bottom)
   cetz.canvas({
@@ -32,6 +33,11 @@
         hl_tertiary: hl_tertiary,
         hl_success: hl_success
       ),
+      draw-edge: (from, to, ..target) => {
+        if name_to_index(to) not in detached {
+          line(from, to)
+        }
+      },
       name: "tree"
     )
 

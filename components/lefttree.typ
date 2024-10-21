@@ -12,6 +12,9 @@
 }
 
 #let name_to_index(name) = {
+  if name.at(0) == "g" {
+    name = name.slice(1)
+  }
   let turns = name.split("-").map(s => int(s)).slice(1)
   let i = 0
   for turn in turns {
