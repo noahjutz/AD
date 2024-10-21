@@ -4,26 +4,7 @@
 
 === Mergesort
 
-Algorithmus:
-```python
-def merge(a, i, j, l):
-    while i < j and j <= l:
-        if a[j] < a[i]:
-            a.insert(i, a.pop(j))
-            j += 1
-        i += 1
-
-def mergesort(a, f, l):
-    if f >= l: return
-    m=(f+l)//2
-    mergesort(a, f, m)
-    mergesort(a, m+1, l)
-    merge(a, f, m+1, l)
-
-a=[-5, 13, -32, 7, -3, 17, 23, 12, -35, 19]
-mergesort(a, 0, len(a)-1)
-print(a)
-```
+Rekursionsbaum:
 
 #import "/notizen/sortieralgorithmen/mergesort/recursion.typ": mergesort_recursion
 
@@ -37,6 +18,30 @@ print(a)
     spacing: 0pt
   )
 }
+
+Algorithmus:
+
+```python
+def merge(a, i, j, l):
+  while i < j and j <= l:
+    if a[j] < a[i]:
+      a.insert(i, a.pop(j))
+      j += 1
+    i += 1
+
+def mergesort(a, f, l):
+  if f >= l: return
+  m=(f+l)//2
+  mergesort(a, f, m)
+  mergesort(a, m+1, l)
+  merge(a, f, m+1, l)
+
+a=[-5, 13, -32, 7, -3, 17, 23, 12, -35, 19]
+mergesort(a, 0, len(a)-1)
+print(a)
+```
+
+
 
 === Heapsort
 
