@@ -60,23 +60,22 @@ print(a)
 Algorithmus:
 
 ```python
-def heapify(a, root, n):
-  largest = max(
-    root, 2*root+1, 2*root+2,
-    key=lambda i: a[i] if len(a) > i and i < n else -math.inf
-  )
-  a[root], a[largest] = a[largest], a[root]
-  if largest != root:
-    heapify(a, largest, n)
+def heapify(a, i, n):
+    j = max(
+        i, 2*i+1, 2*i+2,
+        key=lambda i: a[i] if i < n else -math.inf
+    )
+    a[i], a[j] = a[j], a[i]
+    if i != j:
+        heapify(a, j, n)
 
 def build_heap(a):
-  for i in range(len(a)//2-1, -1, -1):
-    heapify(a, i, len(a))
+    for i in range(len(a)//2-1, -1, -1):
+        heapify(a, i, len(a))
 
 def heapsort(a):
-  build_heap(a)
-  for i in range(len(a)-1, 0, -1):
-    a[0], a[i] = a[i], a[0]
-    print(a)
-    heapify(a, 0, i)
+    build_heap(a)
+    for i in range(len(a)-1, 0, -1):
+        a[0], a[i] = a[i], a[0]
+        heapify(a, 0, i)
 ```
