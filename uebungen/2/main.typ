@@ -404,6 +404,39 @@ lim n^m/alpha^n
 $
 ]
 
+Alternativ verwenden wir die e-Funktion. Eine Exponentialfunktion $alpha^n$ kann als unendliche Reihe dargestellt werden:
+
+$
+alpha^n &= e^ln(alpha^n) \
+&= e^(n ln alpha) \
+&= sum_(k=0)^infinity (n ln alpha)^k/k!
+$
+
+Weil das eine unendliche Summe ist, gibt es einen Summanden mit $k=m$:
+
+$
+sum_(k=0)^infinity (n ln alpha)^k/k! = ... + (n ln alpha)^m/m! + ...
+$
+
+Ein Summand einer positiven Reihe ist kleiner oder gleich der gesamten Reihe:
+
+$
+(n ln alpha)^m/m! <= underbrace(
+  sum_(k=0)^infinity (n ln alpha)^k/k!,
+  =alpha^n
+)
+$
+
+Umformen ergibt:
+
+$
+underbrace(
+  (ln alpha)^m/m!,
+  "Konstant"
+) dot n^m &<= alpha^n
+#h(4pt) square.filled
+$
+
 === Aussage 3
 
 $
