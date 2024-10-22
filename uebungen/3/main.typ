@@ -16,7 +16,7 @@ Gesucht ist die Teilmatrix, dessen Komponenten aufsummiert maximal sind.
 
 === Naiver Algorithmus
 
-Man könnte durch alle Teilmatrizen iterieren und die Summen vergleichen. Laufzeit: $Theta(n^4)$.
+Man könnte durch alle Teilmatrizen iterieren und die Summen vergleichen. Laufzeit: $Theta(n^6)$.
 
 ```python
 for i2 in range(n+1):
