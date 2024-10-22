@@ -59,23 +59,31 @@ print(a)
 
 Algorithmus:
 
+1. Heapify (a: Eingabeliste, i: Wurzel, n: Heapgröße, j: Maximum)
+
 ```python
-def heapify(a, i, n):
-    j = max(
-        i, 2*i+1, 2*i+2,
-        key=lambda i: a[i] if i < n else -math.inf
-    )
-    a[i], a[j] = a[j], a[i]
-    if i != j:
-        heapify(a, j, n)
+j = max(
+  i, 2*i+1, 2*i+2,
+  key=lambda i:
+    a[i] if i < n else -math.inf
+)
+if i != j:
+  a[i], a[j] = a[j], a[i]
+  heapify(a, j, n)
+```
 
-def build_heap(a):
-    for i in range(len(a)//2-1, -1, -1):
-        heapify(a, i, len(a))
+2. BuildHeap (a: Eingabeliste)
 
-def heapsort(a):
-    build_heap(a)
-    for i in range(len(a)-1, 0, -1):
-        a[0], a[i] = a[i], a[0]
-        heapify(a, 0, i)
+```python
+for i in range(len(a)//2-1, -1, -1):
+  heapify(a, i, len(a))
+```
+
+3. HeapSort (a: Eingabeliste)
+
+```python
+build_heap(a)
+for i in range(len(a)-1, 0, -1):
+  a[0], a[i] = a[i], a[0]
+  heapify(a, 0, i)
 ```
