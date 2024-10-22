@@ -4,7 +4,7 @@
 
 === Mergesort
 
-Rekursionsbaum:
+==== Rekursionsbaum
 
 #import "/notizen/sortieralgorithmen/mergesort/recursion.typ": mergesort_recursion
 
@@ -19,7 +19,7 @@ Rekursionsbaum:
   )
 }
 
-Algorithmus:
+==== In Python
 
 ```python
 def merge(a, i, j, l):
@@ -43,6 +43,8 @@ print(a)
 
 === Heapsort
 
+==== Demonstration
+
 0. Eingabe
 
 #import "heap.typ": heap
@@ -57,7 +59,7 @@ print(a)
 
 #include "heapsort.typ"
 
-Algorithmus:
+==== In Python
 
 1. Heapify (a: Eingabeliste, i: Wurzel, n: Heapgröße, j: Maximum)
 
