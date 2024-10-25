@@ -89,3 +89,45 @@ for i in range(len(a)-1, 0, -1):
   a[0], a[i] = a[i], a[0]
   heapify(a, 0, i)
 ```
+
+== Heap-Beweise
+
+=== Aussage 1
+
+Ein Heap mit $n$ Elementen hat die Höhe $floor(log_2(n))$.
+
+==== Beweis
+
+Weil jeder Knoten zwei Nachfolger haben darf, hat jede Schicht doppelt so viele Knoten wie die vorherige. Ein voll besetzter Heap mit Höhe $h$ hat so viele Elemente:
+
+$
+n=1 + 2 + 4 + 8 + ... + 2^h
+$
+
+Diese geometrische Reihe lässt sich umschreiben:
+
+$
+n=sum_(i=0)^(h) 2^i = 2^(h+1)-1
+$
+
+Aber nicht jeder Heap ist voll besetzt, weil die tiefste Schicht nicht voll besetzt sein muss. Die genaue Anzahl an Elementen liegt also zwischen $2^h$ und $2^(h+1)-1$.
+
+Daraus folgt, dass umgekehrt die Höhe mindestens $floor(log n)$ ist.
+
+$
+&&n &>= 2^h \
+<=>&& log n &>= h \
+=>&& floor(log n) &>= h
+$
+
+Sie ist auch höchstens $floor(log n)$.
+
+$
+&&n &<= 2^(h+1)-1 \
+<=>&& n &< 2^(h+1) \
+<=>&& log n &< h+1 \
+=>&& floor(log n) &< h+1 \
+<=>&& floor(log n) &<= h
+$
+ 
+Damit gilt  $floor(log n) = h$ #sym.square.filled
