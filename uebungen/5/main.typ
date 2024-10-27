@@ -172,12 +172,22 @@ $
 
 == Strassen
 
+Um die Matrixmultiplikation rekursiv zu berechnen, vierteln wir die Problemgröße. Wir berechnen jeden Quadranten der Ausgabe seperat als $n slash 2 times n slash 2$ Matrix.
+
+#include "strassen.typ"
+
+Die vier Ausgabematrizen werden durch die Eingabematrizen folgenderweise berechnet
+
+$
+O_(i j) = sum_(k=1)^2 M_(i k) dot N_(k j)
+$
+
+Die Berechnung eines Quadranten teilt das Problem wiederum in vier, bis der Base Case erreicht ist. Das ist, wenn die Eingabematrizen $1 times 1$ Matrizen, also Skalare sind. Dann werden lediglich die Zahlen miteinander multipliziert.
+
+=== Korrektheitsbeweis
+
 Die Multiplikation zweier $n times n$ Matrizen $M=(m_(i j))$ und $N=(n_(i j))$ liefert per Definition
 
 $
 o_(i j) = sum_(k=1)^n m_(i k) n_(k j)
 $
-
-Wir vierteln die Eingabematrizen $M$ und $N$ in folgende $n slash 2 times n slash 2$ Matrizen.
-
-#include "strassen.typ"
