@@ -165,7 +165,15 @@ $
 Wir multiplizieren $q$ hinzu
 
 $
-sum_(k=0)^infinity k q^(k-1) dot q &= q/(1-q)^2 \
+sum_(k=0)^infinity k q^(k-1) dot q &= 1/(1-q)^2 dot q\
 <=> sum_(k=0)^infinity k q^k &= q/(1-q)^2
 #h(4pt) square.filled
+$
+
+== Strassen
+
+Die Multiplikation von $(a_(i j))$ und $(b_(i j))$ liefert per Definition
+
+$
+c_(i j) = sum_(k=1)^n a_(i k) b_(k j)
 $
