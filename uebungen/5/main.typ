@@ -131,3 +131,41 @@ $
 $
  
 Damit gilt  $floor(log n) = h$ #sym.square.filled
+
+=== Aussage 2
+
+Ein Heap mit $n$ Elementen hat höchstens $ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
+
+==== Beweis
+
+// TODO
+
+=== Aussage 3
+
+Für alle $-1 < x < 1$ gilt
+
+$
+sum_(k=0)^infinity k x^k = x/(1-x)^2
+$
+
+==== Beweis
+
+Die unendliche geometrische Reihe mit Basis $|q|<1$ ist
+
+$
+sum_(k=0)^infinity q^k &= 1/(1-q)
+$
+
+Beidseitiges differenzieren liefert
+
+$
+sum_(k=0)^infinity k q^(k-1) = 1/(1-q)^2
+$
+
+Wir multiplizieren $q$ hinzu
+
+$
+sum_(k=0)^infinity k q^(k-1) dot q &= q/(1-q)^2 \
+<=> sum_(k=0)^infinity k q^k &= q/(1-q)^2
+#h(4pt) square.filled
+$
