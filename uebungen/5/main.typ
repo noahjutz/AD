@@ -172,8 +172,12 @@ $
 
 == Strassen
 
-Die Multiplikation von $(a_(i j))$ und $(b_(i j))$ liefert per Definition
+Die Multiplikation zweier $n times n$ Matrizen $M=(m_(i j))$ und $N=(n_(i j))$ liefert per Definition
 
 $
-c_(i j) = sum_(k=1)^n a_(i k) b_(k j)
+o_(i j) = sum_(k=1)^n m_(i k) n_(k j)
 $
+
+Wir vierteln die Eingabematrizen $M$ und $N$ in folgende $n slash 2 times n slash 2$ Matrizen.
+
+#include "strassen.typ"
