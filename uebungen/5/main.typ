@@ -273,3 +273,20 @@ O_21 &= H_2 + H_4 \
 $
 
 Ebenfalls oben bewiesen. #sym.checkmark
+
+==== Vierter Quadrant (22)
+
+$
+O_22 =& H_1 - H_2 + H_3 + H_6 \
+=& (M_11 + M_22) dot (N_11 + N_22) - \
+&(M_21 + M_22) dot N_11 + \
+& M_11 dot (N_12 - N_22) + \
+&(M_21 - M_11) dot (N_11 + N_12) \
+=& M_11 N_11 + M_11 N_22 + M_22 N_11 + M_22 N_22 - \
+& M_21 N_11 - M_22 N_11 + \
+& M_11 N_12 - M_11 N_22 + \
+& M_21 N_11 + M_21 N_12 - M_11 N_11 - M_11 N_12 \
+=& M_21 N_12 + M_22 N_22
+$
+
+Ebenfalls oben bewiesen. #sym.checkmark #sym.square.filled
