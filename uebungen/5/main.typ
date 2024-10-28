@@ -184,7 +184,7 @@ $
 
 Die Berechnung eines Quadranten teilt das Problem wiederum in vier, bis der Base Case erreicht ist. Das ist, wenn die Eingabematrizen $1 times 1$ Matrizen, also Skalare sind. Dann werden lediglich die Zahlen miteinander multipliziert.
 
-=== Korrektheitsbeweis
+=== Korrektheitsbeweis Rekursion
 
 Die Multiplikation zweier $n times n$ Matrizen $M=(m_(i j))$ und $N=(n_(i j))$ ist per Definition
 
@@ -196,7 +196,7 @@ Betrachten wir zunächst die Berechnung von $O_(1 1)$.
 
 #include "o11.typ"
 
-Wir umschreiben die Berechnung so, dass wir uns auf die ganzen Matrizen $M$ und $N$ beziehen.
+Wir umschreiben die Berechnung so, dass wir uns auf die ganzen Matrizen $M$ und $N$ beziehen. ($m_(i j)$ und $n_(i j)$ sind Einträge aus $M$ und $N$. $o_(i j)$ sind Einträge aus $O_(1 1)$.)
 
 $
 O_(1 1) &= M_(1 1) dot N_(1 1) + M_(1 2) dot N_(2 1) \
@@ -205,3 +205,17 @@ sum_(k=n slash 2 + 1)^n m_(i k) n_(k j) \
 &= sum_(k=1)^n m_(i k) n_(k j)
 #h(4pt) checkmark
 $
+
+Um $O_(2 2)$ in Bezug auf $M$ und $N$ umzuschreiben, verschieben wir die Indizes, indem wir definieren $p := i - n slash 2$ und $q := j - n slash 2$.
+
+$
+O_(2 2) &= M_(2 1) dot N_(1 2) + M_(2 2) dot N_(2 2) \
+o_(p q) &= sum_(k=1)^(n slash 2) m_(i k) n_(k j) +
+sum_(k=n slash 2 + 1)^n m_(i k) n_(k j) \
+&= sum_(k=1)^n m_(i k) n_(k j)
+#h(4pt) checkmark
+$
+
+Das gleiche könnten wir für $O_(1 2)$ und $O_(2 1)$ machen, indem wir als Ausgabe $o_(p j)$ und $o_(i q)$ wählen. #sym.square.filled
+
+=== Korrektheitsbeweis Strassen
