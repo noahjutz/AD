@@ -46,16 +46,16 @@
   let m
   if direction in ("left", "bidirectional") {
     mark(
-      "arc_start",
       "line_start.start",
+      (rel: (0, 1), to: "line_start.start"),
       symbol: "straight",
       length: 6pt,
     )
   }
   if direction in ("right", "bidirectional") {
     mark(
-      "arc_end",
       "line_end.start",
+      (rel: (0, 1), to: "line_end.start"),
       symbol: "straight",
       length: 6pt,
     )
