@@ -192,62 +192,69 @@ $
 o_(i j) = sum_(k=1)^n m_(i k) n_(k j)
 $
 
-Betrachten wir zunächst die Berechnung von $O_(1 1)$.
+Betrachten wir zunächst die Berechnung von $O_11$.
 
 #include "o11.typ"
 
-Wir umschreiben die Berechnung so, dass wir uns auf die ganzen Matrizen $M$ und $N$ beziehen. ($m_(i j)$ und $n_(i j)$ sind Einträge aus $M$ und $N$. $o_(i j)$ sind Einträge aus $O_(1 1)$.)
+Wir umschreiben die Berechnung so, dass wir uns auf die ganzen Matrizen $M$ und $N$ beziehen. ($m_(i j)$ und $n_(i j)$ sind Einträge aus $M$ und $N$. $o_(i j)$ sind Einträge aus $O_11$.)
 
 $
-O_(1 1) &= M_(1 1) dot N_(1 1) + M_(1 2) dot N_(2 1) \
+O_11 &= M_11 dot N_11 + M_12 dot N_21 \
 o_(i j) &= sum_(k=1)^(n slash 2) m_(i k) n_(k j) +
 sum_(k=n slash 2 + 1)^n m_(i k) n_(k j) \
 &= sum_(k=1)^n m_(i k) n_(k j)
 #h(4pt) checkmark
 $
 
-Um $O_(2 2)$ in Bezug auf $M$ und $N$ umzuschreiben, verschieben wir die Indizes, indem wir definieren $p := i - n slash 2$ und $q := j - n slash 2$.
+Um $O_22$ in Bezug auf $M$ und $N$ umzuschreiben, verschieben wir die Indizes, indem wir definieren $p := i - n slash 2$ und $q := j - n slash 2$.
 
 $
-O_(2 2) &= M_(2 1) dot N_(1 2) + M_(2 2) dot N_(2 2) \
+O_22 &= M_21 dot N_12 + M_22 dot N_22 \
 o_(p q) &= sum_(k=1)^(n slash 2) m_(i k) n_(k j) +
 sum_(k=n slash 2 + 1)^n m_(i k) n_(k j) \
 &= sum_(k=1)^n m_(i k) n_(k j)
 #h(4pt) checkmark
 $
 
-Das gleiche könnten wir für $O_(1 2)$ und $O_(2 1)$ machen, indem wir als Ausgabe $o_(p j)$ und $o_(i q)$ wählen. #sym.square.filled
+Das gleiche könnten wir für $O_12$ und $O_21$ machen, indem wir als Ausgabe $o_(p j)$ und $o_(i q)$ wählen. #sym.square.filled
 
 === Korrektheitsbeweis Strassen
 
-Wir zeigen für jeden Quadranten $O_(1 1)$, $O_(1 2)$, $O_(2 1)$ und $O_(2 2)$, dass er korrekt ist. 
+Wir zeigen für jeden Quadranten $O_11$, $O_12$, $O_21$ und $O_22$, dass er korrekt ist. 
 
 ==== Erster Quadrant (11)
 
 Definition abschreiben:
 
 $
-O_(1 1) &= H_1 + H_4 - H_5 + H_7 \
-&= (M_(1 1) + M_(2 2)) dot (N_(1 1) + N_(2 2)) + \
-&#hide($=$) M_(2 2) dot (N_(2 1) - N_(1 1)) - \
-&#hide($=$) (M_(1 1) + M_(1 2)) dot N_(2 2) + \
-&#hide($=$) (M_(1 2) - M_(2 2)) dot (N_(2 1) + N_(2 2)) \
+O_11 &= H_1 + H_4 - H_5 + H_7 \
+&= (M_11 + M_22) dot (N_11 + N_22) + \
+&#hide($=$) M_22 dot (N_21 - N_11) - \
+&#hide($=$) (M_11 + M_12) dot N_22 + \
+&#hide($=$) (M_12 - M_22) dot (N_21 + N_22) \
 $
 
 Die Matrixmultiplikation ist distributiv; es gilt $A(B+C) = A B+A C$ und $(B+C)D = B D + C D$.
 
 $
-O_(1 1) =& M_(1 1) N_(1 1) + M_(1 1) N_(2 2) + M_(2 2) N_(1 1) + M_(2 2) N_(2 2) + \
-&M_(2 2) N_(2 1) - M_(2 2) N_(1 1) - \
-&M_(1 1) N_(2 2) - M_(1 2) N_(2 2) + \
-&M_(1 2) N_(2 1) + M_(1 2) N_(2 2) - M_(2 2) N_(2 1) - M_(2 2) N_(2 2)
+O_11 =& M_11 N_11 + M_11 N_22 + M_22 N_11 + M_22 N_22 + \
+&M_22 N_21 - M_22 N_11 - \
+&M_11 N_22 - M_12 N_22 + \
+&M_12 N_21 + M_12 N_22 - M_22 N_21 - M_22 N_22
 $
 
 Die meisten Terme heben sich gegenseitig auf.
 
 $
-O_(1 1) &= M_(1 1) N_(1 1) + M_(1 2) N_(2 1)
+O_11 &= M_11 N_11 + M_12 N_21
 $
 
 Die Korrektheit dieses Termes haben wir oben bewiesen. #sym.square.filled
 
+==== Zweiter Quadrant (21)
+
+$
+O_21 &= H_3 + H_5 \
+&= M_11 dot (N_12 - N_22) + 
+(M_11 + M_12) dot N_22
+$
