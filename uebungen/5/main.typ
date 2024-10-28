@@ -324,3 +324,36 @@ Der Standardalgorithmus, der aus der Definition hervorgeht, summiert für jede Z
 Der Naive Divide-And-Conquer Algorithmus hat die gleiche Laufzeit, aber der Strassen-Algorithmus ist schneller.
 
 == Strassen Implementierung
+
+Strassen-Algorithmus in Python: (`a` und `b`: Eingabematrizen)
+
+```python
+# Base Case
+if a.shape == (1, 1):
+  return a[0, 0] * b[0, 0]
+
+# Divide
+a11, a12, a21, a22 = quarters(a)
+b11, b12, b21, b22 = quarters(b)
+
+# Conquer
+h1 = mult((a11 + a22), (b11 + b22))
+h2 = mult((a21 + a22), b11)
+h3 = mult(a11, (b12 - b22))
+h4 = mult(a22, (b21 - b11))
+h5 = mult((a11 + a12), b22)
+h6 = mult((a21 - a11), (b11 + b12))
+h7 = mult((a12 - a22), (b21 + b22))
+
+# Merge
+return np.vstack((
+  np.hstack((
+    h1 + h4 - h5 + h7,
+    h3 + h5
+  )),
+  np.hstack((
+    h2 + h4,
+    h1 - h2 + h3 + h6
+  ))
+))
+```
