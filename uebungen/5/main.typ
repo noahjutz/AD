@@ -357,3 +357,9 @@ return np.vstack((
   ))
 ))
 ```
+
+=== Laufzeit
+
+#include "strassen_runtime.typ"
+
+Die Laufzeitverbesserung des Strassen-Algorithmus ist schon bei minimalen Eingabelängen spürbar.
