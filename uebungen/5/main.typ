@@ -290,3 +290,16 @@ O_22 =& H_1 - H_2 + H_3 + H_6 \
 $
 
 Ebenfalls oben bewiesen. #sym.checkmark #sym.square.filled
+
+=== Laufzeit Rekursion
+
+Der Algorithmus teilt das Problem in vier Probleme mit halber Größe. Das kombinieren der Teilprobleme läuft in quadratischer Zeit, weil komponentenweise Addiert wird. Die Rekursionsgleichung ist also
+
+$
+T(n) = 4T(n/2) + Theta(n^2)
+$
+
+Durch den zweiten Fall des Master-Theorems ist die Laufzeit $Theta(n^2 log n)$.
+
+=== Laufzeit Strassen
+
