@@ -293,13 +293,26 @@ Ebenfalls oben bewiesen. #sym.checkmark #sym.square.filled
 
 === Laufzeit Rekursion
 
-Der Algorithmus teilt das Problem in vier Probleme mit halber Größe. Das kombinieren der Teilprobleme läuft in quadratischer Zeit, weil komponentenweise Addiert wird. Die Rekursionsgleichung ist also
+Der Algorithmus teilt das Problem in acht Probleme mit halber Größe. Das kombinieren der Teilprobleme läuft in quadratischer Zeit, weil komponentenweise Addiert wird. Die Rekursionsgleichung ist also
 
 $
-T(n) = 4T(n/2) + Theta(n^2)
+T(n) = 8T(n/2) + Theta(n^2)
 $
 
-Durch den zweiten Fall des Master-Theorems ist die Laufzeit $Theta(n^2 log n)$.
+Im Base-Case werden acht $1 times 1$ Matrizen in konstanter Zeit multipliziert, also ist $T(1)=Theta(1)$.
+
+Durch den ersten Fall des Master-Theorems ist die Laufzeit $Theta(n^3)$.
 
 === Laufzeit Strassen
 
+Die Strassen-Multiplikation teilt das Problem in nur sieben Teilprobleme mit halber Größe.
+
+$
+T(n) = 7T(n/2) + Theta(n^2)
+$
+
+Durch den ersten Fall des Master-Theorems ist die Laufzeit
+
+$
+T(n) = Theta(n^(log_2 7)) approx Theta(n^2.81)
+$
