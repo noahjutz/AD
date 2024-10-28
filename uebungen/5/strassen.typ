@@ -1,4 +1,4 @@
-#show table.cell: square.with(size: 28pt, stroke: none)
+#show table.cell: square.with(size: 24pt, stroke: none)
 #set table.cell(inset: 0pt, align: center + horizon)
 #set align(center)
 

@@ -1,7 +1,7 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.3.1"
 
-#show table.cell: square.with(size: 28pt, stroke: none)
+#show table.cell: square.with(size: 24pt, stroke: none)
 #set table.cell(inset: 0pt, align: center + horizon)
 #set align(center)
 
@@ -10,7 +10,7 @@
   column-gutter: 4pt,
   row-gutter: 4pt,
   align: center + horizon,
-  cetz.canvas(length: 28pt, {
+  cetz.canvas(length: 24pt, {
     import cetz.draw: *
     set-style(content: (padding: 2pt))
 
@@ -19,7 +19,7 @@
     line(
       (.5, 0),
       (2, 1.5),
-      mark: (symbol: ">"),
+      mark: (symbol: "straight"),
       name: "mul1"
     )
     content("mul1.mid", anchor: "south-east", sym.dot)
@@ -27,7 +27,7 @@
     line(
       (1.5, 0),
       (2, .5),
-      mark: (symbol: ">"),
+      mark: (symbol: "straight"),
       name: "mul2"
     )
     content("mul2.mid", anchor: "south-east", sym.dot)

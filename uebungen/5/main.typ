@@ -192,11 +192,16 @@ $
 o_(i j) = sum_(k=1)^n m_(i k) n_(k j)
 $
 
-Betrachten wir zunächst $O_(1 1)$.
+Betrachten wir zunächst die Berechnung von $O_(1 1)$.
 
 #include "o11.typ"
 
+Wir umschreiben die Berechnung so, dass wir uns auf die ganzen Matrizen $M$ und $N$ beziehen.
+
 $
 O_(1 1) &= M_(1 1) dot N_(1 1) + M_(1 2) dot N_(2 1) \
-&= 
+o_(i j) &= sum_(k=1)^(n slash 2) m_(i k) n_(k j) +
+sum_(k=n slash 2 + 1)^n m_(i k) n_(k j) \
+&= sum_(k=1)^n m_(i k) n_(k j)
+#h(4pt) checkmark
 $
