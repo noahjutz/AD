@@ -195,3 +195,8 @@ $
 Betrachten wir zunächst $O_(1 1)$.
 
 #include "o11.typ"
+
+$
+O_(1 1) &= M_(1 1) dot N_(1 1) + M_(1 2) dot N_(2 1) \
+&= 
+$

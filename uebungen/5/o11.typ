@@ -12,22 +12,21 @@
   align: center + horizon,
   cetz.canvas(length: 28pt, {
     import cetz.draw: *
+    set-style(content: (padding: 2pt))
 
     rect((), (2, 2), stroke: none)
 
-    bezier(
+    line(
       (.5, 0),
       (2, 1.5),
-      (.5, 1.5),
       mark: (symbol: ">"),
       name: "mul1"
     )
     content("mul1.mid", anchor: "south-east", sym.dot)
 
-    bezier(
+    line(
       (1.5, 0),
       (2, .5),
-      (1.5, .5),
       mark: (symbol: ">"),
       name: "mul2"
     )
