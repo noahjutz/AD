@@ -7,7 +7,6 @@
   column-gutter: 4pt,
   row-gutter: 4pt,
   align: center + horizon,
-  "M", none, "N", none, "O",
   table(
     columns: 2,
     $M_(1 1)$,
