@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2": canvas, draw
+#import "@preview/cetz:0.3.1": canvas, draw
 
 #let arrow = (d, c) => canvas(length: 24pt, {
   import draw: *

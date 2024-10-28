@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 
 #cetz.canvas(length: 100%, {
   import cetz.draw: *

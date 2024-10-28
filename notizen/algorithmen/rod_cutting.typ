@@ -1,5 +1,5 @@
 #import "/config.typ": theme
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 #import "@preview/fontawesome:0.5.0"
 
 #let n = 4

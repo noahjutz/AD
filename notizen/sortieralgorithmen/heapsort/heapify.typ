@@ -2,7 +2,7 @@
 #import "/components/num_row.typ": single_num_row
 #import "/config.typ": theme
 
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 
 #let nums = (34, 45, 38, 43, 23, 18, 12, 17, 34, 7)
 

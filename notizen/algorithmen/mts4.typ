@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 #import "/config.typ": theme
 
 #let nums = (-13, 25, 34, 12, -3, 7, -87, 28, -77, 11)

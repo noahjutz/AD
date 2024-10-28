@@ -1,5 +1,5 @@
 #import "/config.typ": theme
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 
 #set block(spacing: 4pt)
 #show table: set text(size: 9pt, font: "Noto Sans Mono")

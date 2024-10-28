@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2": canvas, draw
+#import "@preview/cetz:0.3.1": canvas, draw
 
 #show math.equation: set text(fill: gray)
 #show math.equation: box.with(inset: (x: 10pt))

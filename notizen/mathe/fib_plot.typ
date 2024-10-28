@@ -1,4 +1,5 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
+#import "@preview/cetz-plot:0.1.0"
 #import "/config.typ": theme
 
 #let fibs(n) = {
@@ -12,7 +13,7 @@
 
 #cetz.canvas(length: 85%, {
   import cetz.draw: *
-  import cetz.plot
+  import cetz-plot: *
 
   let n = 12
   let data = fibs(n).enumerate()

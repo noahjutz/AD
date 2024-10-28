@@ -63,7 +63,7 @@
 }
 
 // Most functions from here must be called from within a canvas that contains a tree with a named anchor "tree".
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 #import cetz.coordinate: resolve
 #import cetz.vector as vec

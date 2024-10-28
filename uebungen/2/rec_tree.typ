@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 
 #let rec_tree(root) = {
   if root < 2 {root}

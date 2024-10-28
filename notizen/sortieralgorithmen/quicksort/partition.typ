@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
 #import "/components/num_row.typ": num_row, arrowed, arrowed_b, braced_b
 #import "/config.typ": theme
 

@@ -1,6 +1,6 @@
 #import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, note
 #import "/components/num_row.typ": single_num_row
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 
 #let nums = (34, 45, 12, 34, 23, 18, 38, 17, 43, 7)
 

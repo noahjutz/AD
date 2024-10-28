@@ -1,9 +1,10 @@
-#import "@preview/cetz:0.2.2"
+#import "@preview/cetz:0.3.1"
+#import "@preview/cetz-plot:0.1.0"
 #import "/config.typ": theme
 
 #cetz.canvas(length: 100%, {
   import cetz.draw: *
-  import cetz.plot
+  import cetz-plot: *
 
   rect((0, 0), (1, 1), stroke: none)
   plot.plot(

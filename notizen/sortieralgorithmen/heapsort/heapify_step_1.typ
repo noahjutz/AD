@@ -1,6 +1,6 @@
 #import "/components/lefttree.typ": lefttree, draw_node, note, connect, bent_line, fade
 
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 
 #cetz.canvas({
   import cetz.draw: *

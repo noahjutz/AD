@@ -1,5 +1,5 @@
 #import "/components/lefttree.typ": lefttree, draw_node, number, note
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 
 #let nums = (45, 43, 38, 34, 23, 18, 12, 17, 34, 7)
 

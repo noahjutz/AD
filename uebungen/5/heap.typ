@@ -1,7 +1,7 @@
 #import "/config.typ": theme
 #import "/components/num_row.typ": single_num_row
 #import "/components/lefttree.typ": lefttree, draw_node, polygon_around, poly_fill, box_around, number, connect, bent_line, index_to_name, name_to_index, loop_line
-#import "@preview/cetz:0.3.0"
+#import "@preview/cetz:0.3.1"
 
 #let heap(
   nums,
