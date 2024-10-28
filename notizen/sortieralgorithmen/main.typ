@@ -555,3 +555,5 @@ for i in range(n-1, 1, -1):
   a[0], a[n-1] = a[n-1], a[0]
   heapify(n=n-1, root=i)
 ```
+
+== Counting Sort
