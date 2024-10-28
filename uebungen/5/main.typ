@@ -261,4 +261,15 @@ O_21 &= H_3 + H_5 \
 &= M_11 N_12 + M_12 N_22
 $
 
-Die Korrektheit dieses Termes haben wir auch oben bewiesen. #sym.checkmark
+Ebenfalls oben bewiesen. #sym.checkmark
+
+==== Dritter Quadrant (12)
+
+$
+O_21 &= H_2 + H_4 \
+&= (M_21 + M_22) dot N_11 + M_22 dot (N_21 - N_11) \
+&= M_21 N_11 + M_22 N_11 + M_22 N_21 - M_22 N_11 \
+&= M_21 N_11 + M_22 N_11
+$
+
+Ebenfalls oben bewiesen. #sym.checkmark
