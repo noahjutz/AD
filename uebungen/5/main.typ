@@ -192,3 +192,4 @@ $
 o_(i j) = sum_(k=1)^n m_(i k) n_(k j)
 $
 
+Betrachten wir zunächst $O_(1 1)$.

@@ -3,25 +3,25 @@
 #set align(center)
 
 #grid(
-  columns: 2,
+  columns: 5,
   column-gutter: 4pt,
   row-gutter: 4pt,
-  align: center + bottom,
-  none, "M", "N",
+  align: center + horizon,
+  "M", none, "N", none, "O",
   table(
     columns: 2,
     $M_(1 1)$,
     $M_(1 2)$,
     $M_(2 1)$,
     $M_(2 2)$,
-  ),
+  ), sym.dot,
   table(
     columns: 2,
     $N_(1 1)$,
     $N_(1 2)$,
     $N_(2 1)$,
     $N_(2 2)$,
-  ),
+  ), sym.eq,
   table(
     columns: 2,
     $O_(1 1)$,
