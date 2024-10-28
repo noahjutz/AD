@@ -219,3 +219,35 @@ $
 Das gleiche könnten wir für $O_(1 2)$ und $O_(2 1)$ machen, indem wir als Ausgabe $o_(p j)$ und $o_(i q)$ wählen. #sym.square.filled
 
 === Korrektheitsbeweis Strassen
+
+Wir zeigen für jeden Quadranten $O_(1 1)$, $O_(1 2)$, $O_(2 1)$ und $O_(2 2)$, dass er korrekt ist. 
+
+==== Erster Quadrant (11)
+
+Definition abschreiben:
+
+$
+O_(1 1) &= H_1 + H_4 - H_5 + H_7 \
+&= (M_(1 1) + M_(2 2)) dot (N_(1 1) + N_(2 2)) + \
+&#hide($=$) M_(2 2) dot (N_(2 1) - N_(1 1)) - \
+&#hide($=$) (M_(1 1) + M_(1 2)) dot N_(2 2) + \
+&#hide($=$) (M_(1 2) - M_(2 2)) dot (N_(2 1) + N_(2 2)) \
+$
+
+Die Matrixmultiplikation ist distributiv; es gilt $A(B+C) = A B+A C$ und $(B+C)D = B D + C D$.
+
+$
+O_(1 1) =& M_(1 1) N_(1 1) + M_(1 1) N_(2 2) + M_(2 2) N_(1 1) + M_(2 2) N_(2 2) + \
+&M_(2 2) N_(2 1) - M_(2 2) N_(1 1) - \
+&M_(1 1) N_(2 2) - M_(1 2) N_(2 2) + \
+&M_(1 2) N_(2 1) + M_(1 2) N_(2 2) - M_(2 2) N_(2 1) - M_(2 2) N_(2 2)
+$
+
+Die meisten Terme heben sich gegenseitig auf.
+
+$
+O_(1 1) &= M_(1 1) N_(1 1) + M_(1 2) N_(2 1)
+$
+
+Die Korrektheit dieses Termes haben wir oben bewiesen. #sym.square.filled
+
