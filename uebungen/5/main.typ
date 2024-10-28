@@ -316,3 +316,9 @@ Durch den ersten Fall des Master-Theorems ist die Laufzeit
 $
 T(n) = Theta(n^(log_2 7)) approx Theta(n^2.81)
 $
+
+=== Laufzeit Naiver Algorithmus
+
+Der Standardalgorithmus, der aus der Definition hervorgeht, summiert für jede Zelle aus der $n times n$ Ausgabematrix $n$ Terme auf. Daraus ergibt sich eine Laufzeit von $Theta(n^3)$.
+
+Der Naive Divide-And-Conquer Algorithmus hat die gleiche Laufzeit, aber der Strassen-Algorithmus ist schneller.
