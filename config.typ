@@ -11,8 +11,8 @@
   fg: black,
   fg_light: black.lighten(50%),
   fg_trans: black.transparentize(50%),
-  bg_light: black.lighten(90%),
-  bg_trans: black.transparentize(90%),
+  bg_light: black.lighten(95%),
+  bg_trans: black.transparentize(95%),
   success: green.lighten(25%),
   success_light: green.lighten(75%),
   success_trans: green.transparentize(75%)
@@ -91,14 +91,14 @@
   show raw.where(block: true): it => {
     set par(justify: false)
     block(
-      stroke: rgb(0, 0, 0, 20%),
-      radius: 4pt,
+      stroke: black,
+      radius: 6pt,
       above: 8pt,
       below: 8pt,
       table(
         columns: 1fr,
         stroke: none,
-        fill: (_, y) => if calc.odd(y) { rgb(0, 0, 0, 5%) },
+        fill: (_, y) => if calc.odd(y) {theme.bg_trans},
         inset: (x: 8pt, y: 6pt),
         ..it.lines.map(l => if l.text.len() == 0 {hide("a")} else {l})
       )
