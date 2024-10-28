@@ -1,4 +1,6 @@
 #import "/config.typ": theme
+#import "@preview/cetz:0.3.1"
+
 #show table.cell: square.with(size: 28pt, stroke: none)
 #set table.cell(inset: 0pt, align: center + horizon)
 #set align(center)
@@ -8,7 +10,29 @@
   column-gutter: 4pt,
   row-gutter: 4pt,
   align: center + horizon,
-  none,
+  cetz.canvas(length: 28pt, {
+    import cetz.draw: *
+
+    rect((), (2, 2), stroke: none)
+
+    bezier(
+      (.5, 0),
+      (2, 1.5),
+      (.5, 1.5),
+      mark: (symbol: ">"),
+      name: "mul1"
+    )
+    content("mul1.mid", anchor: "south-east", sym.dot)
+
+    bezier(
+      (1.5, 0),
+      (2, .5),
+      (1.5, .5),
+      mark: (symbol: ">"),
+      name: "mul2"
+    )
+    content("mul2.mid", anchor: "south-east", sym.dot)
+  }),
   {
     show table.cell.where(x: 0): box.with(
       fill: theme.primary_trans
