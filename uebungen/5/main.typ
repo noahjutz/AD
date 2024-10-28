@@ -325,7 +325,7 @@ Der Naive Divide-And-Conquer Algorithmus hat die gleiche Laufzeit, aber der Stra
 
 == Strassen Implementierung
 
-Strassen-Algorithmus in Python: (`a` und `b`: Eingabematrizen)
+Strassen-Algorithmus in Python: (`a` und `b`: Eingabematrizen, `quarters`: Viertelt die Eingabe)
 
 ```python
 # Base Case
