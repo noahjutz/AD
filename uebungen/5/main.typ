@@ -249,12 +249,16 @@ $
 O_11 &= M_11 N_11 + M_12 N_21
 $
 
-Die Korrektheit dieses Termes haben wir oben bewiesen. #sym.square.filled
+Die Korrektheit dieses Termes haben wir oben bewiesen. #sym.checkmark
 
 ==== Zweiter Quadrant (21)
 
 $
 O_21 &= H_3 + H_5 \
 &= M_11 dot (N_12 - N_22) + 
-(M_11 + M_12) dot N_22
+(M_11 + M_12) dot N_22 \
+&= M_11 N_12 - M_11 N_22 + M_11 N_22 + M_12 N_22 \
+&= M_11 N_12 + M_12 N_22
 $
+
+Die Korrektheit dieses Termes haben wir auch oben bewiesen. #sym.checkmark
