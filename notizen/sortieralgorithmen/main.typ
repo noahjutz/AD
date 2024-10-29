@@ -582,7 +582,7 @@ $
 
 Zum Beispiel speichert $b_0$ die Anzahl an Nullen in $A$.
 
-Wir zählen die Zahlen so in Linearzeit:
+Wir zählen die Zahlen in Linearzeit:
 
 ```python
 for i in range(n):
