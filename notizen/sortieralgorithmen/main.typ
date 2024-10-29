@@ -558,10 +558,10 @@ for i in range(n-1, 1, -1):
 
 == Counting Sort
 
-Countsort ist nicht vergleichsbasiert, weshalb die untere Schranke $Omega(n log n)$ nicht gilt. Es gibt aber die Einschränkung, dass der Wertebereich der Eingabeliste $a$ endlich ist.
+Countsort ist nicht vergleichsbasiert, weshalb die untere Schranke $Omega(n log n)$ nicht gilt. Es gibt aber die Einschränkung, dass der Wertebereich der Eingabeliste $A$ endlich ist.
 
 $
-a = (a_0, a_1, a_2, ..., a_(n-1)) "mit" a_i in {0, 1, 2, ..., k}
+A = (a_0, a_1, a_2, ..., a_(n-1)) "mit" a_i in {0, 1, 2, ..., k}
 $
 
 Desto größer $k$ ist, desto mehr Speicher wird in Anspruch genommen. Wenn $k>n$, ist die Laufzeit nicht mehr linear.
@@ -573,4 +573,29 @@ $
 
 === Funktionsweise
 
-Es wird eine Liste mit $k$ Einträgen angelegt, 
+Es wird eine $k$-Elementige Liste $B$ aus Nullen angelegt. Diese soll an jeder Stelle $j$ speichern, wie oft $j$ in $A$ vorkommt.
+
+$
+B &= (b_0, b_1, b_2, ..., b_(k-1)) \
+&= (0, 0, 0, ..., 0)
+$
+
+Zum Beispiel speichert $b_0$ die Anzahl an Nullen in $A$.
+
+Wir zählen die Zahlen so in Linearzeit:
+
+```python
+for i in range(n):
+  b[a[i]] += 1
+```
+
+Zum Schluss müssen die Einträge von $B$ zurück in $A$ kopiert werden.
+
+```python
+i = 0
+for j in range(n):
+  while b[i] == 0:
+    i += 1
+  a[j] = i
+  b[i] -= 1
+```
