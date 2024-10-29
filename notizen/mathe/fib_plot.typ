@@ -38,7 +38,7 @@
     )
     plot.annotate({
       for (x, y) in data {
-        content((x, y), anchor: "south", padding: 4pt)[#y]
+        content((x, y), anchor: "south", str(y))
       }
     })
   })
