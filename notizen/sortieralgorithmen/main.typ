@@ -557,3 +557,20 @@ for i in range(n-1, 1, -1):
 ```
 
 == Counting Sort
+
+Countsort ist nicht vergleichsbasiert, weshalb die untere Schranke $Omega(n log n)$ nicht gilt. Es gibt aber die Einschränkung, dass der Wertebereich der Eingabeliste $a$ endlich ist.
+
+$
+a = (a_0, a_1, a_2, ..., a_(n-1)) "mit" a_i in {0, 1, 2, ..., k}
+$
+
+Desto größer $k$ ist, desto mehr Speicher wird in Anspruch genommen. Wenn $k>n$, ist die Laufzeit nicht mehr linear.
+
+$
+S(n, k) = Theta(n+k) \
+T(n, k) = Theta(n+k)
+$
+
+=== Funktionsweise
+
+Es wird eine Liste mit $k$ Einträgen angelegt, 
