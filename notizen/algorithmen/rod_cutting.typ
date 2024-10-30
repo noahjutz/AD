@@ -18,18 +18,14 @@
       (rel: (0, -(16pt + 24pt * i)), to: "rod.start"),
       (rel: (width, 0)),
       name: "subrod",
-      stroke: none
+      stroke: 4pt
     )
 
-    group({
-      set-viewport((0, 0), (1cm, 1cm))
-      cetz.decorations.flat-brace(
-        "subrod.end",
-        "subrod.start",
-        name: "brace"
-      )
-      content("brace.content")[$p_#(i+1)$]
-    })
+    content(
+      "subrod.mid",
+      anchor: "north",
+      padding: (top: 4pt)
+    )[$p_#(i+1)$]
 
     line(
       (
