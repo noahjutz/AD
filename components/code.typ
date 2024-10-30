@@ -31,7 +31,7 @@
     below: 8pt,
     breakable: false,
     table(
-      columns: 2,
+      columns: (1fr, auto),
       stroke: (x, y) => {
         if x == 0 {(right: theme.bg_trans)}
         else if y != 0 {(top: theme.bg_trans)}
