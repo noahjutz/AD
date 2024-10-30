@@ -1,7 +1,7 @@
 #import "/config.typ": theme
 #let code(code, comments) = {
   set text(size: 0.8 * 11pt)
-  show table.cell.where(x: 0): set text(font: "Fira Code")
+  show table.cell.where(x: 0): set text(font: "JetBrains Mono")
 
   let lines = code.split("\n")
   let i = 0

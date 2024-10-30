@@ -87,7 +87,7 @@
     })
   }
 
-  show raw: set text(font: "Fira Code")
+  show raw: set text(font: "JetBrains Mono")
   show raw.where(block: false): set text(size: 11pt)
   show raw.where(block: true): it => {
     set par(justify: false)
