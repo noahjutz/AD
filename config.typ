@@ -92,7 +92,6 @@
     set par(justify: false)
     block(
       stroke: black,
-      radius: 6pt,
       above: 8pt,
       below: 8pt,
       table(
