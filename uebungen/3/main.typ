@@ -119,38 +119,20 @@ $
 ==== Iteration
 
 $
-T(n) = 2 &hlp(T(n/4^1)) + n^(1/2^1) \
-= 2 (2 &hlp(T(n/4^2)) + n^(1/2^2)) + n^(1/2^1) \
-= 2 (2 (2 &hlp(T(n/4^3)) + n^(1/2^3)) + n^(1/2^2)) + n^(1/2^1) \
+T(n) = 2 &hlp(T(n/4^1)) + sqrt(n/4^0) \
+= 2 (2 &hlp(T(n/4^2)) + sqrt(n/4^1)) + sqrt(n/4^0) \
+= 2 (2 (2 &hlp(T(n/4^3)) + sqrt(n/4^2)) + sqrt(n/4^1)) + sqrt(n/4^0) \
 $
 
 $
 = ... \
-= 2^i T(n/4^i) + sum_(k=1)^i n^(1/2^k) \
-= 2^(log_4 n) T(1) + sum_(k=1)^(log_4 n) n^(1/2^k) \
-= sqrt(n) + underbrace(
-  root(2, n) + root(4, n) + root(8, n) + ... + root(sqrt(n), n),
-  log_4n "Terme"
-) \
+= 2^i T(n/4^i) + sum_(k=0)^(i-1) 2^k sqrt(n/4^k) \
+= 2^hlp(log_4 n) T(1) + sum_(k=1)^hlp(log_4 n) 2^k sqrt(n/4^k) \
+= sqrt(n) + sum_(k=1)^(log_4 n) 2^k dot (1/2)^k dot sqrt(n) \
+= sqrt(n) + sum_(k=1)^(log_4 n) 1^k dot sqrt(n) \
+= sqrt(n) + log_4 n dot sqrt(n) \
+= Theta(sqrt(n) log n)
 $
-
-==== Obere Schranke
-
-$
-&T(n) <= sqrt(n) + sqrt(n) dot log_4 n \
-=> &T(n) = O(sqrt(n) log n)
-$
-
-==== Untere Schranke
-
-$
-T(n) &= sqrt(n) + sum_(k=1)^(log_4 n) n^(1/2^k) \
-&>= sum_(k=hlp(log_(8) n))^(log_4 n) n^(1/2^k) \
-&>= 1/3 log_4 n dot n^(1/2^(log_(8) n)) \
-&= 1/3 log_4 n dot root(root(3, n), n) \
-$
-
-// todo erschließe untere schranke von sqrt(n) log n
 
 === Gleichung 3
 
