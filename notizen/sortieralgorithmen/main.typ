@@ -599,3 +599,5 @@ for j in range(n):
   a[j] = i
   b[i] -= 1
 ```
+
+== Bucket Sort

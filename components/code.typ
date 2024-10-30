@@ -24,8 +24,7 @@
     }
   }
   block(
-    stroke: rgb(0, 0, 0, 20%),
-    radius: 4pt,
+    stroke: 1pt,
     above: 8pt,
     below: 8pt,
     breakable: false,
