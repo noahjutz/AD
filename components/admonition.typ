@@ -4,11 +4,10 @@
   block(
     stroke: 1pt,
     width: 100%,
-    radius: 6pt,
     clip: true,
     stack(
       block(
-        fill: theme.bg_light,
+        fill: theme.bg_trans,
         inset: (x: 6pt, y: 10pt),
         width: 100%,
         below: 0pt,
