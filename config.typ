@@ -38,6 +38,7 @@
 
   set footnote.entry(separator: none)
 
+  show math.equation: set block(breakable: true)
   show math.equation.where(block: true): set align(start)
   show math.equation: set text(font: "Fira Math")
 
