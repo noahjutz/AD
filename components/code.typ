@@ -1,5 +1,7 @@
+#import "/config.typ": theme
 #let code(code, comments) = {
-  show table.cell.where(x: 0): set text(font: "Noto Sans Mono")
+  set text(size: 0.8 * 11pt)
+  show table.cell.where(x: 0): set text(font: "Fira Code")
 
   let lines = code.split("\n")
   let i = 0
@@ -29,13 +31,13 @@
     below: 8pt,
     breakable: false,
     table(
-      columns: (auto, 1fr),
+      columns: 2,
       stroke: (x, y) => {
-        if x == 0 {(right: 1pt + rgb(0,0,0,20%))}
-        else if y != 0 {(top: 1pt + rgb(0,0,0,20%))}
+        if x == 0 {(right: theme.bg_trans)}
+        else if y != 0 {(top: theme.bg_trans)}
       },
       fill: (x, y) => {
-        if x == 0 and calc.odd(y) { rgb(0, 0, 0, 5%) }
+        if x == 0 and calc.odd(y) { theme.bg_trans }
       },
       inset: (x: 8pt, y: 6pt),
       ..cells
