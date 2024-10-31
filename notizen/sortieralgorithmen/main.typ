@@ -602,8 +602,9 @@ for j in range(n):
 
 == Bucket Sort
 
-Genauso wie bei Counting Sort trifft die Untere Schranke vergleichsbasierter Sortieralgorithmen nicht auf Bucket Sort zu. Dass Bucket Sort in Linearzeit laufen kann, muss die Eingabe gleichverteilt sein. In der Implementierung in CLRS wird auch gefordert, dass die Zahlen der Eingabe zwischen Null und Eins liegen.
+Genauso wie bei Counting Sort trifft die Untere Schranke vergleichsbasierter Sortieralgorithmen nicht auf Bucket Sort zu. Dass Bucket Sort in Linearzeit laufen kann, muss die Eingabe gleichverteilt sein. In der Implementierung in CLRS wird auch gefordert, dass die Zahlen der Eingabe in $[0; 1[$ liegen.
 
 $
-A = (a_i mid(|) a_i tilde cal(U))
+A = (a_i mid(|) a_i tilde cal(U) \[-1; 1\[)
 $
+
