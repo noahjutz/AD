@@ -558,10 +558,10 @@ for i in range(n-1, 1, -1):
 
 == Counting Sort
 
-Countsort ist nicht vergleichsbasiert, weshalb die untere Schranke $Omega(n log n)$ nicht gilt. Es gibt aber die Einschränkung, dass der Wertebereich der Eingabeliste $A$ endlich ist.
+Countsort ist nicht vergleichsbasiert, weshalb die untere Schranke $Omega(n log n)$ nicht gilt. Es gibt aber die Einschränkung, dass der Wertebereich der Eingabeliste $a$ endlich ist.
 
 $
-A = (a_0, a_1, a_2, ..., a_(n-1)) "mit" a_i in {0, 1, 2, ..., k}
+a = (a_0, a_1, a_2, ..., a_(n-1)) "mit" a_i in {0, 1, 2, ..., k}
 $
 
 Desto größer $k$ ist, desto mehr Speicher wird in Anspruch genommen. Wenn $k>n$, ist die Laufzeit nicht mehr linear.
@@ -573,10 +573,10 @@ $
 
 === Funktionsweise
 
-Es wird eine $k$-Elementige Liste $B$ aus Nullen angelegt. Diese soll an jeder Stelle $j$ speichern, wie oft $j$ in $A$ vorkommt.
+Es wird eine $k$-Elementige Liste $b$ aus Nullen angelegt. Diese soll an jeder Stelle $j$ speichern, wie oft $j$ in $A$ vorkommt.
 
 $
-B &= (b_0, b_1, b_2, ..., b_(k-1)) \
+b &= (b_0, b_1, b_2, ..., b_(k-1)) \
 &= (0, 0, 0, ..., 0)
 $
 
@@ -602,15 +602,15 @@ for j in range(n):
 
 == Bucket Sort
 
-Genauso wie bei Counting Sort trifft die Untere Schranke vergleichsbasierter Sortieralgorithmen nicht auf Bucket Sort zu. Dass Bucket Sort in Linearzeit laufen kann, muss die Eingabe gleichverteilt sein. In der Implementierung in CLRS wird auch gefordert, dass die Zahlen der Eingabe in $[0; 1[$ liegen.
+Genauso wie bei Counting Sort trifft die Untere Schranke vergleichsbasierter Sortieralgorithmen nicht auf Bucket Sort zu. Dass Bucket Sort in Linearzeit laufen kann, muss die Eingabe $a$ gleichverteilt sein. In der Implementierung in CLRS wird auch gefordert, dass die Zahlen der Eingabe in $[0; 1[$ liegen.
 
 $
-A = (a_i mid(|) a_i tilde cal(U) \[-1; 1\[)
+a = (a_i mid(|) a_i tilde cal(U) \[-1; 1\[)
 $
 
 === Funktionsweise
 
-Es wird ein $n$-Elementiges Hilfsfeld $B$ angelegt, in dem jedes Element wiederum eine Liste mit dynamischer Größe ist. Diese Listen sind die "Buckets", in denen später die Zahlen aus $A$ landen, welche in den jeweiligen Bereich fallen.
+Es wird ein $n$-Elementiges Hilfsfeld $b$ angelegt, in dem jedes Element wiederum eine Liste mit dynamischer Größe ist. Diese Listen sind die "Buckets", in denen später die Zahlen aus $a$ landen, welche in den jeweiligen Bereich fallen.
 
 #include "bucket_sort.typ"
 
@@ -618,8 +618,8 @@ Die Buckets werden mit Insertion Sort seperat sortiert, und zuletzt konkateniert
 
 == Map Sort
 
-Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $B$ keine Buckets enthält. Stattdessen bei einer Kollision der einzufügende Wert nach rechts oder links verschoben, sodass $B$ nach jeder Iteration sortiert ist.
+Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $b$ keine Buckets enthält. Stattdessen bei einer Kollision der einzufügende Wert nach rechts oder links verschoben, sodass $b$ nach jeder Iteration sortiert ist.
 
 === Kollisionshandling
 
-Das Hilfsfeld $B$ ist vor jedem Durchlauf sortiert.
+Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert.
