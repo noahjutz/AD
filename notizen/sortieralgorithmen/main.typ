@@ -613,3 +613,7 @@ $
 Es wird ein $n$-Elementiges Hilfsfeld $B$ angelegt, in dem jedes Element wiederum eine Liste mit dynamischer Größe ist. Diese Listen sind die "Buckets", in denen später die Zahlen aus $A$ landen, welche in den jeweiligen Bereich fallen.
 
 #include "bucket_sort.typ"
+
+Die Buckets werden seperat sortiert, z. B. mit Insertion Sort, und zuletzt konkateniert.
+
+== Map Sort
