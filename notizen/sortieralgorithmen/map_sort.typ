@@ -1,26 +1,52 @@
 #import "/config.typ": theme
 #import "@preview/cetz:0.3.1"
 
-#cetz.canvas(length: 32pt, {
-  import cetz.draw: *
-  content((), name: "0")[$b_t$ belegt?]
-  content((rel: (0, -1)), name: "1")[hi]
+#let anch = state("map_sort_choices_anchor", "0")
 
-  on-layer(-1, {
-    for i in range(2) {
-      let l = str(i) + ".west"
-      let m = str(i) + ".center"
-      let r = str(i) + ".east"
+#context { cetz.canvas(length: 48pt, {
+  import cetz.draw: *
+
+  let choice(body) = {
+    content(
+      (),
+      name: anch.get(),
+      padding: .2,
+      body
+    )
+    on-layer(-1, {
+      let l = anch.get() + ".west"
+      let t = anch.get() + ".north"
+      let r = anch.get() + ".east"
+      let b = anch.get() + ".south"
 
       line(
-        (rel: (-.25, 0), to: l),
-        (rel: (0, .25), to: m),
-        (rel: (.25, 0), to: r),
-        (rel: (0, -.25), to: m),
+        l, t, r, b,
         close: true,
-        stroke: none,
-        fill: theme.fg_dark
+        stroke: 2pt + theme.fg_medium,
       )
+    })
+  }
+
+  let to(dir) = {
+    let start = anch.get() + "." + {
+      if dir == "t" {"north"}
+      else if dir == "l" {"west"}
+      else if dir == "r" {"east"}
+      else if dir == "b" {"south"}
     }
-  })
-})
+    let end = {
+      if dir == "t" {(rel: (0, 1))}
+      else if dir == "l" {(rel: (-1, 0))}
+      else if dir == "r" {(rel: (1, 0))}
+      else if dir == "b" {(rel: (0, -1))}
+    }
+    
+    line(start, end, stroke: 2pt, mark: (end: "straight"))
+  }
+
+  choice[$b_t$ belegt?]
+  to("b")
+  content((rel: (0, -1)), name: "1")[hi]
+
+  
+})}
