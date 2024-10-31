@@ -614,8 +614,8 @@ Es wird ein $n$-Elementiges Hilfsfeld $B$ angelegt, in dem jedes Element wiederu
 
 #include "bucket_sort.typ"
 
-Die Buckets werden seperat sortiert, z. B. mit Insertion Sort, und zuletzt konkateniert.
+Die Buckets werden mit Insertion Sort seperat sortiert, und zuletzt konkateniert.
 
 == Map Sort
 
-Map Sort ist eine Abwandlung von Bucket Sort
+Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $B$ keine Buckets enthält. Stattdessen bei einer Kollision der einzufügende Wert nach rechts oder links verschoben, sodass $B$ nach jeder Iteration sortiert ist.
