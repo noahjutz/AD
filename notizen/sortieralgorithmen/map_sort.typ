@@ -10,8 +10,8 @@
     content(
       (),
       name: anch.get(),
-      padding: .2,
-      body
+      padding: (x: .2),
+      box(height: 24pt, align(horizon, body))
     )
     on-layer(-1, {
       let l = anch.get() + ".west"
@@ -41,7 +41,7 @@
       else if dir == "b" {(rel: (0, -1))}
     }
     
-    line(start, end, stroke: 2pt, mark: (end: "straight"))
+    line(start, end, mark: (end: "straight"))
   }
 
   choice[$b_t$ belegt?]
