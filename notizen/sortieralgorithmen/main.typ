@@ -608,3 +608,8 @@ $
 A = (a_i mid(|) a_i tilde cal(U) \[-1; 1\[)
 $
 
+=== Funktionsweise
+
+Es wird ein $n$-Elementiges Hilfsfeld $B$ angelegt, in dem jedes Element wiederum eine Liste mit dynamischer Größe ist. Diese Listen sind die "Buckets", in denen später die Zahlen aus $A$ landen, welche in den jeweiligen Bereich fallen.
+
+#include "bucket_sort.typ"
