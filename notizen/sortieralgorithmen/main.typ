@@ -622,7 +622,7 @@ Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $b$ keine Bu
 
 === Kollisionshandling
 
-Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert. Ist das Ziel bereits belegt, und $b_i > b_t$, wird der Zielindex $t$ so lange nach rechts verschoben, bis entweder eine freie Stelle entsteht, oder $b_t >= b_i$. Dann wird $x$ an Stelle $t$ gesetzt und $b_t$ nach dem gleichen Prinzip einsortiert. Analog für $b_i <= b_t$.
+Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert. Ist das Zielfeld bereits belegt, wird $a_i$ mit einem modifizierten Insertion Sort in $b$ einsortiert: Der Schlüssel wird als $a_i$ initialisiert, und wandert von $t$ aus nach rechts bzw. links.
 
 Wenn $t$ an ein Ende der Liste gelangt, bevor $x$ einsortiert werden konnte, wird die Richtung geändert und ggf. bis ans andere Ende sortiert.
 
