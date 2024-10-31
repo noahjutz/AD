@@ -622,6 +622,25 @@ Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $b$ keine Bu
 
 === Kollisionshandling
 
-Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert. Ist das Ziel bereits belegt, 
+Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert. Ist das Ziel bereits belegt, und $b_i > b_t$, wird der Zielindex $t$ so lange nach rechts verschoben, bis entweder eine freie Stelle entsteht, oder $b_t >= b_i$. Dann wird $x$ an Stelle $t$ gesetzt und $b_t$ nach dem gleichen Prinzip einsortiert. Analog für $b_i <= b_t$.
 
-#align(center, include "map_sort.typ")
+Wenn $t$ an ein Ende der Liste gelangt, bevor $x$ einsortiert werden konnte, wird die Richtung geändert und ggf. bis ans andere Ende sortiert.
+
+=== Erweiterung des Hilfsfeldes
+
+Die Größe des Hilfsfeldes ist mindestens $n$, und kann um einen konstanten Faktor $c > 1$ vergrößert werden, um Kollisionen zu minimieren.
+
+=== Erweiterung der erlaubten Eingabe
+
+Map Sort erlaubt Zahlen in einem beliebigen Bereicht $["lo"; "hi"]$, indem die jeweiligen Einträge $a_i$ in den Bereich $[0, 1]$ skaliert werden.
+
+$
+"normalize"(a_i) = (a_i - "lo")/("hi"-"lo")
+$
+
+Der Zielindex $t$ ist dann
+
+$
+f(a_i) = underbrace("normalize"(a_i), in [0;1]) dot
+underbrace((n dot c - 1), "len"(b)-1)
+$
