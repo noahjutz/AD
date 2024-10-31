@@ -617,3 +617,5 @@ Es wird ein $n$-Elementiges Hilfsfeld $B$ angelegt, in dem jedes Element wiederu
 Die Buckets werden seperat sortiert, z. B. mit Insertion Sort, und zuletzt konkateniert.
 
 == Map Sort
+
+Map Sort ist eine Abwandlung von Bucket Sort
