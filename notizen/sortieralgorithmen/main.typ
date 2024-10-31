@@ -622,4 +622,6 @@ Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $b$ keine Bu
 
 === Kollisionshandling
 
-Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert.
+Das Hilfsfeld $b$ ist vor jedem Durchlauf sortiert. Ist das Ziel bereits belegt, 
+
+#align(center, include "map_sort.typ")
