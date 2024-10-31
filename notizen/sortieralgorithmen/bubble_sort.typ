@@ -9,7 +9,7 @@
     from: j,
     to: j+1,
     direction: "bidirectional",
-    color: if is_swap {black} else {theme.fg_light}
+    color: if is_swap {black} else {theme.fg_dark}
   )
 )
 

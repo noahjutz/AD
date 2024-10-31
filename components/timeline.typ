@@ -21,13 +21,13 @@
             circle(
               radius: 4pt,
               stroke: none,
-              fill: theme.fg_light
+              fill: theme.fg_dark
             )
             align(center,
               block(
                 width: .5pt,
                 height: height + if i < l.children.len()-1 {8pt} else {-8pt},
-                stroke: theme.fg_light
+                stroke: theme.fg_dark
               )
             )
           }

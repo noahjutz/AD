@@ -33,11 +33,11 @@
     table(
       columns: (1fr, auto),
       stroke: (x, y) => {
-        if x == 0 {(right: theme.bg_trans)}
-        else if y != 0 {(top: theme.bg_trans)}
+        if x == 0 {(right: theme.fg_light)}
+        else if y != 0 {(top: theme.fg_light)}
       },
       fill: (x, y) => {
-        if x == 0 and calc.odd(y) { theme.bg_trans }
+        if x == 0 and calc.odd(y) { theme.fg_light }
       },
       inset: (x: 8pt, y: 6pt),
       ..cells

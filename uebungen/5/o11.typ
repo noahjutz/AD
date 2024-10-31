@@ -37,7 +37,7 @@
       fill: theme.primary_trans
     )
     show table.cell.where(x: 1): set text(
-      fill: theme.fg_light
+      fill: theme.fg_dark
     )
     table(
       columns: 2,
@@ -52,7 +52,7 @@
       fill: theme.primary_trans
     )
     show table.cell.where(y: 1): set text(
-      fill: theme.fg_light
+      fill: theme.fg_dark
     )
     table(
       columns: 2,
@@ -68,7 +68,7 @@
     )
     show table.cell.where(x: 1)
       .or(table.cell.where(y: 1)): set text(
-      fill: theme.fg_light
+      fill: theme.fg_dark
     )
     table(
       columns: 2,

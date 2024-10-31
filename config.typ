@@ -2,20 +2,22 @@
   primary: red,
   primary_light: red.lighten(75%),
   primary_trans: red.transparentize(75%),
+
   secondary: blue,
   secondary_light: blue.lighten(75%),
   secondary_trans: blue.transparentize(75%),
+
   tertiary: yellow.darken(15%),
   tertiary_light: yellow.lighten(75%),
   tertiary_trans: yellow.transparentize(75%),
-  fg: black,
-  fg_light: black.lighten(50%),
-  fg_trans: black.transparentize(50%),
-  bg_light: black.lighten(95%),
-  bg_trans: black.transparentize(95%),
+
   success: green.lighten(25%),
   success_light: green.lighten(75%),
-  success_trans: green.transparentize(75%)
+  success_trans: green.transparentize(75%),
+
+  fg_dark: black.transparentize(50%),
+  fg_medium: black.transparentize(85%),
+  fg_light: black.transparentize(95%),
 )
 
 #let config(doc) = {
@@ -98,7 +100,7 @@
       table(
         columns: 1fr,
         stroke: none,
-        fill: (_, y) => if calc.odd(y) {theme.bg_trans},
+        fill: (_, y) => if calc.odd(y) {theme.fg_light},
         inset: (x: 8pt, y: 6pt),
         ..it.lines.map(l => if l.text.len() == 0 {hide("a")} else {l})
       )

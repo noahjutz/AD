@@ -10,7 +10,7 @@
     if i == 0 {continue}
     if x <= pivot {
       swaps.push((i, j))
-      swaps.push((j, i, (paint: theme.bg_trans)))
+      swaps.push((j, i, (paint: theme.fg_light)))
       (nums.at(i), nums.at(j)) = (nums.at(j), nums.at(i))
       j += 1
     }
@@ -21,7 +21,7 @@
 #let partition_finalize(nums, j) = {
   let swaps = ()
   swaps.push((0, j))
-  swaps.push((j, 0, (paint: theme.bg_trans)))
+  swaps.push((j, 0, (paint: theme.fg_light)))
   (nums.at(0), nums.at(j)) = (nums.at(j), nums.at(0))
   return (swaps, nums)
 }

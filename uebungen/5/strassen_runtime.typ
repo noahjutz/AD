@@ -6,7 +6,7 @@
 
 #table(
   columns: 3,
-  stroke: (x, y) => if y == 0 {(right: theme.bg_trans, bottom: black)} else {(right: theme.bg_trans, bottom: theme.bg_trans)},
+  stroke: (x, y) => if y == 0 {(right: theme.fg_light, bottom: black)} else {(right: theme.fg_light, bottom: theme.fg_light)},
   table.header(
     "n", "Naiv [s]", "Strassen [s]",
   ),

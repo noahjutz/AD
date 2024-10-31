@@ -34,7 +34,7 @@
         "subrod.end"
       ),
       "subrod.end",
-      stroke: (dash: "dashed", paint: theme.fg_light),
+      stroke: (dash: "dashed", paint: theme.fg_dark),
       name: "cut"
     )
 

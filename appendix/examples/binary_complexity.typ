@@ -11,7 +11,7 @@
   plot.plot(axis-style: none, {
     plot.add(
       domain: (0, 10), x => 2/calc.pow(2, x),
-      style: (stroke: theme.fg_light)
+      style: (stroke: theme.fg_dark)
     )
     plot.add-hline(
       .5,

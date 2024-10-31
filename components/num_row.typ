@@ -123,7 +123,7 @@
   frame
 ) = prefix.map(p => table.cell(
   stroke: frame,
-  text(fill: theme.fg_light, p) 
+  text(fill: theme.fg_dark, p) 
 ))
 
 #let _nums_row(
@@ -155,7 +155,7 @@
       else if i in hl_secondary {theme.secondary_light}
       else if i in hl_tertiary {theme.tertiary_light}
       else if i in hl_success {theme.success_light}
-      else if i in hl_gray {theme.fg_light},
+      else if i in hl_gray {theme.fg_dark},
     if type(n) != content {str(n)} else {n}
   ))
 }
@@ -257,7 +257,7 @@
   labels_b: none,
   below: 4pt,
   prefix: (),
-  prefix_frame: theme.fg_light
+  prefix_frame: theme.fg_dark
 ) = {
   let n = prefix.len() + nums.len()
 

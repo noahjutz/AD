@@ -202,7 +202,7 @@
   line(
     from, "i.0",
     name: "line",
-    stroke: theme.fg_light,
+    stroke: theme.fg_dark,
     mark: (end: ">")
   )
 
@@ -219,7 +219,7 @@
       else if 247.5deg < ang and ang <= 292.5deg {"west"}
       else if 292.5deg < ang and ang <= 337.5deg {"south-west"}
       else {"south"},
-    text(fill: theme.fg_light, body)
+    text(fill: theme.fg_dark, body)
   )
 
   rotate(-ang, origin: to)

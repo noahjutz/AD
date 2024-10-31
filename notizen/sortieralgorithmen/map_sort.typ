@@ -19,7 +19,7 @@
         (rel: (0, -.25), to: m),
         close: true,
         stroke: none,
-        fill: theme.fg_light
+        fill: theme.fg_dark
       )
     }
   })

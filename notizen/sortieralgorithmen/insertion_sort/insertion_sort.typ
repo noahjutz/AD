@@ -8,7 +8,7 @@
   arrow: (
     from: i,
     to: -1,
-    color: theme.fg_light
+    color: theme.fg_dark
   )
 )
 
@@ -31,7 +31,7 @@
   arrow: (
     from: -1,
     to: j+1,
-    color: theme.fg_light
+    color: theme.fg_dark
   )
 )
 

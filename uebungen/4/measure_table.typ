@@ -11,8 +11,8 @@
       if x == 0 or y in (0, 1) {4pt} else {(x: 4pt, y: 10pt)}
     },
     stroke: (x, y) => (
-        right: if x == 0 {black} else {theme.bg_trans},
-        bottom: if y == 1 {black} else {theme.bg_trans},
+        right: if x == 0 {black} else {theme.fg_light},
+        bottom: if y == 1 {black} else {theme.fg_light},
     ),
     fill: (_, y) => {
       if y == 4 {theme.success_trans}

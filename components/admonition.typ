@@ -7,7 +7,7 @@
     clip: true,
     stack(
       block(
-        fill: theme.bg_trans,
+        fill: theme.fg_light,
         inset: (x: 6pt, y: 10pt),
         width: 100%,
         below: 0pt,
