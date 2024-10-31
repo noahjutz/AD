@@ -619,3 +619,7 @@ Die Buckets werden mit Insertion Sort seperat sortiert, und zuletzt konkateniert
 == Map Sort
 
 Map Sort ist eine Abwandlung von Bucket Sort, bei der das Hilfsfeld $B$ keine Buckets enthält. Stattdessen bei einer Kollision der einzufügende Wert nach rechts oder links verschoben, sodass $B$ nach jeder Iteration sortiert ist.
+
+=== Kollisionshandling
+
+Das Hilfsfeld $B$ ist vor jedem Durchlauf sortiert.
