@@ -16,7 +16,6 @@
     legend-anchor: "south-west",
     x-label: $n$,
     x-tick-step: 2,
-    x-grid: true,
     x-format: x => $2^#x$,
     y-label: "Operationen",
     y-ticks: (
