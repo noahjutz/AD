@@ -19,10 +19,13 @@
     x-grid: true,
     x-format: x => $2^#x$,
     y-label: "Operationen",
-    y-tick-step: 2,
-    y-mode: "log",
-    y-base: 2,
-    y-format: y => $2^#calc.log(y, base: 2)$,
+    y-ticks: (
+      (calc.pow(2, 24), $2^24$),
+      (calc.pow(2, 26), $2^26$),
+      (calc.pow(2, 27), $2^27$),
+      (calc.pow(2, 28), $2^28$),
+    ),
+    y-max: calc.pow(2, 28),
     y2-label: [$t$ [s]],
     y2-tick-step: 10,
     {
@@ -41,7 +44,7 @@
           data.map(((n, op, t)) => (int(n), float(t))),
           line: "spline",
           axes: ("x", "y2"),
-          style: (stroke: 2pt + fill),
+          style: (stroke: 2pt + fill.transparentize(50%)),
           label: name + " Laufzeit"
         )
       }
