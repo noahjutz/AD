@@ -1,4 +1,4 @@
-# Khawarizmiyyaat
+# Khawarizmia
 
 Visuelle Erklärungen von Algorithmen, welche einfach zu verstehen sind. Erstellt mit Typst.
 
