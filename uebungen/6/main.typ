@@ -27,3 +27,31 @@ Counting Sort läuft ab $n > 9000$ in Linearzeit, aber benötigt immer mindesten
 ==== Laufzeitmessungen
 
 #include "runtimes.typ"
+
+== Verkettete Liste
+
+// TODO meine Implementierung funktioniert nicht.
+
+Die Partition-Funktion nimmt eine verkettete Liste `a` und bewegt jeden Knoten, der kleiner als das Pivot-Element ist nach vorne, und jeden anderen nach hinten.
+
+```python
+it = iter(a)
+pivot = next(it)
+for node in it:
+  a.remove(node)
+  if node.value < pivot.value:
+    a.insert_before(pivot, node)
+  else:
+    a.insert_after(pivot, node)
+return pivot
+```
+
+Quicksort teilt die verkettete Liste in zwei und partitionieret rekursiv:
+
+```python
+if a.head == a.tail:
+  return
+pivot = partition(a)
+quicksort(a.slice(a.head, pivot.prev))
+quicksort(a.slice(pivot.next, a.tail))
+```
