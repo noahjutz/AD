@@ -75,3 +75,7 @@ def quicksort(head: Node, tail: Node):
 
   return (h, t)
 ```
+
+Weil in jeder Rekursion Variablen angelegt werden, ist der Platzverbrauch $Theta(log n)$. Die Laufzeit entspricht der des normalen Quicksort-Algorithmus, also $Theta(n log n)$.
+
+== Ringliste
