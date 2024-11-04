@@ -33,7 +33,7 @@ Counting Sort läuft ab $n > 9000$ in Linearzeit, aber benötigt immer mindesten
 Folgende Generator-Funktion traversiert alle Elemente von Head nach Tail. Die Liste darf während der Iteration verändert werden. 
 
 ```python
-def nodes(head: Node, tail: Node):
+def nodes(head, tail):
   current = head
   while current:
     h = current.next
@@ -63,7 +63,7 @@ def partition(head, tail):
 Nach dem gleichen Prinzip werden Head und Tail in Quicksort stets angepasst.
 
 ```python
-def quicksort(head: Node, tail: Node):
+def quicksort(head, tail):
   if head == tail:
     return (head, tail)
   h, p, t = partition(head, tail)
