@@ -1,3 +1,5 @@
+#import "/components/admonition.typ": admonition
+
 = Heaps
 
 == Mergesort und Heapsort
@@ -134,11 +136,31 @@ Damit gilt  $floor(log n) = h$ #sym.square.filled
 
 === Aussage 2
 
-Ein Heap mit $n$ Elementen hat höchstens $ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
+Ein Heap mit $n$ Elementen hat höchstens $n(h) := ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
 
 ==== Beweis
 
-// TODO
+Ein Heap hat in jeder Schicht bis zu doppelt so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat. Die Anzahl an Knoten an Tiefe $t$ ist also
+
+#grid(
+  columns: 2,
+  align: bottom,
+  column-gutter: 12pt,
+  $ n_t (t) = 2^t $,
+  text(fill: gray)[Für jedes $t$ wird verdoppelt]
+)
+
+Umgekehrt hat jede Schicht aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. Die Anzahl an Knoten an Höhe $h$ ist also
+
+#grid(
+  columns: 2,
+  align: horizon,
+  column-gutter: 12pt,
+  $ n_h (h) = 2^T/2^h $,
+  text(fill: gray)[Für jedes $h$ wird halbiert]
+)
+
+
 
 === Aussage 3
 
