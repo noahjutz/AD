@@ -136,9 +136,9 @@ Damit gilt  $floor(log n) = h$ #sym.square.filled
 
 === Aussage 2
 
-Ein Heap mit $n$ Elementen hat höchstens $n(h) := ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
+Ein Heap mit $n$ Elementen hat höchstens $ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
 
-==== Beweis
+==== Beweis - Vollständiger Heap
 
 Ein Heap hat in jeder Schicht bis zu doppelt so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat. Die Anzahl an Knoten an Tiefe $t$ ist also
 
@@ -146,21 +146,29 @@ Ein Heap hat in jeder Schicht bis zu doppelt so viele Knoten wie in der vorherig
   columns: 2,
   align: bottom,
   column-gutter: 12pt,
-  $ n_t (t) = 2^t $,
+  $ n_t <= 2^t $,
   text(fill: gray)[Für jedes $t$ wird verdoppelt]
 )
 
-Umgekehrt hat jede Schicht aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. Die Anzahl an Knoten an Höhe $h$ ist also
+Umgekehrt hat jede Schicht mindestens aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. Die Anzahl an Knoten an Höhe $h$ ist also
 
 #grid(
   columns: 2,
   align: horizon,
   column-gutter: 12pt,
-  $ n_h (h) = 2^T/2^h $,
+  $ n_h <= ceil(2^T/2^h) $,
   text(fill: gray)[Für jedes $h$ wird halbiert]
 )
 
+Die Anzahl an Knoten in der untersten Schicht $T$ kann auch so ausgedrückt werden:
 
+$
+2^T = ceil((2^(T+1)-1)/2) = ceil(n/2)
+$
+
+Damit ist $n_h = ceil(n/2^(h+1))$ #sym.checkmark
+
+==== Beweis - Allgemein
 
 === Aussage 3
 
