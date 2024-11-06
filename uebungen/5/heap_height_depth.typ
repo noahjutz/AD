@@ -1,3 +1,4 @@
+#import "/config.typ": theme
 #import "/components/lefttree.typ": lefttree, draw_node, index_to_name as i2n
 #import "@preview/cetz:0.3.1"
 
@@ -21,16 +22,8 @@
     name: "tree"
   )
 
-  // TODO mark each layer and add arrows for doubling and halving
-  for layer in range(layers(n)) {
-    line(
-      i2n(leftmost(n, layer: layer)),
-      (0, 0)
-    )
-  }
-
   line(
-    (rel: (-16pt, 0), to: i2n(leftmost(n))),
+    (rel: (-48pt, 0), to: i2n(leftmost(n))),
     ((), "|-", i2n(0)),
     mark: (
       start: "|",
@@ -41,7 +34,7 @@
   content("h.end", anchor: "south", padding: 2pt)[$h$]
 
   line(
-    (rel: (16pt, 0), to: i2n(n - 1)),
+    (rel: (48pt, 0), to: i2n(n - 1)),
     ((), "|-", i2n(0)),
     mark: (
       start: ">",
@@ -50,4 +43,36 @@
     name: "t"
   )
   content("t.end", anchor: "south", padding: 2pt)[$t$]
+
+  on-layer(-1, {
+    for layer in range(layers(n)) {
+      let y = i2n(leftmost(n, layer: layer))
+      let l = (rel: (-24pt, 0), to: i2n(leftmost(n)))
+      let r = (rel: (24pt, 0), to: i2n(n - 1))
+      let name = "l" + str(layer)
+      line(
+        (y, "-|", l),
+        (y, "-|", r),
+        stroke: (
+          thickness: 4pt,
+          cap: "round",
+          paint: theme.primary_light
+        ),
+        name: name
+      )
+
+      content(
+        name+".start",
+        anchor: "east",
+        padding: (right: 4pt),
+        str(layers(n) - layer - 1)
+      )
+      content(
+        name+".end",
+        anchor: "west",
+        padding: (left: 4pt),
+        str(layer)
+      )
+    }
+  })
 })
