@@ -140,27 +140,11 @@ Ein Heap mit $n$ Elementen hat höchstens $ceil(n/2^(h+1))$ Knoten auf Höhe $h$
 
 ==== Idee für vollständige Heaps
 
-Ein vollständiger Heap hat in jeder Schicht so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat.
-
-// #grid(
-//   columns: 2,
-//   align: bottom,
-//   column-gutter: 12pt,
-//   $ n = 2^t $,
-//   text(fill: gray)[Für jedes $t$ wird verdoppelt]
-// )
-
-Umgekehrt hat jede Schicht mindestens aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. 
-
-// #grid(
-//   columns: 2,
-//   align: horizon,
-//   column-gutter: 12pt,
-//   $ n = ceil(2^T/2^h) $,
-//   text(fill: gray)[Für jedes $h$ wird halbiert]
-// )
+Ein vollständiger Heap hat in jeder Schicht doppelt so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat. Umgekehrt hat jede Schicht halb so viele Knoten wie die nächste Schicht.
 
 #align(center, include "heap_height_depth.typ")
+
+Es gibt auf einer Schicht mit Tiefe $t$ $2^t$ Knoten. Umgekehrt gibt es auf einer Schicht mit Höhe $h$ $0.5^h$ mal so viele Knoten wie auf der untersten Schicht.
 
 ==== Induktionsanfang
 
