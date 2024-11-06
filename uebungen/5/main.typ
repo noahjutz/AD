@@ -138,39 +138,52 @@ Damit gilt  $floor(log n) = h$ #sym.square.filled
 
 Ein Heap mit $n$ Elementen hat höchstens $ceil(n/2^(h+1))$ Knoten auf Höhe $h$.
 
-==== Beweis - Vollständiger Heap
+==== Idee für vollständige Heaps
 
-Ein Heap hat in jeder Schicht bis zu doppelt so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat. Die Anzahl an Knoten an Tiefe $t$ ist also
+Ein vollständiger Heap hat in jeder Schicht so viele Knoten wie in der vorherigen, weil jeder Knoten bis zu 2 Nachfolger hat.
 
-#grid(
-  columns: 2,
-  align: bottom,
-  column-gutter: 12pt,
-  $ n_t <= 2^t $,
-  text(fill: gray)[Für jedes $t$ wird verdoppelt]
-)
+// #grid(
+//   columns: 2,
+//   align: bottom,
+//   column-gutter: 12pt,
+//   $ n = 2^t $,
+//   text(fill: gray)[Für jedes $t$ wird verdoppelt]
+// )
 
-Umgekehrt hat jede Schicht mindestens aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. Die Anzahl an Knoten an Höhe $h$ ist also
+Umgekehrt hat jede Schicht mindestens aufgerundet halb so viele Knoten wie die nächste Schicht. Es wird aufgerundet, weil es möglicherweise einen Knoten mit nur einem Nachfolger gibt. 
 
-#grid(
-  columns: 2,
-  align: horizon,
-  column-gutter: 12pt,
-  $ n_h <= ceil(2^T/2^h) $,
-  text(fill: gray)[Für jedes $h$ wird halbiert]
-)
+// #grid(
+//   columns: 2,
+//   align: horizon,
+//   column-gutter: 12pt,
+//   $ n = ceil(2^T/2^h) $,
+//   text(fill: gray)[Für jedes $h$ wird halbiert]
+// )
 
-Die Anzahl an Knoten in der untersten Schicht $T$ kann auch so ausgedrückt werden:
+#include "heap_height_depth.typ"
+
+==== Induktionsanfang
+
+Der Vorgänger des letzten Blattes $n-1$ ist
 
 $
-2^T = ceil((2^(T+1)-1)/2) = ceil(n/2)
+floor((n-1-1)/2) &= floor(n/2) - 1
 $
 
-Damit ist $n_h <= ceil(n/2^(h+1))$ #sym.checkmark
+Die Anzahl an nicht-Blättern ist der Index plus 1.
 
-==== Beweis - Allgemein
+$
+floor(n/2) - 1 + 1 = floor(n/2)
+$
 
-Ist ein Heap nicht vollständig, gibt es in der letzten und vorletzten Schicht Blätter.
+Die Anzahl an Blättern ist die Gesamtknotenzahl minus die nicht-Blätter.
+
+$
+n - floor(n/2) = ceil(n/2)
+#h(4pt) checkmark
+$
+
+==== Induktionsschritt
 
 === Aussage 3
 
