@@ -23,7 +23,7 @@
   )
 
   line(
-    (rel: (-48pt, 0), to: i2n(leftmost(n))),
+    (rel: (-32pt, 0), to: i2n(leftmost(n))),
     ((), "|-", i2n(0)),
     mark: (
       start: "|",
@@ -34,7 +34,7 @@
   content("h.end", anchor: "south", padding: 2pt)[$h$]
 
   line(
-    (rel: (48pt, 0), to: i2n(n - 1)),
+    (rel: (32pt, 0), to: i2n(n - 1)),
     ((), "|-", i2n(0)),
     mark: (
       start: ">",
@@ -64,13 +64,13 @@
       content(
         name+".start",
         anchor: "east",
-        padding: (right: 4pt),
+        padding: (right: 16pt),
         str(layers(n) - layer - 1)
       )
       content(
         name+".end",
         anchor: "west",
-        padding: (left: 4pt),
+        padding: (left: 16pt),
         str(layer)
       )
 
