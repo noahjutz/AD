@@ -31,7 +31,11 @@
     ),
     name: "h"
   )
-  content("h.end", anchor: "south", padding: 2pt)[$h$]
+  content(
+    "h.end",
+    anchor: "south",
+    padding: (bottom: 2pt)
+  )[$h$]
 
   line(
     (rel: (32pt, 0), to: i2n(n - 1)),
@@ -42,7 +46,11 @@
     ),
     name: "t"
   )
-  content("t.end", anchor: "south", padding: 2pt)[$t$]
+  content(
+    "t.end",
+    anchor: "south",
+    padding: (bottom: 2pt)
+  )[$t$]
 
   on-layer(-1, {
     for layer in range(layers(n)) {
