@@ -33,5 +33,5 @@
 
   note(1, ang: 90deg)[$h=2$]
   note(2, ang: -90deg)[$h=1$]
-  note(n - 1, ang: -90deg)[$h=0$]
+  note(5, ang: -135deg)[$h=0$]
 })
