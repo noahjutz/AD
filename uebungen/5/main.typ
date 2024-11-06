@@ -340,7 +340,7 @@ Durch den ersten Fall des Master-Theorems ist die Laufzeit $Theta(n^3)$.
 Die Strassen-Multiplikation teilt das Problem in nur sieben Teilprobleme mit halber Größe.
 
 $
-T(n) = 7T(n/2) + Theta(n^2)
+T(n) = 7T(n/2) + 18(n/2)^2
 $
 
 Durch den ersten Fall des Master-Theorems ist die Laufzeit
