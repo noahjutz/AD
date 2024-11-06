@@ -73,6 +73,33 @@
         padding: (left: 4pt),
         str(layer)
       )
+
+      if layer > 0 {
+        let prev = "l" + str(layer - 1)
+        line(
+          (prev+".start", 90%, prev+".end"),
+          (name+".start", 90%, name+".end"),
+          mark: (end: ">"),
+          name: "arrow"
+        )
+        content(
+          "arrow.mid",
+          anchor: "west",
+          padding: (left: 4pt)
+        )[$dot 2$]
+        line(
+          (name+".start", 10%, name+".end"),
+          (prev+".start", 10%, prev+".end"),
+          mark: (end: ">"),
+          name: "arrow"
+        )
+        content(
+          "arrow.mid",
+          anchor: "east",
+          padding: (right: 4pt)
+        )[$div 2$]
+      }
     }
   })
+
 })
