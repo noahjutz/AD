@@ -273,6 +273,7 @@
   hl_secondary: (),
   hl_tertiary: (),
   hl_success: (),
+  radius: 7pt,
   ..sink
 ) = {
   let index = name_to_index(node.name)
@@ -288,7 +289,7 @@
       else if index in hl_tertiary {theme.tertiary_light}
       else if index in hl_success {theme.success_light}
       else {white},
-    padding: 7pt,
+    padding: radius,
     place(center + horizon, node.content),
   )
 }

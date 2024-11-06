@@ -160,7 +160,7 @@ Umgekehrt hat jede Schicht mindestens aufgerundet halb so viele Knoten wie die n
 //   text(fill: gray)[Für jedes $h$ wird halbiert]
 // )
 
-#include "heap_height_depth.typ"
+#align(center, include "heap_height_depth.typ")
 
 ==== Induktionsanfang
 
