@@ -166,9 +166,11 @@ $
 2^T = ceil((2^(T+1)-1)/2) = ceil(n/2)
 $
 
-Damit ist $n_h = ceil(n/2^(h+1))$ #sym.checkmark
+Damit ist $n_h <= ceil(n/2^(h+1))$ #sym.checkmark
 
 ==== Beweis - Allgemein
+
+Ist ein Heap nicht vollständig, gibt es in der letzten und vorletzten Schicht Blätter.
 
 === Aussage 3
 
