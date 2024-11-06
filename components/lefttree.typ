@@ -277,6 +277,18 @@
   ..sink
 ) = {
   let index = name_to_index(node.name)
+  if type(hl_primary) == function and hl_primary(index) {
+    hl_primary = index
+  }
+  if type(hl_secondary) == function and hl_secondary(index) {
+    hl_secondary = index
+  }
+  if type(hl_tertiary) == function and hl_tertiary(index) {
+    hl_primary = index
+  }
+  if type(hl_success) == function and hl_success(index) {
+    hl_primary = index
+  }
   hl_primary = (hl_primary,).flatten()
   hl_secondary = (hl_secondary,).flatten()
   hl_tertiary = (hl_tertiary,).flatten()

@@ -146,6 +146,14 @@ Ein vollständiger Heap hat in jeder Schicht doppelt so viele Knoten wie in der 
 
 Es gibt auf einer Schicht mit Tiefe $t$ $2^t$ Knoten. Umgekehrt gibt es auf einer Schicht mit Höhe $h$ $0.5^h$ mal so viele Knoten wie auf der untersten Schicht.
 
+==== Idee für beliebige Heaps
+
+Die Höhe eines Knotens entspricht nicht der Schicht, sondern dem längsten Abstand zu einem Blatt.
+
+#align(center, include "heap_node_height.typ")
+
+Um die obige Formel dennoch zu zeigen, gehen wir induktiv vor: Im Induktionsanfang zeigen wir, dass es immer höchstens $ceil(n slash 2)$ Blätter in einem Heap gibt. Im Induktionsschritt nutzen wir, dass die Knoten auf Höhe 1 eines Heaps zu Blättern werden, wenn wir die vorherigen Blätter entfernen.
+
 ==== Induktionsanfang
 
 Der Vorgänger des letzten Blattes $n-1$ ist
