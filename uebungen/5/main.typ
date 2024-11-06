@@ -328,7 +328,7 @@ Ebenfalls oben bewiesen. #sym.checkmark #sym.square.filled
 Der Algorithmus teilt das Problem in acht Probleme mit halber Größe. Das kombinieren der Teilprobleme läuft in quadratischer Zeit, weil komponentenweise Addiert wird. Die Rekursionsgleichung ist also
 
 $
-T(n) = 8T(n/2) + Theta(n^2)
+T(n) = 8T(n/2) + 4(n/2)^2
 $
 
 Im Base-Case werden acht $1 times 1$ Matrizen in konstanter Zeit multipliziert, also ist $T(1)=Theta(1)$.
