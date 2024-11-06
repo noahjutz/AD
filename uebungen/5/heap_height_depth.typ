@@ -3,8 +3,12 @@
 
 #let n = 7
 
-#let leftmost(n) = {
-  return calc.pow(2, int(calc.log(n, base: 2))) - 1
+#let layers(n) = {
+  return int(calc.log(n, base: 2)) + 1
+}
+
+#let leftmost(n, layer: layers(n) - 1) = {
+  return calc.pow(2, layer) - 1
 }
 
 #cetz.canvas({
@@ -16,6 +20,14 @@
     draw-node: draw_node.with(radius: 4pt),
     name: "tree"
   )
+
+  // TODO mark each layer and add arrows for doubling and halving
+  for layer in range(layers(n)) {
+    line(
+      i2n(leftmost(n, layer: layer)),
+      (0, 0)
+    )
+  }
 
   line(
     (rel: (-16pt, 0), to: i2n(leftmost(n))),
