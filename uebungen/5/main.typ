@@ -152,7 +152,7 @@ Die Höhe eines Knotens entspricht nicht der Schicht, sondern dem längsten Abst
 
 #align(center, include "heap_node_height.typ")
 
-Um die obige Formel dennoch zu zeigen, gehen wir induktiv vor: Im Induktionsanfang zeigen wir, dass es immer höchstens $ceil(n slash 2)$ Blätter in einem Heap gibt. Im Induktionsschritt nutzen wir, dass die Knoten auf Höhe 1 eines Heaps zu Blättern werden, wenn wir die vorherigen Blätter entfernen.
+Um die obige Formel dennoch zu zeigen, gehen wir induktiv vor: Im Induktionsanfang zeigen wir, dass es immer höchstens $ceil(n slash 2)$ Blätter in einem Heap gibt. Im Induktionsschritt nutzen wir, dass sich die Höhe aller Knoten in einem Baum um 1 reduziert, wenn wir seine Blätter entfernen.
 
 ==== Induktionsanfang
 
