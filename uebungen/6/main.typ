@@ -125,3 +125,32 @@ for i in range(6):
   value = draw.pop()
   yield value
 ```
+
+== Rucksackproblem
+
+Um das anteilige Rucksackproblem zu lösen, sortieren wir zunächst alle Stücke nach Wert pro Kilo:
+
+```python
+def ratio(item):
+    return item.value / item.weight
+
+a=sorted(items, key=ratio,
+         reverse=True):
+```
+
+Dann packen wir die höherwertigen Stücke nacheinander ein, bis eines ggf. nicht ganz hineinpasst. Dieses schneiden wir dann zurecht, indem wir es einen Faktor kleiner als 1 zuweisen.
+
+
+```python
+sack = []
+for item in a:
+  if item.weight > max_weight:
+    sack.append([
+      item,
+      max_weight / item.weight
+    ])
+    break
+  sack.append([item, 1])
+max_weight -= item.weight
+return sack
+```
