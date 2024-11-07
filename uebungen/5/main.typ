@@ -154,7 +154,7 @@ Die Höhe eines Knotens entspricht nicht der Schicht, sondern dem längsten Abst
 
 Um die obige Formel dennoch zu zeigen, gehen wir induktiv vor: Im Induktionsanfang zeigen wir, dass es immer höchstens $ceil(n slash 2)$ Blätter in einem Heap gibt. Im Induktionsschritt nutzen wir, dass sich die Höhe aller Knoten in einem Baum um 1 reduziert, wenn wir seine Blätter entfernen.
 
-==== Induktionsanfang
+==== Induktionsanfang (h = 1)
 
 Der Vorgänger des letzten Blattes $n-1$ ist
 
@@ -175,7 +175,9 @@ n - floor(n/2) = ceil(n/2)
 #h(4pt) checkmark
 $
 
-==== Induktionsschritt
+==== Induktionsschritt (h - 1 #sym.arrow h)
+
+
 
 === Aussage 3
 
