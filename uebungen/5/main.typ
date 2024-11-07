@@ -177,11 +177,13 @@ $
 
 ==== Induktionsschritt (h - 1 #sym.arrow h)
 
-Wir haben gezeigt, dass jeder Heap $ceil(n slash 2)$ Blätter hat. Wenn wir diese entfernen, bleibt ein Heap mit $floor(n slash 2)$ Einträgen übrig. Der übrig gebliebene Heap hat dann
+Wir haben gezeigt, dass jeder Heap $ceil(n slash 2)$ Blätter hat. Wenn wir diese entfernen, bleibt ein Heap mit $floor(n slash 2)$ Einträgen übrig. Der Teilheap hat genau so viele Blätter, wie der Oberheap Knoten mit Höhe $h=1$ hat, weil die Blätter des Teilheaps die Vorgänger der Blätter des Oberheaps waren.
+
+Wir haben oben gezeigt, dass der Teilheap mit $floor(n slash 2)$ Knoten
 
 #stack(dir: ltr, spacing: 6pt,
   $ ceil(floor(n slash 2)/2) $,
-  align(horizon, "Blätter.")
+  align(horizon, "Blätter hat.")
 )
 
 Ist $n$ gerade, dann hat der Teilheap $ceil(n slash 4)$ Blätter. Sonst hat er
@@ -197,6 +199,8 @@ Das ist noch kleiner, also hat der Teilheap höchstens
   $ ceil(n/4) $,
   align(horizon, "Blätter.")
 )
+
+Wir können in diesem Teilheap wieder die Blätter entfernen, bis es nur noch einen Knoten gibt. In jedem Schritt erhöht sich die Höhe um 1. #sym.square.filled
 
 === Aussage 3
 
