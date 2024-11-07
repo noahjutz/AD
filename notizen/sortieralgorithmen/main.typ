@@ -100,7 +100,7 @@ Wir gehen davon aus, dass `a[:j]` nach Iteration $j-1$ sortiert ist.
 Wenn wir zeigen können, dass nach der nächsten Iteration $j$ das Subarray `a[:j+1]` sortiert ist, ist der Induktionsschritt erfüllt.
 
 #admonition(
-  [Verschachtelte Induktion]
+  title: [Verschachtelte Induktion]
 )[
   Die innere Schleife startet mit $i=j-1$ und läuft ggf. nach unten bis $i=0$. Behauptung: Nach jedem $i$-ten Schleifendurchlauf gilt sind die Elemente in `a[i+1:j+1]` an der richtigen Stelle.
 
@@ -184,7 +184,7 @@ Nach jedem $i$-ten Schleifendurchlauf ist `a[:i+2]` sortiert.
 
 ==== Induktionsanfang (i = 0)
 
-#admonition("Verschachtelte Induktion")[
+#admonition(title: "Verschachtelte Induktion")[
   Nach jedem $j$-ten Schleifendurchlauf ist `min(a)` in `a[:j+1]` und `a[j]` $<=$ `a[j+1]`
   ==== Induktionsanfang (j = n - 2)
 
@@ -197,7 +197,7 @@ Nach jedem $i$-ten Schleifendurchlauf ist `a[:i+2]` sortiert.
 
 ==== Induktionsschritt (i - 1 #sym.arrow i)
 
-#admonition("Verschachtelte Induktion")[
+#admonition(title: "Verschachtelte Induktion")[
   Nach jedem $j$-ten Schleifendurchlauf ist `min(a[i:])` in `a[i:j+1]`.
 
   ==== Induktionsanfang (j = n - 2)

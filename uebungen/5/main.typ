@@ -177,7 +177,28 @@ $
 
 ==== Induktionsschritt (h - 1 #sym.arrow h)
 
+Annahme: Ein Heap hat $ceil(n slash 2)$ Blätter. Wenn wir diese entfernen, bleibt ein Heap mit $floor(n slash 2)$ Einträgen übrig. Nach Induktonsannahme hat der übrig gebliebene Heap
 
+#stack(dir: ltr, spacing: 6pt,
+  $ ceil(floor(n slash 2)/2) $,
+  align(horizon, "Blätter.")
+)
+
+#admonition[
+  ==== n ist gerade
+
+  Dann hat der Teilheap
+
+  $ floor(n/4) $ Blätter.
+
+  ==== n ist ungerade
+
+  Die Anzahl Blätter ist 
+
+  $
+  floor((n-1)/4)
+  $
+]
 
 === Aussage 3
 

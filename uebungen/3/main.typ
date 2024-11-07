@@ -369,7 +369,7 @@ Wir nehmen an, dass $f(n-1, m)$ für ein $n-1$ und alle $m in NN_0$ definiert is
 
 Anhand dieser Annahme möchten wir zeigen, dass $f(n, m)$ für $n$ und alle $m in NN_0$ definiert ist.
 
-#admonition("Verschachtelte Induktion")[
+#admonition(title: "Verschachtelte Induktion")[
   ==== Induktionsanfang (m = 0)
 
   $
