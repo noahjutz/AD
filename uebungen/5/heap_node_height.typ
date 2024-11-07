@@ -28,11 +28,11 @@
       hl_primary: i => i in leaves(h0),
       hl_secondary: i => i in leaves(h1),
       hl_tertiary: i => i in leaves(h2),
-      hl_success: i => i in leaves(h3)
     ),
     name: "tree"
   )
 
+  note(0, ang: -90deg)[$h=3$]
   note(1, ang: 90deg)[$h=2$]
   note(2, ang: -90deg)[$h=1$]
   note(5, ang: -135deg)[$h=0$]
