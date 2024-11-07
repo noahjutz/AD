@@ -128,6 +128,8 @@ for i in range(6):
 
 == Rucksackproblem
 
+=== Stetiges Rucksackproblem
+
 Um das anteilige Rucksackproblem zu lösen, sortieren wir zunächst alle Stücke nach Wert pro Kilo:
 
 ```python
@@ -154,3 +156,9 @@ for item in a:
 max_weight -= item.weight
 return sack
 ```
+
+Der Algorithmus läuft in $Theta(n log n)$, weil das sortieren am längsten dauert.
+
+=== Diskretes Rucksackproblem
+
+// TODO
