@@ -189,14 +189,14 @@ Annahme: Ein Heap hat $ceil(n slash 2)$ Blätter. Wenn wir diese entfernen, blei
 
   Dann hat der Teilheap
 
-  $ floor(n/4) $ Blätter.
+  $ ceil(n/4) $ Blätter.
 
   ==== n ist ungerade
 
   Die Anzahl Blätter ist 
 
   $
-  floor((n-1)/4)
+  ceil((n-1)/4)
   $
 ]
 
