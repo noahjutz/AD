@@ -79,3 +79,49 @@ def quicksort(head, tail):
 Weil in jeder Rekursion Variablen angelegt werden, ist der Platzverbrauch $Theta(log n)$. Die Laufzeit entspricht der des normalen Quicksort-Algorithmus, also $Theta(n log n)$.
 
 == Ringliste
+
+Datenstruktur Verkettete Liste:
+
+```python
+class Node:
+  def __init__(self, value: int):
+    self.value = value
+    self.next = None
+
+  def step(self, n: int):
+    c = self
+    for _ in range(n):
+      c = c.next
+    return c
+  
+  def pop(self):
+    v = self.next.value
+    self.next = self.next.next
+    return v
+```
+
+Initialisierung der Lotto-Liste:
+
+```python
+head = Node(1)
+tail = head
+while True:
+  if tail.value == 49:
+    tail.next = head
+    break
+  new = Node(tail.value+1)
+  tail.next = new
+  tail = new
+return head
+```
+
+Ziehen von sechs Zufallszahlen:
+
+```python
+l = lotto_list()
+for i in range(6):
+  steps = random.randint(0, 48-i)
+  draw = l.step(steps)
+  value = draw.pop()
+  yield value
+```
