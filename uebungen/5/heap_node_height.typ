@@ -16,17 +16,19 @@
   import cetz.draw: *
   import cetz.tree: tree
 
-  let h0 = leaves(n)
-  let h1 = leaves(n - leaf_count(n))
-  let h2 = leaves(n - leaf_count(n) - leaf_count(n - leaf_count(n)))
+  let h0 = n
+  let h1 = n - leaf_count(n)
+  let h2 = h1 - leaf_count(h1)
+  let h3 = h2 - leaf_count(h2)
 
   tree(
     lefttree(([],)*n),
     draw-node: draw_node.with(
       radius: 4pt,
-      hl_primary: i => i in h0,
-      hl_secondary: i => i in h1,
-      hl_tertiary: i => i in h2
+      hl_primary: i => i in leaves(h0),
+      hl_secondary: i => i in leaves(h1),
+      hl_tertiary: i => i in leaves(h2),
+      hl_success: i => i in leaves(h3)
     ),
     name: "tree"
   )

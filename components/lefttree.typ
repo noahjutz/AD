@@ -287,7 +287,7 @@
     hl_tertiary = index
   }
   if type(hl_success) == function and hl_success(index) {
-    hl_primary = index
+    hl_success = index
   }
   hl_primary = (hl_primary,).flatten()
   hl_secondary = (hl_secondary,).flatten()
