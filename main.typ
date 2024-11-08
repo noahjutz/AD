@@ -20,6 +20,7 @@
   include "notizen/komplexitaet/main.typ"
   include "notizen/algorithmen/main.typ"
   include "notizen/sortieralgorithmen/main.typ"
+  include "notizen/trees/main.typ"
 }
 
 #pagebreak()
