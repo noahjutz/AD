@@ -273,6 +273,7 @@
   hl_secondary: (),
   hl_tertiary: (),
   hl_success: (),
+  hide: (),
   radius: 7pt,
   ..sink
 ) = {
@@ -289,10 +290,17 @@
   if type(hl_success) == function and hl_success(index) {
     hl_success = index
   }
+  if type(hide) == function and hide(index) {
+    hide = index
+  }
   hl_primary = (hl_primary,).flatten()
   hl_secondary = (hl_secondary,).flatten()
   hl_tertiary = (hl_tertiary,).flatten()
   hl_success = (hl_success,).flatten()
+  hide = (hide,).flatten()
+  if index in hide {
+    return ()
+  }
   content(
     (),
     frame: "circle",

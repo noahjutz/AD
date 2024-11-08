@@ -32,9 +32,7 @@
     lefttree(([],)*15),
     spread: .4,
     grow: .5,
-    draw-node: (node, ..) => if node.name != "0" {
-      draw_node(node, radius: 2pt)
-    },
+    draw-node: draw_node.with(radius: 2pt, hide: 0),
     draw-edge: (from, to, ..) => {
       if from != "g0" {
         line(from, to)
