@@ -1,51 +1,34 @@
 #import "/config.typ": theme
-#import "/components/lefttree.typ": lefttree, draw_node, index_to_name as i2n
 #import "@preview/cetz:0.3.1"
+#import cetz.draw: *
+#import cetz.tree: tree
 
-#let l = cetz.canvas({
-  import cetz.draw: *
-  import cetz.tree: tree
+#let draw_node(node, parent) = {
+  circle((), radius: 4pt)
+}
 
+#let named_tree(nodes) = {
+  return tree(
+    named_tree_nodes(nodes),
+    draw-node: named_tree_draw_node(nodes),
+    draw-edge: named_tree_draw_edge(nodes),
+    name: "named_tree"
+  )
+}
+
+#cetz.canvas({
   tree(
-    lefttree(([],)*15),
-    draw-node: draw_node.with(radius: 2pt),
-    spread: .4,
-    grow: .5,
+    ("z", ("l", "ll", "lr"), ("r", ("y", "yl", "yr"), "rr")),
+    draw-node: draw_node,
     name: "tree"
   )
 
   for _ in range(2) {
     line(
-      (rel: (8pt, 8pt), to: i2n(0)),
-      (rel: (-8pt, -8pt), to: i2n(0)),
+      (rel: (8pt, 8pt), to: "tree.0"),
+      (rel: (-8pt, -8pt), to: "tree.0"),
       stroke: 2pt + theme.primary
     )
     scale(x: -1)
   }
 })
-
-#let r = cetz.canvas({
-  import cetz.draw: *
-  import cetz.tree: tree
-
-  tree(
-    lefttree(([],)*15),
-    spread: .4,
-    grow: .5,
-    draw-node: draw_node.with(radius: 2pt, hide: 0),
-    draw-edge: (from, to, ..) => {
-      if from != "g0" {
-        line(from, to)
-      }
-    }
-  )
-})
-
-#grid(
-  columns: 3,
-  align: bottom,
-  column-gutter: 0pt,
-  l,
-  align(horizon)[#sym.arrow],
-  r
-)
