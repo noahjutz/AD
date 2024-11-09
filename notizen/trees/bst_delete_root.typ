@@ -33,7 +33,7 @@
     l: (
       l: (
         l: (
-          l: (node: hidden, line: hidden),
+          l: (node: hidden),
           r: (node: hidden)
         ),
         r: (
@@ -70,7 +70,7 @@
         ),
         r: (
           l: (node: hidden),
-          r: (node: hidden, line: hidden)
+          r: (node: hidden)
         )
       )
     )
@@ -86,7 +86,7 @@
     named_tree(spread: .45, grow: .5, (
       l: (
         l: (
-          l: (node: hidden, line: hidden),
+          l: (node: hidden),
           r: (node: hidden)
         ),
         r: (
@@ -125,7 +125,7 @@
         ),
         r: (
           l: (node: hidden),
-          r: (node: hidden, line: hidden)
+          r: (node: hidden)
         )
       )
     ))
