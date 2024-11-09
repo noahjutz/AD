@@ -52,10 +52,6 @@
     return ctx
   })
 
-  get-ctx(ctx => {
-    content(())[#ctx.nt_anchors]
-  })
-
   tree(
     _nodes(root),
     draw-node: named_tree_draw_node,
