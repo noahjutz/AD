@@ -46,7 +46,7 @@
 
 #cetz.canvas({
   named_tree((
-    name: "root",
+    name: "z",
     l: (
       name: "l",
       l: (
@@ -64,7 +64,7 @@
           name: "yl"
         ),
         r: (
-          name: "yr"
+          name: "x"
         )
       ),
       r: (
@@ -79,8 +79,8 @@
 
     for _ in range(2) {
       line(
-        (rel: (8pt, 8pt), to: a.root),
-        (rel: (-8pt, -8pt), to: a.root),
+        (rel: (8pt, 8pt), to: a.z),
+        (rel: (-8pt, -8pt), to: a.z),
         stroke: 2pt + theme.primary
       )
       scale(x: -1)
@@ -88,6 +88,10 @@
 
     boxed(a.l, a.lr, a.ll, rect.with(radius: 5pt))
     boxed(a.r, a.rr, a.yl, rect.with(radius: 5pt))
-    note(a.root)[$z$]
+    note(a.z, ang: 90deg)[$z$]
+    note(a.y, ang: 90deg)[$y$]
+    note(a.r, ang: 90deg)[$r$]
+    note(a.l, ang: 90deg)[$l$]
+    note(a.x, ang: 90deg)[$x$]
   })
 })
