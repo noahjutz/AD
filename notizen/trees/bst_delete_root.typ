@@ -3,13 +3,13 @@
 #import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 
-#let named_tree_nodes(root, anc: "0") = {
+#let named_tree_nodes(root) = {
   let nodes = (root.name,)
   if "l" in root.keys() {
-    nodes.push(named_tree_nodes(root.l, anc: anc + "-0"))
+    nodes.push(named_tree_nodes(root.l))
   }
   if "r" in root.keys() {
-    nodes.push(named_tree_nodes(root.r, anc: anc + "-1"))
+    nodes.push(named_tree_nodes(root.r))
   }
   return nodes
 }
@@ -25,23 +25,28 @@
   return anchors
 }
 
-#let named_tree_draw_node(node, parent) = {
-  circle((), radius: 5pt)
-}
+#let named_tree_draw_node(node, parent) = get-ctx(ctx => {
+  let a = ctx.named_tree_anchors
+  let b = a.pairs().map(p => p.rev()).to-dict()
+  //circle((), radius: 5pt)
+
+  content(())[#b.at(node.name, default: "?")]
+})
 
 #let named_tree(root) = {
   import cetz.tree: tree
+
+  set-ctx(ctx => {
+    ctx.named_tree_anchors = named_tree_anchors(root)
+    return ctx
+  })
+
   tree(
     named_tree_nodes(root),
     draw-node: named_tree_draw_node,
     // draw-edge: named_tree_draw_edge(nodes),
     name: "named_tree"
   )
-
-  set-ctx(ctx => {
-    ctx.named_tree_anchors = named_tree_anchors(root)
-    return ctx
-  })
 }
 
 #cetz.canvas({
