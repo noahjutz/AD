@@ -4,7 +4,6 @@
 #import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 
-#set block(spacing: 0pt)
 
 #let greyed = (
   fill: white.transparentize(50%),
@@ -55,7 +54,9 @@
   ))
 })
 
-#sym.arrow.b
+#block(spacing: 0pt)[
+  #sym.arrow.b
+]
 
 #stack(
   dir: ltr,
