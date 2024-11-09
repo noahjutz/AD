@@ -14,20 +14,28 @@
 
 #let _parse(root, anc: "0") = {
   let nodes = (:)
+  let anchors = (:)
   if "l" in root.keys() {
-    nodes += _parse(root.l, anc: anc + "-0")
+    let (n, a) = _parse(root.l, anc: anc + "-0")
+    nodes += n
+    anchors += a
     root.remove("l")
   }
   if "r" in root.keys() {
-    nodes += _parse(root.r, anc: anc + "-1")
+    let (n, a) = _parse(root.r, anc: anc + "-1")
+    nodes += n
+    anchors += a
     root.remove("r")
   }
   nodes.insert(anc, root)
-  return nodes
+  if "name" in root.keys() {
+    anchors.insert(root.name, anc)
+  }
+  return (nodes, anchors)
 }
 
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
-  let a = ctx.named_tree
+  let a = ctx.nt_nodes
   circle(
     (),
     radius: 5pt,
@@ -38,8 +46,14 @@
   import cetz.tree: tree
 
   set-ctx(ctx => {
-    ctx.named_tree = _parse(root)
+    let (n, a) = _parse(root)
+    ctx.nt_nodes = n
+    ctx.nt_anchors = a
     return ctx
+  })
+
+  get-ctx(ctx => {
+    content(())[#ctx.nt_anchors]
   })
 
   tree(
