@@ -34,46 +34,22 @@
     },
     l: (
       l: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       ),
       r: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       )
     ),
     r: (
       l: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       ),
       r: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       )
     )
   ))
@@ -87,48 +63,24 @@
   cetz.canvas({
     named_tree(spread: .45, grow: .5, (
       l: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       ),
       r: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       )
     ))
   }),
   cetz.canvas({
     named_tree(spread: .45, grow: .5, (
       l: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       ),
       r: (
-        l: (
-          l: (node: hidden),
-          r: (node: hidden)
-        ),
-        r: (
-          l: (node: hidden),
-          r: (node: hidden)
-        )
+        l: (node: hidden),
+        r: (node: hidden)
       )
     ))
   }),
