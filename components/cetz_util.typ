@@ -31,6 +31,48 @@
   )
 })
 
+#let convex_hull(..points, fun) = get-ctx(ctx => {
+  assert(points.pos().len() >= 2)
+
+  let is_right_turn(p1, p2, p3) = {
+    return vec.len(
+      vec.cross(
+        vec.as-vec(vec.sub(p2, p1)),
+        vec.as-vec(vec.sub(p3, p2))
+      )
+    ) <= 0
+  }
+
+  // Get absolute position of nodes
+  let points = points.pos().map(p => {
+    let (_, (x, y, z)) = resolve(ctx, p)
+    (x, y)
+  })
+
+  // Get initial point for Graham Scan
+  points = points.sorted(key: ((x, y)) => {(y, x)})
+  let lowest = points.remove(0)
+
+  // Sort by polar angle, farthest first
+  points = points.sorted(key: point => (
+    vec.angle2(lowest, point),
+    -vec.dist(lowest, point)
+  ))
+
+  points.insert(0, lowest)
+
+  // Construct stack
+  let stack = points.slice(0, 2)
+  for (i, point) in points.enumerate().slice(2) {
+    while stack.len() >= 2 and is_right_turn(point, stack.at(-1), stack.at(-2)) {
+      point = stack.pop()
+    }
+    stack.push(point)
+  }
+
+  fun(..stack)
+})
+
 #let note(pos: (), ang: 90deg, dist: 8pt, body) = group({
   ang = calc.rem(ang.deg(), 360)
   if ang < 0 {ang += 360}

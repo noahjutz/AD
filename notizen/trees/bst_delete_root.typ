@@ -1,5 +1,5 @@
 #import "/config.typ": theme
-#import "/components/cetz_util.typ": boxed, note
+#import "/components/cetz_util.typ": convex_hull
 #import "/components/named_tree.typ": named_tree
 #import "@preview/cetz:0.3.1"
 
