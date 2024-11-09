@@ -94,3 +94,19 @@
   )
 })
 
+#let connect(
+  from,
+  to,
+  fun,
+  from_shape: none,
+  to_shape: none
+) = {
+  intersections("i", {
+    hide(fun(from, to))
+    hide(from_shape(from))
+    if from != to {
+      hide(to_shape(to))
+    }
+  })
+  fun("i.0", "i.1")
+}
