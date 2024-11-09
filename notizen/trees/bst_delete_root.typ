@@ -25,6 +25,17 @@
   return anchors
 }
 
+#let named_tree_styles(root) = {
+  let styles = (root.name: root.at("style", default: (:)))
+  if "l" in root.keys() {
+    styles += named_tree_styles(root.l)
+  }
+  if "r" in root.keys() {
+    styles += named_tree_styles(root.r)
+  }
+  return styles
+}
+
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.named_tree_anchors
   let b = a.pairs().map(p => p.rev()).to-dict()
@@ -38,6 +49,7 @@
 
   set-ctx(ctx => {
     ctx.named_tree_anchors = named_tree_anchors(root)
+    ctx.named_tree_styles = named_tree_styles(root)
     return ctx
   })
 
