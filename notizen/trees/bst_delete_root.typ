@@ -18,7 +18,6 @@
 #let nil = content.with((), frame: "rect", stroke: none, padding: 4pt, text(fill: theme.fg_dark, "nil"))
 
 #cetz.canvas({
-  import cetz.draw: *
   named_tree((
     name: "z",
     draw: () => {
@@ -32,33 +31,24 @@
       }
     },
     l: (
-      l: (style: hidden, draw: ellipsis),
-      r: (style: hidden, draw: ellipsis)
+      l: (
+        l: (:),
+        r: (:)
+      ),
+      r: (
+        l: (:),
+        r: (:)
+      )
     ),
     r: (
       l: (
-        l: (
-          style: hidden,
-          line: (stroke: (paint: theme.fg_dark, dash: "dashed")),
-          draw: nil
-        ),
-        r: (
-          l: (style: hidden, draw: ellipsis),
-          r: (style: hidden, draw: ellipsis)
-        )
+        l: (:),
+        r: (:)
       ),
-      r: (style: hidden, draw: ellipsis)
+      r: (
+        l: (:),
+        r: (:)
+      )
     )
   ))
-
-  // on-layer(-1, {
-  //   boxed(
-  //     "tree.0-0", "tree.0-0-1", "tree.0-0-0",
-  //     rect.with(radius: 5pt, stroke: none, fill: theme.primary_light)
-  //   )
-  //   boxed(
-  //     "tree.0-1", "tree.0-1-1", "tree.0-1-0-0",
-  //     rect.with(radius: 5pt, stroke: none, fill: theme.secondary_light)
-  //   )
-  // })
 })
