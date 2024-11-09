@@ -18,7 +18,7 @@
 #let nil = content.with((), frame: "rect", stroke: none, padding: 4pt, text(fill: theme.fg_dark, "nil"))
 
 #cetz.canvas({
-  named_tree((
+  named_tree(spread: .45, grow: .5, (
     name: "z",
     draw: () => {
       for _ in range(2) {
@@ -32,23 +32,102 @@
     },
     l: (
       l: (
-        l: (:),
-        r: (:)
+        l: (
+          l: (node: hidden, line: hidden),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
       ),
       r: (
-        l: (:),
-        r: (:)
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
       )
     ),
     r: (
       l: (
-        l: (:),
-        r: (:)
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
       ),
       r: (
-        l: (:),
-        r: (:)
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
       )
     )
   ))
 })
+
+#sym.arrow.b
+
+#stack(
+  dir: ltr,
+  spacing: 12pt,
+  cetz.canvas({
+    named_tree(spread: .45, grow: .5, (
+      l: (
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
+      ),
+      r: (
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
+      )
+    ))
+  }),
+  cetz.canvas({
+    named_tree(spread: .45, grow: .5, (
+      l: (
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
+      ),
+      r: (
+        l: (
+          l: (:),
+          r: (:)
+        ),
+        r: (
+          l: (:),
+          r: (:)
+        )
+      )
+    ))
+  }),
+)
