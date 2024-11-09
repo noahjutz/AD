@@ -15,7 +15,7 @@
 }
 
 #let named_tree_anchors(root, anc: "0") = {
-  let anchors = (root.name: "named_tree." + anc)
+  let anchors = (root.name: anc)
   if "l" in root.keys() {
     anchors += named_tree_anchors(root.l, anc: anc + "-0")
   }
@@ -45,7 +45,7 @@
     named_tree_nodes(root),
     draw-node: named_tree_draw_node,
     // draw-edge: named_tree_draw_edge(nodes),
-    name: "named_tree"
+    name: "tree"
   )
 }
 
@@ -81,6 +81,9 @@
 
   get-ctx(ctx => {
     let a = ctx.named_tree_anchors
+    for key in a.keys() {
+      a.at(key) = "tree." + a.at(key)
+    }
 
     for _ in range(2) {
       line(
