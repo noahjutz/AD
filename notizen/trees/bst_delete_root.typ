@@ -3,6 +3,16 @@
 #import "/components/named_tree.typ": named_tree
 #import "@preview/cetz:0.3.1"
 
+#let greyed = (
+  fill: white.transparentize(50%),
+  stroke: (paint: theme.fg_dark, dash: "dashed")
+)
+
+#let hidden = (
+  fill: none,
+  stroke: none
+)
+
 #cetz.canvas({
   import cetz.draw: *
   named_tree((
@@ -18,15 +28,13 @@
       }
     },
     l: (
-      l: (:),
-      r: (:)
+      l: (style: greyed),
+      r: (style: greyed)
     ),
     r: (
       l: (
-        l: (
-          style: (stroke: none, fill: none)
-        ),
-        r: (:)
+        l: (style: hidden),
+        r: (style: greyed)
       ),
       r: (:)
     )
