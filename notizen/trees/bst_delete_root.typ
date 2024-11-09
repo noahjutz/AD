@@ -7,9 +7,10 @@
   import cetz.draw: *
   named_tree((
     name: "z",
-    draw: () => {circle(())},
+    draw: note.with[$z$],
     l: (
       name: "l",
+      draw: note.with[$l$],
       l: (
         name: "ll"
       ),
@@ -19,13 +20,16 @@
     ),
     r: (
       name: "r",
+      draw: note.with[$r$],
       l: (
         name: "y",
+        draw: note.with[$y$],
         l: (
           type: "nil",
         ),
         r: (
-          name: "x"
+          name: "x",
+          draw: note.with[$x$]
         )
       ),
       r: (:)
@@ -47,11 +51,5 @@
       )
       scale(x: -1)
     }
-
-    note(a.z, ang: 90deg)[$z$]
-    note(a.y, ang: 90deg)[$y$]
-    note(a.r, ang: 90deg)[$r$]
-    note(a.l, ang: 90deg)[$l$]
-    note(a.x, ang: 90deg)[$x$]
   })
 })
