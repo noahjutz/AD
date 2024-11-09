@@ -8,7 +8,6 @@
   named_tree((
     name: "z",
     draw: () => {
-      note[$z$]
       for _ in range(2) {
         line(
           (8pt, 8pt),
@@ -19,22 +18,13 @@
       }
     },
     l: (
-      name: "l",
-      draw: note.with[$l$],
       l: (:),
       r: (:)
     ),
     r: (
-      name: "r",
-      draw: note.with[$r$],
       l: (
-        name: "y",
-        draw: note.with[$y$],
         l: (:),
-        r: (
-          name: "x",
-          draw: note.with[$x$]
-        )
+        r: (:)
       ),
       r: (:)
     )
