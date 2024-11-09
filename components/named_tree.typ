@@ -1,24 +1,24 @@
 #import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 
-#let named_tree_nodes(root) = {
-  let nodes = (root.name,)
+#let _nodes(root) = {
+  let nodes = ([],)
   if "l" in root.keys() {
-    nodes.push(named_tree_nodes(root.l))
+    nodes.push(_nodes(root.l))
   }
   if "r" in root.keys() {
-    nodes.push(named_tree_nodes(root.r))
+    nodes.push(_nodes(root.r))
   }
   return nodes
 }
 
-#let named_tree_parse(root, anc: "0") = {
+#let _parse(root, anc: "0") = {
   let nodes = (anc: root)
   if "l" in root.keys() {
-    nodes += named_tree_parse(root.l, anc: anc + "-0")
+    nodes += _parse(root.l, anc: anc + "-0")
   }
   if "r" in root.keys() {
-    nodes += named_tree_parse(root.r, anc: anc + "-1")
+    nodes += _parse(root.r, anc: anc + "-1")
   }
   return nodes
 }
@@ -35,12 +35,12 @@
   import cetz.tree: tree
 
   set-ctx(ctx => {
-    ctx.named_tree = named_tree_parse(root)
+    ctx.named_tree = _parse(root)
     return ctx
   })
 
   tree(
-    named_tree_nodes(root),
+    _nodes(root),
     draw-node: named_tree_draw_node,
     // draw-edge: named_tree_draw_edge(nodes),
     name: "tree"

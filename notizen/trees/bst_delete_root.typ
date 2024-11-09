@@ -21,7 +21,6 @@
       l: (
         name: "y",
         l: (
-          name: "yl",
           type: "nil",
         ),
         r: (
