@@ -13,13 +13,16 @@
 }
 
 #let _parse(root, anc: "0") = {
-  let nodes = (anc: root)
+  let nodes = (:)
   if "l" in root.keys() {
     nodes += _parse(root.l, anc: anc + "-0")
+    root.remove("l")
   }
   if "r" in root.keys() {
     nodes += _parse(root.r, anc: anc + "-1")
+    root.remove("r")
   }
+  nodes.insert(anc, root)
   return nodes
 }
 
@@ -45,4 +48,5 @@
     // draw-edge: named_tree_draw_edge(nodes),
     name: "tree"
   )
+
 }
