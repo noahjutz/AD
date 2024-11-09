@@ -35,7 +35,7 @@
       l: (
         l: (
           style: hidden,
-          draw: content.with(())[`nil`]
+          line: (stroke: none),
         ),
         r: (:)
       ),
@@ -43,14 +43,14 @@
     )
   ))
 
-  on-layer(-1, {
-    boxed(
-      "tree.0-0", "tree.0-0-1", "tree.0-0-0",
-      rect.with(radius: 5pt, stroke: none, fill: theme.primary_light)
-    )
-    boxed(
-      "tree.0-1", "tree.0-1-1", "tree.0-1-0-0",
-      rect.with(radius: 5pt, stroke: none, fill: theme.secondary_light)
-    )
-  })
+  // on-layer(-1, {
+  //   boxed(
+  //     "tree.0-0", "tree.0-0-1", "tree.0-0-0",
+  //     rect.with(radius: 5pt, stroke: none, fill: theme.primary_light)
+  //   )
+  //   boxed(
+  //     "tree.0-1", "tree.0-1-1", "tree.0-1-0-0",
+  //     rect.with(radius: 5pt, stroke: none, fill: theme.secondary_light)
+  //   )
+  // })
 })

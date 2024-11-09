@@ -34,7 +34,7 @@
   return (nodes, anchors)
 }
 
-#let named_tree_draw_node(node, parent) = get-ctx(ctx => {
+#let _draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.nt_nodes.at(node.name)
   set-style(radius: 5pt, fill: white)
   circle(
@@ -50,6 +50,15 @@
   }
 })
 
+#let _draw_edge(from, to, ..target) = get-ctx(ctx => {
+  let a = ctx.nt_nodes.at(to.slice(1))
+  line(
+    from,
+    to,
+    ..a.at("line", default: (:))
+  )
+})
+
 #let named_tree(root) = {
   import cetz.tree: tree
 
@@ -62,8 +71,8 @@
 
   tree(
     _nodes(root),
-    draw-node: named_tree_draw_node,
-    // draw-edge: named_tree_draw_edge(nodes),
+    draw-node: _draw_node,
+    draw-edge: _draw_edge,
     name: "tree"
   )
 
