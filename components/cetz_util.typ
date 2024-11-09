@@ -31,7 +31,7 @@
   )
 })
 
-#let note(pos: (), ang: 90deg, dist: 8pt, body) = {
+#let note(pos: (), ang: 90deg, dist: 8pt, body) = group({
   ang = calc.rem(ang.deg(), 360)
   if ang < 0 {ang += 360}
   ang = eval(str(ang) + "deg")
@@ -50,7 +50,5 @@
       else {"south"},
     body
   )
-
-  rotate(-ang, origin: pos)
-}
+})
 

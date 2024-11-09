@@ -7,7 +7,17 @@
   import cetz.draw: *
   named_tree((
     name: "z",
-    draw: note.with[$z$],
+    draw: () => {
+      note[$z$]
+      for _ in range(2) {
+        line(
+          (8pt, 8pt),
+          (-8pt, -8pt),
+          stroke: 2pt + theme.primary
+        )
+        scale(x: -1)
+      }
+    },
     l: (
       name: "l",
       draw: note.with[$l$],
@@ -35,21 +45,4 @@
       r: (:)
     )
   ))
-
-
-  get-ctx(ctx => {
-    let a = ctx.nt_anchors
-    for key in a.keys() {
-      a.at(key) = "tree." + a.at(key)
-    }
-
-    for _ in range(2) {
-      line(
-        (rel: (8pt, 8pt), to: a.z),
-        (rel: (-8pt, -8pt), to: a.z),
-        stroke: 2pt + theme.primary
-      )
-      scale(x: -1)
-    }
-  })
 })
