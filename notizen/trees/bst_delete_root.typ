@@ -20,7 +20,7 @@
 #let nil = content.with((), frame: "rect", stroke: none, padding: 4pt, text(fill: theme.fg_dark, "nil"))
 
 #cetz.canvas({
-  named_tree(spread: .45, grow: .5, (
+  named_tree(spread: .5, grow: .5, (
     name: "z",
     draw: () => {
       for _ in range(2) {
@@ -61,7 +61,7 @@
   dir: ltr,
   spacing: 12pt,
   cetz.canvas({
-    named_tree(spread: .45, grow: .5, (
+    named_tree(spread: .5, grow: .5, (
       l: (
         l: (node: hidden),
         r: (node: hidden)
@@ -73,7 +73,7 @@
     ))
   }),
   cetz.canvas({
-    named_tree(spread: .45, grow: .5, (
+    named_tree(spread: .5, grow: .5, (
       l: (
         l: (node: hidden),
         r: (node: hidden)
