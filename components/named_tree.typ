@@ -36,7 +36,7 @@
 
 #let _draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.nt_nodes.at(node.name)
-  set-style(radius: 3pt, fill: white)
+  set-style(radius: 6pt, fill: white)
   circle(
     (),
     ..a.at("node", default: (:))

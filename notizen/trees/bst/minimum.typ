@@ -10,7 +10,7 @@
 )
 
 #cetz.canvas({
-  named_tree(spread: .5, grow: .5, (
+  named_tree(spread: .8, grow: .8, (
     l: (
       l: (
         l: (node: hidden),
@@ -40,11 +40,10 @@
 
   on-layer(-1, {
     boxed(
-      inset: 6pt,
       "tree.0-1", "tree.0-1-0-0", "tree.0-1-1",
       rect.with(
         stroke: none,
-        radius: 3pt,
+        radius: 6pt,
         fill: theme.tertiary_light
       )
     )
