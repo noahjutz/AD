@@ -12,11 +12,14 @@ Jeder Knoten im rechten Teilbaum ist größer als jeder Knoten im Linken. Daraus
 
 #align(center, include "bst/minimum.typ")
 
+Umgekehrt gilt das gleiche für das _Maximum_ des _linken_ Teilbaums.
+
 === Rekursive Lösung
+
+=== Iterative Lösung
 
 #align(center, include "bst/new_root.typ")
 
-
-Das minimum könnte aber einen rechten Nachfolger haben. Dieser darf an die ursprüngliche Stelle des Minimums gesetzt werden.
+Das Minimum könnte aber einen rechten Nachfolger haben. Dieser darf an die ursprüngliche Stelle des Minimums gesetzt werden.
 
 #align(center, include "bst/last_step.typ")
