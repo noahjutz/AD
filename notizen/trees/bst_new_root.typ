@@ -53,8 +53,8 @@
       a.from,
       a.to,
       line.with(
-        mark: (end: ">"),
-        stroke: (paint: theme.fg_dark, dash: "dashed")
+        mark: (end: "straight"),
+        stroke: (paint: theme.fg_dark)
       )
     )
   })
