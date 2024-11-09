@@ -8,4 +8,4 @@ Löschen wir einen Knoten $z$ mit zwei Nachfolgern, so bleiben zwei Teilbäume �
 
 #align(center, include "bst_delete_root.typ")
 
-Jeder Knoten im rechten Teilbaum ist größer als die Wurzel des linken Teilbaums. 
+Jeder Knoten im rechten Teilbaum ist größer als jeder Knoten des linken Teilbaums. 

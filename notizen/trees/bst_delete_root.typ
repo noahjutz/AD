@@ -1,5 +1,5 @@
 #import "/config.typ": theme
-#import "/components/cetz_util.typ": boxed
+#import "/components/cetz_util.typ": boxed, note
 #import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 
@@ -88,5 +88,6 @@
 
     boxed(a.l, a.lr, a.ll, rect.with(radius: 5pt))
     boxed(a.r, a.rr, a.yl, rect.with(radius: 5pt))
+    note(a.root)[$z$]
   })
 })

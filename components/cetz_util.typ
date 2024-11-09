@@ -31,3 +31,26 @@
   )
 })
 
+#let note(pos, ang: 0deg, dist: 8pt, body) = {
+  ang = calc.rem(ang.deg(), 360)
+  if ang < 0 {ang += 360}
+  ang = eval(str(ang) + "deg")
+
+  rotate(ang, origin: pos)
+
+  content(
+    (rel: (0, dist), to: pos),
+    anchor: if 22.5deg < ang and ang <= 67.5deg {"south-east"}
+      else if 67.5deg < ang and ang <= 112.5deg {"east"}
+      else if 112.5deg < ang and ang <= 157.5deg {"north-east"}
+      else if 157.5deg < ang and ang <= 202.5deg {"north"}
+      else if 202.5deg < ang and ang <= 247.5deg {"north-west"}
+      else if 247.5deg < ang and ang <= 292.5deg {"west"}
+      else if 292.5deg < ang and ang <= 337.5deg {"south-west"}
+      else {"south"},
+    body
+  )
+
+  rotate(-ang, origin: pos)
+}
+
