@@ -32,7 +32,7 @@
       l: (
         l: (
           name: "from",
-          node: (stroke: gray)
+          node: (stroke: theme.fg_dark),
         ),
         r: (node: hidden)
       ),
