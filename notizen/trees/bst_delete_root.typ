@@ -15,6 +15,7 @@
 )
 
 #let ellipsis = content.with(())[...]
+#let nil = content.with((), frame: "rect", stroke: none, padding: 4pt, text(fill: theme.fg_dark, "nil"))
 
 #cetz.canvas({
   import cetz.draw: *
@@ -36,8 +37,15 @@
     ),
     r: (
       l: (
-        l: (style: hidden, line: (stroke: none)),
-        r: (:)
+        l: (
+          style: hidden,
+          line: (stroke: (paint: theme.fg_dark, dash: "dashed")),
+          draw: nil
+        ),
+        r: (
+          l: (style: hidden, draw: ellipsis),
+          r: (style: hidden, draw: ellipsis)
+        )
       ),
       r: (style: hidden, draw: ellipsis)
     )
