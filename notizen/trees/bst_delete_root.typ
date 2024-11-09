@@ -39,9 +39,12 @@
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.named_tree_anchors
   let b = a.pairs().map(p => p.rev()).to-dict()
-  //circle((), radius: 5pt)
-
-  content(())[#b.at(node.name, default: "?")]
+  let s = ctx.named_tree_styles
+  circle(
+    (),
+    radius: 5pt,
+    ..s.at(b.at(node.name))
+  )
 })
 
 #let named_tree(root) = {
@@ -64,6 +67,7 @@
 #cetz.canvas({
   named_tree((
     name: "z",
+    style: (fill: theme.primary_light),
     l: (
       name: "l",
       l: (
