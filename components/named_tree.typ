@@ -12,36 +12,22 @@
   return nodes
 }
 
-#let named_tree_anchors(root, anc: "0") = {
-  let anchors = (root.name: anc)
+#let named_tree_parse(root, anc: "0") = {
+  let nodes = (anc: root)
   if "l" in root.keys() {
-    anchors += named_tree_anchors(root.l, anc: anc + "-0")
+    nodes += named_tree_parse(root.l, anc: anc + "-0")
   }
   if "r" in root.keys() {
-    anchors += named_tree_anchors(root.r, anc: anc + "-1")
+    nodes += named_tree_parse(root.r, anc: anc + "-1")
   }
-  return anchors
-}
-
-#let named_tree_styles(root) = {
-  let styles = (root.name: root.at("style", default: (:)))
-  if "l" in root.keys() {
-    styles += named_tree_styles(root.l)
-  }
-  if "r" in root.keys() {
-    styles += named_tree_styles(root.r)
-  }
-  return styles
+  return nodes
 }
 
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
-  let a = ctx.named_tree_anchors
-  let b = a.pairs().map(p => p.rev()).to-dict()
-  let s = ctx.named_tree_styles
+  let a = ctx.named_tree
   circle(
     (),
     radius: 5pt,
-    ..s.at(b.at(node.name))
   )
 })
 
@@ -49,8 +35,7 @@
   import cetz.tree: tree
 
   set-ctx(ctx => {
-    ctx.named_tree_anchors = named_tree_anchors(root)
-    ctx.named_tree_styles = named_tree_styles(root)
+    ctx.named_tree = named_tree_parse(root)
     return ctx
   })
 

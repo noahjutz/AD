@@ -21,7 +21,8 @@
       l: (
         name: "y",
         l: (
-          name: "yl"
+          name: "yl",
+          type: "nil",
         ),
         r: (
           name: "x"
@@ -35,26 +36,26 @@
 
 
   get-ctx(ctx => {
-    let a = ctx.named_tree_anchors
-    for key in a.keys() {
-      a.at(key) = "tree." + a.at(key)
-    }
+    // let a = ctx.named_tree_anchors
+    // for key in a.keys() {
+    //   a.at(key) = "tree." + a.at(key)
+    // }
 
-    for _ in range(2) {
-      line(
-        (rel: (8pt, 8pt), to: a.z),
-        (rel: (-8pt, -8pt), to: a.z),
-        stroke: 2pt + theme.primary
-      )
-      scale(x: -1)
-    }
+    // for _ in range(2) {
+    //   line(
+    //     (rel: (8pt, 8pt), to: a.z),
+    //     (rel: (-8pt, -8pt), to: a.z),
+    //     stroke: 2pt + theme.primary
+    //   )
+    //   scale(x: -1)
+    // }
 
-    boxed(a.l, a.lr, a.ll, rect.with(radius: 5pt))
-    boxed(a.r, a.rr, a.yl, rect.with(radius: 5pt))
-    note(a.z, ang: 90deg)[$z$]
-    note(a.y, ang: 90deg)[$y$]
-    note(a.r, ang: 90deg)[$r$]
-    note(a.l, ang: 90deg)[$l$]
-    note(a.x, ang: 90deg)[$x$]
+    // boxed(a.l, a.lr, a.ll, rect.with(radius: 5pt))
+    // boxed(a.r, a.rr, a.yl, rect.with(radius: 5pt))
+    // note(a.z, ang: 90deg)[$z$]
+    // note(a.y, ang: 90deg)[$y$]
+    // note(a.r, ang: 90deg)[$r$]
+    // note(a.l, ang: 90deg)[$l$]
+    // note(a.x, ang: 90deg)[$x$]
   })
 })
