@@ -23,7 +23,9 @@
     ),
     r: (
       l: (
-        l: (:),
+        l: (
+          style: (stroke: none, fill: none)
+        ),
         r: (:)
       ),
       r: (:)

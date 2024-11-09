@@ -36,10 +36,10 @@
 
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.nt_nodes.at(node.name)
+  set-style(radius: 5pt, fill: white)
   circle(
     (),
-    radius: 5pt,
-    fill: white
+    ..a.at("style", default: (:))
   )
   if "draw" in a {
     group({
