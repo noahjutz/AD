@@ -39,6 +39,7 @@
   circle(
     (),
     radius: 5pt,
+    fill: white
   )
   if "draw" in a {
     group({
