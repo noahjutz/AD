@@ -7,6 +7,7 @@
   import cetz.draw: *
   named_tree((
     name: "z",
+    draw: () => {circle(())},
     l: (
       name: "l",
       l: (

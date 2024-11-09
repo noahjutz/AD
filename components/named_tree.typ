@@ -35,11 +35,18 @@
 }
 
 #let named_tree_draw_node(node, parent) = get-ctx(ctx => {
-  let a = ctx.nt_nodes
+  let a = ctx.nt_nodes.at(node.name)
   circle(
     (),
     radius: 5pt,
   )
+  if "draw" in a {
+    group({
+      set-origin(())
+      move-to((0, 0))
+      (a.draw)()
+    })
+  }
 })
 
 #let named_tree(root) = {
