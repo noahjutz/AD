@@ -2,6 +2,7 @@
 #import "/components/cetz_util.typ": boxed
 #import "/components/named_tree.typ": named_tree
 #import "@preview/cetz:0.3.1"
+#import cetz.draw: *
 
 #let greyed = (
   fill: white.transparentize(50%),
@@ -12,6 +13,8 @@
   fill: none,
   stroke: none
 )
+
+#let ellipsis = content.with(())[...]
 
 #cetz.canvas({
   import cetz.draw: *
@@ -28,18 +31,15 @@
       }
     },
     l: (
-      l: (style: greyed),
-      r: (style: greyed)
+      l: (style: hidden, draw: ellipsis),
+      r: (style: hidden, draw: ellipsis)
     ),
     r: (
       l: (
-        l: (
-          style: hidden,
-          line: (stroke: none),
-        ),
+        l: (style: hidden, line: (stroke: none)),
         r: (:)
       ),
-      r: (style: greyed)
+      r: (style: hidden, draw: ellipsis)
     )
   ))
 
