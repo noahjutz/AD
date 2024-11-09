@@ -34,43 +34,43 @@
       l: (
         l: (
           l: (node: hidden, line: hidden),
-          r: (:)
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       ),
       r: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       )
     ),
     r: (
       l: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       ),
       r: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden, line: hidden)
         )
       )
     )
@@ -86,22 +86,22 @@
     named_tree(spread: .45, grow: .5, (
       l: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden, line: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       ),
       r: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       )
     ))
@@ -110,22 +110,22 @@
     named_tree(spread: .45, grow: .5, (
       l: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         )
       ),
       r: (
         l: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden)
         ),
         r: (
-          l: (:),
-          r: (:)
+          l: (node: hidden),
+          r: (node: hidden, line: hidden)
         )
       )
     ))
