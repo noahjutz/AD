@@ -21,12 +21,8 @@
     l: (
       name: "l",
       draw: note.with[$l$],
-      l: (
-        name: "ll"
-      ),
-      r: (
-        name: "lr"
-      )
+      l: (:),
+      r: (:)
     ),
     r: (
       name: "r",
@@ -34,9 +30,7 @@
       l: (
         name: "y",
         draw: note.with[$y$],
-        l: (
-          type: "nil",
-        ),
+        l: (:),
         r: (
           name: "x",
           draw: note.with[$x$]
