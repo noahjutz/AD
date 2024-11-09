@@ -12,6 +12,6 @@ Jeder Knoten im rechten Teilbaum ist größer als jeder Knoten im Linken. Jeder 
 
 #align(center, include "bst_new_root.typ")
 
-Das minimum könnte aber einen rechnen Nachfolger haben. Dieser darf an die ursprüngliche Stelle des Minimums gesetzt werden.
+Das minimum könnte aber einen rechten Nachfolger haben. Dieser darf an die ursprüngliche Stelle des Minimums gesetzt werden.
 
 #align(center, include "bst_last_step.typ")
