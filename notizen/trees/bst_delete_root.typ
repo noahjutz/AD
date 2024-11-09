@@ -4,6 +4,8 @@
 #import "@preview/cetz:0.3.1"
 #import cetz.draw: *
 
+#set block(spacing: 0pt)
+
 #let greyed = (
   fill: white.transparentize(50%),
   stroke: (paint: theme.fg_dark, dash: "dashed")
