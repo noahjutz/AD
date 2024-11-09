@@ -49,6 +49,13 @@
       a.at(key) = "tree." + a.at(key)
     }
 
-    connect(a.from, a.to, line)
+    connect(
+      a.from,
+      a.to,
+      line.with(
+        mark: (end: ">"),
+        stroke: (paint: theme.fg_dark, dash: "dashed")
+      )
+    )
   })
 })
