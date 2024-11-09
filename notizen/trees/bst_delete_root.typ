@@ -33,10 +33,13 @@
     ),
     r: (
       l: (
-        l: (style: hidden),
-        r: (style: greyed)
+        l: (
+          style: hidden,
+          draw: content.with(())[`nil`]
+        ),
+        r: (:)
       ),
-      r: (:)
+      r: (style: greyed)
     )
   ))
 
