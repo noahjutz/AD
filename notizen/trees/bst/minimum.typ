@@ -10,7 +10,7 @@
 )
 
 #cetz.canvas({
-  named_tree(spread: .8, grow: .8, (
+  named_tree((
     l: (
       l: (
         l: (node: hidden),

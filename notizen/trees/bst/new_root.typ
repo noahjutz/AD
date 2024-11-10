@@ -5,8 +5,8 @@
 #import cetz.draw: *
 
 #let connect = connect.with(
-  from_shape: circle.with(radius: 6pt),
-  to_shape: circle.with(radius: 6pt)
+  from_shape: circle.with(radius: 3pt),
+  to_shape: circle.with(radius: 3pt)
 )
 
 #let hidden = (
@@ -15,7 +15,7 @@
 )
 
 #cetz.canvas({
-  named_tree(spread: .8, grow: .8, (
+  named_tree((
     name: "to",
     node: (fill: theme.primary_light),
     l: (
