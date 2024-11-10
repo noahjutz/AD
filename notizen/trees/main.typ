@@ -12,11 +12,11 @@ Jeder Knoten im rechten Teilbaum ist größer als jeder Knoten im Linken. Daraus
 
 #align(center, include "bst/minimum.typ")
 
-Wir können diesen Knoten aber nicht einfach zur neuen Wurzel machen, weil er möglicherweise einen rechten Nachfolger hat.
+Der rote Knoten ist der _Inorder-Nachfolger_ des zu löschenden Knoten. Wenn wir diesen Knoten zur neuen Wurzel machen, was passiert mit seinem rechten Nachfolger?
 
 ==== Rekursive Lösung
 
-Wir kopieren den Wert des Inorder-Nachfolgers (rot) in die Wurzel, und löschen dann den Inorder-Nachfolger.
+Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann den Inorder-Nachfolger. Der Base-Case ist erreicht, wenn der zu löschende Knoten weniger als zwei Nachfolger hat. Das ist schon nach einem Selbstaufruf, weil der Inorder-Nachfolger keinen linken Nachfolger haben kann.
 
 ==== Iterative Lösung
 
