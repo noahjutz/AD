@@ -12,13 +12,13 @@ Jeder Knoten im rechten Teilbaum ist größer als jeder Knoten im Linken. Daraus
 
 #align(center, include "bst/minimum.typ")
 
-Der rote Knoten ist der _Inorder-Nachfolger_ des zu löschenden Knoten. Wenn wir diesen Knoten zur neuen Wurzel machen, was passiert mit seinem rechten Nachfolger?
+Das Minimum des rechten Teilbaums ist der _Inorder-Nachfolger_ des zu löschenden Knoten. Wenn wir diesen Knoten zur neuen Wurzel machen, was passiert mit seinem rechten Nachfolger?
 
-==== Rekursive Lösung
+==== Rekursives Löschen
 
-Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann den Inorder-Nachfolger. Der Base-Case ist erreicht, wenn der zu löschende Knoten weniger als zwei Nachfolger hat. Das ist schon nach einem Selbstaufruf, weil der Inorder-Nachfolger keinen linken Nachfolger haben kann.
+Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann rekursiv den Inorder-Nachfolger. Der Base-Case ist erreicht, wenn der zu löschende Knoten weniger als zwei Nachfolger hat. Das ist schon nach einem Selbstaufruf, weil der Inorder-Nachfolger keinen linken Nachfolger haben kann.
 
-==== Iterative Lösung
+==== Iteratives Löschen
 
 #align(center, include "bst/new_root.typ")
 
