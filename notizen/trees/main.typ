@@ -2,7 +2,7 @@
 
 == Binärer Suchbaum
 
-=== Löschen
+=== Löschen (iterativ)
 
 Löschen wir einen Knoten $z$ mit zwei Nachfolgern, so bleiben zwei Teilbäume übrig, welche die BST-Eigenschaft erfüllen.
 
@@ -20,11 +20,7 @@ Falls der Inorder-Nachfolger einen rechten Nachfolger hatte, wird dieser nach ob
 
 #align(center, include "bst/last_step.typ")
 
-==== Rekursives Löschen
+=== Löschen (rekursiv)
 
 Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann rekursiv den Inorder-Nachfolger. Der Base-Case ist erreicht, wenn der zu löschende Knoten weniger als zwei Nachfolger hat. Das ist schon nach einem Selbstaufruf, weil der Inorder-Nachfolger keinen linken Nachfolger haben kann.
 
-==== Iteratives Löschen
-
-
-Das Minimum könnte aber einen rechten Nachfolger haben. Dieser darf an die ursprüngliche Stelle des Minimums gesetzt werden.
