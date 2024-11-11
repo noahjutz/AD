@@ -162,7 +162,3 @@ Der Algorithmus läuft in $Theta(n log n)$, weil das sortieren am längsten daue
 === Diskretes Rucksackproblem
 
 // TODO
-
-= Bäume
-
-== BST
