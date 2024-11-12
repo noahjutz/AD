@@ -1,5 +1,8 @@
-#import "/components/lefttree.typ": lefttree, draw_node, index_to_name as i2n, number
+#import "/config.typ": theme
+#import "/components/lefttree.typ": lefttree, draw_node, index_to_name as i2n
+#import "/components/cetz_util.typ": note
 #import "@preview/cetz:0.3.1"
+
 
 #let n = 10
 
@@ -11,8 +14,8 @@
     tree(
       lefttree(([],)*n),
       draw-node: draw_node.with(radius: 2pt),
-      spread: .5,
-      grow: .5,
+      spread: .6,
+      grow: .6,
       name: "tree"
     )
 
@@ -22,27 +25,45 @@
         (rel: (4pt, 4pt), to: i2n(i))
       )
     }
-
-    number(0)[3]
-    number(1)[2]
-    number(3)[1]
-    number(7)[0]
+    for i in range(n) {
+      note(
+        pos: i2n(i),
+        dist: 5pt,
+        text(
+          fill: theme.fg_dark,
+          str(
+            calc.floor(calc.log(n/(i+1), base: 2))
+          )
+        )
+      )
+    }
   }),
   align(horizon, sym.arrow),
   cetz.canvas({
     import cetz.draw: *
     import cetz.tree: tree
 
+    let new_n = calc.floor(n/2)
+
     tree(
-      lefttree(([],)*calc.floor(n/2)),
+      lefttree(([],)*new_n),
       draw-node: draw_node.with(radius: 2pt),
-      spread: .5,
-      grow: .5,
+      spread: .6,
+      grow: .6,
       name: "tree"
     )
 
-    number(0)[2]
-    number(1)[1]
-    number(3)[0]
+    for i in range(new_n) {
+      note(
+        pos: i2n(i),
+        dist: 5pt,
+        text(
+          fill: theme.fg_dark,
+          str(
+            calc.floor(calc.log(new_n/(i+1), base: 2))
+          )
+        )
+      )
+    }
   })
 )
