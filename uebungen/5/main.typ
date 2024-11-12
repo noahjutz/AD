@@ -92,7 +92,7 @@ for i in range(len(a)-1, 0, -1):
   heapify(a, 0, i)
 ```
 
-== Heap-Beweise
+== BuildHeap Laufzeit Aussagen
 
 === Aussage 1
 
