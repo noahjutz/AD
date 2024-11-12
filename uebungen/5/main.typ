@@ -180,6 +180,8 @@ $
 
 Wir haben gezeigt, dass jeder Heap $H$ $ceil(n slash 2)$ Blätter hat. Wenn wir diese entfernen, bleibt ein Heap $H'$ mit $floor(n slash 2)$ Einträgen übrig. Die Höhe der Knoten in $H'$ ist um 1 geringer als die in $H$.
 
+#align(center, include "heap_delete_leaves.typ")
+
 Nach Induktionsannahme gilt: Ein Heap hat
 
 $
