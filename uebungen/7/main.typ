@@ -70,3 +70,11 @@ if dp:
 else:
   self.root = s
 ```
+
+== BST Eindeutigkeit
+
+== AVL-Baum
+
+
+
+== Minimaler AVL-Baum
