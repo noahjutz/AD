@@ -1,4 +1,5 @@
 #import "/components/admonition.typ": admonition
+#import "/components/math.typ": hlp
 
 = Heaps
 
@@ -177,30 +178,27 @@ $
 
 ==== Induktionsschritt (h - 1 #sym.arrow h)
 
-Wir haben gezeigt, dass jeder Heap $ceil(n slash 2)$ Blätter hat. Wenn wir diese entfernen, bleibt ein Heap mit $floor(n slash 2)$ Einträgen übrig. Der Teilheap hat genau so viele Blätter, wie der Oberheap Knoten mit Höhe $h=1$ hat, weil die Blätter des Teilheaps die Vorgänger der Blätter des Oberheaps waren.
+Wir haben gezeigt, dass jeder Heap $H$ $ceil(n slash 2)$ Blätter hat. Wenn wir diese entfernen, bleibt ein Heap $H'$ mit $floor(n slash 2)$ Einträgen übrig. Die Höhe der Knoten in $H'$ ist um 1 geringer als die in $H$.
 
-Wir haben oben gezeigt, dass der Teilheap mit $floor(n slash 2)$ Knoten
+Nach Induktionsannahme gilt: Ein Heap hat
 
-#stack(dir: ltr, spacing: 6pt,
-  $ ceil(floor(n slash 2)/2) $,
-  align(horizon, "Blätter hat.")
-)
+$
+ceil(n/2^((h-1)+h)) = ceil(n/2^h)
+$
 
-Ist $n$ gerade, dann hat der Teilheap $ceil(n slash 4)$ Blätter. Sonst hat er
+Knoten der Höhe $h-1$. Wir setzen die Anzahl der Knoten aus $H'$ ein, um die Knoten auf Höhe $h-1$ von $H'$ zu erhalten:
 
-#stack(dir: ltr, spacing: 6pt,
-  $ ceil((n-1)/4) $,
-  align(horizon, "Blätter.")
-)
+$
+ceil(hlp(floor(n slash 2))/2^h)
+$
 
-Das ist noch kleiner, also hat der Teilheap höchstens
+Die Knoten auf Höhe $h-1$ von $H'$ sind die Knoten auf Höhe $h$ von $H$. Wir führen die Formel zurück auf die zu zeigende:
 
-#stack(dir: ltr, spacing: 6pt,
-  $ ceil(n/4) $,
-  align(horizon, "Blätter.")
-)
-
-Wir können in diesem Teilheap wieder die Blätter entfernen, bis es nur noch einen Knoten gibt. In jedem Schritt erhöht sich die Höhe um 1. #sym.square.filled
+$
+ceil(floor(n slash 2)/2^h) &<= ceil((n slash 2)/2^h)
+&= ceil(n/2^(h+1))
+#h(4pt) square.filled
+$
 
 === Aussage 3
 
