@@ -66,3 +66,11 @@ bib-rodcutting:
   parent:
     type: article
     title: Dynamic Programming
+
+bib-avlvideo:
+  type: video
+  title: AVL Trees & Rotations (Self-Balancing Binary Search Trees)
+  author: Back To Back SWE
+  url:
+    value: https://www.youtube.com/watch?v=vRwi_UcZGjU
+    date: 2024-11-13
