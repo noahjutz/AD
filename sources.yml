@@ -67,10 +67,22 @@ bib-rodcutting:
     type: article
     title: Dynamic Programming
 
-bib-avlvideo:
+bib-avl-video:
   type: video
   title: AVL Trees & Rotations (Self-Balancing Binary Search Trees)
   author: Back To Back SWE
   url:
     value: https://www.youtube.com/watch?v=vRwi_UcZGjU
     date: 2024-11-13
+
+bib-avl-vis:
+  type: web
+  title: AVL Tree Visualization
+  author: David Galles
+  organization: University of San Francisco
+  url:
+    value: https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+    date: 2024-11-13
+  parent:
+    type: web
+    title: Data Structure Visualizations

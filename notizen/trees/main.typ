@@ -26,4 +26,4 @@ Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann r
 
 == AVL-Baum
 
-In einem AVL-Baum gilt für jeden Knoten, dass die Höhe des linken und rechten Teilbaums sich um maximal 1 unterscheiden @bib-avlvideo.
+In einem AVL-Baum gilt für jeden Knoten, dass die Höhe des linken und rechten Teilbaums sich um maximal 1 unterscheiden @bib-avl-video. @bib-avl-vis
