@@ -26,4 +26,9 @@ Wir kopieren den Wert des Inorder-Nachfolgers in die Wurzel, und löschen dann r
 
 == AVL-Baum
 
-In einem AVL-Baum gilt für jeden Knoten, dass die Höhe des linken und rechten Teilbaums sich um maximal 1 unterscheiden @bib-avl-video @bib-avl-vis.
+Ein AVL-Baum ist ein BST. In einem AVL-Baum gilt für jeden Knoten, dass die Höhe des linken und rechten Teilbaums sich um maximal 1 unterscheiden @bib-avl-video @bib-avl-vis.
+
+$
+"BF"(x) = h(B_R) - h(B_L), #h(8pt)
+abs("BF"(x)) <= 1
+$
