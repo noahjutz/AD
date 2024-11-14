@@ -32,3 +32,7 @@ $
 "BF"(x) = h(B_R) - h(B_L), #h(8pt)
 abs("BF"(x)) <= 1
 $
+
+=== Löschen
+
+@bib-avl-delete
