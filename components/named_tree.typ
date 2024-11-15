@@ -41,13 +41,16 @@
     (),
     ..a.at("node", default: (:))
   )
-  if "draw" in a {
-    group({
-      set-origin(())
-      move-to((0, 0))
+  group({
+    set-origin(())
+    move-to((0, 0))
+    if "draw" in a {
       (a.draw)()
-    })
-  }
+    }
+    if "body" in a {
+      content((0, 0), a.body)
+    }
+  })
 })
 
 #let _draw_edge(from, to, ..target) = get-ctx(ctx => {

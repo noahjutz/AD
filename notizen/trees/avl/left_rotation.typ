@@ -7,7 +7,9 @@
 )
 
 #cetz.canvas({
+  import cetz.draw: *
   named_tree((
-    body: "a"
+    body: "a",
+    //draw: circle.with((), radius: 10pt),
   ))
 })
