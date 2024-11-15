@@ -45,6 +45,8 @@ Die Höhen verändern sich möglicherweise.
 
 #align(center, include "avl/rr_rotation.typ")
 
+#include "avl/rr_table.typ"
+
 === Löschen
 
 Wenn wir die BST-Implementierung zum Löschen verwenden, erfüllt der resultierende Baum möglicherweise nicht mehr die AVL-Eigenschaft @bib-avl-delete. Um sie wieder herzustellen, laufen wir vom Vorgänger des Vorgänger des gelöschten Knoten bis zur Wurzel und rebalancieren jegliche Knoten, die unbalanciert sind.
