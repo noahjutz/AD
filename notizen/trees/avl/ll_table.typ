@@ -12,7 +12,9 @@
 
 #table(
   columns: 3,
-  $a$,
+  align: horizon,
+  "Knoten", "Davor", "Danach",
+  $ a $,
   $
   max(#triangle(fill: theme.primary_light), b)
   $,
@@ -22,7 +24,7 @@
     #triangle(fill: theme.secondary_light)
   )
   $,
-  $b$,
+  $ b $,
   $
   max(
     #triangle(fill: theme.secondary_light),
