@@ -35,7 +35,11 @@ $
 
 === Linksrotation
 
-#include "avl/left_rotation.typ"
+#align(center, include "avl/left_rotation.typ")
+
+=== Rechtsrotation
+
+#align(center, include "avl/right_rotation.typ")
 
 === Löschen
 
