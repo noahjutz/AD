@@ -36,11 +36,14 @@
 
 #let _draw_node(node, parent) = get-ctx(ctx => {
   let a = ctx.nt_nodes.at(node.name)
-  set-style(radius: 3pt, fill: white)
-  circle(
-    (),
-    ..a.at("node", default: (:))
-  )
+  let r = ctx.nt_radius
+  set-style(radius: r, fill: white)
+  if "draw" not in a {
+    circle(
+      (),
+      ..a.at("node", default: (:))
+    )
+  }
   group({
     set-origin(())
     move-to((0, 0))
@@ -62,13 +65,14 @@
   )
 })
 
-#let named_tree(root, ..args) = {
+#let named_tree(root, radius: 3pt, ..args) = {
   import cetz.tree: tree
 
   set-ctx(ctx => {
     let (n, a) = _parse(root)
     ctx.nt_nodes = n
     ctx.nt_anchors = a
+    ctx.nt_radius = radius
     return ctx
   })
 

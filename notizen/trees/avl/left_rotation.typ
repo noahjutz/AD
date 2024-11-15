@@ -8,8 +8,13 @@
 
 #cetz.canvas({
   import cetz.draw: *
-  named_tree((
-    body: "a",
-    //draw: circle.with((), radius: 10pt),
+  named_tree(radius: 8pt, spread: 1, grow: 1, (
+    body: $a$,
+    l: (
+      draw: circle.with((), radius: 3pt)
+    ),
+    r: (
+      body: $b$
+    )
   ))
 })
