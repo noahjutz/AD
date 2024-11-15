@@ -1,4 +1,4 @@
-= Bäume
+= BST und AVL-Bäume
 
 == BST
 
