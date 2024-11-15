@@ -92,6 +92,9 @@ else:
     root.r = node
   else:
     self.insert(node, root.r)
+
+root.refresh_height()
+root.rebalance()
 ```
 
 === Löschen
