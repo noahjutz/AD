@@ -73,8 +73,27 @@ else:
 
 == BST Eindeutigkeit
 
-== AVL-Baum
+== AVL Einfügen und Löschen
 
+=== Einfügen
 
+#include "avl_insert.typ"
+
+```python
+if self.root == NullNode():
+  self.root = node
+elif node.value < root.value:
+  if root.l == NullNode():
+    root.l = node
+  else:
+    self.insert(node, root.l)
+else:
+  if root.r == NullNode():
+    root.r = node
+  else:
+    self.insert(node, root.r)
+```
+
+=== Löschen
 
 == Minimaler AVL-Baum
