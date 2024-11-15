@@ -33,8 +33,12 @@ $
 abs("BF"(x)) <= 1
 $
 
+=== Linksrotation
+
+#include "avl/left_rotation.typ"
+
 === Löschen
 
 Wenn wir die BST-Implementierung zum Löschen verwenden, erfüllt der resultierende Baum möglicherweise nicht mehr die AVL-Eigenschaft @bib-avl-delete. Um sie wieder herzustellen, laufen wir vom Vorgänger des Vorgänger des gelöschten Knoten bis zur Wurzel und rebalancieren jegliche Knoten, die unbalanciert sind.
 
-#align(center, include "avl_delete.typ")
+#align(center, include "avl/delete.typ")
