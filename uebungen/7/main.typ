@@ -96,4 +96,35 @@ else:
 
 === Löschen
 
+#include "avl_delete.typ"
+
+```python
+if value < root.value:
+  self.delete(value, root.l, root)
+elif value > root.value:
+  self.delete(value, root.r, root)
+else:
+  if root.l == NullNode():
+    if prev == NullNode():
+      self.root = root.r
+    elif value < prev.value:
+      prev.l = root.r
+    else:
+        prev.r = root.r
+  elif root.r == NullNode():
+    if prev == NullNode():
+      self.root = root.l
+    elif value < prev.value:
+      prev.l = root.l
+    else:
+      prev.r = root.l
+  else:
+    suc = root.successor().value
+    root.value = suc
+    self.delete(suc, root.r, root)
+
+root.refresh_height()
+root.rebalance()
+```
+
 == Minimaler AVL-Baum
