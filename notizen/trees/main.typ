@@ -35,11 +35,15 @@ $
 
 === Linksrotation
 
-#align(center, include "avl/left_rotation.typ")
+#align(center, include "avl/ll_rotation.typ")
+
+Die Höhen verändern sich möglicherweise.
+
+#include "avl/ll_table.typ"
 
 === Rechtsrotation
 
-#align(center, include "avl/right_rotation.typ")
+#align(center, include "avl/rr_rotation.typ")
 
 === Löschen
 
