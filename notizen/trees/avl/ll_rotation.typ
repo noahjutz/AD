@@ -24,7 +24,7 @@
       r: (
         body: $b$,
         l: (
-          draw: triangle.with(fill: theme.secondary_light)
+          draw: triangle.with(fill: theme.secondary_light, stroke: 2pt)
         ),
         r: (
           draw: triangle.with(fill: theme.tertiary_light)
@@ -43,7 +43,7 @@
           draw: triangle.with(fill: theme.primary_light)
         ),
         r: (
-          draw: triangle.with(fill: theme.secondary_light)
+          draw: triangle.with(fill: theme.secondary_light, stroke: 2pt)
         )
       ),
       r: (
