@@ -59,6 +59,10 @@ Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST.
 
 == B-Baum
 
+=== Löschen
+
+#include "b_tree/delete.typ"
+
 === Unterschiede zu CLRS
 
 - In der Vorlesung hat ein $t$-ärer B-Baum maximal $t$ Nachfolger, in CLRS maximal $2t$.
