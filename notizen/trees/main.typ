@@ -61,5 +61,5 @@ Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST.
 
 === Unterschiede zu CLRS
 
-- Die Ordnung eines B-Baums ist in der Vorlesung als $t$ definiert. In CLRS ist die Ordnung $t' = 2t$.
+- In der Vorlesung hat ein $t$-ärer B-Baum maximal $t$ Nachfolger, in CLRS maximal $2t$.
 - In der Implementierung von CLRS werden die B-Baum Eigenschaften beim Einfügen und Löschen nicht gebrochen und wiederhergestellt, sondern präventiv vorgebeugt.
