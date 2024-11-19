@@ -6,8 +6,8 @@
     "y1": ("start": [$v := $ Inorder-NF]),
     "y4": ("start": [$v := $ Letzter Eintrag in $v_l$]),
     "y5": ("start": [$v := $ Erster Eintrag in $v_r$]),
-    "y6": ("start": [$v := $ $p_r$]),
-    "n6": ("start": [$v := $ $p_l$]),
+    "y6": ("c2": [$v := $ $p_r$]),
+    "n6": ("c2": [$v := $ $p_l$]),
   ),
   ```dot
   digraph {
@@ -55,8 +55,8 @@
     y4 -> start
     y5 -> start
 
-    y6 -> start
-    n6 -> start
+    y6 -> c2
+    n6 -> c2
 
     y2 -> end
     end[label="", shape=doublecircle, width=.2,style=filled]

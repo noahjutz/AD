@@ -61,6 +61,8 @@ Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST.
 
 === Löschen
 
+Dieses Flowchart beschreibt das Löschen eines Knotens und die Wiederherstellung der B-Baum-Eigenschaften @bib-btree-delete.
+
 #include "b_tree/delete.typ"
 
 === Unterschiede zu CLRS

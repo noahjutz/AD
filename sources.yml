@@ -95,3 +95,12 @@ bib-avl-delete:
   url:
     value: http://www.cs.emory.edu/~cheung/Courses/253/Syllabus/Trees/AVL-delete.html#case3
     date: 2024-11-14
+  
+bib-btree-delete:
+  type: web
+  title: Deletion in a B-tree
+  author: Phillip Kirlin
+  organization: Rhodes College
+  url:
+    value: https://www.cs.rhodes.edu/~kirlinp/courses/db/f16/handouts/btrees-deletion.pdf
+    date: 2024-11-19
