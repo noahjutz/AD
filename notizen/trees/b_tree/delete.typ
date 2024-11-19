@@ -1,29 +1,4 @@
-#import "/config.typ": theme
-#import "@preview/cetz:0.3.1"
 #import "@preview/diagraph:0.3.0": raw-render
-#import cetz.draw: *
-
-#let choice(body) = {
-  content(
-    (),
-    padding: 4pt,
-    name: "choice",
-    align(center, body),
-  )
-  line(
-    "choice.north",
-    "choice.east",
-    "choice.south",
-    "choice.west",
-    close: true,
-    stroke: theme.fg_medium,
-    fill: theme.fg_light
-  )
-}
-
-// #cetz.canvas({
-//   choice[$v$ ist innerer \ Knoten?]
-// })
 
 #raw-render(
   width: 100%, 
