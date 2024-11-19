@@ -56,3 +56,10 @@ Wenn wir die BST-Implementierung zum Löschen verwenden, erfüllt der resultiere
 == RS-Baum
 
 Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST.
+
+== B-Baum
+
+=== Unterschiede zu CLRS
+
+- Die Ordnung eines B-Baums ist in der Vorlesung als $t$ definiert. In CLRS ist die Ordnung $t' = 2t$.
+- In der Implementierung von CLRS werden die B-Baum Eigenschaften beim Einfügen und Löschen nicht gebrochen und wiederhergestellt, sondern präventiv vorgebeugt.
