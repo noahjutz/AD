@@ -131,3 +131,15 @@ root.rebalance()
 ```
 
 == Minimaler AVL-Baum
+
+$
+cal(P)(h) = cases(
+  1 "falls" h=0,
+  2 "falls" h=1,
+  2 dot (cal(P)(h-1) dot cal(P)(h-2))
+)
+$
+
+$
+cal(P)(5) = 4096
+$
