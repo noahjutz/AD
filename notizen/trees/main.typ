@@ -55,9 +55,19 @@ Wenn wir die BST-Implementierung zum Löschen verwenden, erfüllt der resultiere
 
 == RS-Baum
 
-Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST.
+Ein Rot-Schwarz Baum (RBT) ist ein selbstbalancierender BST. Der kürzestmögliche Pfad in einem RBT besteht nur aus schwarzen Knoten, und der längstmögliche aus abwechselnd roten und schwarzen Knoten. Daher ist die höhe maximal
+
+$
+h <= 2 log_2(n)
+$
 
 == B-Baum
+
+Dadurch, dass jeder Knoten mindestens $ceil(t slash 2) >= 2$ Nachfolger hat, ist die Höhe garantiert logarithmisch.
+
+$
+h <= log_ceil(t slash 2)(n)
+$
 
 === Löschen
 
