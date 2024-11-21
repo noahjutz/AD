@@ -69,6 +69,10 @@ $
 h <= log_ceil(t slash 2)(n)
 $
 
+=== Einfügen
+
+#include "b_tree/insert.typ"
+
 === Löschen
 
 Dieses Flowchart beschreibt das Löschen eines Knotens und die Wiederherstellung der B-Baum-Eigenschaften @bib-btree-delete.

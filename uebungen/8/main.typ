@@ -47,3 +47,7 @@ s/l <= 2 => s/(l+1) <= 2
 $
 
 == B-Baum Einfügen
+
+== B-Baum Löschen
+
+== B-Bäume
