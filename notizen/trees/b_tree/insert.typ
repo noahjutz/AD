@@ -59,8 +59,8 @@
     is_overflow:e -> end [label="nein"]
     is_overflow:w -> split:n [label="ja"]
     split:s -> is_root:n
-    is_root:w -> is_overflow:s [label="nein"]
-    is_root:e -> end [label="ja"]
+    is_root:e -> is_overflow:s [label="nein"]
+    is_root:w -> end [label="ja"]
   }
   ```
 )
