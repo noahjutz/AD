@@ -9,7 +9,8 @@
     is_correct_child: [$k < v.x_i$ \ oder $i > v.n$],
     is_correct_key: [$k < v.x_i$ \ oder $i > v.v$],
     is_overflow: [Overflow?],
-    split: [Splitten]
+    split: [Splitten],
+    is_root: [$v$ ist Wurzel?]
   ),
   edges: (
     start: (is_empty: [$v :=$ root]),
@@ -20,6 +21,9 @@
     is_correct_key: (
       is_correct_key: [nein \ / $i := i + 1$],
       is_overflow: [ja \ / `v.insert(i, k)`]
+    ),
+    split: (
+      is_root: [$v :=$ Vorgänger]
     )
   ),
   ```dot
@@ -35,6 +39,7 @@
       is_correct_child
       is_correct_key
       is_overflow
+      is_root
     }
 
     start[shape=circle,label="",width=.1,style=filled,fillcolor=black]
@@ -53,7 +58,9 @@
 
     is_overflow:e -> end [label="nein"]
     is_overflow:w -> split:n [label="ja"]
-    split:s -> is_overflow:s
+    split:s -> is_root:n
+    is_root:w -> is_overflow:s [label="nein"]
+    is_root:e -> end [label="ja"]
   }
   ```
 )
