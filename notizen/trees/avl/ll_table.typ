@@ -16,22 +16,22 @@
   "Knoten", "Davor", "Danach",
   $ a $,
   $
-  max(#triangle(fill: theme.primary_light), b)
+  max(#triangle(fill: theme.primary_light), b) + 1
   $,
   $
   max(
     #triangle(fill: theme.primary_light),
     #triangle(fill: theme.secondary_light)
-  )
+  ) + 1
   $,
   $ b $,
   $
   max(
     #triangle(fill: theme.secondary_light),
     #triangle(fill: theme.tertiary_light)
-  )
+  ) + 1
   $,
   $
-  max(a, #triangle(fill: theme.tertiary_light))
+  max(a, #triangle(fill: theme.tertiary_light)) + 1
   $
 )
