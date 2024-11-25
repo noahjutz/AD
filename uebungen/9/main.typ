@@ -49,3 +49,5 @@ $
 )
 
 Der Ausdruck $P_k$ ist die erwartete Menge an Kollisionen zwischen $k$ Werten.
+
+== Kollisionsauflösung
