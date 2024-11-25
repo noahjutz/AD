@@ -1,4 +1,4 @@
-= Bäume
+= Suchbäume
 
 == Binärer Suchbaum
 
