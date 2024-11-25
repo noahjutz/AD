@@ -23,3 +23,13 @@ Der Eintrag an Stelle $i$ wird aktualisiert, und mit `heapify_btt` nach oben get
 Alle Operationen laufen In-Situ. Die Platzkomplexität ist $Theta(1)$.
 
 == Multiplikationsmethode
+
+#table(
+    columns: 2,
+    $s$, $h(s)$,
+    "61","700",
+    "62","318",
+    "63","936",
+    "64","554",
+    "65","172"
+)
