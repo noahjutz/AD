@@ -33,3 +33,19 @@ Alle Operationen laufen In-Situ. Die Platzkomplexität ist $Theta(1)$.
     "64","554",
     "65","172"
 )
+
+== Erwartungswert Kollisionen
+
+$
+P_k = underbrace(binom(n, k), (a)) dot
+    underbrace((1/m)^k, (b)) dot
+    underbrace((1-1/m)^(n-k), (c))
+$
+
+#enum(numbering: "(a)",
+    [So viele Möglichkeiten gibt es, $k$ Schlüssel aus einer Hashtabelle mit $n$ Schlüsseln zu ziehen.],
+    [Die Wahrscheinlichkeit, dass alle $k$ Schlüssel auf die gleiche Stelle gehasht werden.],
+    [Die Wahrscheinlichkeit, dass alle $n-k$ übrigen Schlüssel nicht auf diese Stelle gehasht werden.]
+)
+
+Der Ausdruck $P_k$ ist die erwartete Menge an Kollisionen zwischen $k$ Werten.
