@@ -21,3 +21,5 @@ Der erste Wert wird mit dem Letzten vertauscht, dann wird der letzte gelöscht. 
 Der Eintrag an Stelle $i$ wird aktualisiert, und mit `heapify_btt` nach oben getragen. Weil der neue Wert kleiner ist, muss er möglicherweise weiter oben stehen. Laufzeit: $Theta(log n)$
 
 Alle Operationen laufen In-Situ. Die Platzkomplexität ist $Theta(1)$.
+
+== Multiplikationsmethode
