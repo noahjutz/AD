@@ -104,3 +104,18 @@ bib-btree-delete:
   url:
     value: https://www.cs.rhodes.edu/~kirlinp/courses/db/f16/handouts/btrees-deletion.pdf
     date: 2024-11-19
+
+bib-hash-quadratic-probing:
+  type: video
+  title: "Hash Tables: Quadratic Probing"
+  author: Clayton Cafiero
+  organization: University of Vermont
+  url:
+    value: https://www.uvm.edu/~cbcafier/cs2240/content/10_probing/02_quadratic.html
+    date: 2024-11-25
+  parent:
+    type: web
+    title: CS 2240 Data Structures and Algorithms
+    url: 
+      value: https://www.uvm.edu/~cbcafier/cs2240/
+      date: 2024-11-25
