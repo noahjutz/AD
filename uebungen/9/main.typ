@@ -77,6 +77,15 @@ for i in count():
   yield (h_1 + i * h_2) % self._size
 ```
 
-=== Ergebnisse
+=== Einfügen
+
+Mit $m=11$ und Werten 10, 22, 31, 4, 15, 28, 17, 88, 59.
 
 #include "hash_tables.typ"
+
+#[
+    #set enum(numbering: "(a)")
+    1. Lineares Probieren
+    2. Quadratisches Probieren
+    3. Doppeltes Hashing
+]

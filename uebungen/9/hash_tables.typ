@@ -8,6 +8,7 @@
 
 #let hashtable(dataset) = block(
   stroke: theme.fg_medium,
+  spacing: 8pt,
   table(
     columns: 2,
     align: end,
@@ -19,7 +20,6 @@
 )
 
 #align(center)[
-  #set block(spacing: 8pt)
   #stack(dir: ltr, spacing: 1fr)[
     #hashtable(keys_lin)
     (a)
