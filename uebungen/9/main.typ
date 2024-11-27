@@ -51,3 +51,32 @@ $
 Der Ausdruck $P_k$ ist die erwartete Menge an Kollisionen zwischen $k$ Werten.
 
 == Kollisionsauflösung
+
+=== Lineares Probieren
+
+```python
+h = self.hash(key)
+for i in count():
+  yield (h + i) % self._size
+```
+
+=== Quadratisches Probieren
+
+```python
+h = self.hash(k)
+for i in count():
+  yield (h + i + 3*i**2) % self._size
+```
+
+=== Doppeltes Hashing
+
+```python
+h_1 = self.hash(k)
+h_2 = self.hash2(k)
+for i in count():
+  yield (h_1 + i * h_2) % self._size
+```
+
+=== Ergebnisse
+
+#include "hash_tables.typ"
