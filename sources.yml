@@ -119,3 +119,17 @@ bib-hash-quadratic-probing:
     url: 
       value: https://www.uvm.edu/~cbcafier/cs2240/
       date: 2024-11-25
+
+bib-hash-map:
+  type: web
+  title: Hashing and HashMaps
+  author: Jerry Cain
+  organization: Stanford University
+  url:
+    value: https://web.stanford.edu/class/cs106x/res/handouts/22-Hashing-And-HashMaps.pdf
+    date: 2024-11-27
+  parent:
+    title: "CS106X: Programming Abstractions in C++"
+    url:
+      value: https://web.stanford.edu/class/cs106x/handouts.html
+      date: 2024-11-27
