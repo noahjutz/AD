@@ -30,6 +30,8 @@
   set par(justify: true)
   show figure: set par(justify: false)
 
+  show link: underline.with(stroke: theme.fg_dark)
+
   set outline(
     indent: true,
     depth: 2,
