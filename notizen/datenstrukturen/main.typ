@@ -35,7 +35,7 @@ $
 
 === Kollisionsbehandlung
 
-Siehe @problem-hash-collisions.
+Siehe @problem-hash-collisions. Eine schlechte Hashfunktion kann in eine Unendlichschleife geraten.
 
 ==== Lineares Probieren
 
