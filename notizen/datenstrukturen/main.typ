@@ -4,9 +4,9 @@
 
 Eine Hashtabelle kann verwendet werden, um ein #link("https://de.wikipedia.org/wiki/Menge_(Datenstruktur)")[Set] mit konstanten Zugriffzeiten zu implementieren. Ein Element in dieser Menge ist ein _Schlüssel_. Wenn man jedem Schlüssel einen Wert zuweist, dann ist es ein #link("https://de.wikipedia.org/wiki/Zuordnungstabelle")[Dictionary] @bib-hash-map.
 
-Unter der Haube einer Hashtabelle befindet sich ein statisches Array. Wenn man auf einen Eintrag mit einem Schlüssel $s$ zugreifen möchte, wird mit einer Hashfunktion $h(s)$ der Index des Elements in berechnet.
+Unter der Haube einer Hashtabelle befindet sich ein statisches Array. Wenn man auf einen Eintrag mit einem Schlüssel $s$ zugreifen möchte, wird der entsprechende Index mit einer _Hashfunktion_ $h(s)$ berechnet.
 
-Um es einfach zu halten, implementieren wir ein Set, dessen Schlüssel Integer-Werte sind.
+Um es einfach zu halten, implementieren wir ein Set, dessen Schlüssel nichtnegative ganze Zahlen sind.
 
 === Hashfunktion
 
@@ -17,6 +17,8 @@ Ziel ist es, die Schlüssel möglichst gleichverteilt auf die Hashtabelle zu ver
 $
 h(s) = s mod m
 $
+
+@bib-hash-division-method
 
 ==== Multiplikationsmethode
 

@@ -133,3 +133,16 @@ bib-hash-map:
     url:
       value: https://web.stanford.edu/class/cs106x/handouts.html
       date: 2024-11-27
+
+bib-hash-division-method:
+  type: web
+  title: Primes in Division Method of Hashing
+  author: Nitin Verma
+  url:
+    value: https://mathsanew.com/articles/primes_in_division_method_hashing.pdf
+    date: 2024-11-27
+  parent:
+    name: Maths Anew
+    url:
+      value: https://mathsanew.com/
+      date: 2024-11-27
