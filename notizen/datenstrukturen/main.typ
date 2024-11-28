@@ -11,14 +11,16 @@ Um es einfach zu halten, implementieren wir ein Set, dessen Schlüssel nichtnega
 === Hashfunktion
 
 Ziel ist es, die Schlüssel möglichst gleichverteilt auf die Hashtabelle zu verteilen, um Kollisionen zu vermeiden.
-
+auf einen
 ==== Divisionsmethode
+
+Eine einfache Modulooperation stellt sicher, dass ein beliebiger Schlüssel $s in NN_0$ einem Index zwischen $0$ und $m-1$ zugeordnet wird.
 
 $
 h(s) = s mod m
 $
 
-@bib-hash-division-method
+Wenn mehrere Schlüssel sich lediglich um ein Vielfaches von $a$ unterscheiden, dann müssen sie sich $m/gcd(a, m)$ Zellen teilen @bib-hash-division-method. Daher wäre es optimal, wenn $gcd(a, m) = 1$. Das ist erfüllt, wenn $a$ und $m$ teilerfremd sind. Wenn wir für $m$ eine Primzahl wählen, dann ist es mit allen $a < m$ teilerfremd.
 
 ==== Multiplikationsmethode
 
