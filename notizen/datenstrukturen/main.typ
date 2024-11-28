@@ -24,13 +24,35 @@ Wenn mehrere Schlüssel sich lediglich um ein Vielfaches von $a$ unterscheiden, 
 
 ==== Multiplikationsmethode
 
+Wähle einen Faktor $x in lr(]0,1])$. Der Bruchteil bestimmt die Position in der Hashtabelle.
+
 $
-h_x (s) = underbrace(
-  ((x dot s) mod 1),
-  in lr(\] 0,1 \])
-) dot m
+h_x (s) = floor(
+  ((x dot s) mod_c 1)
+ dot m
+)
 $
 
-=== Quadratisches Probieren
+=== Kollisionsbehandlung
 
-@bib-hash-quadratic-probing
+Siehe @problem-hash-collisions.
+
+==== Lineares Probieren
+
+$
+h(s, i) = accent(h, acute)(s) + i
+$
+
+==== Quadratisches Probieren
+
+$
+h(s, i) = accent(h, acute)(s) + c_1 i + c_2 i^2
+$
+
+Vermeidet Primary Clustering @bib-hash-quadratic-probing.
+
+==== Doppeltes Hashing
+
+$
+h(s, i) = accent(h, acute)(s) + i h_2(s)
+$
