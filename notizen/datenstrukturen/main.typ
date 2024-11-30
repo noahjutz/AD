@@ -76,3 +76,11 @@ height = np.random.geometric(p=.5)
 ```
 
 Bei einer Suche werden die Ebenen von oben nach unten iteriert, und für jede Ebene wird so lange nach rechts gesprungen, bis der nächste Wert zu groß wäre @bib-skiplist-operations.
+
+```python
+current = head
+for i in range(height, -1, -1):
+  while current.next[i] and 
+        current.next[i].key <= key:
+    current = current.next[i]
+```
