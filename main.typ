@@ -48,6 +48,7 @@
   include "uebungen/7/main.typ"
   include "uebungen/8/main.typ"
   include "uebungen/9/main.typ"
+  include "uebungen/10/main.typ"
 }
 
 #pagebreak()
