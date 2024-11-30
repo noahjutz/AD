@@ -146,3 +146,28 @@ bib-hash-division-method:
     url:
       value: https://mathsanew.com/
       date: 2024-11-27
+
+bib-skiplist-analysis:
+  type: web
+  title: "Randomized Search Structures: Skip Lists"
+  author: Dave Mount
+  organization: University of Maryland
+  url:
+    value: https://www.cs.umd.edu/class/fall2020/cmsc420-0201/Lects/lect09-skip.pdf
+    date: 2024-11-30
+  parent:
+    title: CMSC 420
+    issue: 9
+  
+bib-skiplist-operations:
+  type: chapter
+  title: "Skip Lists"
+  author: OpenDSA Project Contributors
+  organization: Virginia Polytechnic Institute and State University
+  url:
+    value: https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/SkipList.html
+    date: 2024-11-30
+  parent:
+    type: web
+    title: OpenDSA
+    chapter: 15.1

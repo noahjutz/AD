@@ -56,3 +56,23 @@ Vermeidet Primary Clustering @bib-hash-quadratic-probing.
 $
 h(s, i) = accent(h, acute)(s) + i h_2(s)
 $
+
+== Skip-Liste
+
+Eine Skip-Liste ist eine linear verkettete Liste, dessen Knoten nicht nur einen, sondern beliebig viele Nachfolger haben können. Die Höhe eines Knotens ist der Index des letzten Nachfolgers.
+
+```python
+@dataclass
+class Node:
+    key: Any
+    height: int
+    next: list[Node]
+```
+
+Die Höhe wird unabhängig zufällig ausgewählt. Jede Höhe ist halb so Wahrscheinlich wie die vorherige, sodass die Skipliste eine erwartete Höhe von $log n$ hat @bib-skiplist-analysis.
+
+```python
+height = np.random.geometric(p=.5)
+```
+
+Bei einer Suche werden die Ebenen von oben nach unten iteriert, und für jede Ebene wird so lange nach rechts gesprungen, bis der nächste Wert zu groß wäre @bib-skiplist-operations.
