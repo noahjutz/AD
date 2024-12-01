@@ -52,11 +52,14 @@
 
   for i in range(t.len()) {
     for j in range(p.len()) {
+      let character_matches = t.at(i+j) == p.at(j)
       line(
         "t." + str(i+j),
-        "p." + str(j)
+        "p." + str(j),
+        stroke: if character_matches {theme.success} else {theme.fg_medium},
+        mark: (end: "straight")
       )
-      if t.at(i+j) != p.at(j) {
+      if not character_matches {
         break
       }
     }
