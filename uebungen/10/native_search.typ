@@ -28,27 +28,34 @@
 #cetz.canvas(length: 100%, {
   import cetz.draw: *
   circle((0, 0), radius: 0)
-  group({
+  group(name: "t", {
     translate(x: .5 / t.len())
-    for i in range(t.clusters().len()) {
+    for i in range(t.len()) {
       circle(
         (i / t.len(), 0),
         radius: 0,
-        name: "t_" + str(i)
+        name: str(i)
       )
     }
   })
 
-  group({
+  group(name: "p", {
     translate(x: .5 / p.len())
     for i in range(p.len()) {
       circle(
-        (i / p.len(), -32pt),
+        (i / p.len(), -64pt),
         radius: 0,
-        name: "p_" + str(i)
+        name: str(i)
       )
     }
   })
+
+  for i in range(t.len()) {
+    line(
+      "t." + str(i),
+      "p.0"
+    )
+  }
 })
 
 #block(above: 0pt)[
