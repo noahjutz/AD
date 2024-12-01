@@ -50,7 +50,8 @@
     }
   })
 
-  for i in range(t.len()) {
+  let i = 0
+  while i < t.len() {
     for j in range(p.len()) {
       let character_matches = t.at(i+j) == p.at(j)
       line(
@@ -62,7 +63,11 @@
       if not character_matches {
         break
       }
+      if j == p.len()-1 {
+        i += p.len()-1
+      }
     }
+    i += 1
   }
 })
 
