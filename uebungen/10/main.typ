@@ -17,3 +17,11 @@
 === Löschen
 
 So wie einfügen, aber Nachfolger überbrücken.
+
+== Suche ausführen
+
+=== Naive Suche
+
+#include "native_search.typ"
+
+=== Boyer-Moore
