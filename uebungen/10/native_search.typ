@@ -15,7 +15,7 @@
 }
 
 
-#block(below: 0pt)[
+#block(below: 2pt)[
   #table(
     columns: t.len() * (1fr,),
     stroke: none,
@@ -43,7 +43,7 @@
     translate(x: .5 / p.len())
     for i in range(p.len()) {
       circle(
-        (i / p.len(), -64pt),
+        (i / p.len(), -128pt),
         radius: 0,
         name: str(i)
       )
@@ -51,14 +51,19 @@
   })
 
   for i in range(t.len()) {
-    line(
-      "t." + str(i),
-      "p.0"
-    )
+    for j in range(p.len()) {
+      line(
+        "t." + str(i+j),
+        "p." + str(j)
+      )
+      if t.at(i+j) != p.at(j) {
+        break
+      }
+    }
   }
 })
 
-#block(above: 0pt)[
+#block(above: 2pt)[
   #table(
     columns: p.len() * (1fr,),
     stroke: none,
