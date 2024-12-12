@@ -26,4 +26,15 @@ So wie einfügen, aber Nachfolger überbrücken.
 
 === Boyer-Moore
 
-#include "boyer_moore_search.typ"
+```
+ALGORITHMEN UND DATENSTRUKTUREN
+DATEN
+     DATEN
+      DATEN
+         DATEN
+             DATEN
+                DATEN
+                 DATEN
+                      DATEN
+                        DATEN
+```
