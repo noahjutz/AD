@@ -25,3 +25,5 @@ So wie einfügen, aber Nachfolger überbrücken.
 #include "naive_search.typ"
 
 === Boyer-Moore
+
+#include "boyer_moore_search.typ"
