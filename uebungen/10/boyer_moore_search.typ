@@ -9,7 +9,7 @@
 
 #let bc_shift = (:)
 #for (i, c) in p.clusters().enumerate() {
-  bc_shift.insert(c, i)
+  bc_shift.insert(c, p.len() - i - 1)
 }
 
 #txt(t)
@@ -28,21 +28,27 @@
         "t."+str(i - j),
         "p."+str(p.len()-1-j),
         mark: (end: "straight"),
-        stroke: if (c == t.at(i - j)) {theme.success} else {theme.fg_medium}
+        stroke: if (c == t.at(i - j)) {
+          theme.success
+        } else if (j != 0) {
+          theme.fg_light
+        } else {
+          theme.fg_medium
+        }
       )
 
       if c != t.at(i - j) {
-        mismatch = c
+        mismatch = t.at(i - j)
         break
-      }
-      if j == p.len()-1 {
-        count += 1
-        i += 1
-        // checkmark below t.at(i) until t.at(i-m+1)
       }
     }
     if mismatch != none {
-      i += calc.max(1, bc_shift.at(mismatch, default: p.len()))
+      i += calc.max(
+        1,
+        bc_shift.at(mismatch, default: p.len())
+      )
+    } else {
+      i += 1
     }
   }
 })
