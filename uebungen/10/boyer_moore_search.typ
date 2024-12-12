@@ -30,8 +30,6 @@
         mark: (end: "straight"),
         stroke: if (c == t.at(i - j)) {
           theme.success
-        } else if (j != 0) {
-          theme.fg_light
         } else {
           theme.fg_medium
         }
