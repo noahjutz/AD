@@ -22,6 +22,6 @@ So wie einfügen, aber Nachfolger überbrücken.
 
 === Naive Suche
 
-#include "native_search.typ"
+#include "naive_search.typ"
 
 === Boyer-Moore
