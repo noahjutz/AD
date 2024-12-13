@@ -2,6 +2,17 @@
 #import "/components/math.typ": hlp, hls, hlt
 #import "@preview/fletcher:0.5.3": diagram, node, edge
 
+#show table: it => box(
+  stroke: (left: 1pt, right: 1pt),
+  inset: 4pt,
+)[
+  #place(dx: -4pt, dy: -4pt, line(length: 8pt))
+  #place(dx: -4pt, dy: 100% + 4pt, line(length: 8pt))
+  #place(dx: 100% -4pt, dy: -4pt, line(length: 8pt))
+  #place(dx: 100% -4pt, dy: 100% + 4pt, line(length: 8pt))
+  #it
+]
+
 #block(width: 100%)[
   #set align(center + horizon)
   #stack(
@@ -31,12 +42,14 @@
         stroke: theme.tertiary
       )
     ),
-    $
-    mat(
-      hlp(1), 0, hls(1);
-      0, 0, 0;
-      0, hlt(1), 0;
+    table(
+      columns: 3,
+      stroke: none,
+      table.cell(fill: theme.primary_light)[1],
+      "0",
+      table.cell(fill: theme.secondary_light)[1],
+      "0", "0", "0",
+      "0", table.cell(fill: theme.tertiary_light)[1], "0"
     )
-    $,
   )
 ]
