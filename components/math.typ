@@ -8,3 +8,7 @@
   set text(fill: theme.secondary)
   math
 }
+#let hlt(math) = {
+  set text(fill: theme.tertiary)
+  math
+}

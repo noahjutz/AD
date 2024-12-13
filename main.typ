@@ -22,6 +22,7 @@
   include "notizen/sortieralgorithmen/main.typ"
   include "notizen/trees/main.typ"
   include "notizen/datenstrukturen/main.typ"
+  include "notizen/graphs/main.typ"
 }
 
 #pagebreak()
