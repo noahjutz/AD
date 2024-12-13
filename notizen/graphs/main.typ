@@ -31,6 +31,12 @@ Verkettete Liste mit zwei next-Pointer:
 
 Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die ausgehenden Kanten von $v_i$ hat.
 
-== Durchlaufen
+== Breitensuche
 
-// TODO Breitensuche und Tiefensuche
+```python
+queue.push(v0)
+while (node := queue.get()):
+  for each white adjacent node:
+    queue.push(adjacent node)
+  n.color = black
+```
