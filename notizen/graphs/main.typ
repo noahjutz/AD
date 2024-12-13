@@ -22,4 +22,15 @@ Das Segment wird am Index der ersten Kante identifiziert. hat der Knoten keine a
 
 === Adjazenzliste (gestreut)
 
+Verkettete Liste mit zwei next-Pointer:
+
+- Nächster Knoten (nach unten)
+- Nächste Kante (nach rechts)
+
 === Adjazenzliste (hybrid)
+
+Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die ausgehenden Kanten von $v_i$ hat.
+
+== Durchlaufen
+
+// TODO Breitensuche und Tiefensuche
