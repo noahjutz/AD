@@ -9,3 +9,7 @@ Der Knoten $v_i$ in Zeile $i$ zeigt auf die Knoten $v_j$ in den Spalten $j$, wel
 #include "adjacency_matrix.typ"
 
 === Adjazenzfeld
+
+Wir speichern für jeden Knoten seine ausgehenden Kanten in einer flachen Liste.
+
+#include "adjacency_list_dense.typ"
