@@ -1,6 +1,5 @@
 #import "components.typ": graph, node_status
 
-#show: columns.with(2, gutter: 24pt)
 #show math.equation: set align(center)
 
 #let nodes = range(9).map(n => (str(n), node_status.unvisited)).to-dict()
@@ -16,19 +15,18 @@
 	(5,)
 )
 
-#let graph_num = 1
+#let graphs = ()
 
 #let stack = (0,)
 
-#graph(
+#graphs.push(graph(
   nodes,
   adj_list,
   arr: stack,
-  num: graph_num
-)
+  num: 1
+))
 
 #while stack.len() > 0 {
-  graph_num += 1
   let from = stack.pop()
   nodes.at(str(from)) = node_status.current
   let targets = adj_list.at(from).filter(key => nodes.at(str(key)) != node_status.visited)
@@ -37,13 +35,20 @@
   }
   stack += targets.rev()
 
-  graph(
+  graphs.push(graph(
     nodes,
     adj_list,
     hl: targets.map(to => (from, to)),
     arr: stack,
-    num: graph_num
-  )
+    num: graphs.len() + 1
+  ))
 
   nodes.at(str(from)) = node_status.visited
 }
+
+#grid(
+  columns: 2,
+  column-gutter: 1fr,
+  row-gutter: 8pt,
+  ..graphs
+)
