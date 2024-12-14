@@ -22,8 +22,8 @@
 #graph(
   nodes,
   adj_list,
+  arr: stack
 )
-$ Q = (#{stack.map(i => $#i$).join($,$)}) $
 
 #while stack.len() > 0 {
   let from = stack.pop()
@@ -32,13 +32,14 @@ $ Q = (#{stack.map(i => $#i$).join($,$)}) $
   for key in targets {
     nodes.at(str(key)) = node_status.in_queue
   }
+  stack += targets.rev()
 
   graph(
     nodes,
     adj_list,
-    hl: targets.map(to => (from, to))
+    hl: targets.map(to => (from, to)),
+    arr: stack
   )
-  stack += targets.rev()
-  $ Q = (#{stack.map(i => $#i$).join($,$)}) $
+  
   nodes.at(str(from)) = node_status.visited
 }

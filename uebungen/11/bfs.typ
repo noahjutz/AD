@@ -22,8 +22,8 @@
 #graph(
   nodes,
   adj_list,
+  arr: queue
 )
-$ Q = (#{queue.map(i => $#i$).join($,$)}) $
 
 #while queue.len() > 0 {
 	let from = queue.remove(0)
@@ -33,12 +33,13 @@ $ Q = (#{queue.map(i => $#i$).join($,$)}) $
     queue.push(key)
     nodes.at(str(key)) = node_status.in_queue
   }
+
 	graph(
     nodes,
     adj_list,
-    hl: targets.map(t => (from, t))
+    hl: targets.map(t => (from, t)),
+    arr: queue
   )
 
-  $ Q = (#{queue.map(i => $#i$).join($,$)}) $
   nodes.at(str(from)) = node_status.visited
 }
