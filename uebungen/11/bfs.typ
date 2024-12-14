@@ -1,7 +1,6 @@
 #import "components.typ": graph, node_status
 
 #show: columns.with(2, gutter: 24pt)
-#set block(spacing: 8pt)
 #show math.equation: set align(center)
 
 #let nodes = range(9).map(n => (str(n), node_status.unvisited)).to-dict()
@@ -17,15 +16,18 @@
 	(5,)
 )
 
+#let graph_num = 1
 #let queue = (0,)
 
 #graph(
   nodes,
   adj_list,
-  arr: queue
+  arr: queue,
+  num: graph_num
 )
 
 #while queue.len() > 0 {
+  graph_num += 1
 	let from = queue.remove(0)
   let targets = adj_list.at(from).filter(node => nodes.at(str(node)) == node_status.unvisited)
   nodes.at(str(from)) = node_status.current
@@ -38,7 +40,8 @@
     nodes,
     adj_list,
     hl: targets.map(t => (from, t)),
-    arr: queue
+    arr: queue,
+    num: graph_num
   )
 
   nodes.at(str(from)) = node_status.visited

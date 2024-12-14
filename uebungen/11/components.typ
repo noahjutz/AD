@@ -46,7 +46,14 @@
 	adj_list,
 	hl: (),
 	arr: none,
-) = block[
+	num: none
+) = block(
+	breakable: false,
+)[
+	#set block(spacing: 4pt)
+	#if num != none {
+		place(top + left)[#num]
+	}
   #diagram({
 	  let n = nodes.len()
 	  for (i, key) in nodes.keys().enumerate() {
