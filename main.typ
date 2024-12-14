@@ -51,6 +51,7 @@
   include "uebungen/9/main.typ"
   include "uebungen/10/main.typ"
   include "uebungen/11/main.typ"
+  include "uebungen/12/main.typ"
 }
 
 #pagebreak()
