@@ -23,3 +23,11 @@ Im Quadrat einer Adjazenzmatrix $A^2$ hält in $a_(i j)$ die Anzahl an Pfäden, 
 Multipliziert man nochmal $A$ hinzu, erhält man die Anzahl an Pfäden, die von $i$ nach $j$ über der Pfad $A^2_(i j)$ und einen dritten Knoten $k$ wandern.
 
 Man kann induktiv beweisen, dass $A^m$ im allgemeinen die Anzahl an Pfäden der Länge $m$ von $i$ nach $j$ in $a_(i j)$ enthält. @bib-adj-mtx-powers
+
+== Inzidenzmatrix
+
+Das Produkt $B B^T$ liefert für alle Knotenpaare $i$ und $j$ die Pfäde, welche von $i$ ausgehen und in $j$ eingehen oder umgekehrt. In anderen Worten ist das die Anzahl an Pfäden, die $i$ und $j$ direkt miteinander verbinden (0, 1 oder 2).
+
+Die Einträge der Produktmatrix sind negativ, weil eine Kante das Produkt des Ausgangs und des Eingangs ist ($-1 dot 1$).
+
+Die Hauptdiagonale ($i=j$) enthält in $a_(i i)$ den Grad des Knotens $i$. Die Matrixmultiplikation mit einer Transponierung entspricht in diesem Fall der Summe der Absolutbeträge.
