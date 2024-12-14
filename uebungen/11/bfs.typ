@@ -3,6 +3,7 @@
 
 #show: columns.with(2, gutter: 24pt)
 #set block(spacing: 8pt)
+#show math.equation: set align(center)
 
 #let node_status = (
   unvisited: 0,
@@ -79,7 +80,7 @@
 				label(str(to)),
 				"->",
 				bend: bend,
-				stroke: if (from, to) in hl {theme.primary} else {theme.fg_medium}
+				stroke: if (from, to) in hl {theme.primary + 1pt} else {theme.fg_medium + .5pt}
 			)
 		}
 	}
