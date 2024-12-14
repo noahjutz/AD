@@ -171,3 +171,19 @@ bib-skiplist-operations:
     type: web
     title: OpenDSA
     chapter: 15.1
+  
+bib-dfs-iterative:
+  type: chapter
+  title: Depth-first search and breadth-first search
+  author: David Gries
+  organization: Cornell University
+  url:
+    value: https://www.cs.cornell.edu/courses/JavaAndDS/dfs/dfs01.html
+    date: 2024-12-14
+  parent:
+    type: book
+    title: JavaHyperText and Data Structures
+    author: David Gries et al.
+    url:
+      value: https://www.cs.cornell.edu/courses/JavaAndDS/
+      date: 2024-12-14

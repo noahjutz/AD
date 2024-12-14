@@ -17,11 +17,28 @@
 	(5,)
 )
 
-#let queue = (0,)
+#let stack = (0,)
 
 #graph(
   nodes,
   adj_list,
 )
-$ Q = (#{queue.map(i => $#i$).join($,$)}) $
+$ Q = (#{stack.map(i => $#i$).join($,$)}) $
 
+#while stack.len() > 0 {
+  let from = stack.pop()
+  nodes.at(str(from)) = node_status.current
+  let targets = adj_list.at(from).filter(key => nodes.at(str(key)) != node_status.visited)
+  for key in targets {
+    nodes.at(str(key)) = node_status.in_queue
+  }
+
+  graph(
+    nodes,
+    adj_list,
+    hl: targets.map(to => (from, to))
+  )
+  stack += targets.rev()
+  $ Q = (#{stack.map(i => $#i$).join($,$)}) $
+  nodes.at(str(from)) = node_status.visited
+}

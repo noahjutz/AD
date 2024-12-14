@@ -15,7 +15,7 @@
   } else if status == node_status.in_queue {
     theme.fg_medium
   } else if status == node_status.current {
-    black
+    white
   }
 }
 
@@ -27,7 +27,7 @@
   } else if status == node_status.in_queue {
     black
   } else if status == node_status.current {
-    white
+    black
   }
 }
 
