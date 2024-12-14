@@ -2,11 +2,13 @@
 #import "@preview/fletcher:0.5.3": diagram, node, edge
 
 #show: columns.with(2, gutter: 24pt)
+#set block(spacing: 8pt)
 
 #let node_status = (
   unvisited: 0,
   visited: 1,
-  in_queue: 2
+  in_queue: 2,
+  current: 3
 )
 
 #let bg(status) = {
@@ -16,6 +18,8 @@
     black
   } else if status == node_status.in_queue {
     theme.fg_medium
+  } else if status == node_status.current {
+    black
   }
 }
 
@@ -26,6 +30,16 @@
     white
   } else if status == node_status.in_queue {
     black
+  } else if status == node_status.current {
+    white
+  }
+}
+
+#let stroke(status) = {
+  if status == node_status.current {
+    theme.primary + 2pt
+  } else {
+    black + .5pt
   }
 }
 
@@ -49,11 +63,11 @@
 	for (i, key) in nodes.keys().enumerate() {
 		let a = ang(i, n)
 		node(
-      (a, 48pt),
+      (a, 40pt),
       text(fill: fg(nodes.at(key)), key),
-      stroke: 0.5pt,
       name: str(i),
-      fill: bg(nodes.at(key))
+      fill: bg(nodes.at(key)),
+      stroke: stroke(nodes.at(key))
     )
 	}
 	for from in range(adj_list.len()) {
@@ -72,10 +86,17 @@
 })
 
 #let queue = (0,)
+
+#graph(
+  nodes,
+  adj_list,
+)
+$ Q = (#{queue.map(i => $#i$).join($,$)}) $
+
 #while queue.len() > 0 {
 	let from = queue.remove(0)
   let targets = adj_list.at(from).filter(node => nodes.at(str(node)) == node_status.unvisited)
-  nodes.at(str(from)) = node_status.visited
+  nodes.at(str(from)) = node_status.current
   for key in targets {
     queue.push(key)
     nodes.at(str(key)) = node_status.in_queue
@@ -85,4 +106,7 @@
     adj_list,
     hl: targets.map(t => (from, t))
   )
+
+  $ Q = (#{queue.map(i => $#i$).join($,$)}) $
+  nodes.at(str(from)) = node_status.visited
 }
