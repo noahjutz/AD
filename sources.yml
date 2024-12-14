@@ -187,3 +187,12 @@ bib-dfs-iterative:
     url:
       value: https://www.cs.cornell.edu/courses/JavaAndDS/
       date: 2024-12-14
+
+bib-adj-mtx-powers:
+  type: web
+  title: Adjacency Matrix
+  author: Patrick Corn et al.
+  organization: Brilliant
+  url:
+    value: https://brilliant.org/wiki/adjacency-matrix/
+    date: 2024-12-14
