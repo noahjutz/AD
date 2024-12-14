@@ -30,7 +30,7 @@
 }
 
 #let nodes = range(9).map(n => (str(n), node_status.unvisited)).to-dict()
-#let edges = (
+#let adj_list = (
 	(1, 2, 6),
 	(3,),
 	(0, 3, 4),
@@ -44,7 +44,7 @@
 
 #let ang(i, n) = i*360/n * 1deg
 
-#let graph(nodes, edges, hl: ()) = diagram({
+#let graph(nodes, adj_list, hl: ()) = diagram({
 	let n = nodes.len()
 	for (i, key) in nodes.keys().enumerate() {
 		let a = ang(i, n)
@@ -56,8 +56,8 @@
       fill: bg(nodes.at(key))
     )
 	}
-	for from in range(edges.len()) {
-		for to in edges.at(from) {
+	for from in range(adj_list.len()) {
+		for to in adj_list.at(from) {
 			let bend = 35deg
 			if calc.rem(from - to + n, n) < n/2 {bend *= -1}
 			edge(
@@ -74,7 +74,7 @@
 #let queue = (0,)
 #while queue.len() > 0 {
 	let from = queue.remove(0)
-  let targets = edges.at(from).filter(node => nodes.at(str(node)) == node_status.unvisited)
+  let targets = adj_list.at(from).filter(node => nodes.at(str(node)) == node_status.unvisited)
   nodes.at(str(from)) = node_status.visited
   for key in targets {
     queue.push(key)
@@ -82,7 +82,7 @@
   }
 	graph(
     nodes,
-    edges,
+    adj_list,
     hl: targets.map(t => (from, t))
   )
 }
