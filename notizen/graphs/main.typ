@@ -77,3 +77,11 @@ while stack:
     stack.pop()
   stack.append(node.adjacent_nodes())
 ```
+
+== Topologische Sortierung
+
+Eine topologische Sortierung eines Graphen ist eine Reihenfolge aller Knoten, in der für alle verbundenen Knotenpaare $A -> B$ der Ausgangsknoten $A$ zuerst vorkommt.
+
+#align(center, include "topological_sort.typ")
+
+Der obige Graph hat zwei topologische Sortierungen: $(A,B,C,E)$ und $(A,B,D,E)$.
