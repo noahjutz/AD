@@ -12,7 +12,7 @@
   align: center + horizon,
   stroke: (.., y) => if y != 0 {black},
   "0", "1", "2",
-  "0", "-1", "1"
+  "0", "-1", "2"
 )
 
 #diagram(
