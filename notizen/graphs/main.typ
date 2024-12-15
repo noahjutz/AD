@@ -33,10 +33,47 @@ Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die a
 
 == Breitensuche
 
+Es wird ein Knoten $v_0$ gewählt, an dem der Durchlauf beginnt. Dann werden alle Nachbarn einer Warteschlange angehängt. Die Warteschlange wird nach der Reihe abgearbeitet, und dabei werden jeweils alle Nachbarn eines Knotens an die Warteschlange angehängt.
+
 ```python
 queue.push(v0)
-while (node := queue.get()):
-  for each white adjacent node:
-    queue.push(adjacent node)
-  n.color = black
+while queue:
+  node = queue.popleft()
+  for adj in node.adjacent_nodes():
+    if adj.color == white:
+      queue.push(adj)
+      adj.color = gray
+  node.color = black
+```
+
+== Tiefensuche
+
+=== Iterativ
+
+Statt einer Warteschlange wird ein Stack verwendet. Dadurch, dass der zuletzt eingefügte Wert auch zuerst wieder abgearbeitet wird, geht dieser Durchlauf in die Tiefe, bevor er in die Breite geht.
+
+```python
+stack.push(v0)
+while stack:
+  node = stack.pop()
+  for adj in node.adjacent_nodes():
+    if adj.color != black:
+      queue.append(adj)
+      adj.color = gray
+  node.color = black
+```
+
+Wenn wir graue Knoten nur einmal besuchen dürfen, können wir nicht immer maximal in die Tiefe gehen. Wenn wir sie aber mehrmals besuchen, ist die Laufzeit nicht optimal. Um beide Probleme zu lösen, arbeiten wir mit einer anderen Stack-Struktur.
+
+Wir legen wir die Knoten nicht direkt auf den Stack, sondern gruppieren sie nach gemeinsamen Vorgänger. Eine Gruppe im Stack wird in jeder Iteration um eins kleiner, bis nur noch ein Element vorhanden ist. Erst dann wird die Gruppe vom Stack entfernt. Ähnliche Implementierung in @bib-dfs-iterative.
+
+```python
+stack.push(v0)
+while stack:
+  nodes = stack.get()
+  node = nodes.pop()
+  node.color = black
+  if len(nodes) == 0:
+    stack.pop()
+  stack.append(node.adjacent_nodes())
 ```
