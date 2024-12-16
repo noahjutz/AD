@@ -101,3 +101,5 @@ Der obige Graph hat zwei topologische Sortierungen: $(A,B,C,E)$ und $(A,B,D,E)$.
 Der erste Knoten, der bei einer Tiefensuche abgearbeitet wurde (alle Nachbarn wurden besucht) ist der letzte Knoten in einer gültigen topologischen Sortierung. Der zweite ist der vorletzte, und so weiter.
 
 == Minimaler Spannbaum
+
+=== Kruskal
