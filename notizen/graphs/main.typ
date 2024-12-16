@@ -37,7 +37,7 @@ Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die a
 
 Es werden alle Nachbarn eines Knotens besucht, bevor die Nachbarn der Nachbarn besucht werden.
 
-#include "traversal/bfs.typ"
+#align(center, include "traversal/bfs.typ")
 
 ==== Implementierung
 
@@ -58,7 +58,7 @@ while queue:
 
 Es wird ein Pfad komplett abgearbeitet, bevor ein neuer anfängt.
 
-#include "traversal/dfs.typ"
+#align(center, include "traversal/dfs.typ")
 
 ==== Implementierung (Iterativ)
 
