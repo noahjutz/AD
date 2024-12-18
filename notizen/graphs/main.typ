@@ -104,7 +104,7 @@ Der erste Knoten, der bei einer Tiefensuche abgearbeitet wurde (alle Nachbarn wu
 
 Für die Konstruktion eines MSTs ist eine Eigenschaft gewichteter zusammenhängender Graphen wichtig: Wenn man die Knotenmenge $V$ in zwei schneidet ($U$ und $V \\ U$), gibt es eine oder mehrere Kanten, welche den Schnitt überqueren. Die Kante mit dem geringsten Gewicht ist für einen MST geeignet (solange der Schnitt nicht bereits durch den MST überquert wird).
 
-Beweis: Es muss bei jedem möglichen Schnitt mindestens eine Kante geben, die $U$ mit $V \\ U$ verbindet, weil ein MST alle Knoten miteinander verbindet. Wählt man die Kante mit kleinstem Gewicht, wird das gesamte Gewicht kleiner.
+Beweis: Es muss bei jedem möglichen Schnitt mindestens eine Kante geben, die $U$ mit $V \\ U$ verbindet, weil ein MST alle Knoten miteinander verbindet. Wählt man die Kante mit kleinstem Gewicht, wird das gesamte Gewicht kleiner. Cut-And-Paste Beweis in @bib-mst-proof.
 
 Beispiel:
 

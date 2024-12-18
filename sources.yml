@@ -196,3 +196,13 @@ bib-adj-mtx-powers:
   url:
     value: https://brilliant.org/wiki/adjacency-matrix/
     date: 2024-12-14
+  
+bib-mst-proof:
+  type: chapter
+  title: Minimum Spanning Trees
+  author: Robert Sedgewick, Kevin Wayne
+  url:
+    value: https://algs4.cs.princeton.edu/lectures/keynote/43MinimumSpanningTrees.pdf
+    date: 2024-12-18
+  parent:
+    title: Algorithms, 4th Edition
