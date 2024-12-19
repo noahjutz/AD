@@ -113,3 +113,14 @@ Beispiel:
 Wir können $(a, c)$ oder $(a, d)$ wählen, um einen MST zu konstruieren, weil dessen Gewicht minimal ist.
 
 === Kruskal
+
+Alle Kanten werden aufsteigend nach Gewicht sortiert. Eine Kante nach der Anderen wird zum MST hinzugefügt, wenn sie zwei disjunkte Teilgraphen verbindet.
+
+Beweis: Es darf keine disjunkten Teilgraphen geben, weil der Spannbaum alle Knoten verbinden muss. Es gibt keine Kante mit geringerem Gewicht, die infrage kommt, weil die Kanten sortiert abgearbeitet werden.
+
+Implementierung: Disjunkte Teilgraphen sind Mengen an Knoten. Mengen werden durch invertierte Bäume implementiert, sodass der Repräsentant in $O(log n)$ gefunden werden kann.
+
+=== Prim
+
+Von einem beliebigen Startknoten aus wird immer die Kante mit dem geringsten Gewicht hinzugefügt, wenn der Zielknoten nicht bereits besucht wurde.
+
