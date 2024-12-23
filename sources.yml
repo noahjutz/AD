@@ -206,3 +206,18 @@ bib-mst-proof:
     date: 2024-12-18
   parent:
     title: Algorithms, 4th Edition
+  
+bib-bellman-ford:
+  type: web
+  title: Der Bellman-Ford-Algorithmus
+  author: [Melanie Herzog, Wolfgang F. Riedl, Richard Stotz]
+  organization: Technische Universität München
+  url:
+    value: https://algorithms.discrete.ma.tum.de/graph-algorithms/spp-bellman-ford/index_de.html
+    date: 2024-12-23
+  parent:
+    type: web
+    title: Graphenalgorithmen anschaulich dargestellt
+    url:
+      value: https://algorithms.discrete.ma.tum.de/de/
+      date: 2024-12-23
