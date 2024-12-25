@@ -15,7 +15,9 @@ Funktioniert auch bei negativen Kantengewichten. Es wird $|V|$ mal jede Kante re
 Wie Prim, aber es wird nicht die leichteste Kante gewählt, sondern eine, welche den Pfad minimiert.
 
 $
-underbrace(A ~~>^5 B ~~>^5 C, "MST") >
-underbrace(A ~~>^9 C, "SSSP")
+underbrace(A -->^5 B -->^5 C, "MST") >
+underbrace(A -->^9 C, "SSSP")
 $
+
+=== DAG SSSP
 
