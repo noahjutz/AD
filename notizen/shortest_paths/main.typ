@@ -21,3 +21,6 @@ $
 
 === DAG SSSP
 
+SSSPs Zyklenfreier Graphen können in Linearzeit $Theta(E+V)$ berechnet werden, weil die Knoten, die nach einem bereits abgearbeiteten Knoten kommen, nicht mehr zurück zu diesem Knoten führen (das wäre ein Zyklus), und deshalb nur einmal besucht werden müssen. Implementierung in @tut-dag-sssp.
+
+== APSP
