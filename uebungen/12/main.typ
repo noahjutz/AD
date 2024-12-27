@@ -4,6 +4,7 @@
 
 == DAG SSSP <tut-dag-sssp>
 
+#import "/config.typ": theme
 #import "@preview/diagraph:0.3.0": render
 #import "@preview/oxifmt:0.2.1": strfmt
 
@@ -38,6 +39,10 @@
   (7, 8, 4)
 )
 
+#let to_graphviz_color(color) = {
+  strfmt("\"{}\"", color.to-hex())
+}
+
 #let labels(nodes) = {
   for key in nodes.keys() {
     let n = nodes.at(key).at("d")
@@ -46,7 +51,7 @@
   return nodes
 }
 
-#let dag(nodes) = render(
+#let dag(nodes, adjacent, current) = render(
   labels: labels(nodes),
   engine: "neato",
   strfmt(
@@ -61,7 +66,7 @@
       ]
       edge [
         fontname=\"Noto Sans\"
-        len=.65
+        len=.75
         arrowhead=open
         arrowtail=open
       ]
@@ -84,6 +89,14 @@
         }
         strfmt("{}->{}[label={}, dir={}]", u, v, w, dir)
       })
+      .join(" ") + " " + nodes.keys().map(v => {
+        if int(v) in adjacent {
+          strfmt("{}[color={},style=bold]", v, to_graphviz_color(theme.primary_light))
+        } else if int(v) == current {
+          strfmt("{}[color={},style=bold]", v, to_graphviz_color(theme.primary))
+        }
+      })
+      .filter(it => it != none)
       .join(" ")
   )
 )
@@ -105,7 +118,7 @@
       nodes.at(str(target)).at("p") = node
     }
   }
-  drawings.push(dag(nodes))
+  drawings.push(dag(nodes, adj.map(a => a.at(0)), node))
 }
 
 #{for d in drawings {d}}
