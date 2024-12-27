@@ -24,8 +24,8 @@
     components.dag(
       nodes,
       edges,
-      adjacent: adj.map(a => a.at(0)),
-      current: node)
+      hl_pl: adj.map(a => a.at(0)),
+      hl_p: (node,))
     )
 }
 #drawings.push(components.dag(nodes, edges))

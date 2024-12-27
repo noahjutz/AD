@@ -45,7 +45,12 @@
   return nodes
 }
 
-#let dag(nodes, edges, adjacent: (), current: -1) = render(
+#let dag(
+  nodes,
+  edges,
+  hl_p: (),
+  hl_pl: ()
+) = render(
   labels: labels(nodes),
   engine: "neato",
   strfmt(
@@ -84,11 +89,15 @@
         strfmt("{}->{}[label={}, dir={}]", u, v, w, dir)
       })
       .join(" ") + " " + nodes.keys().map(v => {
-        if int(v) in adjacent {
-          strfmt("{}[color={},style=bold]", v, to_graphviz_color(theme.primary_light))
-        } else if int(v) == current {
-          strfmt("{}[color={},style=bold]", v, to_graphviz_color(theme.primary))
+        v = int(v)
+        let color = if v in hl_p {
+          theme.primary
+        } else if v in hl_pl {
+          theme.primary_light
+        } else {
+          black
         }
+        strfmt("{}[color={},style=bold]", v, to_graphviz_color(color))
       })
       .filter(it => it != none)
       .join(" ")
