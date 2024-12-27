@@ -120,11 +120,18 @@
           black
         }
 
+        let style = if (u, v) in hl_edge_p {
+          "bold"
+        } else {
+          "solid"
+        }
+
         strfmt(
-          "{}->{}[label={}, dir={},color={}]",
+          "{}->{}[label={}, dir={},color={},style={}]",
           u, v, w,
           dir,
-          to_graphviz_color(color)
+          to_graphviz_color(color),
+          style
         )
       })
       .join(" ")
