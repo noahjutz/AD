@@ -54,7 +54,8 @@
   hl_node_p: (),
   hl_node_pl: (),
   hl_node_black: (),
-  hl_edge_p: ()
+  hl_edge_p: (),
+  hl_edge_s: ()
 ) = render(
   labels: labels(nodes, hl_node_black),
   engine: "neato",
@@ -116,6 +117,8 @@
 
         let color = if (u, v) in hl_edge_p {
           theme.primary
+        } else if (u, v) in hl_edge_s {
+          theme.success
         } else {
           black
         }

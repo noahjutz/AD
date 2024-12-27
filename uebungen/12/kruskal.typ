@@ -13,6 +13,14 @@
   "7": none,
   "8": none,
 )
+
+#let visited = ()
 #for (u, v, w) in edges.sorted(key: e => e.at(2)) {
-  components.dag(nodes, edges, hl_edge_p: ((u, v),))
+  components.dag(
+    nodes, edges,
+    hl_edge_p: ((u, v),),
+    hl_edge_s: visited
+  )
+
+  visited.push((u, v))
 }
