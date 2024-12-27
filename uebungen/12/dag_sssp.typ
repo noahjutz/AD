@@ -20,9 +20,15 @@
       nodes.at(str(target)).at("p") = node
     }
   }
-  drawings.push(components.dag(nodes, edges, adj.map(a => a.at(0)), node))
+  drawings.push(
+    components.dag(
+      nodes,
+      edges,
+      adjacent: adj.map(a => a.at(0)),
+      current: node)
+    )
 }
-#drawings.push(components.dag(nodes, edges, (), -1))
+#drawings.push(components.dag(nodes, edges))
 
 #grid(
   columns: 2,

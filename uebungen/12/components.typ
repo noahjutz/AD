@@ -45,7 +45,7 @@
   return nodes
 }
 
-#let dag(nodes, edges, adjacent, current) = render(
+#let dag(nodes, edges, adjacent: (), current: -1) = render(
   labels: labels(nodes),
   engine: "neato",
   strfmt(
