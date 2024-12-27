@@ -14,5 +14,5 @@
   "8": none,
 )
 #for edge in edges.sorted(key: e => e.at(2)) {
-  components.dag(nodes, edges)
+  components.dag(nodes, edges, hl_edge_p: ((0, 1),))
 }

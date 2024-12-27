@@ -113,7 +113,19 @@
         } else {
           "none"
         }
-        strfmt("{}->{}[label={}, dir={}]", u, v, w, dir)
+
+        let color = if (u, v) in hl_edge_p {
+          theme.primary
+        } else {
+          black
+        }
+
+        strfmt(
+          "{}->{}[label={}, dir={},color={}]",
+          u, v, w,
+          dir,
+          to_graphviz_color(color)
+        )
       })
       .join(" ")
   )
