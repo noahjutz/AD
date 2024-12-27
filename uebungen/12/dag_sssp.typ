@@ -5,9 +5,11 @@
 
 #let drawings = ()
 #let queue = (0,)
+#let visited = ()
 
 #while queue.len() > 0 {
   let node = queue.remove(0)
+  visited.push(node)
   let adj = edges.map(((v, u, w)) => if v == node {(u, w)} else if u == node {(v, w)})
     .filter(it => it != none)
 
@@ -25,10 +27,15 @@
       nodes,
       edges,
       hl_pl: adj.map(a => a.at(0)),
-      hl_p: (node,))
+      hl_p: (node,),
+      hl_black: visited.filter(key => {
+          int(key) not in adj.map(a => a.at(0)) and int(key) != node
+        })
+        .map(key => int(key))
     )
+  )
 }
-#drawings.push(components.dag(nodes, edges))
+#drawings.push(components.dag(nodes, edges, hl_black: nodes.keys().map(s => int(s))))
 
 #grid(
   columns: 2,

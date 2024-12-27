@@ -37,10 +37,13 @@
   strfmt("\"{}\"", color.to-hex())
 }
 
-#let labels(nodes) = {
+#let labels(nodes, hl_black) = {
   for key in nodes.keys() {
     let n = nodes.at(key).at("d")
     nodes.at(key) = if n == calc.inf {$infinity$} else {str(n)}
+    if int(key) in hl_black {
+      nodes.at(key) = text(fill: white, nodes.at(key))
+    }
   }
   return nodes
 }
@@ -49,9 +52,10 @@
   nodes,
   edges,
   hl_p: (),
-  hl_pl: ()
+  hl_pl: (),
+  hl_black: ()
 ) = render(
-  labels: labels(nodes),
+  labels: labels(nodes, hl_black),
   engine: "neato",
   strfmt(
     "digraph {{
@@ -61,7 +65,7 @@
         height=0.25
         width=0.25
         shape=circle
-        //label=\"\"
+        fontcolor=yellow
       ]
       edge [
         fontname=\"Noto Sans\"
@@ -69,12 +73,34 @@
         arrowhead=open
         arrowtail=open
       ]
-      graph [
-      ]
-
       {}
     }}", 
-    edges.map(((u, v, w)) => {
+    nodes.keys()
+      .map(x => {
+        let v = int(x)
+        let color = if v in hl_p {
+          theme.primary
+        } else if v in hl_pl {
+          theme.primary_light
+        } else {
+          black
+        }
+
+        let style = if v in hl_black {
+          "filled"
+        } else {
+          "bold"
+        }
+
+        strfmt(
+          "{}[color={},style={}]",
+          v,
+          to_graphviz_color(color),
+          style,
+        )
+      })
+      .filter(it => it != none)
+      .join(" ") + " " + edges.map(((u, v, w)) => {
         let p_u = nodes.at(str(u)).at("p")
         let p_v = nodes.at(str(v)).at("p")
         let dir = if p_u == v and p_v == u {
@@ -88,18 +114,6 @@
         }
         strfmt("{}->{}[label={}, dir={}]", u, v, w, dir)
       })
-      .join(" ") + " " + nodes.keys().map(v => {
-        v = int(v)
-        let color = if v in hl_p {
-          theme.primary
-        } else if v in hl_pl {
-          theme.primary_light
-        } else {
-          black
-        }
-        strfmt("{}[color={},style=bold]", v, to_graphviz_color(color))
-      })
-      .filter(it => it != none)
       .join(" ")
   )
 )
