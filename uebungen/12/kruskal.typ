@@ -1,6 +1,7 @@
 #import "components.typ"
 
 #let edges = components.sample_edges()
+#let nodes = components.sample_nodes()
 #let sets = (
   "0": none,
   "1": none,
@@ -13,5 +14,5 @@
   "8": none,
 )
 #for edge in edges.sorted(key: e => e.at(2)) {
-  repr(edge)
+  components.dag(nodes, edges)
 }

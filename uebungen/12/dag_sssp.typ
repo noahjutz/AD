@@ -26,16 +26,16 @@
     components.dag(
       nodes,
       edges,
-      hl_pl: adj.map(a => a.at(0)),
-      hl_p: (node,),
-      hl_black: visited.filter(key => {
+      hl_node_pl: adj.map(a => a.at(0)),
+      hl_node_p: (node,),
+      hl_node_black: visited.filter(key => {
           int(key) not in adj.map(a => a.at(0)) and int(key) != node
         })
         .map(key => int(key))
     )
   )
 }
-#drawings.push(components.dag(nodes, edges, hl_black: nodes.keys().map(s => int(s))))
+#drawings.push(components.dag(nodes, edges, hl_node_black: nodes.keys().map(s => int(s))))
 
 #grid(
   columns: 2,

@@ -37,11 +37,11 @@
   strfmt("\"{}\"", color.to-hex())
 }
 
-#let labels(nodes, hl_black) = {
+#let labels(nodes, hl_node_black) = {
   for key in nodes.keys() {
     let n = nodes.at(key).at("d")
     nodes.at(key) = if n == calc.inf {$infinity$} else {str(n)}
-    if int(key) in hl_black {
+    if int(key) in hl_node_black {
       nodes.at(key) = text(fill: white, nodes.at(key))
     }
   }
@@ -51,11 +51,12 @@
 #let dag(
   nodes,
   edges,
-  hl_p: (),
-  hl_pl: (),
-  hl_black: ()
+  hl_node_p: (),
+  hl_node_pl: (),
+  hl_node_black: (),
+  hl_edge_p: ()
 ) = render(
-  labels: labels(nodes, hl_black),
+  labels: labels(nodes, hl_node_black),
   engine: "neato",
   strfmt(
     "digraph {{
@@ -78,17 +79,17 @@
     nodes.keys()
       .map(x => {
         let v = int(x)
-        let color = if v in hl_p {
+        let color = if v in hl_node_p {
           theme.primary
-        } else if v in hl_pl {
+        } else if v in hl_node_pl {
           theme.primary_light
         } else {
           black
         }
 
-        let style = if v in hl_black {
+        let style = if v in hl_node_black {
           "filled"
-        } else {
+        } else if v in hl_node_p or v in hl_node_pl {
           "bold"
         }
 
