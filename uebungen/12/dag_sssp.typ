@@ -114,6 +114,7 @@
   }
   drawings.push(dag(nodes, adj.map(a => a.at(0)), node))
 }
+#drawings.push(dag(nodes, (), -1))
 
 #grid(
   columns: 2,
