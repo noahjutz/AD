@@ -7,7 +7,7 @@
 #let queue = (0,)
 
 #while queue.len() > 0 {
-  let node = queue.pop()
+  let node = queue.remove(0)
   let adj = edges.map(((v, u, w)) => if v == node {(u, w)} else if u == node {(v, w)})
     .filter(it => it != none)
 
