@@ -71,6 +71,8 @@
   return sets
 }
 
+#let drawings = ()
+
 #let visited = ()
 #let connected = ()
 
@@ -82,12 +84,24 @@
     visited.push((u, v))
   }
 
-  components.dag(
+  drawings.push(components.dag(
     nodes, edges,
     hl_edge_p: ((u, v),),
     hl_edge_s: connected,
     hl_edge_g: visited,
-  )
+  ))
 
-  sets_tree(sets)
+  drawings.push(sets_tree(sets))
 }
+
+#drawings.push(components.dag(
+  nodes, edges,
+  hl_edge_s: connected,
+  hl_edge_g: visited,
+))
+
+#grid(
+  columns: 2,
+  align: center + horizon,
+  ..drawings.map(d => scale(50%, d, reflow: true))
+)
