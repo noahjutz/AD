@@ -1,4 +1,6 @@
 #import "components.typ"
+#import "@preview/diagraph:0.3.0": render
+#import "@preview/oxifmt:0.2.1": strfmt
 
 #let edges = components.sample_edges()
 #let nodes = components.sample_nodes()
@@ -14,6 +16,34 @@
   "6": 0,
   "7": 0,
   "8": 0,
+)
+
+#let sets_tree(sets) = render(
+  engine: "neato",
+  strfmt(
+    "digraph {{
+      node [
+        fontname=\"Noto Sans\"
+        margin=0
+        height=0.25
+        width=0.25
+        shape=circle
+      ]
+      edge [
+        fontname=\"Noto Sans\"
+        len=.5
+        arrowhead=open
+        arrowtail=open
+      ]
+      {}
+      {}
+    }}",
+    nodes.keys().join(" "),
+    sets.pairs()
+      .filter(((v, u)) => type(u) == str)
+      .map(((v, u)) => strfmt("{}->{}", v, u))
+      .join(" ")
+  )
 )
 
 #let canonical(node, sets) = {
@@ -53,6 +83,8 @@
     hl_edge_p: ((u, v),),
     hl_edge_s: visited
   )
+
+  sets_tree(sets)
 
   visited.push((u, v))
 }
