@@ -78,8 +78,8 @@
       {}
     }}", 
     nodes.keys()
-      .map(x => {
-        let v = int(x)
+      .map(v => {
+        v = int(v)
         let color = if v in hl_node_p {
           theme.primary
         } else if v in hl_node_pl {
