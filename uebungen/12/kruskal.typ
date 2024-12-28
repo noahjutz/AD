@@ -92,6 +92,11 @@
   ))
 
   drawings.push(sets_tree(sets))
+
+  // early exit condition
+  if connected.flatten().dedup().sorted() == nodes.keys().map(n => int(n)).sorted() {
+    break
+  }
 }
 
 #drawings.push(components.dag(
