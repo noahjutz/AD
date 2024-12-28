@@ -8,11 +8,15 @@
 #let draw_heap(heap) = cetz.canvas({
     import cetz.draw: *
 
+    set-style(content: (frame: "circle", padding: 2pt))
     cetz.tree.tree(
-        lefttree(heap.map(i => str(i))),
-        draw-node: draw_node.with(
-            hl_primary: 0
-        )
+        lefttree(heap.map(i => align(center, stack(
+            spacing: 4pt,
+            $v_#{i.at(0)}$,
+            if i.at(1) == calc.inf {$infinity$} else {$#i.at(1)$}
+        )))),
+        spread: 1.5,
+        grow: 1.5
     )
 })
 
@@ -20,16 +24,20 @@
     let c = heap.at(i)
     let l = if heap.len() > 2*i+1 {
         heap.at(2*i+1)
-    } else {calc.inf}
-    let r = if heap.len() > 2*1+2 {
+    } else {(-1, calc.inf)}
+    let r = if heap.len() > 2*i+2 {
         heap.at(2*i+2)
-    } else {calc.inf}
+    } else {(-1, calc.inf)}
 
-    let min = calc.min(c, l, r)
+    let min = c
+    if l.at(1) < min.at(1) {min = l}
+    if r.at(1) < min.at(1) {min = r}
     if l == min {
         (heap.at(i), heap.at(2*i+1)) = (heap.at(2*i+1), heap.at(i))
+        heap = heapify_ttb(heap, 2*i+1)
     } else if r == min {
         (heap.at(i), heap.at(2*i+2)) = (heap.at(2*i+2), heap.at(i))
+        heap = heapify_ttb(heap, 2*i+2)
     }
     return heap
 }
@@ -47,33 +55,42 @@
 }
 
 #let get_min(heap) = {
-    let min = heap.at(0)
-    return min
+    return heap.at(0)
+}
+
+#let decrease_key(heap, i, val) = {
+    i = heap.position(((v, val)) => v == i)
+    if i != none {
+        heap.at(i).at(1) = val
+        return heapify_ttb(heap, i)
+    } else {
+        return heap
+    }
 }
 
 #let drawings = ()
 
-#let heap = nodes.keys().map(n => int(n))
+#let heap = nodes.pairs().map(((v, props)) => (int(v), props.d))
 
-#scale(50%, reflow: true)[
-    #components.dag(
-        nodes,
-        edges
-    )
-]
+#drawings.push(components.dag(
+    nodes,
+    edges
+))
+
+#drawings.push(draw_heap(heap))
 
 #while heap.len() > 0 {
-    let node = get_min(heap)
-    let heap_before = heap
-    heap = pop_min(heap)
+    let (node, weight) = get_min(heap)
 
     let adj = edges.filter(((u, v, w)) => u == node or v == node)
 
     for (u, v, w) in adj {
         let other = if (node == u) {v} else {u}
-        if nodes.at(str(other)).at("d") > nodes.at(str(node)).at("d") + w {
-            nodes.at(str(other)).at("d") = nodes.at(str(node)).at("d") + w
-            nodes.at(str(other)).at("p") = node
+        let new_weight = weight + w
+        if nodes.at(str(other)).d > new_weight {
+            nodes.at(str(other)).d = new_weight
+            nodes.at(str(other)).p = node
+            heap = decrease_key(heap, other, new_weight)
         }
     }
 
@@ -86,9 +103,10 @@
 
     if heap.len() > 0 {
         drawings.push(
-            draw_heap(heap_before)
+            draw_heap(heap)
         )
     }
+    heap = pop_min(heap)
 }
 
 #grid(
