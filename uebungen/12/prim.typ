@@ -95,6 +95,8 @@
 
     let adj = edges.filter(((u, v, w)) => u == node or v == node)
 
+    let hl_edges = ()
+
     for (u, v, w) in adj {
         let other = if (node == u) {v} else {u}
         let new_weight = weight + w
@@ -102,6 +104,7 @@
             nodes.at(str(other)).d = new_weight
             nodes.at(str(other)).p = node
             heap = decrease_key(heap, other, new_weight)
+            hl_edges.push((u, v))
         }
     }
 
@@ -109,7 +112,7 @@
         nodes,
         edges,
         hl_node_p: (node,),
-        hl_edge_p: adj.map(((u, v, w)) => (u, v))
+        hl_edge_p: hl_edges
     ))
 
     if heap.len() > 0 {
