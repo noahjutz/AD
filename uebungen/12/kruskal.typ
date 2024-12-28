@@ -3,7 +3,7 @@
 #import "@preview/oxifmt:0.2.1": strfmt
 
 #let edges = components.sample_edges()
-#let nodes = components.sample_nodes()
+#let nodes = components.sample_mst_nodes()
 
 // Values describe parent if string, set cardinality if int
 #let sets = (
@@ -81,7 +81,7 @@
   components.dag(
     nodes, edges,
     hl_edge_p: ((u, v),),
-    hl_edge_s: visited
+    hl_edge_g: visited
   )
 
   sets_tree(sets)

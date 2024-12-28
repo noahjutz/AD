@@ -14,6 +14,18 @@
   "8": (d: calc.inf, p: none)
 )
 
+#let sample_mst_nodes() = (
+  "0": (d: 0, p: none),
+  "1": (d: 1, p: none),
+  "2": (d: 2, p: none),
+  "3": (d: 3, p: none),
+  "4": (d: 4, p: none),
+  "5": (d: 5, p: none),
+  "6": (d: 6, p: none),
+  "7": (d: 7, p: none),
+  "8": (d: 8, p: none)
+)
+
 #let sample_edges() = (
   (0, 1, 12),
   (0, 8, 3),
@@ -55,7 +67,8 @@
   hl_node_pl: (),
   hl_node_black: (),
   hl_edge_p: (),
-  hl_edge_s: ()
+  hl_edge_s: (),
+  hl_edge_g: (),
 ) = render(
   labels: labels(nodes, hl_node_black),
   engine: "neato",
@@ -119,12 +132,16 @@
           theme.primary
         } else if (u, v) in hl_edge_s {
           theme.success
+        } else if (u, v) in hl_edge_g {
+          theme.fg_dark
         } else {
           black
         }
 
         let style = if (u, v) in hl_edge_p {
           "bold"
+        } else if (u, v) in hl_edge_g {
+          "dashed"
         } else {
           "solid"
         }
