@@ -34,19 +34,29 @@
     if r.at(1) < min.at(1) {min = r}
     if l == min {
         (heap.at(i), heap.at(2*i+1)) = (heap.at(2*i+1), heap.at(i))
-        heap = heapify_ttb(heap, 2*i+1)
+        return heapify_ttb(heap, 2*i+1)
     } else if r == min {
         (heap.at(i), heap.at(2*i+2)) = (heap.at(2*i+2), heap.at(i))
-        heap = heapify_ttb(heap, 2*i+2)
+        return heapify_ttb(heap, 2*i+2)
+    }
+    return heap
+}
+
+#let heapify_btt(heap, i) = {
+    let c = heap.at(i)
+    let p = heap.at(int((i - 1)/2))
+    if p.at(1) > c.at(1) {
+        (heap.at(i), heap.at(int((i - 1)/2))) = (heap.at(int((i - 1)/2)), heap.at(i))
+        return heapify_btt(heap, int((i - 1)/2))
     }
     return heap
 }
 
 #let pop_min(heap) = {
-    heap.remove(0)
     if heap.len() > 0 {
         let hi = heap.len()-1
         (heap.at(0), heap.at(hi)) = (heap.at(hi), heap.at(0))
+        heap.pop()
     }
     if heap.len() > 0 {
         heap = heapify_ttb(heap, 0)
@@ -62,7 +72,7 @@
     i = heap.position(((v, val)) => v == i)
     if i != none {
         heap.at(i).at(1) = val
-        return heapify_ttb(heap, i)
+        return heapify_btt(heap, i)
     } else {
         return heap
     }
@@ -81,6 +91,7 @@
 
 #while heap.len() > 0 {
     let (node, weight) = get_min(heap)
+    heap = pop_min(heap)
 
     let adj = edges.filter(((u, v, w)) => u == node or v == node)
 
@@ -106,7 +117,6 @@
             draw_heap(heap)
         )
     }
-    heap = pop_min(heap)
 }
 
 #grid(
