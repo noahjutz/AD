@@ -1,16 +1,18 @@
 #import "components.typ"
-#import "/components/lefttree.typ": lefttree
+#import "/components/lefttree.typ": lefttree, draw_node
 #import "@preview/cetz:0.3.1"
 
-#let nodes = components.sample_mst_nodes()
+#let nodes = components.sample_nodes()
 #let edges = components.sample_edges()
 
 #let draw_heap(heap) = cetz.canvas({
     import cetz.draw: *
 
-    set-style(content: (frame: "circle", padding: 2pt))
     cetz.tree.tree(
         lefttree(heap.map(i => str(i))),
+        draw-node: draw_node.with(
+            hl_primary: 0
+        )
     )
 })
 
@@ -49,25 +51,48 @@
     return min
 }
 
-#let heap = (0,)
+#let drawings = ()
 
-#components.dag(
-    nodes,
-    edges
-)
+#let heap = nodes.keys().map(n => int(n))
 
-#draw_heap(heap)
-
-#while heap.len() > 0 {
-    let node = get_min(heap)
-    heap = pop_min(heap)
-
-    components.dag(
+#scale(50%, reflow: true)[
+    #components.dag(
         nodes,
         edges
     )
+]
+
+#while heap.len() > 0 {
+    let node = get_min(heap)
+    let heap_before = heap
+    heap = pop_min(heap)
+
+    let adj = edges.filter(((u, v, w)) => u == node or v == node)
+
+    for (u, v, w) in adj {
+        let other = if (node == u) {v} else {u}
+        if nodes.at(str(other)).at("d") > nodes.at(str(node)).at("d") + w {
+            nodes.at(str(other)).at("d") = nodes.at(str(node)).at("d") + w
+            nodes.at(str(other)).at("p") = node
+        }
+    }
+
+    drawings.push(components.dag(
+        nodes,
+        edges,
+        hl_node_p: (node,),
+        hl_edge_p: adj.map(((u, v, w)) => (u, v))
+    ))
 
     if heap.len() > 0 {
-        draw_heap(heap)
+        drawings.push(
+            draw_heap(heap_before)
+        )
     }
 }
+
+#grid(
+    columns: 2,
+    align: center + horizon,
+    ..drawings.map(d => scale(50%, d, reflow: true))
+)
