@@ -138,7 +138,7 @@
           black
         }
 
-        let style = if (u, v) in hl_edge_p {
+        let style = if (u, v) in hl_edge_p or (u, v) in hl_edge_s {
           "bold"
         } else if (u, v) in hl_edge_g {
           "dashed"

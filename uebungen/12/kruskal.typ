@@ -72,19 +72,22 @@
 }
 
 #let visited = ()
+#let connected = ()
 
 #for (u, v, w) in edges.sorted(key: e => e.at(2)) {
   if canonical(u, sets) != canonical(v, sets) {
     sets = union(u, v, sets)
+    connected.push((u, v))
+  } else {
+    visited.push((u, v))
   }
 
   components.dag(
     nodes, edges,
     hl_edge_p: ((u, v),),
-    hl_edge_g: visited
+    hl_edge_s: connected,
+    hl_edge_g: visited,
   )
 
   sets_tree(sets)
-
-  visited.push((u, v))
 }
