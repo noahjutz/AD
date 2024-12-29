@@ -31,6 +31,34 @@ Verkettete Liste mit zwei next-Pointer:
 
 Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die ausgehenden Kanten von $v_i$ hat.
 
+=== Inzidenzmatrix
+
+In einer Inzidenzmatrix $B$ ist jede Spalte $j$ eine Kante $e_j in E$. Die Kante hat an Zeile $i$ eine $1$ bzw. eine $-1$, wenn sie Knoten $v_i$ verlässt bzw. erreicht.
+
+#import "/config.typ": theme
+
+$
+b_(i j) = cases(
+  1 &"falls" #circle(inset: 0pt, stroke: theme.fg_medium)[$v_i$]#h(0pt)-->^(e_j),
+  ,
+  -1 &"falls" -->^(e_j)#h(0pt)#circle(inset: 0pt, stroke: theme.fg_medium)[$v_i$],
+  ,
+  0 &"sonst"
+)
+$
+
+=== Gewichtungsmatrix
+
+Eine Gewichtungsmatrix $W$ ist eine Erweiterung der Adjazenzmatrix, die auch die Gewichte der Kanten enthält.
+
+$
+w_(i j) = cases(
+  0 &"falls" i = j,
+  w(i, j) &"sonst falls" (i,j) in E,
+  infinity &"sonst"
+)
+$
+
 == Traversierung
 
 === Breitensuche
