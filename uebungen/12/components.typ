@@ -71,7 +71,9 @@
   hl_edge_g: (),
 ) = render(
   labels: labels(nodes, hl_node_black),
-  xlabels: nodes.keys().map(n => (n, text(fill: theme.fg_dark, $v_#n$))).to-dict(),
+  xlabels: nodes.keys()
+    .map(n => (n, text(fill: theme.fg_dark, $v_#n$)))
+    .to-dict(),
   engine: "neato",
   strfmt(
     "digraph {{
