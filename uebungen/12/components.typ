@@ -71,6 +71,7 @@
   hl_edge_g: (),
 ) = render(
   labels: labels(nodes, hl_node_black),
+  xlabels: nodes.keys().map(n => (n, text(fill: theme.fg_dark, $v_#n$))).to-dict(),
   engine: "neato",
   strfmt(
     "digraph {{
@@ -80,7 +81,6 @@
         height=0.25
         width=0.25
         shape=circle
-        fontcolor=yellow
       ]
       edge [
         fontname=\"Noto Sans\"
@@ -89,7 +89,7 @@
         arrowtail=open
       ]
       {}
-    }}", 
+    }}",
     nodes.keys()
       .map(v => {
         v = int(v)
