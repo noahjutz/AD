@@ -1,4 +1,4 @@
-= Kürzeste Wege
+= SSSP
 
 == Minimaler Spannbaum
 
