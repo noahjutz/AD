@@ -2,7 +2,9 @@
 
 == Prioritätswarteschlange
 
-@bib-priorityqueue-impl
+Wir wollen eine Menge, bei der das wichtigste Element möglichst schnell abgefragt und gelöscht werden kann. Das wichtigste Element hat den kleinsten (Min-PQ) bzw. größten (Max-PQ) Schlüssel.
+
+Implementierung in @bib-priorityqueue-impl.
 
 == Hashtabelle
 
