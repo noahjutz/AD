@@ -218,7 +218,7 @@ bib-adj-mtx-powers:
 bib-mst-proof:
   type: chapter
   title: Minimum Spanning Trees
-  author: Robert Sedgewick, Kevin Wayne
+  author: [Robert Sedgewick, Kevin Wayne]
   url:
     value: https://algs4.cs.princeton.edu/lectures/keynote/43MinimumSpanningTrees.pdf
     date: 2024-12-18
