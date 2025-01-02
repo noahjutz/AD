@@ -1,4 +1,8 @@
-= Datenstrukturen
+= Sonstige Datenstrukturen
+
+== Prioritätswarteschlange
+
+@bib-priorityqueue-impl
 
 == Hashtabelle
 

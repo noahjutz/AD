@@ -105,6 +105,24 @@ bib-btree-delete:
     value: https://www.cs.rhodes.edu/~kirlinp/courses/db/f16/handouts/btrees-deletion.pdf
     date: 2024-11-19
 
+bib-priorityqueue-impl:
+  type: misc
+  title: IndexMinPQ.java
+  author: [Robert Sedgewick, Kevin Wayne]
+  organization: Princeton University
+  url:
+    value: https://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html
+    date: 2025-01-02
+  parent:
+    type: chapter
+    title: Priority Queues
+    url:
+      value: https://algs4.cs.princeton.edu/24pq/
+      date: 2025-01-02
+    parent:
+      type: book
+      title: Algorithms, 4th Edition
+
 bib-hash-quadratic-probing:
   type: video
   title: "Hash Tables: Quadratic Probing"
