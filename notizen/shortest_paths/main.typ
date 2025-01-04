@@ -38,10 +38,12 @@ for v in vertices:
   weights.append(w)
 ```
 
+=== Slow APSP
+
 === Übersicht der Laufzeiten
 
-#table(columns: 3,
-    "Algorithmus", table.cell(colspan: 2, "Laufzeit"),
+#table(columns: (.5fr, .5fr, 1fr),
+    table.cell(colspan: 2, "Algorithmus"), "Laufzeit",
     table.cell(rowspan: 3, "Dijkstra"),
     "SSSP", $V log V + E log V$,
     "APSP", $V dot (V log V + E log V)$,
