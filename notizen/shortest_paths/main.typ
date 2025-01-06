@@ -40,20 +40,26 @@ for v in vertices:
 
 === Slow APSP
 
+$
+l_(i j)^((m)) = delta(i, j) "mit höchstens" m "Kanten"
+$
+
 === Übersicht der Laufzeiten
 
-#table(columns: (.5fr, .5fr, 1fr),
-    table.cell(colspan: 2, "Algorithmus"), "Laufzeit",
-    table.cell(rowspan: 3, "Dijkstra"),
-    "SSSP", $V log V + E log V$,
-    "APSP", $V dot (V log V + E log V)$,
-    "APSP Dicht", $V^2 log V$,
-    table.cell(rowspan: 3, "Bellman-Ford"),
-    "SSSP", $V dot E$,
-    "APSP", $V dot (V dot E)$,
-    "APSP Dicht", $V^4$,
-    "Slow APSP",
-    "(TODO)", $V^4$,
-    "Faster APSP",
-    "(TODO)", $V^3 log V$
+#table(
+  columns: (.5fr, .5fr, 1fr),
+  align: horizon,
+  table.cell(colspan: 2, "Algorithmus"), "Laufzeit",
+  table.cell(rowspan: 3, "Dijkstra"),
+  "SSSP", $V log V + E log V$,
+  "APSP", $V dot (V log V + E log V)$,
+  "APSP Dicht", $V^2 log V$,
+  table.cell(rowspan: 3, "Bellman-Ford"),
+  "SSSP", $V dot E$,
+  "APSP", $V dot (V dot E)$,
+  "APSP Dicht", $V^4$,
+  table.cell(colspan: 2, "Slow APSP"),
+  $V^4$,
+  table.cell(colspan: 2, "Faster APSP"),
+  $V^3 log V$
 )
