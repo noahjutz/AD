@@ -26,7 +26,9 @@ Man kann induktiv beweisen, dass $A^m$ im allgemeinen die Anzahl an Pfäden der 
 
 == Inzidenzmatrix
 
-Das Produkt $B B^T$ liefert für alle Knotenpaare $i$ und $j$ die Pfäde, welche von $i$ ausgehen und in $j$ eingehen oder umgekehrt. In anderen Worten ist das die Anzahl an Pfäden, die $i$ und $j$ direkt miteinander verbinden (0, 1 oder 2).
+Das Produkt einer Inzidenzmatrix $B_(abs(V) times abs(E))$ mit ihrer Transponierten $B B^T$ liefert die #link("https://en.wikipedia.org/wiki/Laplacian_matrix")[Laplace-Matrix] $L_(abs(V) times abs(V))$ des Graphen.
+
+für alle Knotenpaare $i$ und $j$ die Pfäde, welche von $i$ ausgehen und in $j$ eingehen oder umgekehrt. In anderen Worten ist das die Anzahl an Pfäden, die $i$ und $j$ direkt miteinander verbinden (0, 1 oder 2).
 
 Die Einträge der Produktmatrix sind negativ, weil eine Kante das Produkt des Ausgangs und des Eingangs ist ($-1 dot 1$).
 
