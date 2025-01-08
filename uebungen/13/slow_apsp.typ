@@ -1,3 +1,5 @@
+#import "/config.typ": theme
+
 // @param l Matrix (nxn) of current weights
 // @param p Matrix (nxn) of current parents
 // @param w Weighted Adjacency Matrix (nxn)
@@ -20,6 +22,15 @@
   return (ll, p)
 }
 
+#let mat(m) = table(
+    columns: m.len() * (1fr,),
+    align: center,
+    stroke: theme.fg_light,
+    ..m.flatten().map(i => $#i$)
+  ) 
+
+// Input data
+#let n = 6
 #let w = (
   (0, calc.inf, calc.inf, calc.inf, -1, calc.inf),
   (1, 0, calc.inf, 2, calc.inf, calc.inf),
@@ -28,28 +39,23 @@
   (calc.inf, 7, calc.inf, calc.inf, 0, calc.inf),
   (calc.inf, 5, 10, calc.inf, calc.inf, 0),
 )
+#let l = ((calc.inf,) * n,) * n
+#for i in range(n) { l.at(i).at(i) = 0 }
+#let p = ((none,) * n,) * n
 
-#let l = ((calc.inf,) * 6,) * 6
-#for i in range(6) {
-  l.at(i).at(i) = 0
+// Figures
+#let f = ()
+#for i in range(n) {
+  f.push(l)
+  f.push(p)
+  (l, p) = extend_shortest_paths(l, p, w)
 }
-#let p = ((sym.space.quad,) * 6,) * 6
 
-$
-#math.mat(..l)
-#math.mat(..p)
-$
-
-#{(l, p) = extend_shortest_paths(l, p, w)}
-
-$
-#math.mat(..l)
-#math.mat(..p)
-$
-
-#{(l, p) = extend_shortest_paths(l, p, w)}
-
-$
-#math.mat(..l)
-#math.mat(..p)
-$
+#grid(
+  columns: 2* (1fr,),
+  column-gutter: 12pt,
+  row-gutter: 12pt,
+  align: center,
+  $L^((m))$, $P^((m))$,
+  ..f.map(m => mat(m))
+)
