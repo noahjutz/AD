@@ -4,19 +4,20 @@
 // @return 2-tuple of modified l and p
 #let extend_shortest_paths(l, p, w) = {
   let n = l.len()
+  let ll = l
   for i in range(n) {
     for j in range(n) {
       for k in range(n) {
-        let current_path = l.at(i).at(j)
+        let current_path = ll.at(i).at(j)
         let relaxed_path = l.at(i).at(k) + w.at(k).at(j)
         if current_path > relaxed_path {
-          l.at(i).at(j) = relaxed_path
+          ll.at(i).at(j) = relaxed_path
           p.at(i).at(j) = k + 1
         }
       }
     }
   }
-  return (l, p)
+  return (ll, p)
 }
 
 #let w = (
@@ -28,8 +29,18 @@
   (calc.inf, 5, 10, calc.inf, calc.inf, 0),
 )
 
-#let l = w
+#let l = ((calc.inf,) * 6,) * 6
+#for i in range(6) {
+  l.at(i).at(i) = 0
+}
 #let p = ((sym.space.quad,) * 6,) * 6
+
+$
+#math.mat(..l)
+#math.mat(..p)
+$
+
+#{(l, p) = extend_shortest_paths(l, p, w)}
 
 $
 #math.mat(..l)
