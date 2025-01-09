@@ -63,8 +63,10 @@
 // Figures
 #let f = ()
 #for i in range(n) {
-  f.push(l)
-  f.push(p)
+  f.push(mat(l))
+  f.push(mat(p))
+  f.push($L^((#i))$)
+  f.push($P^((#i))$)
   (l, p) = extend_shortest_paths(l, p, w)
 }
 
@@ -73,6 +75,5 @@
   column-gutter: 12pt,
   row-gutter: 12pt,
   align: center,
-  $L^((m))$, $P^((m))$,
-  ..f.map(m => mat(m))
+  ..f
 )
