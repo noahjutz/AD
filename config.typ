@@ -1,19 +1,19 @@
 #let theme = (
   primary: red,
-  primary_light: red.lighten(75%),
-  primary_trans: red.transparentize(75%),
+  primary_light: red.lighten(85%),
+  primary_trans: red.transparentize(85%),
 
   secondary: blue,
-  secondary_light: blue.lighten(75%),
-  secondary_trans: blue.transparentize(75%),
+  secondary_light: blue.lighten(85%),
+  secondary_trans: blue.transparentize(85%),
 
   tertiary: yellow.darken(15%),
-  tertiary_light: yellow.lighten(75%),
-  tertiary_trans: yellow.transparentize(75%),
+  tertiary_light: yellow.lighten(85%),
+  tertiary_trans: yellow.transparentize(85%),
 
   success: green.lighten(25%),
-  success_light: green.lighten(75%),
-  success_trans: green.transparentize(75%),
+  success_light: green.lighten(85%),
+  success_trans: green.transparentize(85%),
 
   fg_dark: black.transparentize(50%),
   fg_medium: black.transparentize(85%),
