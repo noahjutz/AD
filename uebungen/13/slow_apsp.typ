@@ -22,12 +22,27 @@
   return (ll, p)
 }
 
-#let mat(m) = table(
+#let mat(m) = layout(((width, height)) => {
+  set block(breakable: false)
+  table(
     columns: m.len() * (1fr,),
     align: center,
     stroke: theme.fg_light,
     ..m.flatten().map(i => $#i$)
-  ) 
+  )
+  place(top + left, path(
+    (6pt, 0pt),
+    (0pt, 0pt),
+    (0pt, width),
+    (6pt, width)
+  ))
+  place(top + right, path(
+    (-6pt, 0pt),
+    (0pt, 0pt),
+    (0pt, width),
+    (-6pt, width)
+  ))
+})
 
 // Input data
 #let n = 6
