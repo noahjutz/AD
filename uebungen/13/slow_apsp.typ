@@ -22,25 +22,27 @@
   return (ll, p)
 }
 
-#let mat(m) = layout(((width, height)) => {
+#let mat(m) = context layout(((width, height)) => {
   set block(breakable: false)
-  table(
+  let t = table(
     columns: m.len() * (1fr,),
     align: center,
     stroke: theme.fg_light,
     ..m.flatten().map(i => $#i$)
   )
+  t
+  let (width, height) = measure(width: width, height: height, t)
   place(top + left, path(
     (6pt, 0pt),
     (0pt, 0pt),
-    (0pt, width),
-    (6pt, width)
+    (0pt, height),
+    (6pt, height)
   ))
   place(top + right, path(
     (-6pt, 0pt),
     (0pt, 0pt),
-    (0pt, width),
-    (-6pt, width)
+    (0pt, height),
+    (-6pt, height)
   ))
 })
 
