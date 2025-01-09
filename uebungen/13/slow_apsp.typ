@@ -61,7 +61,7 @@
 
 // Input data
 #let n = 6
-#let w = (
+#let adjacency_matrix = (
   (0, calc.inf, calc.inf, calc.inf, -1, calc.inf),
   (1, 0, calc.inf, 2, calc.inf, calc.inf),
   (calc.inf, 2, 0, calc.inf, calc.inf, -8),
@@ -69,19 +69,22 @@
   (calc.inf, 7, calc.inf, calc.inf, 0, calc.inf),
   (calc.inf, 5, 10, calc.inf, calc.inf, 0),
 )
-#let l = ((calc.inf,) * n,) * n
-#for i in range(n) { l.at(i).at(i) = 0 }
-#let p = ((none,)*n,)*n
-#let m = ((false,)*n,)*n
+#let distances = {
+  let l = ((calc.inf,) * n,) * n
+  for i in range(n) { l.at(i).at(i) = 0 }
+  l
+}
+#let parents = ((none,)*n,)*n
+#let highlight = ((false,)*n,)*n
 
 // Figures
 #let f = ()
 #for i in range(n) {
-  f.push(mat(l, hl: m))
-  f.push(mat(p, hl: m))
+  f.push(mat(distances, hl: highlight))
+  f.push(mat(parents, hl: highlight))
   f.push($L^((#i))$)
   f.push($P^((#i))$)
-  (l, p, m) = extend_shortest_paths(l, p, w)
+  (distances, parents, highlight) = extend_shortest_paths(distances, parents, adjacency_matrix)
 }
 
 #grid(
