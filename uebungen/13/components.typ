@@ -1,3 +1,5 @@
+#import "/config.typ": theme
+
 #let n = 6
 
 #let adjacency_matrix = (
@@ -9,12 +11,34 @@
   (calc.inf, 5, 10, calc.inf, calc.inf, 0),
 )
 
-#let distances = {
-  let l = ((calc.inf,) * n,) * n
-  for i in range(n) { l.at(i).at(i) = 0 }
-  l
-}
-
-#let parents = ((none,)*n,)*n
-
-#let highlight = ((false,)*n,)*n
+#let mat(m, hl: none) = context layout(((width, height)) => {
+  set block(breakable: false)
+  let t = table(
+    columns: m.len() * (1fr,),
+    align: center,
+    stroke: theme.fg_light,
+    ..m.enumerate().map(((i, row)) => {
+      row.enumerate().map(((j, x)) => {
+        table.cell(
+          fill: if hl != none and hl.at(i).at(j) {
+            theme.primary_light
+          }
+        )[$#x$]
+      })
+    }).flatten()
+  )
+  t
+  let (width, height) = measure(width: width, height: height, t)
+  place(top + left, path(
+    (6pt, 0pt),
+    (0pt, 0pt),
+    (0pt, height),
+    (6pt, height)
+  ))
+  place(top + right, path(
+    (-6pt, 0pt),
+    (0pt, 0pt),
+    (0pt, height),
+    (-6pt, height)
+  ))
+})

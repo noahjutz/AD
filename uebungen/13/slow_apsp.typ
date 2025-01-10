@@ -1,4 +1,3 @@
-#import "/config.typ": theme
 #import "components.typ"
 
 // @param l Matrix (nxn) of current weights
@@ -28,52 +27,23 @@
   return (l_new, p, modified)
 }
 
-#let mat(m, hl: none) = context layout(((width, height)) => {
-  set block(breakable: false)
-  let t = table(
-    columns: m.len() * (1fr,),
-    align: center,
-    stroke: theme.fg_light,
-    ..m.enumerate().map(((i, row)) => {
-      row.enumerate().map(((j, x)) => {
-        table.cell(
-          fill: if hl != none and hl.at(i).at(j) {
-            theme.primary_light
-          }
-        )[$#x$]
-      })
-    }).flatten()
-  )
-  t
-  let (width, height) = measure(width: width, height: height, t)
-  place(top + left, path(
-    (6pt, 0pt),
-    (0pt, 0pt),
-    (0pt, height),
-    (6pt, height)
-  ))
-  place(top + right, path(
-    (-6pt, 0pt),
-    (0pt, 0pt),
-    (0pt, height),
-    (-6pt, height)
-  ))
-})
-
 // Input data
 #let n = components.n
 #let adjacency_matrix = components.adjacency_matrix
-#let distances = components.distances
-#let parents = components.parents
-#let highlight = components.highlight
+#let distances = {
+  let l = ((calc.inf,) * n,) * n
+  for i in range(n) { l.at(i).at(i) = 0 }
+  l
+}
+#let parents = ((none,)*n,)*n
+#let highlight = ((false,)*n,)*n
 
-// Figures
-#let f = ()
+#let figures = ()
 #for i in range(n) {
-  f.push(mat(distances, hl: highlight))
-  f.push(mat(parents, hl: highlight))
-  f.push($L^((#i))$)
-  f.push($P^((#i))$)
+  figures.push(components.mat(distances, hl: highlight))
+  figures.push(components.mat(parents, hl: highlight))
+  figures.push($L^((#i))$)
+  figures.push($P^((#i))$)
   (distances, parents, highlight) = extend_shortest_paths(distances, parents, adjacency_matrix)
 }
 
@@ -82,5 +52,5 @@
   column-gutter: 12pt,
   row-gutter: 12pt,
   align: center,
-  ..f
+  ..figures
 )
