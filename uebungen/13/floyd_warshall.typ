@@ -3,25 +3,26 @@
 #let extend_shortest_paths(d, p, k) = {
   let n = d.len()
   let d_new = d
+  let p_new = p
   let modified = ((false,)*n,)*n
   for i in range(n) {
     for j in range(n) {
       let relaxed_path = d.at(i).at(k) + d.at(k).at(j)
       if d.at(i).at(j) > relaxed_path {
         d_new.at(i).at(j) = relaxed_path
-        p.at(i).at(j) = k + 1
+        p_new.at(i).at(j) = p.at(k).at(j)
         modified.at(i).at(j) = true
       }
     }
   }
-  return (d_new, p, modified)
+  return (d_new, p_new, modified)
 }
 
 // Input data
 #let n = components.n
 #let distances = components.adjacency_matrix
 #let parents = components.adjacency_matrix.enumerate().map(((i, row)) => row.enumerate().map(((j, x)) => {
-  if i != j and x < calc.inf {i}
+  if i != j and x < calc.inf {i+1}
 }))
 #let highlight = ((false,)*n,)*n
 
