@@ -189,6 +189,27 @@ bib-skiplist-operations:
     type: web
     title: OpenDSA
     chapter: 15.1
+
+bib-graph-adjacency-array:
+  type: chapter
+  title: 8.2 Adjacency Arrays - Static Graphs
+  author:
+    - Peter Sanders
+    - Kurt Mehlhorn
+    - Martin Dietzfelbinger
+    - Roman Dementiev
+  organization: Max-Planck-Institut für Informatik
+  url:
+    value: https://people.mpi-inf.mpg.de/~mehlhorn/ftp/NewToolbox/grepresent.pdf
+    date: 2025-01-11
+  parent:
+    type: book
+    title: Sequential and Parallel Algorithms and Data Structures
+    url:
+      value: https://people.mpi-inf.mpg.de/~mehlhorn/ftp/NewToolbox/
+      date: 2025-01-11
+
+
   
 bib-dfs-iterative:
   type: chapter

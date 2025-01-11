@@ -30,7 +30,7 @@ Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen
 
 #align(center, include "representation/adjacency_array_indices.typ")
 
-Wenn man alle ausgehenden Kanten eines Knotens $v_i$ abrufen möchte, muss man auf das Subarray von $E$ zugreifen, das durch `E[V[i]:V[i+1]]` gegeben ist. Sodass das auch für den Letzten Knoten $v_n$ funktioniert, fügen wir ein _Dummy-Element_ hinzu. 
+Wenn man alle ausgehenden Kanten eines Knotens $v_i$ abrufen möchte, muss man auf das Subarray von $E$ zugreifen, das durch `E[V[i]:V[i+1]]` gegeben ist. Sodass das auch für den Letzten Knoten $v_n$ funktioniert, fügen wir ein _Dummy-Element_ hinzu @bib-graph-adjacency-array. 
 
 ```python
 V[n] = n+1 # Dummy
