@@ -30,6 +30,14 @@ Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen
 
 #align(center, include "representation/adjacency_array_indices.typ")
 
+Wenn man alle ausgehenden Kanten eines Knotens $v_i$ abrufen möchte, muss man auf das Subarray von $E$ zugreifen, das durch `E[V[i]:V[i+1]]` gegeben ist. Sodass das auch für den Letzten Knoten $v_n$ funktioniert, fügen wir ein _Dummy-Element_ hinzu. 
+
+```python
+V[n] = n+1 # Dummy
+```
+
+Dadurch, dass `V[x:x]` für alle $x$ leer ist, kann man einen Knoten $v_i$ ohne ausgehende Kanten speichern, indem man `V[i] = V[i+1]` setzt.
+
 === Adjazenzliste (Hybride Speicherung)
 
 Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die ausgehenden Kanten von $v_i$ hat.

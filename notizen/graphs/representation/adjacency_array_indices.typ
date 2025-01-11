@@ -11,7 +11,7 @@
   #table(
     columns: 9,
     align: center,
-    stroke: (x, y) => if x != 0 {black},
+    stroke: (x, y) => if x != 0 and x != 8 {black},
     $E=$,
     p("1"), p("2"), p("3"),
     s("2"), s("3"), s("4"),
@@ -32,7 +32,6 @@
     circle((i*20pt + 10pt, -30pt), radius: 0, name: "v_"+str(i))
   }
 
-  //set-style(mark: (end: ">"))
   let l(a, b) = {
     bezier(
       a, (rel: (0, -8pt), to: b),
@@ -58,5 +57,3 @@
   $V = $, p("0"), s("3"), "6", "6", "6", t("6"), strong[_7_],
   [], ..range(6).map(i => text(fill: theme.fg_dark, $v_#i$)),
 )
-
-// TODO explain dummy element, figure out how to store v2, v3 and v4
