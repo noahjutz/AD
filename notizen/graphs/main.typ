@@ -8,26 +8,31 @@ Der Knoten $v_i$ in Zeile $i$ zeigt auf die Knoten $v_j$ in Spalte $j$, wenn $a_
 
 #include "representation/matrix.typ"
 
-=== Adjazenzliste (dicht)
+=== Gewichtungsmatrix
+
+Eine Gewichtungsmatrix $W$ ist eine Erweiterung der Adjazenzmatrix, die auch die Gewichte der Kanten enthält.
+
+$
+w_(i j) = cases(
+  0 &"falls" i = j,
+  w(i, j) &"sonst falls" (i,j) in E,
+  infinity &"sonst"
+)
+$
+
+=== Adjazenz-Array (Dichte Speicherung)
 
 Wir speichern für jeden Knoten seine ausgehenden Kanten in einer flachen Kantenliste.
 
-#include "representation/list_dense.typ"
+#include "representation/adjacency_array.typ"
 
-Um den ausgehenden Kanten ihre Knoten zuzuordnen, erstellen wir eine Zuordnungsliste, welche an Index $i$ für den Knoten $v_i$ speichert, welches Segment diesem Knoten gehört. 
+Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen wir eine Zuordnungsliste, welche an Index $i$ für den Knoten $v_i$ speichert, welches Segment diesem Knoten gehört. 
 
-#block(width: 100%, include "representation/list_dense_map.typ")
+#block(width: 100%, include "representation/adjacency_array_indices.typ")
 
 Das Segment wird am Index der ersten Kante identifiziert. hat der Knoten keine ausgehende Kanten, so wird ein Sentinel (-1) verwendet.
 
-=== Adjazenzliste (gestreut)
-
-Verkettete Liste mit zwei next-Pointer:
-
-- Nächster Knoten (nach unten)
-- Nächste Kante (nach rechts)
-
-=== Adjazenzliste (hybrid)
+=== Adjazenzliste (Hybride Speicherung)
 
 Liste, dessen Eintrag an Index $i$ auf eine Verkettete Liste zeigt, welche die ausgehenden Kanten von $v_i$ hat.
 
@@ -44,18 +49,6 @@ b_(i j) = cases(
   -1 &"falls" -->^(e_j)#h(0pt)#circle(inset: 0pt, stroke: theme.fg_medium)[$v_i$],
   ,
   0 &"sonst"
-)
-$
-
-=== Gewichtungsmatrix
-
-Eine Gewichtungsmatrix $W$ ist eine Erweiterung der Adjazenzmatrix, die auch die Gewichte der Kanten enthält.
-
-$
-w_(i j) = cases(
-  0 &"falls" i = j,
-  w(i, j) &"sonst falls" (i,j) in E,
-  infinity &"sonst"
 )
 $
 
