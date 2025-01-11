@@ -46,3 +46,5 @@
   "0", "3", "?", "?", "?", "6", strong[_7_],
   ..range(7).map(i => text(fill: theme.fg_dark, $v_#i$))
 )
+
+// TODO explain dummy element, figure out how to store v2, v3 and v4
