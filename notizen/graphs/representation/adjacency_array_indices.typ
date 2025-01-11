@@ -44,7 +44,7 @@
   columns: 8,
   align: center,
   stroke: (x, y) => if x != 0 and y == 0 {black},
-  $V = $, "0", "3", "?", "?", "?", "6", strong[_7_],
+  $V = $, p("0"), s("3"), "?", "?", "?", t("6"), strong[_7_],
   [], ..range(6).map(i => text(fill: theme.fg_dark, $v_#i$)),
 )
 
