@@ -30,10 +30,10 @@
 #{figures += (
   scale(65%, components.mat(distances, hl: highlight), reflow: true),
   scale(65%, components.mat(predecessors, hl: highlight), reflow: true),
-  [Todo],
+  components.graph(components.adjacency_matrix, distances, predecessors, 0),
   $D^((0))$,
   $Pi^((0))$,
-  [Todo]
+  []
 )}
 
 #for k in range(1, n+1) {
@@ -44,10 +44,10 @@
   figures += (
     scale(65%, components.mat(distances, hl: highlight), reflow: true),
     scale(65%, components.mat(predecessors, hl: highlight), reflow: true),
-    components.graph(distances, predecessors, hl: highlight),
+    components.graph(components.adjacency_matrix, distances, predecessors, k, hl: highlight),
     $D^((#k))$,
     $Pi^((#k))$,
-    [Todo]
+    []
   )
 }
 

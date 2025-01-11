@@ -45,14 +45,30 @@
   ))
 })
 
-#let graph(d, p, hl: none) = context layout(((width, height)) => {
+#let graph(w, d, p, k, hl: none) = context layout(((width, height)) => {
+  let n = d.len()
   let graphviz_str = strfmt(
     "digraph {{
-      overlap=scale
-      node [height=0, margin=.01, shape=circle]
+      node [fontname=\"Noto Sans\", height=0, margin=.01, shape=circle]
+      edge [arrowhead=vee]
       {} // Nodes
+      {} // Edges
     }}",
-    range(d.len()).map(i => str(i)).join(" ")
+    range(n).map(i => {
+      strfmt(
+        "{} [color=\"{}\"]",
+        i+1,
+        if i+1 == k {theme.primary.to-hex()} else {"black"}
+      )
+    }).join(" "),
+    range(n).map(i => range(n).map(j => {
+      if i != j and w.at(i).at(j) < calc.inf {
+        strfmt(
+          "{} -> {} [label={}]",
+          i+1, j+1, w.at(i).at(j),
+        )
+      }
+    })).flatten().filter(it => it != none).join(" ")
   )
   let graph_size = measure(render(
     graphviz_str,
