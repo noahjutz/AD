@@ -35,16 +35,16 @@
   for i in range(n) { l.at(i).at(i) = 0 }
   l
 }
-#let parents = ((none,)*n,)*n
+#let predecessors = ((none,)*n,)*n
 #let highlight = ((false,)*n,)*n
 
 #let figures = ()
 #for i in range(n) {
   figures.push(components.mat(distances, hl: highlight))
-  figures.push(components.mat(parents, hl: highlight))
+  figures.push(components.mat(predecessors, hl: highlight))
   figures.push($L^((#i))$)
   figures.push($P^((#i))$)
-  (distances, parents, highlight) = extend_shortest_paths(distances, parents, adjacency_matrix)
+  (distances, predecessors, highlight) = extend_shortest_paths(distances, predecessors, adjacency_matrix)
 }
 
 #grid(

@@ -21,7 +21,7 @@
 // Input data
 #let n = components.n
 #let distances = components.adjacency_matrix
-#let parents = components.adjacency_matrix.enumerate().map(((i, row)) => row.enumerate().map(((j, x)) => {
+#let predecessors = components.adjacency_matrix.enumerate().map(((i, row)) => row.enumerate().map(((j, x)) => {
   if i != j and x < calc.inf {i+1}
 }))
 #let highlight = ((false,)*n,)*n
@@ -29,19 +29,19 @@
 #let figures = ()
 #{figures += (
   components.mat(distances),
-  components.mat(parents),
+  components.mat(predecessors),
   $D^((0))$,
   $Pi^((0))$
 )}
 
 #for k in range(1, n+1) {
-  (distances, parents, highlight) = extend_shortest_paths(
-    distances, parents, k - 1
+  (distances, predecessors, highlight) = extend_shortest_paths(
+    distances, predecessors, k - 1
   )
 
   figures += (
     components.mat(distances, hl: highlight),
-    components.mat(parents, hl: highlight),
+    components.mat(predecessors, hl: highlight),
     $D^((#k))$,
     $Pi^((#k))$
   )
