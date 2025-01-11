@@ -24,7 +24,7 @@ $
 
 Wir speichern für jeden Knoten seine ausgehenden Kanten in einer flachen Kantenliste.
 
-#include "representation/adjacency_array.typ"
+#align(center, include "representation/adjacency_array.typ")
 
 Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen wir eine Zuordnungsliste, welche an Index $i$ für den Knoten $v_i$ speichert, welches Segment diesem Knoten gehört. 
 

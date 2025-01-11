@@ -1,34 +1,58 @@
 #import "/config.typ": theme
-#import "@preview/fletcher:0.5.3": diagram, node, edge
+#import "@preview/diagraph:0.3.0": render
+#import "@preview/cetz:0.3.1"
+#import "@preview/oxifmt:0.2.1": strfmt
 
-#show table.cell: box.with(width: 20pt, height: 20pt)
+#show table.cell: box.with(width: 20pt)
 
-#diagram(
-  spacing: (16pt, 16pt),
-  node-inset: 0pt,
-  node-shape: rect,
-  node((0, 0), name: <v0>)[
-    #table(
-      columns: 2,
-      table.cell(fill: theme.primary_light)[0],
-      table.cell(fill: theme.secondary_light)[2],
-    )
-  ],
-  node((rel: (-8pt, 0pt), to: <v0.west>))[$v_0$],
-  node((1, 0), name: <v1>)[
-    #table([])
-  ],
-  node((rel: (-8pt, 0pt), to: <v1.west>))[$v_1$],
-  node((2, 0), name: <v2>)[
-    #table(
-      table.cell(fill: theme.tertiary_light)[1]
-    )
-  ],
-  node((rel: (-8pt, 0pt), to: <v2.west>))[$v_2$],
-  node((1, 1), name: <array>)[
-    #table(columns: 3, "0", "2", "1")
-  ],
-  edge(<v0.south>, "-|>", <array>),
-  edge(<v1.south>, "-|>", <array>),
-  edge(<v2.south>, "-|>", <array>)
+#let underbrace(l, c) = cetz.canvas(length: 20pt, {
+  import cetz.draw: *
+  set-style(content: (padding: (top: 4pt)))
+  cetz.decorations.flat-brace((l, 0), (0, 0), name: "b")
+  content("b.content", c)
+})
+
+#let col(c) = "\"" + c.to-hex() + "\""
+
+#render(
+  strfmt(
+    "digraph {{
+      node [fontname=\"Noto Sans\", height=0, margin=.03, shape=circle]
+      edge [arrowhead=vee, len=.5]
+
+      0 -> 1 [color={p}]
+      0 -> 2 [color={p}]
+      0 -> 3 [color={p}]
+      1 -> 3 [color={s}]
+      1 -> 2 [color={s}]
+      1 -> 4 [color={s}]
+      4 -> 1 [color={t}]
+      5
+    }}",
+    p: col(theme.primary),
+    s: col(theme.secondary),
+    t: col(theme.tertiary)
+  ),
+  engine: "neato",
+  labels: range(6).map(i => (str(i), $v_#i$)).to-dict()
+)
+
+#let p = table.cell.with(fill: theme.primary_light)
+#let s = table.cell.with(fill: theme.secondary_light)
+#let t = table.cell.with(fill: theme.tertiary_light)
+
+#block(below: 2pt)[
+  #table(
+    columns: 7,
+    align: center,
+    p("1"), p("2"), p("3"),
+    s("2"), s("3"), s("4"),
+    t("1")
+  )
+]
+#stack(
+  dir: ltr,
+  underbrace(3 * 20pt)[$v_0$],
+  underbrace(3 * 20pt)[$v_1$],
+  underbrace(1 * 20pt)[$v_4$],
 )
