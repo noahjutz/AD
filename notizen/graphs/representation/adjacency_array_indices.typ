@@ -11,8 +11,8 @@
   #table(
     columns: 9,
     align: center,
-    stroke: (x, y) => if x != 0 and x < 8 and y == 1 {black},
-    [], ..range(8).map(i => text(fill: theme.fg_dark, $e_#i$)),
+    stroke: (x, y) => if x != 0 and y == 1 {black},
+    [], ..range(7).map(i => text(fill: theme.fg_dark, $e_#i$)), [],
     $E=$, p("1"), p("2"), p("3"),
     s("2"), s("3"), s("4"),
     t("1"),
@@ -43,9 +43,9 @@
 #table(
   columns: 8,
   align: center,
-  stroke: (x, y) => if x < 7 and x != 0 and y == 0 {black},
+  stroke: (x, y) => if x != 0 and y == 0 {black},
   $V = $, "0", "3", "?", "?", "?", "6", strong[_7_],
-  [], ..range(7).map(i => text(fill: theme.fg_dark, $v_#i$))
+  [], ..range(6).map(i => text(fill: theme.fg_dark, $v_#i$)),
 )
 
 // TODO explain dummy element, figure out how to store v2, v3 and v4
