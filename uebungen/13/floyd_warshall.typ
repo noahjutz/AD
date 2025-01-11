@@ -28,10 +28,12 @@
 
 #let figures = ()
 #{figures += (
-  components.mat(distances),
-  components.mat(predecessors),
+  scale(65%, components.mat(distances, hl: highlight), reflow: true),
+  scale(65%, components.mat(predecessors, hl: highlight), reflow: true),
+  [Todo],
   $D^((0))$,
-  $Pi^((0))$
+  $Pi^((0))$,
+  [Todo]
 )}
 
 #for k in range(1, n+1) {
@@ -40,15 +42,17 @@
   )
 
   figures += (
-    components.mat(distances, hl: highlight),
-    components.mat(predecessors, hl: highlight),
+    scale(65%, components.mat(distances, hl: highlight), reflow: true),
+    scale(65%, components.mat(predecessors, hl: highlight), reflow: true),
+    components.graph(distances, predecessors, hl: highlight),
     $D^((#k))$,
-    $Pi^((#k))$
+    $Pi^((#k))$,
+    [Todo]
   )
 }
 
 #grid(
-  columns: 2,
+  columns: (1fr,)*3,
   column-gutter: 12pt,
   row-gutter: 12pt,
   align: center,

@@ -1,4 +1,6 @@
 #import "/config.typ": theme
+#import "@preview/diagraph:0.3.0": render
+#import "@preview/oxifmt:0.2.1": strfmt
 
 #let n = 6
 
@@ -41,4 +43,26 @@
     (0pt, height),
     (-6pt, height)
   ))
+})
+
+#let graph(d, p, hl: none) = context layout(((width, height)) => {
+  let graphviz_str = strfmt(
+    "digraph {{
+      overlap=scale
+      node [height=0, margin=.01, shape=circle]
+      {} // Nodes
+    }}",
+    range(d.len()).map(i => str(i)).join(" ")
+  )
+  let graph_size = measure(render(
+    graphviz_str,
+    engine: "neato"
+  ))
+  let is_landscape = graph_size.width > graph_size.height
+  render(
+    graphviz_str,
+    engine: "neato",
+    width: if is_landscape {width} else {auto},
+    height: if is_landscape {auto} else {width}
+  )
 })
