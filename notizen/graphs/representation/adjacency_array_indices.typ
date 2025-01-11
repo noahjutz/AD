@@ -1,34 +1,48 @@
 #import "/config.typ": theme
-#import "@preview/fletcher:0.5.3": diagram, node, edge
+#import "@preview/cetz:0.3.1"
 
-#set align(center)
-#set block(spacing: 0pt)
-#show table.cell: box.with(width: 20pt, height: 20pt)
+#show table.cell: box.with(width: 20pt)
 
-#show table.cell.where(y: 0): set text(fill: theme.fg_dark)
+#let p = table.cell.with(fill: theme.primary_light)
+#let s = table.cell.with(fill: theme.secondary_light)
+#let t = table.cell.with(fill: theme.tertiary_light)
+
+#block(below: 0pt)[
+  #table(
+    columns: 8,
+    align: center,
+    stroke: (x, y) => if x < 7 and y == 1 {black},
+    ..range(8).map(i => text(fill: theme.fg_dark, $e_#i$)),
+    p("1"), p("2"), p("3"),
+    s("2"), s("3"), s("4"),
+    t("1"),
+    ""
+  )
+]
+
+#block(spacing: 0pt)[
+#cetz.canvas({
+  import cetz.draw: *
+  for i in range(8) {
+    circle((i*20pt, 0), radius: 0, name: "e_"+str(i))
+  }
+
+  for i in range(7) {
+    circle((i*20pt + 10pt, -30pt), radius: 0, name: "v_"+str(i))
+  }
+
+  set-style(mark: (end: "straight"))
+  line("v_0", "e_0")
+  line("v_1", "e_3")
+  line("v_5", "e_6")
+  line("v_6", "e_7")
+})
+]
 
 #table(
-  columns: 3,
-  align: center + horizon,
-  stroke: (.., y) => if y != 0 {black},
-  "0", "1", "2",
-  "0", "-1", "2"
-)
-
-#diagram(
-  spacing: (20pt, 20pt),
-  edge((0, 0), "-|>", (0,1)),
-  edge((1, 0), "-X", (1,.5)),
-  edge((2, 0), "-|>", (2,1))
-)
-
-#show table.cell.where(y: 0): set text(fill: black)
-#show table.cell.where(y: 1): set text(fill: theme.fg_dark)
-
-#table(
-  columns: 3,
-  align: center + horizon,
-  stroke: (.., y) => if y == 0 {black},
-  "0", "2", "1",
-  "0", "1", "2",
+  columns: 7,
+  align: center,
+  stroke: (x, y) => if x < 6 and y == 0 {black},
+  "0", "3", "?", "?", "?", "6", strong[_7_],
+  ..range(7).map(i => text(fill: theme.fg_dark, $v_#i$))
 )

@@ -22,15 +22,13 @@ $
 
 === Adjazenz-Array (Dichte Speicherung)
 
-Wir speichern für jeden Knoten seine ausgehenden Kanten in einer flachen Kantenliste.
+Wir speichern für jeden Knoten seine ausgehenden Kanten in einer flachen Kantenliste $E$.
 
 #align(center, include "representation/adjacency_array.typ")
 
-Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen wir eine Zuordnungsliste, welche an Index $i$ für den Knoten $v_i$ speichert, welches Segment diesem Knoten gehört. 
+Damit geht aber verloren, aus welchem Knoten die Kante ausgeht. Dafür erstellen wir eine Zuordnungsliste $V$, welche an Index $i$ für den Knoten $v_i$ speichert, wo sein Segment in $E$ anfängt. 
 
-#block(width: 100%, include "representation/adjacency_array_indices.typ")
-
-Das Segment wird am Index der ersten Kante identifiziert. hat der Knoten keine ausgehende Kanten, so wird ein Sentinel (-1) verwendet.
+#align(center, include "representation/adjacency_array_indices.typ")
 
 === Adjazenzliste (Hybride Speicherung)
 

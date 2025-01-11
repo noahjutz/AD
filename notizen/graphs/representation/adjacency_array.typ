@@ -25,9 +25,9 @@
       0 -> 3 [color={p}]
       1 -> 3 [color={s}]
       1 -> 2 [color={s}]
-      1 -> 4 [color={s}]
-      4 -> 1 [color={t}]
-      5
+      1 -> 5 [color={s}]
+      5 -> 1 [color={t}]
+      4
     }}",
     p: col(theme.primary),
     s: col(theme.secondary),
@@ -61,5 +61,5 @@
   h(24pt),
   underbrace(3 * 20pt)[$v_0$],
   underbrace(3 * 20pt)[$v_1$],
-  underbrace(1 * 20pt)[$v_4$],
+  underbrace(1 * 20pt)[$v_5$],
 )
