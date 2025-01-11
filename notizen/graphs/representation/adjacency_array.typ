@@ -42,16 +42,23 @@
 #let t = table.cell.with(fill: theme.tertiary_light)
 
 #block(below: 2pt)[
-  #table(
-    columns: 7,
-    align: center,
-    p("1"), p("2"), p("3"),
-    s("2"), s("3"), s("4"),
-    t("1")
+  #stack(
+    dir: ltr,
+    align(horizon)[
+      #box(width: 24pt)[$E=$]
+    ],
+    table(
+      columns: 7,
+      align: center,
+      p("1"), p("2"), p("3"),
+      s("2"), s("3"), s("4"),
+      t("1")
+    )
   )
 ]
 #stack(
   dir: ltr,
+  h(24pt),
   underbrace(3 * 20pt)[$v_0$],
   underbrace(3 * 20pt)[$v_1$],
   underbrace(1 * 20pt)[$v_4$],
