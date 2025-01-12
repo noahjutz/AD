@@ -76,6 +76,8 @@
   
   set page(columns: 1)
   include "appendix/code/main.typ"
+  pagebreak()
+  include "appendix/cheatsheet/main.typ"
 }
 
 #pagebreak()
