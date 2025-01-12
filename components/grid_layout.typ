@@ -29,7 +29,6 @@
   }
 
   set par(spacing: row_gutter)
-  set align(horizon)
   for (_, children) in bins {
     stack(
       dir: ltr,
