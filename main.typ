@@ -23,6 +23,7 @@
   include "notizen/trees/main.typ"
   include "notizen/datenstrukturen/main.typ"
   include "notizen/graphs/main.typ"
+  include "notizen/mst/main.typ"
   include "notizen/shortest_paths/main.typ"
 }
 
