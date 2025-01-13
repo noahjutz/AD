@@ -1,6 +1,6 @@
 = Graphen
 
-== Speicherung
+== Adjazenzmatrix und -Liste
 
 === Adjazenzmatrix
 
@@ -58,15 +58,13 @@ b_(i j) = cases(
 )
 $
 
-== Traversierung
-
-=== Breitensuche
+== Breitensuche
 
 Es werden alle Nachbarn eines Knotens besucht, bevor die Nachbarn der Nachbarn besucht werden.
 
 #align(center, include "traversal/bfs.typ")
 
-==== Implementierung
+=== Implementierung
 
 Es wird ein Knoten $v_0$ gewählt, an dem der Durchlauf beginnt. Dann werden alle Nachbarn einer Warteschlange angehängt. Die Warteschlange wird nach der Reihe abgearbeitet, und dabei werden jeweils alle Nachbarn eines Knotens an die Warteschlange angehängt.
 
@@ -81,13 +79,13 @@ while queue:
   node.color = black
 ```
 
-=== Tiefensuche
+== Tiefensuche
 
 Es wird ein Pfad komplett abgearbeitet, bevor ein neuer anfängt.
 
 #align(center, include "traversal/dfs.typ")
 
-==== Implementierung (Iterativ)
+=== Implementierung (Iterativ)
 
 Statt einer Warteschlange wird ein Stack verwendet. Dadurch, dass der zuletzt eingefügte Wert auch zuerst wieder abgearbeitet wird, geht dieser Durchlauf in die Tiefe, bevor er in die Breite geht.
 
