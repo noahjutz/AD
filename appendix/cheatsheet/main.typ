@@ -6,7 +6,7 @@
 
 = Cheat Sheet
 
-== Komplexität
+// #show: scale.with(50%, reflow: true)
 
 #let seg(title, body, inset: 8pt) = {
     stack(
