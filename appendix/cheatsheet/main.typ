@@ -6,7 +6,7 @@
 
 = Cheat Sheet
 
-// #show: scale.with(50%, reflow: true)
+#show: scale.with(70%, reflow: true)
 
 #let seg(title, body, inset: 8pt) = {
     stack(
@@ -63,6 +63,7 @@
     seg("Master-Methode", inset: 0pt)[
         #table(
             columns: 2,
+            $ f(x) $, $ T(n) $,
             $ o(n^(log_b a)) $, $ Theta(n^(log_b a)) $,
             $ Theta(n^(log_b a)) $, $ Theta(n^(log_b a) log n)$,
             $ omega(n^(log_b a)) $, [$ Theta(f(n)) $ (TODO)]
@@ -75,6 +76,40 @@
             $ a^n dot b^n = (a dot b)^n $,
             $ a^n slash b^n = (a slash b)^n $,
             $ x^(m/n) = root(n, x^m) $
+        )
+    ],
+    seg("Laufzeiten", inset: 0pt)[
+        #table(
+            columns: 4,
+            align: (x, y) => if x != 0 {center} else {start},
+            "", "WC", "AC", "BC",
+            "Insertion Sort", table.cell(colspan: 2)[$n^2$], $n$,
+            "Bubble Sort", table.cell(colspan: 3)[$n^2$],
+            "Selection Sort", table.cell(colspan: 3)[$n^2$],
+            "Quicksort", $n^2$, table.cell(colspan: 2)[$n log n$],
+            "Merge Sort", table.cell(colspan: 3)[$n log n$],
+            "Counting Sort", table.cell(colspan: 3)[$n+k$],
+            "Map Sort", $n^2$, $n^"[a]"$, $n$,
+            "BST Höhe", $n$, $log n$, $1$,
+            "AVL Höhe", table.cell(colspan: 2)[$log n$], $1$,
+            "B-Tree Höhe", table.cell(colspan: 2)[$ceil(t slash 2) log_ceil(t slash 2) n$], $1$,
+            "Heapify", $log n$, $log n$, $1$,
+            "BuildHeap", $n$, $n$, $1$,
+            "Heap Sort", table.cell(colspan: 3)[$n log n$],
+            "Hash-Search", $n$, table.cell(colspan: 2)[$1$],
+            "Skiplist-Search", $n$, $log n$, $1$,
+            "Textsuche Naiv", $n m$, table.cell(colspan: 2)[$n$],
+            "Boyer-Moore", $n m$, table.cell(colspan: 2)[$n slash m$],
+            "Breitensuche", table.cell(colspan: 3)[$V+E$],
+            "Tiefensuche", table.cell(colspan: 3)[$V+E$],
+            "Kruskal", table.cell(colspan: 3)[$E log E$],
+            "Prim", table.cell(colspan: 3)[$E log V$],
+            "Dijkstra", table.cell(colspan: 3)[$V log V + E log V$],
+            "Bellman-Ford", table.cell(colspan: 3)[$V E$],
+            "DAG APSP", table.cell(colspan: 3)[$V+E$],
+            "Slow-APSP", table.cell(colspan: 3)[$V^4$],
+            "Faster-APSP", table.cell(colspan: 3)[$V^3 log V$],
+            "Floyd-Warshall", table.cell(colspan: 3)[$V^3$],
         )
     ]
 )
