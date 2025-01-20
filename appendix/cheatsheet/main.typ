@@ -111,5 +111,8 @@
             "Faster-APSP", table.cell(colspan: 3)[$V^3 log V$],
             "Floyd-Warshall", table.cell(colspan: 3)[$V^3$],
         )
+    ],
+    seg("Stirlingformel")[
+        $ n! approx sqrt(2 pi n) (n/e)^n $
     ]
 )
