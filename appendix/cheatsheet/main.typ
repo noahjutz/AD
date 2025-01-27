@@ -26,7 +26,7 @@
     )
 
     let (width, height) = measure(segment)
-    if width > max-width {
+    if max-width != none and width > max-width {
         box(width: max-width, segment)
     } else {
         segment
@@ -90,8 +90,9 @@
             $ x^(m/n) = root(n, x^m) $
         )
     ],
-    seg("Laufzeiten", inset: 0pt)[
-        #table(
+    seg("Laufzeiten", inset: 0pt, max-width: none)[
+        #stack(dir: ltr,
+        let t = table(
             columns: 4,
             align: (x, y) => if x != 0 {center} else {start},
             "", "WC", "AC", "BC",
@@ -110,6 +111,13 @@
             "Heap Sort", table.cell(colspan: 3)[$n log n$],
             "Hash-Search", $n$, table.cell(colspan: 2)[$1$],
             "Skiplist-Search", $n$, $log n$, $1$,
+        ),
+        t,
+        context line(angle: 90deg, length: measure(t).height, stroke: 2pt),
+        table(
+            columns: 4,
+            align: (x, y) => if x != 0 {center} else {start},
+            "", "WC", "AC", "BC",
             "Textsuche Naiv", $n m$, table.cell(colspan: 2)[$n$],
             "Boyer-Moore", $n m$, table.cell(colspan: 2)[$n slash m$],
             "Breitensuche", table.cell(colspan: 3)[$V+E$],
@@ -122,7 +130,7 @@
             "Slow-APSP", table.cell(colspan: 3)[$V^4$],
             "Faster-APSP", table.cell(colspan: 3)[$V^3 log V$],
             "Floyd-Warshall", table.cell(colspan: 3)[$V^3$],
-        )
+        ))
     ],
     seg("Stirlingformel")[
         $ n! approx sqrt(2 pi n) (n/e)^n $
