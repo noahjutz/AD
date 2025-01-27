@@ -8,8 +8,13 @@
 
 #show: scale.with(70%, reflow: true)
 
-#let seg(title, body, inset: 8pt) = {
-    stack(
+#let seg(
+    title,
+    body,
+    inset: 8pt,
+    max-width: 200pt,
+) = context {
+    let segment = stack(
         spacing: 8pt,
         strong(title),
         rect(
@@ -19,6 +24,13 @@
             stroke: 2pt
         )
     )
+
+    let (width, height) = measure(segment)
+    if width > max-width {
+        box(width: max-width, segment)
+    } else {
+        segment
+    }
 }
 
 #grid_layout(
@@ -114,5 +126,13 @@
     ],
     seg("Stirlingformel")[
         $ n! approx sqrt(2 pi n) (n/e)^n $
+    ],
+    seg("Sortieralgorithmen")[
+        *Selection Sort:* In jeder Iteration das Minimum nach vorne vertauschen
+    ],
+    seg("MST")[
+        *Kruskal:* Kanten nach Gewicht sortieren, Teilgraphen ggf. verbinden (Mengenvereinigung)
+
+        *Prim:* 
     ]
 )
