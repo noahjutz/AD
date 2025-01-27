@@ -97,7 +97,7 @@
   show raw.where(block: true): it => {
     set par(justify: false)
     block(
-      stroke: black,
+      stroke: theme.fg_medium,
       above: 8pt,
       below: 8pt,
       table(
