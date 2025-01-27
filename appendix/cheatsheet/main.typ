@@ -155,7 +155,7 @@
         *Bellman-Ford* \
         $V$ mal alle Knoten relaxieren. Nochmal relaxieren um negativen Zyklus zu erkennen.
     ],
-    seg("Textsuche", max-width: 250pt)[
+    seg("Textsuche", max-width: 260pt)[
         *Boyer-Moore* \
         #stack(dir: ltr, spacing: 6pt, [Eingabe:], [
             - Muster $p$ mit Länge $m$
@@ -165,14 +165,14 @@
         Schlechtes-Zeichen Hilfstabelle mit Buchstaben $c in Sigma$.
         $
         #raw("shift[c]") = cases(
-            "Index des ersten" c in p "falls" c in p,
+            "Index des letzten" c in p "falls" c in p,
             m "sonst"
         )
         $
 
         ```
         if p[i] == t[j]: i--; j--
-        else: i += max(shift[p[i]], m-j)
+        else: i += max(shift[p[i]], m-j); j = m-1
         ```
     ]
 )
