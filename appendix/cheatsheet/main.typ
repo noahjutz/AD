@@ -165,14 +165,18 @@
         Schlechtes-Zeichen Hilfstabelle mit Buchstaben $c in Sigma$.
         $
         #raw("shift[c]") = cases(
-            "Index des letzten" c in p "falls" c in p,
+            m-i-1 "falls" c in p quad *,
             m "sonst"
         )
         $
 
+        $
+        * i = "letzter Index von" c in p
+        $
+
         ```
         if p[i] == t[j]: i--; j--
-        else: i += max(shift[p[i]], m-j); j = m-1
+        else: i += max(shift[t[i]], m-j); j = m-1
         ```
     ]
 )
