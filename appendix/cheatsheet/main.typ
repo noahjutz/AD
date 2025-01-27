@@ -7,7 +7,7 @@
 
 = Cheat Sheet
 
-#show: scale.with(70%, reflow: true)
+#show: scale.with(65%, reflow: true)
 
 #let seg(
     title,
@@ -146,6 +146,13 @@
         Kanten nach Gewicht sortieren, Teilgraphen ggf. verbinden (Mengenvereinigung). Mengen durch invertierte Bäume, Vereinugung: Kleinerer Baum an Repräsentanten des Größeren.
 
         *Prim* \
-        Wähle beliebige Wurzel $v_0$. `Min-PQ` mit $v_0=0$ und $v_i=infinity$ initialisieren. In Schleife: $u=$ `Min-PQ.pop()`, Alle Nachbarn $v in $ `adj[u]` ggf. decreaseKey und $pi$ anpassen.
+        Wähle beliebige Wurzel $v_0$. `Min-PQ` mit $v_0=0$ und $v_i=infinity$ initialisieren. In Schleife: $u=$ `Min-PQ.pop()`, alle Nachbarn $v in $ `adj[u]` ggf. decreaseKey und $pi$ anpassen.
+    ],
+    seg("SSSP")[
+        *Dijkstra* \
+        Wähle beliebige Wurzel $v_0$. `Min-PQ` mit $v_0=0$ und $v_i=infinity$ initialisieren. In Schleife: $u =$ `Min-PQ.pop()`, alle Nachbarn $v in$ `adj[u]` relaxieren (falls `v.d` $>$ `u.d` $+ space w(u,v)$) und decreaseKey.
+
+        *Bellman-Ford* \
+        $V$ mal alle Knoten relaxieren. Nochmal relaxieren um negativen Zyklus zu erkennen.
     ]
 )
