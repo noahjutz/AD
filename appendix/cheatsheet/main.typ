@@ -3,6 +3,7 @@
 #import "/components/grid_layout.typ": grid_layout
 
 #set table(inset: 8pt, stroke: t.inside)
+#set par(justify: false)
 
 = Cheat Sheet
 
@@ -14,22 +15,23 @@
     inset: 8pt,
     max-width: 200pt,
 ) = context {
-    let segment = stack(
+    let segment(width: auto) = stack(
         spacing: 8pt,
         strong(title),
         rect(
             body,
             radius: 8pt,
             inset: inset,
+            width: width,
             stroke: 2pt
         )
     )
 
-    let (width, height) = measure(segment)
+    let (width, height) = measure(segment())
     if max-width != none and width > max-width {
-        box(width: max-width, segment)
+        segment(width: max-width)
     } else {
-        segment
+        segment()
     }
 }
 
@@ -136,11 +138,14 @@
         $ n! approx sqrt(2 pi n) (n/e)^n $
     ],
     seg("Sortieralgorithmen")[
-        *Selection Sort:* In jeder Iteration das Minimum nach vorne vertauschen
+        *Selection Sort* \
+        In jeder Iteration das Minimum nach vorne vertauschen
     ],
     seg("MST")[
-        *Kruskal:* Kanten nach Gewicht sortieren, Teilgraphen ggf. verbinden (Mengenvereinigung)
+        *Kruskal* \
+        Kanten nach Gewicht sortieren, Teilgraphen ggf. verbinden (Mengenvereinigung). Mengen durch invertierte Bäume, Vereinugung: Kleinerer Baum an Repräsentanten des Größeren.
 
-        *Prim:* 
+        *Prim* \
+        Wähle beliebige Wurzel $v_0$. `Min-PQ` mit $v_0=0$ und $v_i=infinity$ initialisieren. In Schleife: $u=$ `Min-PQ.pop()`, Alle Nachbarn $v in $ `adj[u]` ggf. decreaseKey und $pi$ anpassen.
     ]
 )
