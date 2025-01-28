@@ -7,7 +7,7 @@
 
 = Cheat Sheet
 
-#show: scale.with(65%, reflow: true)
+#show: scale.with(50%, reflow: true)
 
 #let seg(
     title,
@@ -94,10 +94,14 @@
     ],
     seg("Laufzeiten", inset: 0pt, max-width: none)[
         #stack(dir: ltr,
-        let t = table(
+        table(
             columns: 4,
             align: (x, y) => if x != 0 {center} else {start},
             "", "WC", "AC", "BC",
+            "MaxTeilSum1", table.cell(colspan: 3)[$n^3$],
+            "MaxTeilSum2", table.cell(colspan: 3)[$n^2$],
+            "MaxTeilSum3", table.cell(colspan: 3)[$n$],
+            "MaxTeilSum4", table.cell(colspan: 3)[$n log n$],
             "Insertion Sort", table.cell(colspan: 2)[$n^2$], $n$,
             "Bubble Sort", table.cell(colspan: 3)[$n^2$],
             "Selection Sort", table.cell(colspan: 3)[$n^2$],
@@ -113,13 +117,6 @@
             "Heap Sort", table.cell(colspan: 3)[$n log n$],
             "Hash-Search", $n$, table.cell(colspan: 2)[$1$],
             "Skiplist-Search", $n$, $log n$, $1$,
-        ),
-        t,
-        context line(angle: 90deg, length: measure(t).height, stroke: 2pt),
-        table(
-            columns: 4,
-            align: (x, y) => if x != 0 {center} else {start},
-            "", "WC", "AC", "BC",
             "Textsuche Naiv", $n m$, table.cell(colspan: 2)[$n$],
             "Boyer-Moore", $n m$, table.cell(colspan: 2)[$n slash m$],
             "Breitensuche", table.cell(colspan: 3)[$V+E$],
