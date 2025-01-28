@@ -135,6 +135,15 @@
         $ n! approx sqrt(2 pi n) (n/e)^n $
     ],
     seg("Sortieralgorithmen")[
+        *Quicksort* \
+        Pivot $p$ wählen (z.B. erstes Element). Alle $<=p$ nach links, alle $>p$ nach rechts, dann rekursiv links und rechts.
+
+        *Merge Sort* \
+        Rekursiv halbieren, bis Eingabelänge $n=1$. Dann jeweils zwei sortierte Teilfolgen mischen, indem man von links nach rechts geht. Ein Stapel leer $=>$ anderer Stapel oben drauf. In Place möglich durch nach vorne ziehen.
+
+        *Heap Sort* \
+        Heapify: L und R sind Heaps, also rekursiv $max(L, R, C)$ nach oben ziehen. BuildHeap: Von $floor(n slash 2)-1$ zur Wurzel Heapify. Heapsort: Wurzel entfernen und ans Ende der Liste, letzten Knoten nach oben, Wurzel Heapify, repeat.
+
         *Selection Sort* \
         In jeder Iteration das Minimum nach vorne vertauschen
     ],
@@ -220,5 +229,5 @@
 
         *B-Baum Underflow* (Löschen) \
         Balancieren: Linken/Rechten Nachbarn nach oben, Parent nach unten. Vereinigen: Linken/Rechten Nachbarn verbinden, dazwischen Parent.
-    ]
+    ],
 )
