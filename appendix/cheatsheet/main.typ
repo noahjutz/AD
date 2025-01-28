@@ -77,7 +77,7 @@
     seg("Master-Methode", inset: 0pt)[
         #table(
             columns: 2,
-            $ f(x) $, $ T(n) $,
+            $ f(n) $, $ T(n) $,
             $ o(n^(log_b a)) $, $ Theta(n^(log_b a)) $,
             $ Theta(n^(log_b a)) $, $ Theta(n^(log_b a) log n)$,
             $ omega(n^(log_b a)) \ and a f(n/b) <= c f(n) \ (c < 1) $, [$ Theta(f(n)) $]
