@@ -202,5 +202,23 @@
 
         *Topologische Sortierung* \
         Tiefensuche, dabei besuchte Knoten an den Anfang einer Liste hinzufügen.
+    ],
+    seg("Bäume")[
+        *BST Löschen* \
+        Inorder-NF nach oben, ggf. rechten NF des IO-NF nachschieben
+
+        *AVL Balancieren* \
+        $"BF" = 2 => "right-heavy" => "left rotate"$ \
+            #h(12pt) $->$ Inner Tree: `r.l` \
+        $"BF" = -2 => "left-heavy" => "right rotate"$ \
+            #h(12pt) $->$ Inner Tree: `l.r` \
+        
+        Inner-Heavy $=>$ Davor andere richtung beim inner Tree
+
+        *B-Baum Overflow* (Einfügen) \
+        Mittleren Wert nach oben, rekursiv splitten.
+
+        *B-Baum Underflow* (Löschen) \
+        Balancieren: Linken/Rechten Nachbarn nach oben, Parent nach unten. Vereinigen: Linken/Rechten Nachbarn verbinden, dazwischen Parent.
     ]
 )
