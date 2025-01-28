@@ -38,8 +38,8 @@
 #grid_layout(
     seg("Geom. Reihe", inset: 0pt)[
         #table(
-            $ sum_(k=0)^n = (1-q^(n+1))/(1-q) $,
-            $ sum_(k=0)^infinity = 1/(1-q) $
+            $ sum_(k=0)^n q^k = (1-q^(n+1))/(1-q) $,
+            $ sum_(k=0)^infinity q^k = 1/(1-q) $
         )
     ],
     seg("Ableitungen", inset: 0pt)[
