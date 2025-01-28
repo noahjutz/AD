@@ -80,7 +80,7 @@
             $ f(x) $, $ T(n) $,
             $ o(n^(log_b a)) $, $ Theta(n^(log_b a)) $,
             $ Theta(n^(log_b a)) $, $ Theta(n^(log_b a) log n)$,
-            $ omega(n^(log_b a)) $, [$ Theta(f(n)) $ (TODO)]
+            $ omega(n^(log_b a)) \ and a f(n/b) <= c f(n) \ (c < 1) $, [$ Theta(f(n)) $]
         )
     ],
     seg("Potenzregeln", inset: 0pt)[
