@@ -192,5 +192,15 @@
         Für alle _Knoten_ 1 bis $n$:
         - $d_(i j)^' = min(d_(i j), d_(i k) + d_(k j))$
         - $pi_(i j)^' = pi_(k j)$ falls relaxiert wurde.
+    ],
+    seg("Graphen")[
+        *Breitensuche* \
+        Queue $Q=(v_0)$, in jedem Schritt popleft und adjazente Knoten, welche noch nicht hinzugefügt oder besucht wurden, hinzufügen.
+
+        *Tiefensuche* \
+        Rekursiv alle Nachbarn besuchen, oder iterativ Stack umgekehrt füllen.
+
+        *Topologische Sortierung* \
+        Tiefensuche, dabei besuchte Knoten an den Anfang einer Liste hinzufügen.
     ]
 )
