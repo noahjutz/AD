@@ -230,4 +230,21 @@
         *B-Baum Underflow* (Löschen) \
         Balancieren: Linken/Rechten Nachbarn nach oben, Parent nach unten. Vereinigen: Linken/Rechten Nachbarn verbinden, dazwischen Parent.
     ],
+    seg("Hashing")[
+        *Divisionsmethode* \
+        $h(s) = s mod m$
+
+        *Multiplikationsmethode* \
+        $h_x(s) = floor(((x dot s) mod_c 1) dot m)$ \
+        mit $x in ]0,1]$
+
+        *Lineares Probieren* \
+        $h(s, i) = accent(h, acute)(s)+i$
+
+        *Quadratisches Probieren* \
+        $h(s, i) = accent(h, acute)(s) + c_1 i + c_2 i^2$
+
+        *Doppeltes Hashing* \
+        $h(s, i) = accent(h, acute)(s) + i h_2(s)$
+    ]
 )
