@@ -175,5 +175,22 @@
         if p[i] == t[j]: i--; j--
         else: i += max(shift[t[i]], m-j); j = m-1
         ```
+    ],
+    seg("APSP")[
+        *Slow-APSP* \
+        $D^((1)) = W, Pi^((1)) = i "falls" w_(i j) < infinity "mit" i != j$. \
+        Für alle _Pfadlängen_ 2 bis $|V|-1$:
+        - $d_(i j)^' = min(d_(i j)^', d_(i k) + w_(k j)) space forall "Knoten" k$ \
+        - $pi_(i j)^' = k$ falls relaxiert wurde. \
+
+        *Faster-APSP* \
+        Verwende $D$ statt $W$. \
+        $d_(i j)^' = min(d_(i j)^', d_(i k) + d_(k j))$
+
+        *Floyd-Warshall* \
+        $D^((0))=W, Pi^((0))=i "falls" w_(i j) < infinity "mit" i != j$. \
+        Für alle _Knoten_ 1 bis $n$:
+        - $d_(i j)^' = min(d_(i j), d_(i k) + d_(k j))$
+        - $pi_(i j)^' = pi_(k j)$ falls relaxiert wurde.
     ]
 )
